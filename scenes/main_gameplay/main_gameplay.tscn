@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://e274qojiifqq" path="res://scenes/main_gameplay/main_gameplay.gd" id="1_wt4mr"]
 [ext_resource type="Environment" uid="uid://bf8ysb2ywtuba" path="res://default_environment.tres" id="2_sms7d"]
 [ext_resource type="PackedScene" uid="uid://bgu1iguf46imi" path="res://actors/player/player.tscn" id="3_lot3w"]
-[ext_resource type="PackedScene" uid="uid://2ycmb5n45u20" path="res://actors/hat/hat.tscn" id="6_xudop"]
+[ext_resource type="PackedScene" uid="uid://2ycmb5n45u20" path="res://actors/hats/hat.tscn" id="6_xudop"]
 [ext_resource type="PackedScene" uid="uid://cwajxjg83lhvk" path="res://actors/enemies/goblin/goblin.tscn" id="7_2ufyh"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lot3w"]
