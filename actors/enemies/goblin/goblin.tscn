@@ -1,0 +1,35 @@
+[gd_scene load_steps=5 format=3 uid="uid://cwajxjg83lhvk"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_01yp8"]
+render_priority = 1
+transparency = 1
+shading_mode = 0
+albedo_color = Color(1, 0, 0, 1)
+grow = true
+grow_amount = 0.02
+stencil_mode = 3
+stencil_flags = 1
+stencil_compare = 5
+metadata/_stencil_owned = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_us47m"]
+next_pass = SubResource("StandardMaterial3D_01yp8")
+stencil_mode = 1
+stencil_flags = 2
+stencil_color = Color(1, 0, 0, 1)
+stencil_outline_thickness = 0.02
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_6sm0b"]
+material = SubResource("StandardMaterial3D_us47m")
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_01yp8"]
+
+[node name="Goblin" type="CharacterBody3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.99844193, 0)
+mesh = SubResource("CapsuleMesh_6sm0b")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.98072326, 0)
+shape = SubResource("CapsuleShape3D_01yp8")
