@@ -1,6 +1,6 @@
-[gd_scene load_steps=5 format=3 uid="uid://2ycmb5n45u20"]
+[gd_scene load_steps=6 format=3 uid="uid://da6xpkw71ms42"]
 
-[ext_resource type="Script" uid="uid://dh6wumes27dd0" path="res://actors/hat/hat.gd" id="1_823rn"]
+[ext_resource type="Script" uid="uid://baqktpj180yot" path="res://actors/hats/icicle/icicle_hat.gd" id="1_hjfrq"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_1asxe"]
 friction = 0.4
@@ -8,13 +8,17 @@ bounce = 0.5
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_823rn"]
 
-[sub_resource type="CylinderMesh" id="CylinderMesh_823rn"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8opcq"]
+albedo_color = Color(0, 0.5019608, 1, 1)
 
-[node name="RigidBody3D" type="RigidBody3D"]
+[sub_resource type="CylinderMesh" id="CylinderMesh_823rn"]
+material = SubResource("StandardMaterial3D_8opcq")
+
+[node name="RigidBody3D" type="RigidBody3D" groups=["hat"]]
 axis_lock_angular_x = true
 axis_lock_angular_z = true
 physics_material_override = SubResource("PhysicsMaterial_1asxe")
-script = ExtResource("1_823rn")
+script = ExtResource("1_hjfrq")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("SphereShape3D_823rn")
@@ -22,3 +26,7 @@ shape = SubResource("SphereShape3D_823rn")
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.25, 0, 0, 0, 1, 0, 0, 0)
 mesh = SubResource("CylinderMesh_823rn")
+
+[node name="PickupCooldown" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true

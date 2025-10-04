@@ -3,9 +3,6 @@ extends ActionLeaf
 
 @export var acceptance_radius = 5
 
-const SPEED = 3.0
-const ACCEL = 3.0
-
 # This action moves the actor towards a given target pos (new_pos in Blackboard).
 # Note: This action should always be the child of a TimeLimiterDecorator in the event 
 # that the actor is unable to meet the acceptance_radius.
@@ -37,7 +34,7 @@ func tick(actor: Node, blackboard: Blackboard) -> int:
 	
 			
 	if current_distance_to_target > distance_to_target/2:
-		actor.velocity = actor.velocity.move_toward(direction * SPEED, ACCEL * 5.0)
+		actor.velocity = actor.velocity.move_toward(direction * actor.speed, actor.accel * 5.0)
 
 	# If the distance to the target is less than the step, set the final position.
 	if current_distance_to_target <= acceptance_radius:

@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://bgu1iguf46imi"]
+[gd_scene load_steps=7 format=3 uid="uid://bgu1iguf46imi"]
 
 [ext_resource type="Script" uid="uid://c1nxtub8n10et" path="res://actors/player/player.gd" id="1_nvxhs"]
 
@@ -27,6 +27,8 @@ material = SubResource("StandardMaterial3D_nvxhs")
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_6uhly"]
 
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_nvxhs"]
+
 [node name="Player" type="CharacterBody3D"]
 script = ExtResource("1_nvxhs")
 
@@ -40,3 +42,14 @@ shape = SubResource("CapsuleShape3D_6uhly")
 
 [node name="Cooldown" type="Timer" parent="."]
 one_shot = true
+
+[node name="Area3D" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 1, 0)
+shape = SubResource("CapsuleShape3D_nvxhs")
+
+[node name="HatParent" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.75, 0)
+
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]

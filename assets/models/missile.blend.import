@@ -3,12 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://biuv0bovcgmry"
-valid=false
+uid="uid://bpyvhh1nuv4al"
+path="res://.godot/imported/missile.blend-b0330a0bfe328e5d91ace0cf7cb0eb31.scn"
 
 [deps]
 
-source_file="res://assets/meshlib/meshlib.blend"
+source_file="res://assets/models/missile.blend"
+dest_files=["res://.godot/imported/missile.blend-b0330a0bfe328e5d91ace0cf7cb0eb31.scn"]
 
 [params]
 
@@ -36,26 +37,7 @@ import_script/path=""
 materials/extract=0
 materials/extract_format=0
 materials/extract_path=""
-_subresources={
-"nodes": {
-"PATH:Dirt": {
-"generate/physics": true,
-"physics/shape_type": 3
-},
-"PATH:Grass1": {
-"generate/physics": true,
-"physics/shape_type": 3
-},
-"PATH:Grass2": {
-"generate/physics": true,
-"physics/shape_type": 3
-},
-"PATH:Tree": {
-"generate/physics": true,
-"physics/shape_type": 1
-}
-}
-}
+_subresources={}
 blender/nodes/visible=0
 blender/nodes/active_collection_only=false
 blender/nodes/punctual_lights=true

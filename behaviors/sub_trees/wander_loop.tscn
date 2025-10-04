@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://bnn3fr25b3elh"]
+[gd_scene load_steps=6 format=3 uid="uid://bnn3fr25b3elh"]
 
 [ext_resource type="Script" uid="uid://cg016dbe7gs1x" path="res://addons/beehave/nodes/composites/sequence.gd" id="1_juyf4"]
+[ext_resource type="Script" uid="uid://c8b4uin05h1p2" path="res://behaviors/actions/random_wait_action.gd" id="2_fyp8a"]
 [ext_resource type="Script" uid="uid://3turoewfbxir" path="res://behaviors/actions/pick_random_pos_action.gd" id="2_v68qs"]
 [ext_resource type="Script" uid="uid://we22430vcb44" path="res://addons/beehave/nodes/decorators/time_limiter.gd" id="3_6es0v"]
 [ext_resource type="Script" uid="uid://m1411uw2nkhl" path="res://behaviors/actions/move_to_pos_action.gd" id="4_vmx4t"]
@@ -8,6 +9,10 @@
 [node name="WanderLoop" type="Node"]
 script = ExtResource("1_juyf4")
 metadata/_custom_type_script = "uid://cg016dbe7gs1x"
+
+[node name="RandomWaitAction" type="Node" parent="."]
+script = ExtResource("2_fyp8a")
+metadata/_custom_type_script = "uid://c8b4uin05h1p2"
 
 [node name="PickRandomPosAction" type="Node" parent="."]
 script = ExtResource("2_v68qs")
