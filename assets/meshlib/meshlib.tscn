@@ -1,5 +1,5 @@
 [gd_scene load_steps=2 format=3 uid="uid://ckl1dy4nbbswb"]
 
-[ext_resource type="PackedScene" uid="uid://biuv0bovcgmry" path="res://assets/meshlib/meshlib.blend" id="1_nlfi7"]
+[ext_resource type="PackedScene" uid="uid://p5vrv4nenyal" path="res://assets/meshlib/meshlib.glb" id="1_nlfi7"]
 
 [node name="gridmap" instance=ExtResource("1_nlfi7")]
