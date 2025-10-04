@@ -1,20 +1,14 @@
-[gd_scene load_steps=5 format=3 uid="uid://dcao6tharjg02"]
+[gd_scene load_steps=4 format=3 uid="uid://dcao6tharjg02"]
 
-[ext_resource type="Script" uid="uid://w8dgg7iadxyx" path="res://actors/bullets/bullet.gd" id="1_is7g5"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gq4jw"]
-albedo_color = Color(0.11372549, 0.11764706, 1, 1)
-
-[sub_resource type="SphereMesh" id="SphereMesh_a8yot"]
-material = SubResource("StandardMaterial3D_gq4jw")
+[ext_resource type="Script" uid="uid://w8dgg7iadxyx" path="res://actors/bullets/bullet.gd" id="1_158tj"]
+[ext_resource type="PackedScene" uid="uid://bpyvhh1nuv4al" path="res://assets/models/missile.blend" id="2_0k22o"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_so8kv"]
 
 [node name="Bullet" type="Node3D"]
-script = ExtResource("1_is7g5")
+script = ExtResource("1_158tj")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-mesh = SubResource("SphereMesh_a8yot")
+[node name="missile" parent="." instance=ExtResource("2_0k22o")]
 
 [node name="Lifetime" type="Timer" parent="."]
 wait_time = 5.0
