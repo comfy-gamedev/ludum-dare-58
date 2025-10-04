@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://c3rvm3rw6opg"]
+[gd_scene load_steps=9 format=3 uid="uid://c3rvm3rw6opg"]
 
 [ext_resource type="Script" uid="uid://654itoswefaq" path="res://node_types/camera_shake.gd" id="1_lrklj"]
 [ext_resource type="Script" uid="uid://e274qojiifqq" path="res://scenes/main_gameplay/main_gameplay.gd" id="1_wt4mr"]
@@ -8,6 +8,18 @@
 ambient_light_source = 2
 ambient_light_color = Color(1, 1, 1, 1)
 reflected_light_source = 1
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lot3w"]
+albedo_color = Color(1, 0.101960786, 0.24313726, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_sms7d"]
+material = SubResource("StandardMaterial3D_lot3w")
+
+[sub_resource type="BoxMesh" id="BoxMesh_lot3w"]
+size = Vector3(30, 1, 30)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_sms7d"]
+size = Vector3(30, 1, 30)
 
 [node name="MainGameplay" type="Node3D"]
 script = ExtResource("1_wt4mr")
@@ -22,12 +34,28 @@ shadow_enabled = true
 [node name="Player" parent="." instance=ExtResource("3_lot3w")]
 
 [node name="Camera3D" type="Camera3D" parent="Player"]
-transform = Transform3D(0.99999845, 0.0014717472, -0.0010059208, 0, 0.5642773, 0.8255853, 0.0017826712, -0.825584, 0.5642764, -0.0101396, 8.321833, 5.6878605)
+transform = Transform3D(0.9999984, 0.0014717471, -0.0010059209, 0, 0.56427735, 0.8255853, 0.0017826711, -0.825584, 0.56427646, -0.0101396, 8.321833, 5.6878605)
 
 [node name="CameraShake" type="Node" parent="Player/Camera3D"]
 script = ExtResource("1_lrklj")
 metadata/_custom_type_script = "uid://654itoswefaq"
 
-[node name="CSGBox3D" type="CSGBox3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
-size = Vector3(31, 1, 41)
+[node name="RayCast3D" type="RayCast3D" parent="Player/Camera3D"]
+collision_mask = 8
+
+[node name="TargetingBall" type="MeshInstance3D" parent="Player"]
+mesh = SubResource("SphereMesh_sms7d")
+skeleton = NodePath("../..")
+
+[node name="Ground" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
+layers = 9
+mesh = SubResource("BoxMesh_lot3w")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Ground"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+collision_layer = 9
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Ground/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
+shape = SubResource("BoxShape3D_sms7d")

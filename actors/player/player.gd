@@ -4,6 +4,21 @@ extends CharacterBody3D
 const SPEED = 5.0
 const ACCEL = 5.0
 
+@onready var targetingBall = $TargetingBall
+@onready var raycast : RayCast3D = $Camera3D/RayCast3D
+@onready var camera = $Camera3D
+
+func _process(delta: float) -> void:
+	var cursor_position = get_viewport().get_mouse_position()
+	var ray_origin = camera.project_ray_origin(cursor_position)
+	var ray_direction = camera.project_local_ray_normal(cursor_position)
+	
+	raycast.target_position = ray_origin + ray_direction * 1000
+	#raycast.force_raycast_update()
+	targetingBall.global_position = raycast.get_collision_point()
+	
+	
+
 func _physics_process(delta: float) -> void:
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
