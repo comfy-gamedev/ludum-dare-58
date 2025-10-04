@@ -4,9 +4,7 @@
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_36uya"]
 
-[node name="Node3D" type="Node3D"]
-
-[node name="GridMap" type="GridMap" parent="."]
+[node name="GridMap" type="GridMap"]
 mesh_library = ExtResource("1_36uya")
 physics_material = SubResource("PhysicsMaterial_36uya")
 data = {
