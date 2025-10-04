@@ -43,6 +43,7 @@ enabled=PackedStringArray("res://addons/beehave/plugin.cfg", "res://addons/cider
 [global_group]
 
 hat=""
+enemy=""
 
 [gui]
 
