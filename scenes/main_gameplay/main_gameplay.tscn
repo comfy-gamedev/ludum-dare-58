@@ -54,4 +54,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.3090353, 0.25, -0.46560287)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.7287314, 0.24999905, 3.73172)
 
 [node name="Goblin" parent="." instance=ExtResource("7_2ufyh")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.026979, 0, 8.917461)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.026979, 0, 6.376276)
+
+[node name="Goblin2" parent="." instance=ExtResource("7_2ufyh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.903493, 0, 5.216345)
