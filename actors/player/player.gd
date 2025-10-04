@@ -4,7 +4,7 @@ extends CharacterBody3D
 const SPEED = 5.0
 const ACCEL = 5.0
 
-var bullet_scene = preload("res://actors/bullet/Bullet.tscn")
+var bullet_scene = preload("res://actors/bullets/Bullet.tscn")
 
 @onready var targeting_ball = $TargetingBall
 @onready var raycast : RayCast3D = $Camera3D/RayCast3D
