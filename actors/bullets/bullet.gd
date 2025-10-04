@@ -5,7 +5,7 @@ var direction : Vector3
 @onready var mesh: MeshInstance3D = $missile/Missile
 
 func _ready() -> void:
-	scale = Vector3.ONE * size
+	#scale = Vector3.ONE * size
 	#switch on type for 3d model
 	match element_type:
 		Globals.elements.AIR:
