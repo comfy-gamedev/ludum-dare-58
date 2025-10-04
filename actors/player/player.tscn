@@ -6,7 +6,7 @@
 render_priority = 1
 transparency = 1
 shading_mode = 0
-albedo_color = Color(1, 0, 0, 1)
+albedo_color = Color(0, 1, 0, 1)
 grow = true
 grow_amount = 0.02
 stencil_mode = 3
@@ -19,7 +19,7 @@ next_pass = SubResource("StandardMaterial3D_ilk7j")
 backlight = Color(1, 0, 1, 1)
 stencil_mode = 1
 stencil_flags = 2
-stencil_color = Color(1, 0, 0, 1)
+stencil_color = Color(0, 1, 0, 1)
 stencil_outline_thickness = 0.02
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_6uhly"]
