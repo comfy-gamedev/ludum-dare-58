@@ -23,10 +23,13 @@ func _process(delta: float) -> void:
 	
 	if Input.is_action_pressed("shoot") && cooldown.is_stopped():
 		cooldown.start()
-		var bullet = bullet_scene.instantiate()
-		bullet.position = position
-		bullet.direction = Vector3(targeting_ball.position.x, 0, targeting_ball.position.z).normalized()
-		bullet_parent.add_child(bullet)
+		if hats.size() > 0:
+			hats[0].fire(Vector3(targeting_ball.position.x, 0, targeting_ball.position.z).normalized(), bullet_parent)
+		else:
+			var bullet = bullet_scene.instantiate()
+			bullet.position = position
+			bullet.direction = Vector3(targeting_ball.position.x, 0, targeting_ball.position.z).normalized()
+			bullet_parent.add_child(bullet)
 	
 	if Input.is_action_just_pressed("eject") && hats.size() > 0:
 		var hat = hats.pop_back()
@@ -61,6 +64,8 @@ func _on_area_3d_body_entered(body: Node3D) -> void:
 		body.position = Vector3(0, .75 * hats.size(), 0)
 		body.process_mode = Node.PROCESS_MODE_DISABLED
 		#body.linear_velocity = Vector3.ZERO
+		if hats.size() == 1:
+			cooldown.wait_time = body.use_cooldown
 
 func _on_hit():
 	if hats.size() > 0:

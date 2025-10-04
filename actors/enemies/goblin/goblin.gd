@@ -1,6 +1,6 @@
 extends base_enemy
 
-var hat_drop_scene = preload("uid://2ycmb5n45u20")
+var hat_drop_scene = preload("res://actors/hats/icicle/icicle_hat.tscn")
 
 func _init() -> void:
 	health = 3

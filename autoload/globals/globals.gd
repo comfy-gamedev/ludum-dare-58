@@ -12,6 +12,13 @@ enum teams {
 	ENEMY
 }
 
+enum elements {
+	AIR,
+	FIRE,
+	WATER,
+	EARTH
+}
+
 ## Emitted when any variable changes.
 signal changed(prop_name: StringName)
 
