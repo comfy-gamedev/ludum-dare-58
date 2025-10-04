@@ -4,9 +4,13 @@ extends CharacterBody3D
 const SPEED = 5.0
 const ACCEL = 5.0
 
-@onready var targetingBall = $TargetingBall
+var bullet_scene = preload("res://actors/bullet/Bullet.tscn")
+
+@onready var targeting_ball = $TargetingBall
 @onready var raycast : RayCast3D = $Camera3D/RayCast3D
 @onready var camera = $Camera3D
+@onready var bullet_parent = $"../BulletParent"
+@onready var cooldown = $Cooldown
 
 func _process(delta: float) -> void:
 	var cursor_position = get_viewport().get_mouse_position()
@@ -15,9 +19,14 @@ func _process(delta: float) -> void:
 	
 	raycast.target_position = ray_origin + ray_direction * 1000
 	#raycast.force_raycast_update()
-	targetingBall.global_position = raycast.get_collision_point()
+	targeting_ball.global_position = raycast.get_collision_point()
 	
-	
+	if Input.is_action_just_pressed("shoot") && cooldown.is_stopped():
+		cooldown.start()
+		var bullet = bullet_scene.instantiate()
+		bullet.position = position
+		bullet.direction = Vector3(position.x + targeting_ball.position.x, 0, position.z + targeting_ball.position.z).normalized()
+		bullet_parent.add_child(bullet)
 
 func _physics_process(delta: float) -> void:
 	# Get the input direction and handle the movement/deceleration.

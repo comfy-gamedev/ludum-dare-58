@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://dcao6tharjg02"]
+
+[ext_resource type="Script" uid="uid://w8dgg7iadxyx" path="res://actors/bullet/bullet.gd" id="1_is7g5"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gq4jw"]
+albedo_color = Color(0.11372549, 0.11764706, 1, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_a8yot"]
+material = SubResource("StandardMaterial3D_gq4jw")
+
+[node name="Bullet" type="Node3D"]
+script = ExtResource("1_is7g5")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("SphereMesh_a8yot")
+
+[node name="Lifetime" type="Timer" parent="."]
+wait_time = 5.0
+one_shot = true
+autostart = true
+
+[connection signal="timeout" from="Lifetime" to="." method="_on_lifetime_timeout"]
