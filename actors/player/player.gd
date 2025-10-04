@@ -5,7 +5,7 @@ const SPEED = 5.0
 const ACCEL = 5.0
 var hats: Array[Hat] = []
 
-var bullet_scene = preload("res://actors/bullets/Bullet.tscn")
+var bullet_scene = preload("res://actors/bullets/bullet.tscn")
 
 @onready var targeting_ball = $TargetingBall
 @onready var camera = $Camera3D
@@ -27,7 +27,7 @@ func _process(delta: float) -> void:
 			hats[0].fire(Vector3(targeting_ball.position.x, 0, targeting_ball.position.z).normalized(), bullet_parent)
 		else:
 			var bullet = bullet_scene.instantiate()
-			bullet.position = position
+			bullet.position = position + Vector3.UP
 			bullet.direction = Vector3(targeting_ball.position.x, 0, targeting_ball.position.z).normalized()
 			bullet_parent.add_child(bullet)
 	
