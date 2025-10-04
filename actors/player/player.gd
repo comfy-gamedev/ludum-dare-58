@@ -21,7 +21,7 @@ func _process(delta: float) -> void:
 	#raycast.force_raycast_update()
 	targeting_ball.global_position = raycast.get_collision_point()
 	
-	if Input.is_action_just_pressed("shoot") && cooldown.is_stopped():
+	if Input.is_action_pressed("shoot") && cooldown.is_stopped():
 		cooldown.start()
 		var bullet = bullet_scene.instantiate()
 		bullet.position = position

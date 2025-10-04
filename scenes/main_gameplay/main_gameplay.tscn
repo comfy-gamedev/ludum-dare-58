@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://bgu1iguf46imi" path="res://actors/player/player.tscn" id="3_lot3w"]
 [ext_resource type="PackedScene" uid="uid://di8uyh08twmfu" path="res://level_chunks/test.tscn" id="5_nbr0a"]
 [ext_resource type="PackedScene" uid="uid://cwajxjg83lhvk" path="res://actors/enemies/goblin/goblin.tscn" id="6_xudop"]
+[ext_resource type="PackedScene" uid="uid://2ycmb5n45u20" path="res://actors/hat/hat.tscn" id="6_xudop"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lot3w"]
 albedo_color = Color(1, 0.101960786, 0.24313726, 1)
@@ -32,7 +33,7 @@ shadow_enabled = true
 [node name="Player" parent="." instance=ExtResource("3_lot3w")]
 
 [node name="Camera3D" type="Camera3D" parent="Player"]
-transform = Transform3D(0.9999984, 0.0014717471, -0.0010059209, 0, 0.56427735, 0.8255853, 0.0017826711, -0.825584, 0.56427646, -0.0101396, 8.321833, 5.6878605)
+transform = Transform3D(0.99999994, 0, 0, 0, 0.564967, 0.8251135, 0, -0.8251135, 0.564967, -0.0101396, 8.321833, 5.6878605)
 
 [node name="CameraShake" type="Node" parent="Player/Camera3D"]
 script = ExtResource("1_lrklj")
@@ -63,5 +64,16 @@ shape = SubResource("BoxShape3D_sms7d")
 [node name="Node3D" parent="." instance=ExtResource("5_nbr0a")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16, 0, 16)
 
+<<<<<<< HEAD
 [node name="Goblin" parent="." instance=ExtResource("6_xudop")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.505087, 0, 5.942501)
+=======
+[node name="RigidBody3D" parent="." instance=ExtResource("6_xudop")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.2711668, 0.25, -1.1558113)
+
+[node name="RigidBody3D2" parent="." instance=ExtResource("6_xudop")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.3090353, 0.25, -0.46560287)
+
+[node name="RigidBody3D3" parent="." instance=ExtResource("6_xudop")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.7287314, 0.24999905, 3.73172)
+>>>>>>> e53aee0bc0b098ac0c460f43cc2e9fb784ffd833
