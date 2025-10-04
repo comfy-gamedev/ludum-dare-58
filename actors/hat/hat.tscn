@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://2ycmb5n45u20"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_1asxe"]
+bounce = 1.0
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_1asxe"]
+height = 0.5
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_823rn"]
+
+[node name="Hat" type="Node3D"]
+
+[node name="RigidBody3D" type="RigidBody3D" parent="."]
+axis_lock_angular_y = true
+physics_material_override = SubResource("PhysicsMaterial_1asxe")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D"]
+shape = SubResource("CylinderShape3D_1asxe")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.25, 0, 0, 0, 1, 0, 0, 0)
+mesh = SubResource("CylinderMesh_823rn")
+skeleton = NodePath("../RigidBody3D")
