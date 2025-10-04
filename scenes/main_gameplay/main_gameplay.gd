@@ -4,7 +4,8 @@ const chunk_size = Vector3(2*16, 0, 2*16)
 const world_size = Vector2(10, 10)
 
 var default_chunks = [
-	preload("uid://di8uyh08twmfu"),
+	preload("res://level_chunks/horse.tscn"),
+	preload("res://level_chunks/test.tscn"),
 ]
 
 func _ready() -> void:
