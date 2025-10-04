@@ -15,8 +15,8 @@ func tick(actor: Node, blackboard: Blackboard) -> int:
 	var delta = get_physics_process_delta_time()
 	
 	# Calculate the direction to the target position
-	var target_pos_vec2 = Vector2(target_pos.x, target_pos.y)
-	var actor_pos_vec2 = Vector2(actor.position.x, actor.position.y)
+	var target_pos_vec2 = Vector2(target_pos.x, target_pos.z)
+	var actor_pos_vec2 = Vector2(actor.position.x, actor.position.z)
 	var direction = Vector3(target_pos_vec2.x - actor_pos_vec2.x, 0, target_pos_vec2.y - actor_pos_vec2.y).normalized()
 	var current_distance_to_target = actor_pos_vec2.distance_to(target_pos_vec2)
 	
