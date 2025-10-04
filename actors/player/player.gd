@@ -48,6 +48,8 @@ func _physics_process(delta: float) -> void:
 	else:
 		velocity = velocity.move_toward(Vector3.ZERO, ACCEL * 5.0)
 	
+	if Input.is_key_pressed(KEY_SHIFT):
+		velocity *= 10.0
 	move_and_slide()
 
 
