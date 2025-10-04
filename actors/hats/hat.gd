@@ -3,7 +3,7 @@
 @onready var cooldown = $PickupCooldown
 #@onready var bullet_parent = $"../../BulletParent"
 
-var bullet_scene = preload("res://actors/bullets/Bullet.tscn")
+var bullet_scene = preload("res://actors/bullets/bullet.tscn")
 
 var team = Globals.teams.ALLY
 var element = Globals.elements.EARTH
