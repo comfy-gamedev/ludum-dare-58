@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://cvcmwg2kcrfg2"]
 
 [ext_resource type="Script" uid="uid://w8dgg7iadxyx" path="res://actors/bullets/bullet.gd" id="1_158tj"]
-[ext_resource type="PackedScene" uid="uid://bpyvhh1nuv4al" path="res://assets/models/missile.blend" id="2_0k22o"]
+[ext_resource type="PackedScene" uid="uid://byildknx5x6ch" path="res://assets/models/missile.glb" id="2_0k22o"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_so8kv"]
 
