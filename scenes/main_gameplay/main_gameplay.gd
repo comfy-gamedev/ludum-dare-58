@@ -1,6 +1,6 @@
-extends Node2D
+extends Node3D
 
-@onready var camera_shake: CameraShake = $Camera2D/CameraShake
+@onready var camera_shake: CameraShake = $Camera3D/CameraShake
 
 
 func _on_bouncing_character_body_2d_bounce(collision: KinematicCollision2D) -> void:
