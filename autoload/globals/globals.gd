@@ -7,6 +7,11 @@ extends Node
 ## Displays a debug overlay when the user hits the F1 key.
 ## All variables are displayed automatically.
 
+enum teams {
+	ALLY,
+	ENEMY
+}
+
 ## Emitted when any variable changes.
 signal changed(prop_name: StringName)
 

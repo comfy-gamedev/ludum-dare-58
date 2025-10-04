@@ -10,7 +10,7 @@ bounce = 0.5
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_823rn"]
 
-[node name="RigidBody3D" type="RigidBody3D"]
+[node name="RigidBody3D" type="RigidBody3D" groups=["hat"]]
 axis_lock_angular_x = true
 axis_lock_angular_z = true
 physics_material_override = SubResource("PhysicsMaterial_1asxe")
@@ -22,3 +22,7 @@ shape = SubResource("SphereShape3D_823rn")
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.25, 0, 0, 0, 1, 0, 0, 0)
 mesh = SubResource("CylinderMesh_823rn")
+
+[node name="PickupCooldown" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true
