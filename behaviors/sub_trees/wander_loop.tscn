@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://bnn3fr25b3elh"]
+
+[ext_resource type="Script" uid="uid://cg016dbe7gs1x" path="res://addons/beehave/nodes/composites/sequence.gd" id="1_juyf4"]
+
+[node name="WanderLoop" type="Node"]
+script = ExtResource("1_juyf4")
+metadata/_custom_type_script = "uid://cg016dbe7gs1x"

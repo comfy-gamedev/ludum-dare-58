@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://c7yb6gs1gbdyj"]
+
+[ext_resource type="Script" uid="uid://cg016dbe7gs1x" path="res://addons/beehave/nodes/composites/sequence.gd" id="1_ref8e"]
+
+[node name="ActorTree" type="Node"]
+script = ExtResource("1_ref8e")
+metadata/_custom_type_script = "uid://cg016dbe7gs1x"

@@ -27,6 +27,8 @@ Globals="*res://autoload/globals/globals.gd"
 Settings="*res://autoload/globals/settings.gd"
 SceneGirl="*res://autoload/scene_girl/scene_girl.gd"
 MusicMan="*res://autoload/music_man.gd"
+BeehaveGlobalMetrics="*res://addons/beehave/metrics/beehave_global_metrics.gd"
+BeehaveGlobalDebugger="*res://addons/beehave/debug/global_debugger.gd"
 
 [display]
 
@@ -36,7 +38,7 @@ window/stretch/mode="canvas_items"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/cider_state/plugin.cfg", "res://addons/cider_wiki/plugin.cfg")
+enabled=PackedStringArray("res://addons/beehave/plugin.cfg", "res://addons/cider_state/plugin.cfg", "res://addons/cider_wiki/plugin.cfg")
 
 [gui]
 
