@@ -25,7 +25,7 @@ func _process(delta: float) -> void:
 		cooldown.start()
 		var bullet = bullet_scene.instantiate()
 		bullet.position = position
-		bullet.direction = Vector3(position.x + targeting_ball.position.x, 0, position.z + targeting_ball.position.z).normalized()
+		bullet.direction = Vector3(targeting_ball.position.x, 0, targeting_ball.position.z).normalized()
 		bullet_parent.add_child(bullet)
 
 func _physics_process(delta: float) -> void:
