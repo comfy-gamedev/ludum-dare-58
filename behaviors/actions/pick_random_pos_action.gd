@@ -8,10 +8,13 @@ func tick(actor: Node, blackboard: Blackboard) -> int:
 	blackboard.set_value("new_pos", new_pos)
 	var distance_to_target = actor.position.distance_to(new_pos)
 	blackboard.set_value("distance_to_target", distance_to_target)
+	print(distance_to_target)
 	return SUCCESS
 
-func get_random_pos_within_radius(pos_x: float, pos_y: float, radius: float) -> Vector2:
+func get_random_pos_within_radius(pos_x: float, pos_y: float, radius: float) -> Vector3:
 	# Random distance from the center within the radius
 	var distance = randf_range(0.5, 1) * radius
 	
-	return Vector2.from_angle(randf() * TAU) * distance + Vector2(pos_x, pos_y)
+	var vec2 = Vector2.from_angle(randf() * TAU) * distance + Vector2(pos_x, pos_y)
+	
+	return Vector3(vec2.x, vec2.y, 0)

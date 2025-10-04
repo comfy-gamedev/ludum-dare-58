@@ -15,6 +15,7 @@ metadata/_custom_type_script = "uid://3turoewfbxir"
 
 [node name="TimeLimiterDecorator" type="Node" parent="."]
 script = ExtResource("3_6es0v")
+wait_time = 2.0
 metadata/_custom_type_script = "uid://we22430vcb44"
 
 [node name="MoveToPosAction" type="Node" parent="TimeLimiterDecorator"]
