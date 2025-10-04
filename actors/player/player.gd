@@ -19,7 +19,8 @@ func _process(delta: float) -> void:
 	var ray_direction = camera.project_ray_normal(cursor_position)
 	var ground_plane = Plane(Vector3.UP, Vector3.ZERO)
 	
-	targeting_ball.global_position = ground_plane.intersects_ray(ray_origin, ray_direction)
+	var temp_pos = ground_plane.intersects_ray(ray_origin, ray_direction)
+	targeting_ball.global_position = temp_pos if temp_pos != null else Vector3.ZERO
 	
 	if Input.is_action_pressed("shoot") && cooldown.is_stopped():
 		cooldown.start()
