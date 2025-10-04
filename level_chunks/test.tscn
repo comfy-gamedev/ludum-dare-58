@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://di8uyh08twmfu"]
 
-[ext_resource type="MeshLibrary" uid="uid://dse3bedu1beaj" path="res://assets/gridmap/gridmap.meshlib" id="1_36uya"]
+[ext_resource type="MeshLibrary" uid="uid://dse3bedu1beaj" path="res://assets/meshlib/meshlib.meshlib" id="1_36uya"]
 
 [node name="Node3D" type="Node3D"]
 
