@@ -2,12 +2,9 @@
 
 [ext_resource type="Script" uid="uid://654itoswefaq" path="res://node_types/camera_shake.gd" id="1_lrklj"]
 [ext_resource type="Script" uid="uid://e274qojiifqq" path="res://scenes/main_gameplay/main_gameplay.gd" id="1_wt4mr"]
+[ext_resource type="Environment" uid="uid://bf8ysb2ywtuba" path="res://default_environment.tres" id="2_sms7d"]
 [ext_resource type="PackedScene" uid="uid://bgu1iguf46imi" path="res://actors/player/player.tscn" id="3_lot3w"]
-
-[sub_resource type="Environment" id="Environment_lot3w"]
-ambient_light_source = 2
-ambient_light_color = Color(1, 1, 1, 1)
-reflected_light_source = 1
+[ext_resource type="PackedScene" uid="uid://di8uyh08twmfu" path="res://level_chunks/test.tscn" id="5_nbr0a"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lot3w"]
 albedo_color = Color(1, 0.101960786, 0.24313726, 1)
@@ -25,7 +22,7 @@ size = Vector3(30, 1, 30)
 script = ExtResource("1_wt4mr")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource("Environment_lot3w")
+environment = ExtResource("2_sms7d")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
@@ -61,3 +58,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
 shape = SubResource("BoxShape3D_sms7d")
 
 [node name="BulletParent" type="Node3D" parent="."]
+
+[node name="Node3D" parent="." instance=ExtResource("5_nbr0a")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16, 0, 16)
