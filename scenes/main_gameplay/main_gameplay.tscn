@@ -35,9 +35,6 @@ transform = Transform3D(0.99999994, 0, 0, 0, 0.564967, 0.8251135, 0, -0.8251135,
 script = ExtResource("1_lrklj")
 metadata/_custom_type_script = "uid://654itoswefaq"
 
-[node name="RayCast3D" type="RayCast3D" parent="Player/Camera3D"]
-collision_mask = 8
-
 [node name="TargetingBall" type="MeshInstance3D" parent="Player"]
 mesh = SubResource("SphereMesh_sms7d")
 skeleton = NodePath("../..")
