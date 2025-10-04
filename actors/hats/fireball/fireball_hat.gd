@@ -10,6 +10,6 @@ func fire(dir: Vector3, bullet_parent: Node3D):
 	var bullet: base_bullet = bullet_scene.instantiate()
 	bullet.position = global_position + (Vector3.DOWN * 2)
 	bullet.direction = dir
-	bullet.scale = Vector3.ONE * 2.0
+	bullet.size = 2
 	bullet.element_type = Globals.elements.FIRE
 	bullet_parent.add_child(bullet)

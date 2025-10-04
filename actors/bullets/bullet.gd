@@ -20,7 +20,7 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
 	position += direction * speed * delta
 	basis = Basis.looking_at(direction, Vector3.UP, true)
-	basis.scaled(Vector3.ONE * size)
+	basis = basis.scaled(Vector3.ONE * size)
 
 
 func _on_lifetime_timeout() -> void:
