@@ -1,6 +1,7 @@
 extends base_bullet
 
 var direction : Vector3
+var angle_offset = Vector2.ZERO
 
 @onready var mesh: MeshInstance3D = $missile/Missile
 @onready var timer = $Lifetime
@@ -21,9 +22,23 @@ func _ready() -> void:
 			mesh.mesh.surface_get_material(0).albedo_color = Color("57253b")
 
 func _physics_process(delta: float) -> void:
-	position += direction * speed * delta
-	basis = Basis.looking_at(direction, Vector3.UP, true)
-	basis = basis.scaled(Vector3.ONE * size)
+	match movement:
+		movement_types.STRAIGHT:
+			position += direction * speed * delta
+			basis = Basis.looking_at(direction, Vector3.UP, true)
+			basis = basis.scaled(Vector3.ONE * size)
+		movement_types.WAVY:
+			position += direction * speed * delta
+			basis = Basis.looking_at(direction, Vector3.UP, true)
+			basis = basis.scaled(Vector3.ONE * size)
+			angle_offset = sin(Time.get_ticks_usec() / 200000.0) / 30.0
+			direction = direction.rotated(Vector3.UP, angle_offset)
+		movement_types.LOOPY:
+			position += direction * speed * delta
+			basis = Basis.looking_at(direction, Vector3.UP, true)
+			basis = basis.scaled(Vector3.ONE * size)
+			angle_offset = (sin(timer.wait_time - timer.time_left) + 1) / 20.0
+			direction = direction.rotated(Vector3.UP, angle_offset)
 
 
 func _on_lifetime_timeout() -> void:
