@@ -1,8 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://dfvu7kkdxffly"]
+[gd_scene load_steps=10 format=3 uid="uid://dfvu7kkdxffly"]
 
 [ext_resource type="Script" uid="uid://lsqlljn568a" path="res://actors/units/capling/capling.gd" id="1_23k4e"]
 [ext_resource type="Script" uid="uid://dme5f24l0edsf" path="res://addons/beehave/blackboard.gd" id="1_cy4ka"]
 [ext_resource type="PackedScene" uid="uid://c7yb6gs1gbdyj" path="res://behaviors/trees/actor_tree.tscn" id="2_u350o"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_23k4e"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_23k4e"]
 render_priority = 1
@@ -38,13 +40,19 @@ script = ExtResource("1_cy4ka")
 metadata/_custom_type_script = "uid://dme5f24l0edsf"
 
 [node name="ActorTree" parent="." node_paths=PackedStringArray("blackboard") instance=ExtResource("2_u350o")]
-blackboard = NodePath("@Node@32337")
+blackboard = NodePath("@Node@21327")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9942124, 0)
+shape = SubResource("CapsuleShape3D_23k4e")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0159415, 0)
 mesh = SubResource("CapsuleMesh_sqje1")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+[node name="Area3D" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.99399567, 0)
 shape = SubResource("CapsuleShape3D_u350o")
 
@@ -54,3 +62,5 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9133673, 0)
 [node name="CollisionShape3D" type="CollisionShape3D" parent="TargetSeekingRadius"]
 transform = Transform3D(15, 0, 0, 0, 15, 0, 0, 0, 15, 0, 0, 0)
 shape = SubResource("SphereShape3D_u350o")
+
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
