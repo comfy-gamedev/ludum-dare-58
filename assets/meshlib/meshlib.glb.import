@@ -39,9 +39,77 @@ materials/extract_format=0
 materials/extract_path=""
 _subresources={
 "nodes": {
+"PATH:Grass_001": {
+"generate/physics": true,
+"physics/shape_type": 3
+},
+"PATH:Grass_002": {
+"generate/physics": true,
+"physics/shape_type": 3
+},
+"PATH:Grass_003": {
+"generate/physics": true,
+"physics/shape_type": 3
+},
+"PATH:Grass_004": {
+"generate/physics": true,
+"physics/shape_type": 3
+},
+"PATH:Red_001": {
+"generate/physics": true,
+"physics/shape_type": 3
+},
+"PATH:Red_002": {
+"generate/physics": true,
+"physics/shape_type": 3
+},
+"PATH:Red_003": {
+"generate/physics": true,
+"physics/shape_type": 3
+},
+"PATH:Red_004": {
+"generate/physics": true,
+"physics/shape_type": 3
+},
+"PATH:Red_005": {
+"generate/physics": true,
+"physics/shape_type": 3
+},
+"PATH:Sand_001": {
+"generate/physics": true,
+"physics/shape_type": 3
+},
+"PATH:Sand_002": {
+"generate/physics": true,
+"physics/shape_type": 3
+},
+"PATH:Sand_003": {
+"generate/physics": true,
+"physics/shape_type": 3
+},
+"PATH:Sand_004": {
+"generate/physics": true,
+"physics/shape_type": 3
+},
 "PATH:Tree": {
 "generate/physics": true,
 "physics/shape_type": 1
+},
+"PATH:Water_001": {
+"generate/physics": true,
+"physics/shape_type": 3
+},
+"PATH:Water_002": {
+"generate/physics": true,
+"physics/shape_type": 3
+},
+"PATH:Water_003": {
+"generate/physics": true,
+"physics/shape_type": 3
+},
+"PATH:Water_004": {
+"generate/physics": true,
+"physics/shape_type": 3
 }
 }
 }
