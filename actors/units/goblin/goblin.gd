@@ -1,4 +1,4 @@
-extends base_enemy
+extends base_unit
 
 @onready var target_seeking_radius: Area3D = $TargetSeekingRadius
 
@@ -11,10 +11,11 @@ func _init() -> void:
 	speed = 3.0
 	accel = 3.0
 	attack_acceptance_range = 5
-	hat = init_hat()
+	equipped_hat = init_hat()
 
 func trigger_hat_skill(dir: Vector3, bullet_parent: Node3D):
-	hat.fire(dir, bullet_parent)
+	if is_instance_valid(equipped_hat):
+		equipped_hat.fire(dir, bullet_parent)
 
 func init_hat() -> Hat:
 	var enemy_hat = icicle_hat_scene.instantiate()
