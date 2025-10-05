@@ -1,0 +1,56 @@
+[gd_scene load_steps=9 format=3 uid="uid://dfvu7kkdxffly"]
+
+[ext_resource type="Script" uid="uid://lsqlljn568a" path="res://actors/units/capling/capling.gd" id="1_23k4e"]
+[ext_resource type="Script" uid="uid://dme5f24l0edsf" path="res://addons/beehave/blackboard.gd" id="1_cy4ka"]
+[ext_resource type="PackedScene" uid="uid://c7yb6gs1gbdyj" path="res://behaviors/trees/actor_tree.tscn" id="2_u350o"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_23k4e"]
+render_priority = 1
+transparency = 1
+shading_mode = 0
+albedo_color = Color(0, 0, 1, 1)
+grow = true
+grow_amount = 0.02
+stencil_mode = 3
+stencil_flags = 1
+stencil_compare = 5
+metadata/_stencil_owned = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hsoud"]
+next_pass = SubResource("StandardMaterial3D_23k4e")
+stencil_mode = 1
+stencil_flags = 2
+stencil_color = Color(0, 0, 1, 1)
+stencil_outline_thickness = 0.02
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_sqje1"]
+material = SubResource("StandardMaterial3D_hsoud")
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_u350o"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_u350o"]
+
+[node name="Capling" type="CharacterBody3D" groups=["ally"]]
+script = ExtResource("1_23k4e")
+
+[node name="Blackboard" type="Node" parent="."]
+script = ExtResource("1_cy4ka")
+metadata/_custom_type_script = "uid://dme5f24l0edsf"
+
+[node name="ActorTree" parent="." node_paths=PackedStringArray("blackboard") instance=ExtResource("2_u350o")]
+blackboard = NodePath("@Node@32337")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0159415, 0)
+mesh = SubResource("CapsuleMesh_sqje1")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.99399567, 0)
+shape = SubResource("CapsuleShape3D_u350o")
+
+[node name="TargetSeekingRadius" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9133673, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TargetSeekingRadius"]
+transform = Transform3D(15, 0, 0, 0, 15, 0, 0, 0, 15, 0, 0, 0)
+shape = SubResource("SphereShape3D_u350o")
