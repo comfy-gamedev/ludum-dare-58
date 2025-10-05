@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://6p68fhw0apj2"]
+[gd_scene load_steps=10 format=3 uid="uid://6p68fhw0apj2"]
 
 [ext_resource type="Script" uid="uid://dcojdhvj8qcw0" path="res://addons/beehave/nodes/composites/sequence_reactive.gd" id="1_t27ys"]
 [ext_resource type="Script" uid="uid://8hn4kne15ac5" path="res://addons/beehave/nodes/composites/selector.gd" id="2_77giv"]
@@ -6,7 +6,9 @@
 [ext_resource type="Script" uid="uid://dwfdg523bk776" path="res://addons/beehave/nodes/decorators/failer.gd" id="4_b0p6e"]
 [ext_resource type="Script" uid="uid://cmlax2vi7mjmb" path="res://behaviors/actions/reset_target_action.gd" id="5_bd23p"]
 [ext_resource type="Script" uid="uid://drchcfmfxuvfp" path="res://behaviors/actions/select_target_action.gd" id="6_4js7t"]
+[ext_resource type="Script" uid="uid://2qri6rrfv8ui" path="res://addons/beehave/nodes/decorators/cooldown.gd" id="8_7hlvr"]
 [ext_resource type="Script" uid="uid://dij7lnmcs6q56" path="res://behaviors/actions/move_to_target_action.gd" id="8_t27ys"]
+[ext_resource type="Script" uid="uid://bwpusq17acx3u" path="res://behaviors/actions/trigger_hat_skill_action.gd" id="9_7hlvr"]
 
 [node name="AttackLoop" type="Node"]
 script = ExtResource("1_t27ys")
@@ -41,3 +43,12 @@ metadata/_custom_type_script = "uid://drchcfmfxuvfp"
 [node name="MoveToTargetAction" type="Node" parent="."]
 script = ExtResource("8_t27ys")
 metadata/_custom_type_script = "uid://dij7lnmcs6q56"
+
+[node name="CooldownDecorator" type="Node" parent="."]
+script = ExtResource("8_7hlvr")
+wait_time = 2.0
+metadata/_custom_type_script = "uid://2qri6rrfv8ui"
+
+[node name="TriggerHatSkillAction" type="Node" parent="CooldownDecorator"]
+script = ExtResource("9_7hlvr")
+metadata/_custom_type_script = "uid://bwpusq17acx3u"

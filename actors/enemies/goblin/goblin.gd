@@ -11,6 +11,8 @@ func _init() -> void:
 	accel = 3.0
 	attack_acceptance_range = 5
 
+func trigger_hat_skill():
+	print("pew pew!!!")
 
 func get_closest_detected_target() -> Node3D:
 	var bodies = target_seeking_radius.get_overlapping_bodies().filter(func (x): return x.is_in_group("ally"))

@@ -6,6 +6,8 @@ var speed
 var accel
 var attack_acceptance_range
 
-@abstract func on_hit(damage: int)
+@abstract func on_hit(_damage: int)
 
 @abstract func get_closest_detected_target() -> Node3D
+
+@abstract func trigger_hat_skill()
