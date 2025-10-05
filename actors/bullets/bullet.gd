@@ -46,5 +46,12 @@ func _on_lifetime_timeout() -> void:
 
 
 func _on_area_3d_body_entered(body: Node3D) -> void:
-	if body.is_in_group("enemy"):
+	var opponent_team_group
+	
+	if team == Globals.teams.ALLY:
+		opponent_team_group = "enemy"
+	elif team == Globals.teams.ENEMY:
+		opponent_team_group = "ally"
+		
+	if body.is_in_group(opponent_team_group):
 		body.on_hit(damage)

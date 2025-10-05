@@ -69,6 +69,10 @@ func _on_area_3d_body_entered(body: Node3D) -> void:
 		#body.linear_velocity = Vector3.ZERO
 		if hats.size() == 1:
 			cooldown.wait_time = body.use_cooldown
+			
+func on_hit(_damage):
+	print("ouch!!!")
+	#_on_hit() # this isn't working as you'd think it might... buggy af
 
 func _on_hit():
 	if hats.size() > 0:

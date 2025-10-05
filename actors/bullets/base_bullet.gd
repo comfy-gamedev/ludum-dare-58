@@ -5,7 +5,8 @@ var speed = 7.5
 var size = 1
 var element_type = Globals.elements.EARTH
 var lifetime = 10.5
-var movement = movement_types.LOOPY
+var movement = movement_types.STRAIGHT
+var team = Globals.teams.ENEMY
 
 enum movement_types {
 	STRAIGHT,
