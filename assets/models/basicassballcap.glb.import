@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://d1vu6uufq4cpf"
-path="res://.godot/imported/goblinmodel.glb-89eddb2dbb192297fa43c4c0ce6c1b99.scn"
+uid="uid://6dv0bytqmand"
+path="res://.godot/imported/basicassballcap.glb-4216e84f77e003032fe80b54109b825c.scn"
 
 [deps]
 
-source_file="res://assets/models/goblinmodel.glb"
-dest_files=["res://.godot/imported/goblinmodel.glb-89eddb2dbb192297fa43c4c0ce6c1b99.scn"]
+source_file="res://assets/models/basicassballcap.glb"
+dest_files=["res://.godot/imported/basicassballcap.glb-4216e84f77e003032fe80b54109b825c.scn"]
 
 [params]
 

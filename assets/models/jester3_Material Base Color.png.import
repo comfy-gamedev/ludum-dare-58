@@ -2,19 +2,19 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ct3atgjc5sf8d"
-path="res://.godot/imported/goblinmodel_Mball.png-05ad0de4d53309f1acfc5e6647fb13ef.ctex"
+uid="uid://c4u5xeu0l5hww"
+path="res://.godot/imported/jester3_Material Base Color.png-cfb0b532df30028b4acbce91ab9d6c6b.ctex"
 metadata={
 "vram_texture": false
 }
 generator_parameters={
-"md5": "bad49af9a33fa619f2fffcab32898b80"
+"md5": "3ce38b5efa0f71395f55ad8b99501d34"
 }
 
 [deps]
 
-source_file="res://assets/models/goblinmodel_Mball.png"
-dest_files=["res://.godot/imported/goblinmodel_Mball.png-05ad0de4d53309f1acfc5e6647fb13ef.ctex"]
+source_file="res://assets/models/jester3_Material Base Color.png"
+dest_files=["res://.godot/imported/jester3_Material Base Color.png-cfb0b532df30028b4acbce91ab9d6c6b.ctex"]
 
 [params]
 

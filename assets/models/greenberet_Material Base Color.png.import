@@ -2,19 +2,19 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ct3atgjc5sf8d"
-path="res://.godot/imported/goblinmodel_Mball.png-05ad0de4d53309f1acfc5e6647fb13ef.ctex"
+uid="uid://b1dr7g2nl3ev1"
+path="res://.godot/imported/greenberet_Material Base Color.png-d802e238466eee94370f638b246b5500.ctex"
 metadata={
 "vram_texture": false
 }
 generator_parameters={
-"md5": "bad49af9a33fa619f2fffcab32898b80"
+"md5": "415c2b4c93105668e4dbbef0cab277b0"
 }
 
 [deps]
 
-source_file="res://assets/models/goblinmodel_Mball.png"
-dest_files=["res://.godot/imported/goblinmodel_Mball.png-05ad0de4d53309f1acfc5e6647fb13ef.ctex"]
+source_file="res://assets/models/greenberet_Material Base Color.png"
+dest_files=["res://.godot/imported/greenberet_Material Base Color.png-d802e238466eee94370f638b246b5500.ctex"]
 
 [params]
 
