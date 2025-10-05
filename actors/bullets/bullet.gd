@@ -5,14 +5,13 @@ var angle_offset = 0.0
 var exploded = false
 
 @onready var mesh: MeshInstance3D = $missile/Missile
-@onready var timer = $Lifetime
+@onready var timer: Timer = $Lifetime
 @onready var explosion: MeshInstance3D = $ExplosionTorus
 @onready var detection_area = $Area3D
 @onready var missile = $missile
 
 func _ready() -> void:
-	#scale = Vector3.ONE * size
-	timer.wait_time = lifetime
+	timer.start(lifetime)
 	
 	#switch on type for 3d model
 	match element_type:
@@ -31,10 +30,10 @@ func _physics_process(delta: float) -> void:
 		if explosion.scale.x > radius / 4.0:
 			explosion.scale += Vector3.ONE * delta * (radius / 2.0)
 			explosion.mesh.inner_radius += delta * 0.9
-			detection_area.scale += Vector3.ONE * delta * (radius / 2.0)
+			detection_area.scale += Vector3.ONE * delta * radius
 		else:
 			explosion.scale += Vector3.ONE * delta * (radius / 2.0)
-			detection_area.scale += Vector3.ONE * delta * (radius / 2.0)
+			detection_area.scale += Vector3.ONE * delta * radius
 		return
 	
 	match movement:
