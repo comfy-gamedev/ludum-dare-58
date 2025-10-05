@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://cvcmwg2kcrfg2"]
+[gd_scene load_steps=7 format=3 uid="uid://cvcmwg2kcrfg2"]
 
 [ext_resource type="Script" uid="uid://w8dgg7iadxyx" path="res://actors/bullets/bullet.gd" id="1_158tj"]
 [ext_resource type="PackedScene" uid="uid://byildknx5x6ch" path="res://assets/models/missile.glb" id="2_0k22o"]
@@ -11,6 +11,9 @@ albedo_color = Color(0.9490196, 0.7137255, 0.23921569, 1)
 [sub_resource type="TorusMesh" id="TorusMesh_4mlrv"]
 resource_local_to_scene = true
 material = SubResource("StandardMaterial3D_0k22o")
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_0k22o"]
+radius = 5.0
 
 [node name="Bullet" type="Node3D"]
 process_mode = 3
@@ -32,5 +35,11 @@ shape = SubResource("SphereShape3D_so8kv")
 transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0)
 mesh = SubResource("TorusMesh_4mlrv")
 
+[node name="HomingDetection" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="HomingDetection"]
+shape = SubResource("SphereShape3D_0k22o")
+
 [connection signal="timeout" from="Lifetime" to="." method="_on_lifetime_timeout"]
 [connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
+[connection signal="body_entered" from="HomingDetection" to="." method="_on_homing_detection_body_entered"]

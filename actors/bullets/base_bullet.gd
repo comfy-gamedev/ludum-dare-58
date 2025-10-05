@@ -11,7 +11,7 @@ var piercing = 1
 var radius = 3.0 #only applied to orbital or pulse modes
 var explosive = false
 var slowing = false
-var homing = false
+var homing = true
 
 enum movement_types {
 	STRAIGHT,

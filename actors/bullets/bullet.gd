@@ -3,12 +3,15 @@ extends base_bullet
 var direction : Vector3
 var angle_offset = 0.0
 var exploded = false
+var homing_target: Node3D
+var just_had_target = false
 
 @onready var mesh: MeshInstance3D = $missile/Missile
 @onready var timer: Timer = $Lifetime
 @onready var explosion: MeshInstance3D = $ExplosionTorus
 @onready var detection_area = $Area3D
 @onready var missile = $missile
+@onready var homing_area = $HomingDetection
 
 func _ready() -> void:
 	timer.start(lifetime)
@@ -34,6 +37,20 @@ func _physics_process(delta: float) -> void:
 			explosion.scale += Vector3.ONE * delta * (radius / 2.0)
 			detection_area.scale += Vector3.ONE * delta * radius
 		return
+	
+	if homing:# && homing_target:
+		if homing_target:
+			just_had_target = true
+			direction = (homing_target.position - position).normalized()
+			position += direction * speed * delta
+			basis = Basis.looking_at(direction, Vector3.UP, true)
+			basis = basis.scaled(Vector3.ONE * size)
+		elif just_had_target:
+			just_had_target = false
+			for body in homing_area.get_overlapping_bodies():
+				if !homing_target && body.is_in_group("enemy" if team == Globals.teams.ALLY else "ally"):
+					homing_target = body
+					break
 	
 	match movement:
 		movement_types.STRAIGHT:
@@ -92,3 +109,8 @@ func explode():
 	exploded = true
 	timer.start(1.0)
 	detection_area.scale = Vector3.ONE * .2
+
+
+func _on_homing_detection_body_entered(body: Node3D) -> void:
+	if !homing_target && body.is_in_group("enemy" if team == Globals.teams.ALLY else "ally"):
+		homing_target = body
