@@ -26,7 +26,6 @@ func _ready() -> void:
 
 func _physics_process(delta: float) -> void:
 	if exploded:
-		#if explosion.scale.length() > Vector3.ONE.length() * .6:
 		if explosion.scale.x > radius / 4.0:
 			explosion.scale += Vector3.ONE * delta * (radius / 2.0)
 			explosion.mesh.inner_radius += delta * 0.9

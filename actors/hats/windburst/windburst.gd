@@ -3,7 +3,6 @@ extends Hat
 
 func _init() -> void:
 	element = Globals.elements.AIR
-	projectile_size = 2
 	
 
 func fire(dir: Vector3, bullet_parent: Node3D):
