@@ -1,6 +1,7 @@
 extends base_unit
 
 @onready var target_seeking_radius: Area3D = $TargetSeekingRadius
+@onready var effect_timer = $EffectTimer
 
 func _init() -> void:
 	health = 3
@@ -26,8 +27,12 @@ func trigger_hat_skill(dir: Vector3, bullet_parent: Node3D):
 	if is_instance_valid(equipped_hat):
 		equipped_hat.fire(dir, bullet_parent)
 
-func on_hit(_damage: int):
+func on_hit(_damage: int, slowing = false):
 	health -= _damage
+	
+	if slowing:
+		speed /= 2
+		effect_timer.start()
 	
 	if health <= 0:
 		on_death()
@@ -59,3 +64,7 @@ func _on_area_3d_body_entered(body: Node3D) -> void:
 		
 	if body.is_in_group("hat"):
 		equip_hat(body)
+
+
+func _on_effect_timer_timeout() -> void:
+	speed = 3.0

@@ -1,8 +1,7 @@
 extends CharacterBody3D
 
-
-const SPEED = 5.0
 const ACCEL = 5.0
+var speed = 5.0
 var hats: Array[Hat] = []
 
 var bullet_scene = preload("res://actors/bullets/bullet.tscn")
@@ -12,6 +11,7 @@ var bullet_scene = preload("res://actors/bullets/bullet.tscn")
 @onready var bullet_parent = $"../BulletParent"
 @onready var cooldown = $Cooldown
 @onready var hat_parent = $HatParent
+@onready var effect_timer = $EffectTimer
 
 func _process(delta: float) -> void:
 	var cursor_position = get_viewport().get_mouse_position()
@@ -52,7 +52,7 @@ func _physics_process(delta: float) -> void:
 	var input_dir := Input.get_vector("move_left", "move_right", "move_up", "move_down")
 	var direction := Vector3(input_dir.x, 0, input_dir.y).normalized()
 	if direction:
-		velocity = velocity.move_toward(direction * SPEED, ACCEL * 5.0)
+		velocity = velocity.move_toward(direction * speed, ACCEL * 5.0)
 	else:
 		velocity = velocity.move_toward(Vector3.ZERO, ACCEL * 5.0)
 	
@@ -74,10 +74,10 @@ func _on_area_3d_body_entered(body: Node3D) -> void:
 		if hats.size() == 1:
 			cooldown.wait_time = body.use_cooldown
 			
-func on_hit(_damage):
-	_on_hit()
+func on_hit(damage = 1, slowing = false):
+	_on_hit(damage, slowing)
 
-func _on_hit():
+func _on_hit(_damage, slowing):
 	if hats.size() > 0:
 		for hat in hats:
 			hat.reparent(get_parent())
@@ -87,7 +87,14 @@ func _on_hit():
 		
 		cooldown.wait_time = 1.0
 		hats = []
+		if slowing:
+			speed /= 2
+			effect_timer.start()
 	else:
 		#death
 		print("you died!!!")
 		position = Vector3.ZERO
+
+
+func _on_effect_timer_timeout() -> void:
+	speed = 5.0

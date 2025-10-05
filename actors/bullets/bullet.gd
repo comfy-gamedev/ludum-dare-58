@@ -80,7 +80,7 @@ func _on_area_3d_body_entered(body: Node3D) -> void:
 		opponent_team_group = "ally"
 		
 	if body.is_in_group(opponent_team_group):
-		body.on_hit(damage)
+		body.on_hit(damage, slowing)
 		piercing -= 1
 		if piercing < 1:
 			if !explosive:
