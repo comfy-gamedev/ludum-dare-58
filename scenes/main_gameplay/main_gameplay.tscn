@@ -7,7 +7,7 @@
 [ext_resource type="Script" uid="uid://bqw3gr8wesx3g" path="res://addons/chunker/chunker.gd" id="3_vsax7"]
 [ext_resource type="PackedScene" uid="uid://5mtoxf8e7jpa" path="res://actors/hats/fireball/fireball_hat.tscn" id="6_xudop"]
 [ext_resource type="PackedScene" uid="uid://dx8wgsi14wwb3" path="res://actors/hats/rockburst/rockburst.tscn" id="7_1svbp"]
-[ext_resource type="PackedScene" uid="uid://cwajxjg83lhvk" path="res://actors/enemies/goblin/goblin.tscn" id="7_2ufyh"]
+[ext_resource type="PackedScene" uid="uid://cwajxjg83lhvk" path="res://actors/units/goblin/goblin.tscn" id="7_2ufyh"]
 [ext_resource type="PackedScene" uid="uid://cobbf3sv7x3qf" path="res://actors/hats/windburst/windburst.tscn" id="8_vsax7"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lot3w"]

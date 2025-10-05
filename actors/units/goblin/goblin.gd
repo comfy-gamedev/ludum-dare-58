@@ -1,4 +1,4 @@
-extends base_enemy
+extends base_unit
 
 @onready var target_seeking_radius: Area3D = $TargetSeekingRadius
 
