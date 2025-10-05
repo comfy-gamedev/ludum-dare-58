@@ -2,9 +2,13 @@ extends base_bullet
 
 var direction : Vector3
 var angle_offset = 0.0
+var exploded = false
 
 @onready var mesh: MeshInstance3D = $missile/Missile
 @onready var timer = $Lifetime
+@onready var explosion: MeshInstance3D = $ExplosionTorus
+@onready var detection_area = $Area3D
+@onready var missile = $missile
 
 func _ready() -> void:
 	#scale = Vector3.ONE * size
@@ -22,6 +26,17 @@ func _ready() -> void:
 			mesh.mesh.surface_get_material(0).albedo_color = Color("57253b")
 
 func _physics_process(delta: float) -> void:
+	if exploded:
+		#if explosion.scale.length() > Vector3.ONE.length() * .6:
+		if explosion.scale.x > radius / 4.0:
+			explosion.scale += Vector3.ONE * delta * (radius / 2.0)
+			explosion.mesh.inner_radius += delta * 0.9
+			detection_area.scale += Vector3.ONE * delta * (radius / 2.0)
+		else:
+			explosion.scale += Vector3.ONE * delta * (radius / 2.0)
+			detection_area.scale += Vector3.ONE * delta * (radius / 2.0)
+		return
+	
 	match movement:
 		movement_types.STRAIGHT:
 			position += direction * speed * delta
@@ -52,8 +67,10 @@ func _physics_process(delta: float) -> void:
 
 
 func _on_lifetime_timeout() -> void:
-	queue_free()
-
+	if !explosive || exploded:
+		queue_free()
+	else:
+		explode()
 
 func _on_area_3d_body_entered(body: Node3D) -> void:
 	var opponent_team_group
@@ -67,4 +84,13 @@ func _on_area_3d_body_entered(body: Node3D) -> void:
 		body.on_hit(damage)
 		piercing -= 1
 		if piercing < 1:
-			queue_free()
+			if !explosive:
+				queue_free()
+			elif !exploded:
+				explode()
+
+func explode():
+	missile.visible = false
+	exploded = true
+	timer.start(1.0)
+	detection_area.scale = Vector3.ONE * .2
