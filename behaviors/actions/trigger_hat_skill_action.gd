@@ -7,16 +7,12 @@ func tick(actor: Node, blackboard: Blackboard) -> int:
 		return FAILURE
 	
 	var target_pos = target.global_position
+	#var direction = actor.global_position.direction_to(target_pos)
 	
-	actor.trigger_hat_skill()
+	var target_pos_vec2 = Vector2(target_pos.x, target_pos.z)
+	var actor_pos_vec2 = Vector2(actor.position.x, actor.position.z)
+	var direction = Vector3(target_pos_vec2.x - actor_pos_vec2.x, 0, target_pos_vec2.y - actor_pos_vec2.y).normalized()
 	
-	#var direction: Vector2 = actor.global_position.direction_to(target_pos)
-	
-	#var bullet = bullet_scene.instantiate()
-	#bullet.global_position = actor.global_position
-	#bullet.velocity = direction * bullet_speed
-	#bullet.damage = actor.attack_points
-	#bullet.team = actor.team
-	#actor.get_parent().add_child(bullet)
+	actor.trigger_hat_skill(direction, actor)
 	
 	return SUCCESS
