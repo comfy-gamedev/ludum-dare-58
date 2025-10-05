@@ -19,7 +19,8 @@ func _process(delta: float) -> void:
 	var ray_direction = camera.project_ray_normal(cursor_position)
 	var ground_plane = Plane(Vector3.UP, Vector3.ZERO)
 	
-	targeting_ball.global_position = ground_plane.intersects_ray(ray_origin, ray_direction)
+	var temp_pos = ground_plane.intersects_ray(ray_origin, ray_direction)
+	targeting_ball.global_position = temp_pos if temp_pos != null else Vector3.ZERO
 	
 	if Input.is_action_pressed("shoot") && cooldown.is_stopped():
 		cooldown.start()
@@ -37,6 +38,8 @@ func _process(delta: float) -> void:
 		hat.linear_velocity = Vector3(targeting_ball.position.x, 0, targeting_ball.position.z).normalized() * 5
 		hat.process_mode = Node.PROCESS_MODE_INHERIT
 		hat.pickup_ready = false
+		if hats.size() < 1:
+			cooldown.wait_time = 1.0
 	
 
 func _physics_process(delta: float) -> void:
@@ -74,6 +77,7 @@ func _on_hit():
 			hat.linear_velocity = Vector3(randf() - 0.5, 0, randf() - 0.5).normalized() * 5
 			hat.process_mode = Node.PROCESS_MODE_INHERIT
 			hat.pickup_ready = false
+		cooldown.wait_time = 1.0
 	else:
 		#death
 		pass

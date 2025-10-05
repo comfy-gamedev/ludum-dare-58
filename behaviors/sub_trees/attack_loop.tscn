@@ -1,0 +1,43 @@
+[gd_scene load_steps=8 format=3 uid="uid://6p68fhw0apj2"]
+
+[ext_resource type="Script" uid="uid://dcojdhvj8qcw0" path="res://addons/beehave/nodes/composites/sequence_reactive.gd" id="1_t27ys"]
+[ext_resource type="Script" uid="uid://8hn4kne15ac5" path="res://addons/beehave/nodes/composites/selector.gd" id="2_77giv"]
+[ext_resource type="Script" uid="uid://uoy6r3dbnq25" path="res://addons/beehave/nodes/leaves/blackboard_compare.gd" id="3_bd23p"]
+[ext_resource type="Script" uid="uid://dwfdg523bk776" path="res://addons/beehave/nodes/decorators/failer.gd" id="4_b0p6e"]
+[ext_resource type="Script" uid="uid://cmlax2vi7mjmb" path="res://behaviors/actions/reset_target_action.gd" id="5_bd23p"]
+[ext_resource type="Script" uid="uid://drchcfmfxuvfp" path="res://behaviors/actions/select_target_action.gd" id="6_4js7t"]
+[ext_resource type="Script" uid="uid://dij7lnmcs6q56" path="res://behaviors/actions/move_to_target_action.gd" id="8_t27ys"]
+
+[node name="AttackLoop" type="Node"]
+script = ExtResource("1_t27ys")
+metadata/_custom_type_script = "uid://dcojdhvj8qcw0"
+
+[node name="SelectorComposite" type="Node" parent="."]
+script = ExtResource("2_77giv")
+metadata/_custom_type_script = "uid://8hn4kne15ac5"
+
+[node name="BlackboardCompareCondition" type="Node" parent="SelectorComposite"]
+script = ExtResource("3_bd23p")
+left_operand = "is_instance_valid(get_value(\"target\"))"
+right_operand = "true"
+metadata/_custom_type_script = "uid://uoy6r3dbnq25"
+
+[node name="AlwaysFailDecorator" type="Node" parent="SelectorComposite"]
+script = ExtResource("4_b0p6e")
+metadata/_custom_type_script = "uid://dwfdg523bk776"
+
+[node name="ResetTargetAction" type="Node" parent="SelectorComposite/AlwaysFailDecorator"]
+script = ExtResource("5_bd23p")
+metadata/_custom_type_script = "uid://cmlax2vi7mjmb"
+
+[node name="SelectTargetAction" type="Node" parent="SelectorComposite"]
+script = ExtResource("6_4js7t")
+metadata/_custom_type_script = "uid://drchcfmfxuvfp"
+
+[node name="SelectTargetAction" type="Node" parent="."]
+script = ExtResource("6_4js7t")
+metadata/_custom_type_script = "uid://drchcfmfxuvfp"
+
+[node name="MoveToTargetAction" type="Node" parent="."]
+script = ExtResource("8_t27ys")
+metadata/_custom_type_script = "uid://dij7lnmcs6q56"

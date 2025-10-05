@@ -1,25 +1,44 @@
 extends base_bullet
 
 var direction : Vector3
+var angle_offset = Vector2.ZERO
 
-@onready var mesh: MeshInstance3D = $MeshInstance3D
+@onready var mesh: MeshInstance3D = $missile/Missile
+@onready var timer = $Lifetime
 
 func _ready() -> void:
-	scale = Vector3.ONE * size
+	#scale = Vector3.ONE * size
+	timer.wait_time = lifetime
+	
 	#switch on type for 3d model
 	match element_type:
 		Globals.elements.AIR:
-			mesh.mesh.material.albedo_color = Color("8fcccb")
+			mesh.mesh.surface_get_material(0).albedo_color = Color("8fcccb")
 		Globals.elements.WATER:
-			mesh.mesh.material.albedo_color = Color("457cd6")
+			mesh.mesh.surface_get_material(0).albedo_color = Color("457cd6")
 		Globals.elements.FIRE:
-			mesh.mesh.material.albedo_color = Color("d46e33")
+			mesh.mesh.surface_get_material(0).albedo_color = Color("d46e33")
 		Globals.elements.EARTH:
-			mesh.mesh.material.albedo_color = Color("57253b")
+			mesh.mesh.surface_get_material(0).albedo_color = Color("57253b")
 
 func _physics_process(delta: float) -> void:
-	position += direction * speed * delta
-	basis = Basis.looking_at(direction, Vector3.UP, true)
+	match movement:
+		movement_types.STRAIGHT:
+			position += direction * speed * delta
+			basis = Basis.looking_at(direction, Vector3.UP, true)
+			basis = basis.scaled(Vector3.ONE * size)
+		movement_types.WAVY:
+			position += direction * speed * delta
+			basis = Basis.looking_at(direction, Vector3.UP, true)
+			basis = basis.scaled(Vector3.ONE * size)
+			angle_offset = sin(Time.get_ticks_usec() / 200000.0) / 30.0
+			direction = direction.rotated(Vector3.UP, angle_offset)
+		movement_types.LOOPY:
+			position += direction * speed * delta
+			basis = Basis.looking_at(direction, Vector3.UP, true)
+			basis = basis.scaled(Vector3.ONE * size)
+			angle_offset = (sin(timer.wait_time - timer.time_left) + 1) / 20.0
+			direction = direction.rotated(Vector3.UP, angle_offset)
 
 
 func _on_lifetime_timeout() -> void:

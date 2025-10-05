@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://cwajxjg83lhvk"]
+[gd_scene load_steps=9 format=3 uid="uid://cwajxjg83lhvk"]
 
 [ext_resource type="Script" uid="uid://dme5f24l0edsf" path="res://addons/beehave/blackboard.gd" id="1_6sm0b"]
 [ext_resource type="Script" uid="uid://b03eqi34tx56p" path="res://actors/enemies/goblin/goblin.gd" id="1_sslfq"]
@@ -28,6 +28,8 @@ material = SubResource("StandardMaterial3D_us47m")
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_01yp8"]
 
+[sub_resource type="SphereShape3D" id="SphereShape3D_sslfq"]
+
 [node name="Goblin" type="CharacterBody3D" groups=["enemy"]]
 script = ExtResource("1_sslfq")
 
@@ -36,7 +38,7 @@ script = ExtResource("1_6sm0b")
 metadata/_custom_type_script = "uid://dme5f24l0edsf"
 
 [node name="ActorTree" parent="." node_paths=PackedStringArray("blackboard") instance=ExtResource("2_sslfq")]
-blackboard = NodePath("@Node@31796")
+blackboard = NodePath("@Node@21248")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.99844193, 0)
@@ -45,3 +47,9 @@ mesh = SubResource("CapsuleMesh_6sm0b")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.98072326, 0)
 shape = SubResource("CapsuleShape3D_01yp8")
+
+[node name="TargetSeekingRadius" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TargetSeekingRadius"]
+transform = Transform3D(15, 0, 0, 0, 15, 0, 0, 0, 15, 0, 0.7906078, 0)
+shape = SubResource("SphereShape3D_sslfq")
