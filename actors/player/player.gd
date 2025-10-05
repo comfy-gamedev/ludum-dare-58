@@ -28,6 +28,7 @@ func _process(delta: float) -> void:
 			hats[0].fire(Vector3(targeting_ball.position.x, 0, targeting_ball.position.z).normalized(), bullet_parent)
 		else:
 			var bullet = bullet_scene.instantiate()
+			bullet.team = Globals.teams.ALLY
 			bullet.position = position + Vector3.UP
 			bullet.direction = Vector3(targeting_ball.position.x, 0, targeting_ball.position.z).normalized()
 			bullet_parent.add_child(bullet)
@@ -89,3 +90,4 @@ func _on_hit():
 	else:
 		#death
 		print("you died!!!")
+		position = Vector3.ZERO
