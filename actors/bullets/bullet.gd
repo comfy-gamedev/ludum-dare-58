@@ -1,7 +1,7 @@
 extends base_bullet
 
 var direction : Vector3
-var angle_offset = Vector2.ZERO
+var angle_offset = 0.0
 
 @onready var mesh: MeshInstance3D = $missile/Missile
 @onready var timer = $Lifetime
@@ -39,6 +39,13 @@ func _physics_process(delta: float) -> void:
 			basis = basis.scaled(Vector3.ONE * size)
 			angle_offset = (sin((timer.wait_time - timer.time_left - 1) * 2) + 1) / 10.0
 			direction = direction.rotated(Vector3.UP, angle_offset)
+		movement_types.ORBITAL:
+			position += direction * speed * delta
+			basis = Basis.looking_at(direction, Vector3.UP, true)
+			basis = basis.scaled(Vector3.ONE * size)
+			if angle_offset < 1.0 / 20.0:
+				angle_offset += delta / 5.0
+			direction = direction.rotated(Vector3.UP, angle_offset)
 
 
 func _on_lifetime_timeout() -> void:
@@ -55,3 +62,6 @@ func _on_area_3d_body_entered(body: Node3D) -> void:
 		
 	if body.is_in_group(opponent_team_group):
 		body.on_hit(damage)
+		piercing -= 1
+		if piercing < 1:
+			queue_free()
