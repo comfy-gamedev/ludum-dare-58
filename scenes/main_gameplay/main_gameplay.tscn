@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://c3rvm3rw6opg"]
+[gd_scene load_steps=13 format=3 uid="uid://c3rvm3rw6opg"]
 
 [ext_resource type="Script" uid="uid://654itoswefaq" path="res://node_types/camera_shake.gd" id="1_lrklj"]
 [ext_resource type="Script" uid="uid://e274qojiifqq" path="res://scenes/main_gameplay/main_gameplay.gd" id="1_wt4mr"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://dx8wgsi14wwb3" path="res://actors/hats/rockburst/rockburst.tscn" id="7_1svbp"]
 [ext_resource type="PackedScene" uid="uid://cwajxjg83lhvk" path="res://actors/units/goblin/goblin.tscn" id="7_2ufyh"]
 [ext_resource type="PackedScene" uid="uid://cobbf3sv7x3qf" path="res://actors/hats/windburst/windburst.tscn" id="8_vsax7"]
+[ext_resource type="PackedScene" uid="uid://dfvu7kkdxffly" path="res://actors/units/capling/capling.tscn" id="10_w3spe"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lot3w"]
 albedo_color = Color(1, 0.101960786, 0.24313726, 1)
@@ -78,3 +79,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.8261824, 9.536743e-07, -1.
 
 [node name="RigidBody3D3" parent="." instance=ExtResource("8_vsax7")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.7582426, 0, 3.611689)
+
+[node name="Capling" parent="." instance=ExtResource("10_w3spe")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.430606, 0, -5.6832533)

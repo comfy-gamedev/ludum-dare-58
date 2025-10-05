@@ -14,7 +14,7 @@ func on_hit(_damage: int):
 	pass
 
 func get_closest_detected_target() -> Node3D:
-	return
+	return null
 
 func trigger_hat_skill(_dir: Vector3, _bullet_parent: Node3D):
 	pass
