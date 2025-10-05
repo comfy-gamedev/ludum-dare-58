@@ -8,7 +8,6 @@ var bullet_scene = preload("res://actors/bullets/bullet.tscn")
 var team = Globals.teams.ALLY
 var element = Globals.elements.EARTH
 var use_cooldown = 1.0
-var projectile_size = 1
 
 var pickup_ready: bool:
 	get:
