@@ -4,11 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://biuv0bovcgmry"
-valid=false
+path="res://.godot/imported/meshlib.blend-6c050b049c3068663ff5a4eb9b630509.scn"
 
 [deps]
 
 source_file="res://assets/meshlib/meshlib.blend"
+dest_files=["res://.godot/imported/meshlib.blend-6c050b049c3068663ff5a4eb9b630509.scn"]
 
 [params]
 
