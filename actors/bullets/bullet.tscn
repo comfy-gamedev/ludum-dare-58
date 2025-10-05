@@ -6,6 +6,7 @@
 [sub_resource type="SphereShape3D" id="SphereShape3D_so8kv"]
 
 [node name="Bullet" type="Node3D"]
+process_mode = 3
 script = ExtResource("1_158tj")
 
 [node name="missile" parent="." instance=ExtResource("2_0k22o")]

@@ -43,9 +43,12 @@ func _physics_process(delta: float) -> void:
 			position += direction * speed * delta
 			basis = Basis.looking_at(direction, Vector3.UP, true)
 			basis = basis.scaled(Vector3.ONE * size)
-			if angle_offset < 1.0 / 20.0:
-				angle_offset += delta / 5.0
-			direction = direction.rotated(Vector3.UP, angle_offset)
+			if position.length() > radius:
+				direction = -position.cross(Vector3.UP).normalized()
+			else:
+				if angle_offset < 1.0 / 7.0:
+					angle_offset += delta 
+				direction = direction.rotated(Vector3.UP, angle_offset)
 
 
 func _on_lifetime_timeout() -> void:
