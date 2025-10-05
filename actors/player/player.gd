@@ -33,14 +33,17 @@ func _process(delta: float) -> void:
 			bullet_parent.add_child(bullet)
 	
 	if Input.is_action_just_pressed("eject") && hats.size() > 0:
-		var hat = hats.pop_back()
-		hat.reparent(get_parent())
-		hat.linear_velocity = Vector3(targeting_ball.position.x, 0, targeting_ball.position.z).normalized() * 5
-		hat.process_mode = Node.PROCESS_MODE_INHERIT
-		hat.pickup_ready = false
-		if hats.size() < 1:
-			cooldown.wait_time = 1.0
+		eject_hat()
+
+func eject_hat():
+	var hat = hats.pop_back()
+	hat.reparent(get_parent())
+	hat.linear_velocity = Vector3(targeting_ball.position.x, 0, targeting_ball.position.z).normalized() * 5
+	hat.process_mode = Node.PROCESS_MODE_INHERIT
+	hat.pickup_ready = false
 	
+	if hats.size() < 1:
+		cooldown.wait_time = 1.0
 
 func _physics_process(delta: float) -> void:
 	# Get the input direction and handle the movement/deceleration.
@@ -71,8 +74,7 @@ func _on_area_3d_body_entered(body: Node3D) -> void:
 			cooldown.wait_time = body.use_cooldown
 			
 func on_hit(_damage):
-	print("ouch!!!")
-	#_on_hit() # this isn't working as you'd think it might... buggy af
+	_on_hit()
 
 func _on_hit():
 	if hats.size() > 0:
@@ -81,7 +83,9 @@ func _on_hit():
 			hat.linear_velocity = Vector3(randf() - 0.5, 0, randf() - 0.5).normalized() * 5
 			hat.process_mode = Node.PROCESS_MODE_INHERIT
 			hat.pickup_ready = false
+		
 		cooldown.wait_time = 1.0
+		hats = []
 	else:
 		#death
-		pass
+		print("you died!!!")
