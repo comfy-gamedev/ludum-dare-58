@@ -39,18 +39,6 @@ materials/extract_format=0
 materials/extract_path=""
 _subresources={
 "nodes": {
-"PATH:Dirt": {
-"generate/physics": true,
-"physics/shape_type": 3
-},
-"PATH:Grass1": {
-"generate/physics": true,
-"physics/shape_type": 3
-},
-"PATH:Grass2": {
-"generate/physics": true,
-"physics/shape_type": 3
-},
 "PATH:Tree": {
 "generate/physics": true,
 "physics/shape_type": 1
