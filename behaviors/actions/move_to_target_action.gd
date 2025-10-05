@@ -40,4 +40,5 @@ func tick(actor: Node, blackboard: Blackboard) -> int:
 	if distance_to_target <= actor.attack_acceptance_range:
 		return SUCCESS
 	else:
+		actor.move_and_slide()
 		return RUNNING
