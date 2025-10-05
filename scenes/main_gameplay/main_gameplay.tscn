@@ -1,7 +1,6 @@
-[gd_scene load_steps=13 format=3 uid="uid://c3rvm3rw6opg"]
+[gd_scene load_steps=12 format=3 uid="uid://c3rvm3rw6opg"]
 
 [ext_resource type="Script" uid="uid://654itoswefaq" path="res://node_types/camera_shake.gd" id="1_lrklj"]
-[ext_resource type="Script" uid="uid://e274qojiifqq" path="res://scenes/main_gameplay/main_gameplay.gd" id="1_wt4mr"]
 [ext_resource type="Environment" uid="uid://bf8ysb2ywtuba" path="res://default_environment.tres" id="2_sms7d"]
 [ext_resource type="PackedScene" uid="uid://bgu1iguf46imi" path="res://actors/player/player.tscn" id="3_lot3w"]
 [ext_resource type="Script" uid="uid://bqw3gr8wesx3g" path="res://addons/chunker/chunker.gd" id="3_vsax7"]
@@ -18,7 +17,6 @@ albedo_color = Color(1, 0.101960786, 0.24313726, 1)
 material = SubResource("StandardMaterial3D_lot3w")
 
 [node name="MainGameplay" type="Node3D"]
-script = ExtResource("1_wt4mr")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = ExtResource("2_sms7d")
