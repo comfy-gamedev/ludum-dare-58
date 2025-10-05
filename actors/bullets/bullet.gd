@@ -3,9 +3,12 @@ extends base_bullet
 var direction : Vector3
 
 @onready var mesh: MeshInstance3D = $missile/Missile
+@onready var timer = $Lifetime
 
 func _ready() -> void:
-	scale = Vector3.ONE * size
+	#scale = Vector3.ONE * size
+	timer.wait_time = lifetime
+	
 	#switch on type for 3d model
 	match element_type:
 		Globals.elements.AIR:

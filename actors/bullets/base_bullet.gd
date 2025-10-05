@@ -4,3 +4,4 @@ var damage = 1
 var speed = 7.5
 var size = 1
 var element_type = Globals.elements.EARTH
+var lifetime = 1.5
