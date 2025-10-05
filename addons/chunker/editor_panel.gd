@@ -26,7 +26,6 @@ func _process(delta: float) -> void:
 
 func _collect_items() -> void:
 	var selected_uid = Array(item_list.get_selected_items()).map(func (i): return item_list.get_item_metadata(i))
-	print({ selected_uid = selected_uid })
 	item_list.clear()
 	_collect_items_populate()
 	if selected_uid:
@@ -65,14 +64,12 @@ func forward_3d_gui_input(viewport_camera: Camera3D, event: InputEvent) -> int:
 		return EditorPlugin.AFTER_GUI_INPUT_PASS
 	
 	if not item_list.is_anything_selected():
-		print('UH OH')
-		return EditorPlugin.AFTER_GUI_INPUT_STOP
+		return EditorPlugin.AFTER_GUI_INPUT_PASS
 	
 	var selected_i = item_list.get_selected_items()[0]
 	var uid = item_list.get_item_metadata(selected_i)
 	if not uid:
-		print('UH OH')
-		return EditorPlugin.AFTER_GUI_INPUT_STOP
+		return EditorPlugin.AFTER_GUI_INPUT_PASS
 	
 	if event is InputEventKey:
 		if event.pressed and event.physical_keycode == KEY_S and event.get_modifiers_mask() == 0:
@@ -114,7 +111,7 @@ func forward_3d_gui_input(viewport_camera: Camera3D, event: InputEvent) -> int:
 	if event is InputEventMouseMotion:
 		_update_preview_cursor_position(viewport_camera, event)
 		_update_preview(uid)
-		return EditorPlugin.AFTER_GUI_INPUT_STOP
+		return EditorPlugin.AFTER_GUI_INPUT_PASS
 	
 	return EditorPlugin.AFTER_GUI_INPUT_PASS
 

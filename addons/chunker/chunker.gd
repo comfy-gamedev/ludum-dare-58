@@ -1,5 +1,5 @@
 @tool
-extends Node
+extends Node3D
 class_name Chunker
 
 const OFFSETS = [Vector2i(0, 0), Vector2i(1, 0), Vector2i(1, 1), Vector2i(0, 1)]
@@ -15,6 +15,9 @@ var _loaded_chunks: Dictionary[Vector2i, Node3D] = {}
 func _ready() -> void:
 	for p in chunks:
 		_reload_chunk(p)
+
+func _get_aabb() -> AABB:
+	return AABB(Vector3.ZERO, Vector3.ONE)
 
 func get_chunk(p: Vector2i) -> Array:
 	if p in chunks:
