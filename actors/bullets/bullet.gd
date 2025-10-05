@@ -37,7 +37,7 @@ func _physics_process(delta: float) -> void:
 			position += direction * speed * delta
 			basis = Basis.looking_at(direction, Vector3.UP, true)
 			basis = basis.scaled(Vector3.ONE * size)
-			angle_offset = (sin(timer.wait_time - timer.time_left) + 1) / 20.0
+			angle_offset = (sin((timer.wait_time - timer.time_left - 1) * 2) + 1) / 10.0
 			direction = direction.rotated(Vector3.UP, angle_offset)
 
 
