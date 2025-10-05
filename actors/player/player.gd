@@ -38,6 +38,8 @@ func _process(delta: float) -> void:
 		hat.linear_velocity = Vector3(targeting_ball.position.x, 0, targeting_ball.position.z).normalized() * 5
 		hat.process_mode = Node.PROCESS_MODE_INHERIT
 		hat.pickup_ready = false
+		if hats.size() < 1:
+			cooldown.wait_time = 1.0
 	
 
 func _physics_process(delta: float) -> void:
@@ -75,6 +77,7 @@ func _on_hit():
 			hat.linear_velocity = Vector3(randf() - 0.5, 0, randf() - 0.5).normalized() * 5
 			hat.process_mode = Node.PROCESS_MODE_INHERIT
 			hat.pickup_ready = false
+		cooldown.wait_time = 1.0
 	else:
 		#death
 		pass
