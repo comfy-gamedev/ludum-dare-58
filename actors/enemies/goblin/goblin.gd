@@ -1,6 +1,5 @@
 extends base_enemy
 
-@onready var blackboard: Blackboard = $Blackboard
 @onready var target_seeking_radius: Area3D = $TargetSeekingRadius
 
 var hat_drop_scene = preload("res://actors/hats/icicle/icicle_hat.tscn")
@@ -10,13 +9,17 @@ func _init() -> void:
 	damage = 1
 	speed = 3.0
 	accel = 3.0
+	attack_acceptance_range = 5
 
-func _physics_process(_delta: float) -> void:
-	seek_targets()
 
-func seek_targets():
+func get_closest_detected_target() -> Node3D:
 	var bodies = target_seeking_radius.get_overlapping_bodies().filter(func (x): return x.is_in_group("ally"))
-	blackboard.set_value("target_objects", bodies)
+	
+	if bodies.is_empty():
+		return null
+	
+	bodies.sort_custom(func (a, b): return a.global_position.distance_to(global_position) < b.global_position.distance_to(global_position))
+	return bodies[0]
 
 func on_hit(_damage: int):
 	health -= _damage
