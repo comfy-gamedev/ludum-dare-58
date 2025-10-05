@@ -1,4 +1,4 @@
-@abstract class_name base_enemy extends CharacterBody3D
+@abstract class_name base_unit extends CharacterBody3D
 
 var hat: Hat
 var damage
