@@ -1,5 +1,8 @@
 extends base_enemy
 
+@onready var blackboard: Blackboard = $Blackboard
+@onready var target_seeking_radius: Area3D = $TargetSeekingRadius
+
 var hat_drop_scene = preload("res://actors/hats/icicle/icicle_hat.tscn")
 
 func _init() -> void:
@@ -7,6 +10,13 @@ func _init() -> void:
 	damage = 1
 	speed = 3.0
 	accel = 3.0
+
+func _physics_process(_delta: float) -> void:
+	seek_targets()
+
+func seek_targets():
+	var bodies = target_seeking_radius.get_overlapping_bodies().filter(func (x): return x.is_in_group("ally"))
+	blackboard.set_value("target_objects", bodies)
 
 func on_hit(_damage: int):
 	health -= _damage
