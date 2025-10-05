@@ -13,6 +13,6 @@ func tick(actor: Node, blackboard: Blackboard) -> int:
 	var actor_pos_vec2 = Vector2(actor.position.x, actor.position.z)
 	var direction = Vector3(target_pos_vec2.x - actor_pos_vec2.x, 0, target_pos_vec2.y - actor_pos_vec2.y).normalized()
 	
-	actor.trigger_hat_skill(direction, target)
+	actor.trigger_hat_skill(direction, actor.get_parent())
 	
 	return SUCCESS
