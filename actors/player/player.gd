@@ -1,7 +1,7 @@
 extends CharacterBody3D
 
 const ACCEL = 5.0
-const SPEED_START = 7.5
+const SPEED_START = 8.0
 var speed = SPEED_START
 var hats: Array[Hat] = []
 

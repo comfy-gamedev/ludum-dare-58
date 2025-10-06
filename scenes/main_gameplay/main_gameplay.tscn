@@ -670,7 +670,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16, 0, 16)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16, 0, 16)
 
 [node name="Camera3D" type="Camera3D" parent="Player"]
-transform = Transform3D(0.99999994, 0, 0, 0, 0.564967, 0.8251135, 0, -0.8251135, 0.564967, -0.0101396, 8.321833, 5.6878605)
+transform = Transform3D(1, 0, 0, 0, 0.56496704, 0.82511353, 0, -0.82511353, 0.56496704, -0.010139465, 9.731262, 6.3362904)
 
 [node name="CameraShake" type="Node" parent="Player/Camera3D"]
 script = ExtResource("1_lrklj")
@@ -798,6 +798,15 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 149.09917, 3.0517578e-05, 84.
 
 [node name="EncampmentMarker26" parent="EncampmentSpawns" instance=ExtResource("16_eamew")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.558594, 0, -303.43845)
+
+[node name="EncampmentMarker27" parent="EncampmentSpawns" instance=ExtResource("16_eamew")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 209.6233, 0, 306.15292)
+
+[node name="EncampmentMarker28" parent="EncampmentSpawns" instance=ExtResource("16_eamew")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 144.33984, 0, 367.70404)
+
+[node name="EncampmentMarker29" parent="EncampmentSpawns" instance=ExtResource("16_eamew")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 364.9424, 0, 64.50957)
 
 [node name="Bridge" parent="." instance=ExtResource("16_km80p")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 189.45517, 0.69062614, 2.0046992)
