@@ -5,10 +5,12 @@ var player_interacting = false
 var player_ref
 var camera_original_rotation_vec
 var camera_origin_position_vec
+var yarn: int = 0
 
 @onready var dialog_panel: Panel = %DialogPanel
 @onready var dialog_label: Label = %DialogLabel
 @onready var dialog_button: Button = %DialogButton
+@onready var yay: CPUParticles3D = $Yay
 
 @onready var catalog_panel: Panel = %CatalogPanel
 @onready var dispense_button: Button = %DispenseButton
@@ -47,10 +49,26 @@ func _on_body_entered(body: Node3D) -> void:
 		
 		if not is_instance_valid(player_ref):
 			player_ref = body
-	if body.is_in_group("hat"):
+	if body.is_in_group("hat") and not body.is_in_group("spiderhat"):
 		body.queue_free()
+		yay.emitting = true
+		yarn += 1
+		if yarn == 3:
+			yarn = 0
+			yeet_hat()
 
-func on_exit_interaction():	
+func yeet_hat() -> void:
+	var hat: RigidBody3D = Globals.hat_scene_pool[Globals.hat_scene_pool.keys().pick_random()].instantiate()
+	hat.add_to_group("spiderhat")
+	hat.linear_velocity = Vector3(randf_range(-1,1), 1, randf_range(-1,1))
+	get_parent().add_child(hat)
+	hat.global_position = global_position + Vector3(0, 1, 0)
+	print("Yeet ", hat)
+	await get_tree().create_timer(5.0).timeout
+	if is_instance_valid(hat):
+		hat.remove_from_group("spiderhat")
+
+func on_exit_interaction():
 	on_reset_camera_position()
 	on_reset_ui()
 
