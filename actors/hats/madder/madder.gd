@@ -13,7 +13,7 @@ func fire(dir: Vector3, bullet_parent: Node3D):
 	#bullet.direction = dir.rotated(Vector3.UP, 0)
 	bullet.lifetime = 4
 	bullet.movement = base_bullet.movement_types.LOOPY
-	bullet.element_type = Globals.elements.EARTH
+	bullet.element_type = element
 	bullet_parent.add_child(bullet)
 	
 	bullet = bullet_scene.instantiate()
@@ -22,7 +22,7 @@ func fire(dir: Vector3, bullet_parent: Node3D):
 	bullet.direction = dir.rotated(Vector3.UP, TAU / 5)
 	bullet.lifetime = 4
 	bullet.movement = base_bullet.movement_types.LOOPY
-	bullet.element_type = Globals.elements.EARTH
+	bullet.element_type = element
 	bullet_parent.add_child(bullet)
 	#
 	bullet = bullet_scene.instantiate()
@@ -31,7 +31,7 @@ func fire(dir: Vector3, bullet_parent: Node3D):
 	bullet.direction = dir.rotated(Vector3.UP, (TAU * 2) / 5)
 	bullet.lifetime = 4
 	bullet.movement = base_bullet.movement_types.LOOPY
-	bullet.element_type = Globals.elements.WATER
+	bullet.element_type = element
 	bullet_parent.add_child(bullet)
 	
 	bullet = bullet_scene.instantiate()
@@ -40,7 +40,7 @@ func fire(dir: Vector3, bullet_parent: Node3D):
 	bullet.direction = dir.rotated(Vector3.UP, (TAU * 3) / 5)
 	bullet.lifetime = 4
 	bullet.movement = base_bullet.movement_types.LOOPY
-	bullet.element_type = Globals.elements.WATER
+	bullet.element_type = element
 	bullet_parent.add_child(bullet)
 	
 	bullet = bullet_scene.instantiate()
@@ -49,5 +49,5 @@ func fire(dir: Vector3, bullet_parent: Node3D):
 	bullet.direction = dir.rotated(Vector3.UP, (TAU * 4) / 5)
 	bullet.lifetime = 4
 	bullet.movement = base_bullet.movement_types.LOOPY
-	bullet.element_type = Globals.elements.WATER
+	bullet.element_type = element
 	bullet_parent.add_child(bullet)

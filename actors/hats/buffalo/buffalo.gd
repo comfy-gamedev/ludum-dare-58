@@ -13,5 +13,5 @@ func fire(dir: Vector3, bullet_parent: Node3D):
 	bullet.explosive = true
 	bullet.lifetime = .01
 	bullet.radius = 10
-	bullet.element_type = Globals.elements.WATER
+	bullet.element_type = element
 	bullet_parent.add_child(bullet)
