@@ -4,8 +4,6 @@ var ally_scene = preload("res://actors/units/capling/capling.tscn")
 const VILLAGE_ORIGIN = Vector3(-16, 0, 16)
 var allies = []
 var jump_impulses = []
-var time = 0.0
-#var jump_impulse = 0
 
 func _ready() -> void:
 	for i in 20:
@@ -20,7 +18,6 @@ func _ready() -> void:
 		jump_impulses.append(randf())
 
 func _physics_process(delta: float) -> void:
-	time += delta
 	var ally
 	for i in allies.size():
 		ally = allies[i]
@@ -28,7 +25,6 @@ func _physics_process(delta: float) -> void:
 		ally.position += Vector3.UP * jump_impulses[i] * 0.2
 		if ally.position.y <= 0:
 			jump_impulses[i] = 1.0
-		#ally.position += Vector3.UP * abs(sin(time)) * 1
 
 func _on_button_pressed() -> void:
 	SceneGirl.change_scene("res://scenes/main_menu/main_menu.tscn")
