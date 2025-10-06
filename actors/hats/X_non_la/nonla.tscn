@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://cfjk5mcefdcda"]
 
-[ext_resource type="Script" uid="uid://degsxmjebm327" path="res://actors/hats/X_non_la/nonla.gd" id="1_fchh7"]
+[ext_resource type="Script" path="res://actors/hats/X_non_la/nonla.gd" id="1_fchh7"]
 [ext_resource type="PackedScene" uid="uid://cdvsmksau7lqg" path="res://assets/models/nonla.glb" id="2_c0h0b"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_1asxe"]
