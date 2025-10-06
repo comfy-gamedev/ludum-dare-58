@@ -1,30 +1,55 @@
-[gd_scene load_steps=3 format=3 uid="uid://b2is2xacrnei2"]
+[gd_scene load_steps=9 format=3 uid="uid://b2is2xacrnei2"]
 
 [ext_resource type="Texture2D" uid="uid://dwg5k344eg6wu" path="res://assets/textures/win.png" id="1_020m0"]
 [ext_resource type="Script" uid="uid://cmybsm318ryyh" path="res://scenes/win/win.gd" id="1_bhp81"]
+[ext_resource type="PackedScene" uid="uid://vl48dqgc4dp4" path="res://level_chunks/home.tscn" id="3_vx0oi"]
 
-[node name="Win" type="Node2D"]
+[sub_resource type="Environment" id="Environment_vx0oi"]
+background_mode = 1
+background_color = Color(0, 1, 1, 1)
+background_energy_multiplier = 0.5
+ambient_light_source = 2
+ambient_light_color = Color(1, 1, 1, 1)
+ambient_light_energy = 0.2
+
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_vx0oi"]
+resource_local_to_scene = true
+plane = Plane(1, 0, 0, 0)
+
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_1dboi"]
+plane = Plane(-1, 0, 0, 0)
+
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_qpr7g"]
+plane = Plane(0, 0, 1, 0)
+
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_eem54"]
+plane = Plane(0, 0, -1, 0)
+
+[node name="Node3D" type="Node3D"]
+
+[node name="Win" type="Node2D" parent="."]
 script = ExtResource("1_bhp81")
 
-[node name="Win" type="Sprite2D" parent="."]
+[node name="Win" type="Sprite2D" parent="Win"]
+visible = false
 position = Vector2(480, 360)
 texture = ExtResource("1_020m0")
 
-[node name="Button" type="Button" parent="."]
-offset_left = 734.0
-offset_top = 45.0
-offset_right = 913.0
-offset_bottom = 92.0
+[node name="Button" type="Button" parent="Win"]
+offset_left = 744.0
+offset_top = 655.0
+offset_right = 923.0
+offset_bottom = 702.0
 text = "Main Menu"
 
-[node name="Button2" type="Button" parent="."]
+[node name="Button2" type="Button" parent="Win"]
 offset_left = 37.0
 offset_top = 656.0
 offset_right = 276.0
 offset_bottom = 703.0
 text = "One More Run!"
 
-[node name="Label" type="Label" parent="."]
+[node name="Label" type="Label" parent="Win"]
 offset_left = 204.0
 offset_top = 94.0
 offset_right = 641.0
@@ -32,5 +57,50 @@ offset_bottom = 133.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "You rescued all the lil' dudes!"
 
-[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
-[connection signal="pressed" from="Button2" to="." method="_on_button_2_pressed"]
+[node name="GridMap" parent="." instance=ExtResource("3_vx0oi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16, 0, 16)
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.483452, 20.436033)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.70710677, -0.49999997, 0.49999997, 0, 0.70710677, 0.70710677, -0.70710677, -0.49999997, 0.49999997, 0, 4.3054237, 0)
+light_energy = 0.325
+shadow_enabled = true
+directional_shadow_mode = 0
+directional_shadow_split_1 = 0.0
+directional_shadow_max_distance = 30.0
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_vx0oi")
+
+[node name="wall" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="wall"]
+transform = Transform3D(2.135, 0, 0, 0, 2.135, 0, 0, 0, 2.135, 0, 0, 0)
+shape = SubResource("WorldBoundaryShape3D_vx0oi")
+
+[node name="wall2" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="wall2"]
+transform = Transform3D(2.135, 0, 0, 0, 2.135, 0, 0, 0, 2.135, 0, 0, 0)
+shape = SubResource("WorldBoundaryShape3D_1dboi")
+
+[node name="wall3" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -16)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="wall3"]
+transform = Transform3D(2.135, 0, 0, 0, 2.135, 0, 0, 0, 2.135, 0, 0, 0)
+shape = SubResource("WorldBoundaryShape3D_qpr7g")
+
+[node name="wall4" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 16)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="wall4"]
+transform = Transform3D(2.135, 0, 0, 0, 2.135, 0, 0, 0, 2.135, 0, 0, 0)
+shape = SubResource("WorldBoundaryShape3D_eem54")
+
+[connection signal="pressed" from="Win/Button" to="Win" method="_on_button_pressed"]
+[connection signal="pressed" from="Win/Button2" to="Win" method="_on_button_2_pressed"]
