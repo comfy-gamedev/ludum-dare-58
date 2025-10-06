@@ -15,7 +15,7 @@ func fire(dir: Vector3, bullet_parent: Node3D):
 	bullet.damage = 1
 	bullet.speed = 7.5
 	bullet.size = 2
-	bullet.lifetime = 0.5
+	bullet.lifetime = 1.5
 	bullet.movement = base_bullet.movement_types.WAVY
 	bullet.piercing = 3
 	bullet.radius = 3.0 #only applied to orbital or pulse modes

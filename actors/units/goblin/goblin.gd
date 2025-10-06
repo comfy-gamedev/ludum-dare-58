@@ -74,6 +74,7 @@ func on_hit(_damage: int, type: Globals.elements , slowing = false):
 		on_death()
 
 func on_death():
+	MusicMan.sfx(preload("res://assets/sfx/enemydeath.wav"))
 	spawn_hat_drop()
 	
 	if is_instance_valid(encampment_ref):

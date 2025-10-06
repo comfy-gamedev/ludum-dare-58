@@ -9,7 +9,7 @@ func _init() -> void:
 	damage = 1
 	speed = 3.0
 	accel = 3.0
-	attack_acceptance_range = 5
+	attack_acceptance_range = 7.5
 	max_distance_from_origin = 10
 
 func _ready() -> void:
@@ -46,6 +46,7 @@ func on_hit(_damage: int, _type: Globals.elements, slowing = false):
 		effect_timer.start()
 	
 	if health <= 0:
+		MusicMan.sfx(preload("res://assets/sfx/friendlydeath.wav"))
 		on_death()
 
 func on_death():
