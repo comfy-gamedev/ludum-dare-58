@@ -11,6 +11,7 @@ func on_encampment_destroyed():
 	if not has_been_called:
 		has_been_called = true
 		print("ALL CAPLINGS DEAD! GAME OVER!")
+		SceneGirl.change_scene("res://scenes/lose/lose.tscn")
 
 func spawn_starting_units():
 	for i in starting_number_of_caplings:
@@ -22,4 +23,4 @@ func spawn_unit():
 	var capling_pos = Vector3(self.global_position.x + randf_range(-5, 5), 0, self.global_position.z + randf_range(-5, 5))
 	new_capling.global_position = capling_pos
 	new_capling.encampment_ref = self
-	$/root/MainGameplay/AllyParent.add_child(new_capling)
+	$/root/MainGameplay.add_child(new_capling)
