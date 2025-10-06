@@ -113,11 +113,12 @@ func init_hat_catalog_items():
 func create_hat_catalog_item(pos: Vector2):
 	var item_height = 100
 	var item_length = 100
-	var new_item_panel = Panel.new()
+	var new_item_panel = Button.new()
+	new_item_panel.disabled = true
 	new_item_panel.set_position(pos)
 	new_item_panel.set_size(Vector2(item_length, item_height))
 	#new_item_panel.theme = ui_theme
-	#new_item_panel.text = # blah
+	new_item_panel.text = "?"
 	catalog_panel.add_child(new_item_panel)
 
 func _on_exit_button_pressed() -> void:
