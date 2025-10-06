@@ -92,6 +92,7 @@ func dialog_say(s: String) -> void:
 func init_hat_catalog_items():
 	var button_pos_y = -90
 	var button_pos_x = 15
+	var hat_index = 0
 	
 	for r in range(3):
 		button_pos_y += 105
@@ -107,10 +108,11 @@ func init_hat_catalog_items():
 			#else:
 				#mission_id += str(mission_number)
 				
-			create_hat_catalog_item(Vector2(button_pos_x, button_pos_y))
+			create_hat_catalog_item(Vector2(button_pos_x, button_pos_y), hat_index)
+			hat_index += 1
 			button_pos_x += 105
 	
-func create_hat_catalog_item(pos: Vector2):
+func create_hat_catalog_item(pos: Vector2, hat_index):
 	var item_height = 100
 	var item_length = 100
 	var new_item_panel = Button.new()
@@ -118,8 +120,42 @@ func create_hat_catalog_item(pos: Vector2):
 	new_item_panel.set_position(pos)
 	new_item_panel.set_size(Vector2(item_length, item_height))
 	#new_item_panel.theme = ui_theme
-	new_item_panel.text = "?"
+	#Globals.hat_scene_pool
 	catalog_panel.add_child(new_item_panel)
+	
+	var hat_keys = Globals.hat_scene_pool.keys()
+	if hat_index <= hat_keys.size():
+		var current_hat_key = hat_keys[hat_index]
+		var current_hat_scene = Globals.hat_scene_pool[current_hat_key]
+		var hat = current_hat_scene.instantiate()
+		
+		var sub_viewport_container = SubViewportContainer.new()
+		var sub_viewport = SubViewport.new()
+		sub_viewport.transparent_bg = true
+		#new_item_panel.add_child(sub_viewport_container)
+		sub_viewport_container.add_child(sub_viewport)
+		#sub_viewport.size = Vector2i(100, 100)
+		sub_viewport_container.stretch = true
+		sub_viewport_container.size = Vector2i(100, 100)
+		sub_viewport.add_child(Camera3D.new())
+		sub_viewport.add_child(hat)
+		sub_viewport.own_world_3d = true
+		var directional_light = DirectionalLight3D.new()
+		directional_light.light_energy = 0.75
+		directional_light.rotation = Vector3(-45, 45, 0)
+		sub_viewport.add_child(directional_light)
+		new_item_panel.add_child(sub_viewport_container)
+		hat.position.z = -2
+		hat.process_mode = Node.PROCESS_MODE_DISABLED
+		#new_item_panel.add_child(sub_viewport)
+		#sub_viewport.texture = 
+		#sub_viewport.add_child(hat)
+		#var viewport = new Viewport()
+		#hat.global_position = Vector3(pos.x, pos.y, 0)
+	#var hat_drop_pos = Vector3(self.global_position.x, 0, self.global_position.z)
+		#new_item_panel.add_child(hat)
+	else:
+		new_item_panel.text = "?"
 
 func _on_exit_button_pressed() -> void:
 	on_exit_interaction()
