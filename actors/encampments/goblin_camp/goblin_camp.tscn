@@ -28,7 +28,7 @@ material = SubResource("StandardMaterial3D_i21rv")
 [node name="GoblinCamp" type="Node3D"]
 script = ExtResource("1_gs67e")
 
-[node name="cage" parent="." instance=ExtResource("1_bacdj")]
+[node name="Cage" parent="." instance=ExtResource("1_bacdj")]
 transform = Transform3D(1, 0, 0, 0, 1.8976834, 0, 0, 0, 1, -0.0139250755, 0, 0.024291515)
 
 [node name="CagedCapling" type="MeshInstance3D" parent="."]
