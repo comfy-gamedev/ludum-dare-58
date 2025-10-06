@@ -3,6 +3,7 @@ extends base_unit
 @onready var target_seeking_radius: Area3D = $TargetSeekingRadius
 @onready var effect_timer = $EffectTimer
 
+# TODO: This will eventually pull from a random pool of hats.
 var hat_scene
 
 func _init() -> void:
@@ -22,6 +23,7 @@ func choose_random_hat_scene() -> PackedScene:
 func trigger_hat_skill(dir: Vector3, bullet_parent: Node3D):
 	if is_instance_valid(equipped_hat):
 		equipped_hat.fire(dir, bullet_parent)
+		#add animation here
 
 func init_hat() -> Hat:
 	hat_scene = choose_random_hat_scene()
