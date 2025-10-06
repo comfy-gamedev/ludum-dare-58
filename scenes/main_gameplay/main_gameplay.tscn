@@ -794,4 +794,9 @@ transform = Transform3D(-0.004502921, 0, -0.99998987, 0, 1, 0, 0.99998987, 0, -0
 
 [node name="UI" type="Node2D" parent="."]
 
+[node name="Label" type="Label" parent="UI"]
+offset_right = 40.0
+offset_bottom = 39.0
+text = "Time till next wave: "
+
 [connection signal="timeout" from="EventTimer" to="." method="_on_event_timer_timeout"]
