@@ -3,8 +3,8 @@ extends Area3D
 var player_nearby = false
 var player_interacting = false
 var player_ref
-var camera_original_rotation_vec
-var camera_origin_position_vec
+var camera_original_basis
+var camera_original_position_vec
 var yarn: int = 0
 
 @onready var dialog_panel: Panel = %DialogPanel
@@ -15,6 +15,8 @@ var yarn: int = 0
 @onready var catalog_panel: Panel = %CatalogPanel
 @onready var dispense_button: Button = %DispenseButton
 @onready var exit_button: Button = %ExitButton
+@onready var marker_3d: Marker3D = $Marker3D
+@onready var marker_3d_2: Marker3D = $Marker3D2
 
 func _ready() -> void:
 	init_hat_catalog_items()
@@ -31,17 +33,20 @@ func on_player_interact(_delta: float):
 
 func on_zoom_camera():
 	if is_instance_valid(player_ref):
+		player_ref.global_position = marker_3d_2.global_position
+		player_ref.model.global_basis = marker_3d_2.global_basis
 		var camera_node = player_ref.get_node("Camera3D")
-		camera_original_rotation_vec = camera_node.rotation
-		camera_node.global_position = Vector3(23, 1, 7)
-		camera_node.rotation = Vector3(25, 0, 0)
+		camera_original_position_vec = camera_node.position
+		camera_original_basis = camera_node.basis
+		camera_node.global_position = marker_3d.global_position
+		camera_node.global_basis = marker_3d.global_basis
 
 func on_reset_camera_position():
 	if is_instance_valid(player_ref) and player_interacting:
 		player_interacting = false
 		var camera_node = player_ref.get_node("Camera3D")
-		camera_node.global_position = player_ref.position + Vector3(-0.01, 9.731, 6.336) #camera_original_position_vec
-		camera_node.rotation = camera_original_rotation_vec
+		camera_node.position = camera_original_position_vec
+		camera_node.basis = camera_original_basis
 
 func _on_body_entered(body: Node3D) -> void:
 	if body.is_in_group("player"):
