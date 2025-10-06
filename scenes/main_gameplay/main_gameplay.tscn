@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://c3rvm3rw6opg"]
+[gd_scene load_steps=21 format=3 uid="uid://c3rvm3rw6opg"]
 
 [ext_resource type="Script" uid="uid://654itoswefaq" path="res://node_types/camera_shake.gd" id="1_lrklj"]
 [ext_resource type="Script" uid="uid://bfmiw37j0chvs" path="res://scenes/main_gameplay/main_gameplay.gd" id="1_sbvst"]
@@ -16,6 +16,8 @@
 [ext_resource type="PackedScene" uid="uid://c8hidieg0al2r" path="res://actors/hats/cowboy/cowboy.tscn" id="13_fjp8b"]
 [ext_resource type="PackedScene" uid="uid://pyiqrtqqbvfi" path="res://level_chunks/encampment_marker.tscn" id="16_eamew"]
 [ext_resource type="PackedScene" uid="uid://bxyc7ydieogw1" path="res://actors/terrain/bridge.tscn" id="16_km80p"]
+[ext_resource type="PackedScene" uid="uid://cfjk5mcefdcda" path="res://actors/hats/X_non_la/nonla.tscn" id="17_eamew"]
+[ext_resource type="PackedScene" uid="uid://dbwi51ka8rab7" path="res://actors/hats/jester/jester.tscn" id="18_om7j4"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lot3w"]
 albedo_color = Color(1, 0.101960786, 0.24313726, 1)
@@ -805,5 +807,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 221.32047, 0.8692082, 351.959
 
 [node name="Bridge4" parent="." instance=ExtResource("16_km80p")]
 transform = Transform3D(-0.004502921, 0, -0.99998987, 0, 1, 0, 0.99998987, 0, -0.004502921, 327.1336, 0.95674455, 285.13635)
+
+[node name="RigidBody3D2" parent="." instance=ExtResource("17_eamew")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.4017415, 0.25, 18.239487)
+
+[node name="RigidBody3D3" parent="." instance=ExtResource("18_om7j4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.716404, 0.44803157, 22.863476)
 
 [connection signal="timeout" from="EventTimer" to="." method="_on_event_timer_timeout"]
