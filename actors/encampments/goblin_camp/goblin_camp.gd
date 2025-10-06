@@ -12,6 +12,10 @@ func on_encampment_destroyed():
 	if not has_been_called:
 		has_been_called = true
 		print("capling freed!")
+		# Spawn freed capling in home camp.
+		$/root/MainGameplay/HomeCamp.spawn_unit()
+		# Remove enemy camp.
+		self.queue_free()
 
 func spawn_units():
 	for i in number_of_units:
