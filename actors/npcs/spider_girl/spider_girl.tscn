@@ -104,12 +104,13 @@ metadata/_edit_use_anchors_ = true
 unique_name_in_owner = true
 visible = false
 offset_left = 386.0
-offset_top = 31.0
+offset_top = 87.0
 offset_right = 933.0
-offset_bottom = 374.0
+offset_bottom = 430.0
 
 [node name="DispenseButton" type="Button" parent="CanvasLayer/CatalogPanel"]
 unique_name_in_owner = true
+visible = false
 layout_mode = 0
 offset_left = 29.0
 offset_top = 376.0
@@ -119,6 +120,7 @@ text = "DISPENSE"
 
 [node name="ExitButton" type="Button" parent="CanvasLayer/CatalogPanel"]
 unique_name_in_owner = true
+visible = false
 layout_mode = 0
 offset_left = 291.0
 offset_top = 376.0
