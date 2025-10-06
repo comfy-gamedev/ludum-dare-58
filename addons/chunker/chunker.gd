@@ -6,6 +6,8 @@ const OFFSETS = [Vector2i(0, 0), Vector2i(1, 0), Vector2i(1, 1), Vector2i(0, 1)]
 
 const DECALS = [4, 5, 6, 7, 8, 35]
 
+const WATER = [24, 25, 26]
+
 @export var chunk_size: Vector2 = Vector2(32.0, 32.0)
 
 @export_storage var chunk_scenes: Array[String] = []
@@ -72,12 +74,22 @@ func _cleanup_chunk(node: GridMap, spin: int) -> void:
 	
 	node.cell_octant_size = 16
 	node.mesh_library = _meshlib_copy
+	var l = _meshlib_copy.get_item_list()
 	
 	for v in node.get_used_cells():
 		var c = node.get_cell_item(v)
+		if c == 0:
+			continue
 		if not _meshlib_copy.get_item_shapes(c):
 			continue
 		if v.y < 0:
+			if c in WATER:
+				var ii = 0
+				for vv in [Vector3i(1, 0, 0), Vector3i(-1, 0, 0), Vector3i(0, 0, -1), Vector3i(0, 0, 1)]:
+					if node.get_cell_item(v + vv) in WATER:
+						ii += 1
+				if ii != 4:
+					continue
 			_cells_to_bump.append(v)
 		else:
 			var ii = 0
