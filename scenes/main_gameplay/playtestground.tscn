@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://ctas5rv0ag3v0"]
+[gd_scene load_steps=21 format=3 uid="uid://ctas5rv0ag3v0"]
 
 [ext_resource type="Script" uid="uid://bfmiw37j0chvs" path="res://scenes/main_gameplay/main_gameplay.gd" id="1_qilwm"]
 [ext_resource type="Environment" uid="uid://bf8ysb2ywtuba" path="res://default_environment.tres" id="2_oah2w"]
@@ -16,6 +16,8 @@
 [ext_resource type="PackedScene" uid="uid://c8hidieg0al2r" path="res://actors/hats/cowboy/cowboy.tscn" id="14_lqgwk"]
 [ext_resource type="PackedScene" uid="uid://dbxoeedoctsor" path="res://actors/hats/tyrolean/tyrolean.tscn" id="15_oah2w"]
 [ext_resource type="PackedScene" uid="uid://b6w3q3ipa6xic" path="res://actors/hats/tricorn/tricorn.tscn" id="16_yecnw"]
+[ext_resource type="PackedScene" uid="uid://cqr8lvhyyhkwo" path="res://actors/hats/witch/witch.tscn" id="17_4ceee"]
+[ext_resource type="PackedScene" uid="uid://dfvu7kkdxffly" path="res://actors/units/capling/capling.tscn" id="18_oora8"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lot3w"]
 albedo_color = Color(1, 0.101960786, 0.24313726, 1)
@@ -268,6 +270,13 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.618303, 0.36228007, 8.9759
 
 [node name="RigidBody3D3" parent="." instance=ExtResource("16_yecnw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.623108, 0.25, 14.879191)
+
+[node name="RigidBody3D4" parent="." instance=ExtResource("17_4ceee")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.530824, 0.6919378, 11.885083)
+
+[node name="AllyParent" type="Node3D" parent="."]
+
+[node name="Capling" parent="AllyParent" instance=ExtResource("18_oora8")]
 
 [connection signal="timeout" from="EventTimer" to="." method="_on_event_timer_timeout"]
 
