@@ -10,9 +10,9 @@
 [ext_resource type="PackedScene" uid="uid://dgn2cmxmyhrcx" path="res://actors/hats/buffalo/buffalo.tscn" id="8_1svbp"]
 [ext_resource type="PackedScene" uid="uid://5mtoxf8e7jpa" path="res://actors/hats/fez/fez.tscn" id="8_ieocc"]
 [ext_resource type="PackedScene" uid="uid://dk2fol3t0dy4b" path="res://assets/models/cowboy3.glb" id="10_ieocc"]
-[ext_resource type="PackedScene" uid="uid://6x1ljv1iihde" path="res://assets/models/spider/spider.glb" id="11_ieocc"]
 [ext_resource type="PackedScene" uid="uid://cgvopsmv7neoy" path="res://actors/encampments/goblin_camp/goblin_camp.tscn" id="11_j67kx"]
 [ext_resource type="PackedScene" uid="uid://cpymafqtgeuud" path="res://actors/hats/phrygian/phrygian.tscn" id="12_j67kx"]
+[ext_resource type="PackedScene" uid="uid://cyyx144k2au8w" path="res://actors/npcs/spider_girl/spider_girl.tscn" id="12_km80p"]
 [ext_resource type="PackedScene" uid="uid://c8hidieg0al2r" path="res://actors/hats/cowboy/cowboy.tscn" id="13_fjp8b"]
 [ext_resource type="PackedScene" uid="uid://pyiqrtqqbvfi" path="res://level_chunks/encampment_marker.tscn" id="16_eamew"]
 [ext_resource type="PackedScene" uid="uid://bxyc7ydieogw1" path="res://actors/terrain/bridge.tscn" id="16_km80p"]
@@ -698,8 +698,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.0256867, 1.7644718, 5.1409
 [node name="GoblinCamp1" parent="." instance=ExtResource("11_j67kx")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.273014, 0, -50.87052)
 
-[node name="spider" parent="." instance=ExtResource("11_ieocc")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.344639, 0.013743967, 5.153982)
+[node name="SpiderGirl" parent="." instance=ExtResource("12_km80p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.343124, 0, 5.30475)
 
 [node name="phrygian" parent="." instance=ExtResource("12_j67kx")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.575781, 0.25, 5.3446445)
@@ -807,5 +807,3 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 221.32047, 0.8692082, 351.959
 transform = Transform3D(-0.004502921, 0, -0.99998987, 0, 1, 0, 0.99998987, 0, -0.004502921, 327.1336, 0.95674455, 285.13635)
 
 [connection signal="timeout" from="EventTimer" to="." method="_on_event_timer_timeout"]
-
-[editable path="spider"]

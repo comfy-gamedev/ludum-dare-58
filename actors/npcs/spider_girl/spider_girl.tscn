@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://cyyx144k2au8w"]
+
+[ext_resource type="PackedScene" uid="uid://6x1ljv1iihde" path="res://assets/models/spider/spider.glb" id="1_gidbn"]
+
+[node name="SpiderGirl" type="Node3D"]
+
+[node name="SpiderGirlModel" parent="." instance=ExtResource("1_gidbn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.014, 0)
+
+[node name="AnimationPlayer" parent="SpiderGirlModel" index="1"]
+autoplay = "Idle"
+
+[editable path="SpiderGirlModel"]
