@@ -36,3 +36,5 @@ func spawn_unit(current: int):
 	var angle = float(current) / float(wave_strength) * PI * 2.0
 	new_goblin.position = Vector3(cos(angle) * SPAWN_CIRLCE_DIST, 0, sin(angle) * SPAWN_CIRLCE_DIST) + VILLAGE_ORIGIN
 	add_child(new_goblin)
+	new_goblin.origin_position = Vector3(16, 0, 16)
+	new_goblin.max_distance_from_origin = 5

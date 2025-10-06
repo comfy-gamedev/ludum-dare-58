@@ -708,7 +708,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.575781, 0.25, 5.3446445)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.30921, 0.35263923, 6.2554045)
 
 [node name="EventTimer" type="Timer" parent="."]
-wait_time = 5.0
+wait_time = 30.0
 autostart = true
 
 [node name="RigidBody3D" parent="." instance=ExtResource("13_fjp8b")]
