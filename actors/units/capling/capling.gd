@@ -4,7 +4,7 @@ extends base_unit
 @onready var effect_timer = $EffectTimer
 
 func _init() -> void:
-	health = 3
+	health = 10
 	damage = 1
 	speed = 3.0
 	accel = 3.0
