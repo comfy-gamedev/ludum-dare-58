@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://c3rvm3rw6opg"]
+[gd_scene load_steps=13 format=3 uid="uid://c3rvm3rw6opg"]
 
 [ext_resource type="Script" uid="uid://654itoswefaq" path="res://node_types/camera_shake.gd" id="1_lrklj"]
 [ext_resource type="Environment" uid="uid://bf8ysb2ywtuba" path="res://default_environment.tres" id="2_sms7d"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://cwajxjg83lhvk" path="res://actors/units/goblin/goblin.tscn" id="7_2ufyh"]
 [ext_resource type="PackedScene" uid="uid://dgn2cmxmyhrcx" path="res://actors/hats/water_ring/water_ring.tscn" id="8_1svbp"]
 [ext_resource type="PackedScene" uid="uid://clnwrqn7nbxp8" path="res://assets/models/cage.glb" id="9_vsax7"]
+[ext_resource type="PackedScene" uid="uid://cgvopsmv7neoy" path="res://actors/encampments/goblin_camp/goblin_camp.tscn" id="10_ieocc"]
 [ext_resource type="PackedScene" uid="uid://dfvu7kkdxffly" path="res://actors/units/capling/capling.tscn" id="10_w3spe"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lot3w"]
@@ -235,3 +236,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.63727, 0.25, -13.843744)
 
 [node name="cage" parent="." instance=ExtResource("9_vsax7")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.418179, 0, -15.128544)
+
+[node name="GoblinCamp" parent="." instance=ExtResource("10_ieocc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.489609, 0, -11.88997)

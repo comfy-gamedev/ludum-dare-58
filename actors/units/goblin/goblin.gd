@@ -53,7 +53,8 @@ func on_death():
 func spawn_hat_drop():
 	var new_hat_drop = icicle_hat_scene.instantiate()
 	var hat_drop_pos = Vector3(self.global_position.x, 0, self.global_position.z)
-	new_hat_drop.set_position(hat_drop_pos)
+	new_hat_drop.global_position = hat_drop_pos
+	#get_tree().get_root().add_child(new_hat_drop)
 	self.get_parent().add_child(new_hat_drop)
 
 
