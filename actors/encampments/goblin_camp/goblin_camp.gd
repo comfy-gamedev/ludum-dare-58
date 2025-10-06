@@ -2,13 +2,16 @@ extends base_camp
 var goblin_scene = preload("res://actors/units/goblin/goblin.tscn")
 
 @export var number_of_units = 3
+var has_been_called = false
 
 func _ready() -> void:
 	spawn_units.call_deferred()
 	current_number_of_units = number_of_units
 
 func on_encampment_destroyed():
-	print("capling freed!")
+	if not has_been_called:
+		has_been_called = true
+		print("capling freed!")
 
 func spawn_units():
 	for i in number_of_units:
