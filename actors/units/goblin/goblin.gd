@@ -28,7 +28,7 @@ func trigger_hat_skill(dir: Vector3, bullet_parent: Node3D):
 func init_hat() -> Hat:
 	hat_scene = choose_random_hat_scene()
 	var enemy_hat = hat_scene.instantiate()
-	enemy_hat.element = Globals.elements.values().pick_random()
+	#enemy_hat.element = Globals.elements.values().pick_random()
 	enemy_hat.team = Globals.teams.ENEMY
 	var init_hat_pos = Vector3(0, 2.5, 0)
 	enemy_hat.set_position(init_hat_pos)
