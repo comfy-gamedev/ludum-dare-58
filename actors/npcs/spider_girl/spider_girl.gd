@@ -10,6 +10,8 @@ var camera_origin_position_vec
 @onready var dialog_label: Label = %DialogLabel
 @onready var dialog_button: Button = %DialogButton
 
+@onready var catalog_panel: Panel = %CatalogPanel
+
 func _process(delta: float) -> void:
 	if player_nearby and Input.is_action_just_pressed("shoot"):
 		if not player_interacting:
@@ -46,9 +48,15 @@ func _on_body_exited(body: Node3D) -> void:
 		player_interacting = false
 	
 		on_reset_camera_position()
+		on_reset_ui()
+
+func on_reset_ui():
+	dialog_panel.visible = false
+	catalog_panel.visible = false
 
 
 func intro_dialog() -> void:
+	catalog_panel.visible = true
 	dialog_panel.visible = true
 	dialog_label.text = "Get these little freaks off my lawn."
 	dialog_label.visible_ratio = 0.0
@@ -60,4 +68,5 @@ func intro_dialog() -> void:
 	await dialog_button.pressed
 	
 	dialog_panel.visible = false
+	catalog_panel.visible = false
 	

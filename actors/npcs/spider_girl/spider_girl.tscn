@@ -57,6 +57,14 @@ anchor_bottom = 0.95135134
 text = "->"
 metadata/_edit_use_anchors_ = true
 
+[node name="CatalogPanel" type="Panel" parent="CanvasLayer"]
+unique_name_in_owner = true
+visible = false
+offset_left = 511.0
+offset_top = 31.0
+offset_right = 933.0
+offset_bottom = 409.0
+
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]
 
