@@ -22,7 +22,7 @@ func _on_event_timer_timeout() -> void:
 	if events >= WAVEGOAL:
 		SceneGirl.change_scene("res://scenes/win/win.tscn")
 	
-	if events % 2 == 0:
+	if !events % 2 == 0:
 		var encampment = encampment_scene.instantiate()
 		encampment.position = encampment_spawns.get_children().pick_random().position
 		add_child(encampment)
