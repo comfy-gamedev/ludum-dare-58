@@ -15,7 +15,6 @@ func _init() -> void:
 
 func choose_random_hat_scene() -> PackedScene:
 	var hat_keys_array = Globals.hat_scene_pool.keys()
-	randi_range(0, hat_keys_array.size() - 1)
 	var random_index = randi_range(0, hat_keys_array.size() - 1)
 	var random_hat_key = hat_keys_array[random_index]
 	return Globals.hat_scene_pool[random_hat_key]
@@ -27,6 +26,7 @@ func trigger_hat_skill(dir: Vector3, bullet_parent: Node3D):
 func init_hat() -> Hat:
 	hat_scene = choose_random_hat_scene()
 	var enemy_hat = hat_scene.instantiate()
+	enemy_hat.element = Globals.elements.values().pick_random()
 	enemy_hat.team = Globals.teams.ENEMY
 	var init_hat_pos = Vector3(self.global_position.x, 2.5, self.global_position.z)
 	enemy_hat.set_position(init_hat_pos)
