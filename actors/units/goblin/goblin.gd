@@ -50,9 +50,17 @@ func on_death():
 	spawn_hat_drop()
 	
 	if is_instance_valid(encampment_ref):
-		encampment_ref.current_number_of_units -= 1
+		process_encampment_updates()
 	
 	self.queue_free()
+
+func process_encampment_updates():
+	# Reduce encampment enemy counter by one.
+	encampment_ref.current_number_of_units -= 1
+	
+	# Trigger encampment destroyed method.
+	if encampment_ref.current_number_of_units <= 0:
+		encampment_ref.on_encampment_destroyed()
 
 func spawn_hat_drop():
 	var new_hat_drop = icicle_hat_scene.instantiate()

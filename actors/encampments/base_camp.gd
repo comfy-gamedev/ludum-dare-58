@@ -3,3 +3,5 @@
 var current_number_of_units: int
 
 @abstract func spawn_unit()
+
+@abstract func on_encampment_destroyed()

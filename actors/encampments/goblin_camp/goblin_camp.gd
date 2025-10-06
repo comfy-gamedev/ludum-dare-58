@@ -7,9 +7,8 @@ func _ready() -> void:
 	spawn_units.call_deferred()
 	current_number_of_units = number_of_units
 
-func _process(_delta: float) -> void:
-	if current_number_of_units <= 0:
-		print("capling freed!")
+func on_encampment_destroyed():
+	print("capling freed!")
 
 func spawn_units():
 	for i in number_of_units:
