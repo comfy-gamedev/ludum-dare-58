@@ -12,7 +12,7 @@ func _init() -> void:
 	speed = 3.0
 	accel = 3.0
 	attack_acceptance_range = 5
-	max_distance_from_origin = 25 #50
+	max_distance_from_origin = 10
 	equipped_hat = init_hat()
 
 func _ready() -> void:
