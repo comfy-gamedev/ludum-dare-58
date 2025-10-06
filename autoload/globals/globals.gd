@@ -21,7 +21,7 @@ enum elements {
 
 var hat_scene_pool = {
 	BEEF = preload("res://actors/hats/beefeater/beefeater.tscn"),
-	BERET = preload("uid://dluu73o0dtmvt"),
+	BERET = preload("res://actors/hats/beret/beret.tscn"),
 	BICORN = preload("res://actors/hats/bicorn/bicorn.tscn"),
 	BUFFALO = preload("uid://dgn2cmxmyhrcx"),
 	COWBOY = preload("res://actors/hats/cowboy/cowboy.tscn"),

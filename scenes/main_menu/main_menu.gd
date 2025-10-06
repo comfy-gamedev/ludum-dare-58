@@ -3,11 +3,13 @@ extends Control
 @onready var start_game_button: Button = %StartGameButton
 @onready var how_to_play_button: Button = %HowToPlayButton
 @onready var options_button: Button = %OptionsButton
+@onready var animation_player: AnimationPlayer = $Node/Node3D/spider/AnimationPlayer
 
 
 func _ready() -> void:
 	start_game_button.grab_focus()
 	MusicMan.music(preload("res://assets/music/soundloop.wav"))
+	animation_player.play("Idle")
 
 
 func _on_start_game_button_pressed() -> void:
