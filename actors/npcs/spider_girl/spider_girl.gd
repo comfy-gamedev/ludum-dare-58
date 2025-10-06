@@ -32,7 +32,8 @@ func on_zoom_camera():
 		camera_node.rotation = Vector3(25, 0, 0)
 
 func on_reset_camera_position():
-	if is_instance_valid(player_ref):
+	if is_instance_valid(player_ref) and player_interacting:
+		player_interacting = false
 		var camera_node = player_ref.get_node("Camera3D")
 		camera_node.global_position = player_ref.position + Vector3(-0.01, 9.731, 6.336) #camera_original_position_vec
 		camera_node.rotation = camera_original_rotation_vec
@@ -44,9 +45,7 @@ func _on_body_entered(body: Node3D) -> void:
 		if not is_instance_valid(player_ref):
 			player_ref = body
 
-func on_exit_interaction():
-	player_interacting = false
-	
+func on_exit_interaction():	
 	on_reset_camera_position()
 	on_reset_ui()
 
