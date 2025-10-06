@@ -14,11 +14,11 @@ func _init() -> void:
 	equipped_hat = init_hat()
 
 func choose_random_hat_scene() -> PackedScene:
-	var hat_keys_array = Globals.hat_pool.keys()
+	var hat_keys_array = Globals.hat_scene_pool.keys()
 	randi_range(0, hat_keys_array.size() - 1)
 	var random_index = randi_range(0, hat_keys_array.size() - 1)
 	var random_hat_key = hat_keys_array[random_index]
-	return Globals.hat_pool[random_hat_key]
+	return Globals.hat_scene_pool[random_hat_key]
 
 func trigger_hat_skill(dir: Vector3, bullet_parent: Node3D):
 	if is_instance_valid(equipped_hat):

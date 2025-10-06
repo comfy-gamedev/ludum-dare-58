@@ -19,7 +19,7 @@ enum elements {
 	EARTH
 }
 
-var hat_pool = {
+var hat_scene_pool = {
 	BUFFALO = preload("uid://dgn2cmxmyhrcx"),
 	FEZ = preload("uid://5mtoxf8e7jpa"),
 	JESTER = preload("uid://dbwi51ka8rab7"),
