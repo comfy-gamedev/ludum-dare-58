@@ -16,6 +16,8 @@ var bullet_scene = preload("res://actors/bullets/bullet.tscn")
 @onready var dash_cooldown = $DashCooldown
 @onready var model: Node3D = $Model
 @onready var animation_tree: AnimationTree = $Model/AnimationTree
+@onready var compass = $CompassGimbal/Compass
+@onready var compass_gimbal: Node3D = $CompassGimbal
 
 func _ready() -> void:
 	Messages.freeze_game.connect(func (f):
@@ -27,6 +29,9 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	if Messages.frozen:
 		return
+	
+	var compass_angle = (Vector3(16, position.y, 16) - position).normalized()
+	compass_gimbal.basis = Basis.looking_at(compass_angle, Vector3.UP, true)
 	
 	var cursor_position = get_viewport().get_mouse_position()
 	var ray_origin = camera.project_ray_origin(cursor_position)
