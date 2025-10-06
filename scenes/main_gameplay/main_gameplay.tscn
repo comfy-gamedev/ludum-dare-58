@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://c3rvm3rw6opg"]
+[gd_scene load_steps=14 format=3 uid="uid://c3rvm3rw6opg"]
 
 [ext_resource type="Script" uid="uid://654itoswefaq" path="res://node_types/camera_shake.gd" id="1_lrklj"]
 [ext_resource type="Environment" uid="uid://bf8ysb2ywtuba" path="res://default_environment.tres" id="2_sms7d"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://d3ruon34yppmu" path="res://actors/encampments/home_camp/home_camp.tscn" id="3_w3spe"]
 [ext_resource type="PackedScene" uid="uid://dx8wgsi14wwb3" path="res://actors/hats/madder/madder.tscn" id="7_1svbp"]
 [ext_resource type="PackedScene" uid="uid://dgn2cmxmyhrcx" path="res://actors/hats/buffalo/buffalo.tscn" id="8_1svbp"]
+[ext_resource type="PackedScene" uid="uid://5mtoxf8e7jpa" path="res://actors/hats/fez/fez.tscn" id="8_ieocc"]
 [ext_resource type="PackedScene" uid="uid://dk2fol3t0dy4b" path="res://assets/models/cowboy3.glb" id="10_ieocc"]
 [ext_resource type="PackedScene" uid="uid://6x1ljv1iihde" path="res://assets/models/spider/spider.glb" id="11_ieocc"]
 [ext_resource type="PackedScene" uid="uid://cgvopsmv7neoy" path="res://actors/encampments/goblin_camp/goblin_camp.tscn" id="11_j67kx"]
@@ -227,6 +228,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.664906, 0.039422512, 4.673
 
 [node name="BuffaloHatDrop" parent="." instance=ExtResource("8_1svbp")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.92412, 0.25, 3.032364)
+
+[node name="FezHatDrop" parent="." instance=ExtResource("8_ieocc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.694086, 0.8852656, 0.059386253)
 
 [node name="cowboy1" parent="." instance=ExtResource("10_ieocc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.489609, 0, -11.88997)
