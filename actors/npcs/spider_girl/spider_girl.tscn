@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://cyyx144k2au8w"]
+[gd_scene load_steps=3 format=3 uid="uid://cyyx144k2au8w"]
 
 [ext_resource type="PackedScene" uid="uid://6x1ljv1iihde" path="res://assets/models/spider/spider.glb" id="1_gidbn"]
+[ext_resource type="Texture2D" uid="uid://bqj42wmd5epfp" path="res://assets/textures/exclamation_mark.png" id="2_60bdo"]
 
 [node name="SpiderGirl" type="Node3D"]
 
@@ -9,5 +10,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.014, 0)
 
 [node name="AnimationPlayer" parent="SpiderGirlModel" index="1"]
 autoplay = "Idle"
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 2.4058359, -0.18718928)
+texture = ExtResource("2_60bdo")
 
 [editable path="SpiderGirlModel"]
