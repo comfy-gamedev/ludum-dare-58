@@ -688,7 +688,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -45.481236, 4.413484, 44.0211
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.343124, 0, 5.30475)
 
 [node name="EventTimer" type="Timer" parent="."]
-wait_time = 75.0
+wait_time = 90.0
 autostart = true
 
 [node name="EncampmentSpawns" type="Node3D" parent="."]
@@ -779,6 +779,27 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 144.33984, 0, 367.70404)
 
 [node name="EncampmentMarker29" parent="EncampmentSpawns" instance=ExtResource("16_eamew")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 364.9424, 0, 64.50957)
+
+[node name="EncampmentMarker30" parent="EncampmentSpawns" instance=ExtResource("16_eamew")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.476793, 0, -145.19221)
+
+[node name="EncampmentMarker31" parent="EncampmentSpawns" instance=ExtResource("16_eamew")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -48.626114, 0, -48.128586)
+
+[node name="EncampmentMarker32" parent="EncampmentSpawns" instance=ExtResource("16_eamew")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 80.63448, 0, -240.14032)
+
+[node name="EncampmentMarker33" parent="EncampmentSpawns" instance=ExtResource("16_eamew")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 81.95221, 0, 15.078903)
+
+[node name="EncampmentMarker34" parent="EncampmentSpawns" instance=ExtResource("16_eamew")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 143.54866, 0, 144.48767)
+
+[node name="EncampmentMarker35" parent="EncampmentSpawns" instance=ExtResource("16_eamew")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 49.237816, 0, 211.02203)
+
+[node name="EncampmentMarker36" parent="EncampmentSpawns" instance=ExtResource("16_eamew")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 53.765373, 0, 84.27585)
 
 [node name="Bridge" parent="." instance=ExtResource("16_km80p")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 189.45517, 0.69062614, 2.0046992)
