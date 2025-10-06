@@ -1,6 +1,7 @@
 @abstract class_name base_unit extends CharacterBody3D
 
 var equipped_hat: Hat
+var encampment_ref: base_camp
 var damage
 var health
 var speed

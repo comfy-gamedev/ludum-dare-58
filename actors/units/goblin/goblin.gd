@@ -48,6 +48,10 @@ func on_hit(_damage: int, slowing = false):
 
 func on_death():
 	spawn_hat_drop()
+	
+	if is_instance_valid(encampment_ref):
+		encampment_ref.current_number_of_units -= 1
+	
 	self.queue_free()
 
 func spawn_hat_drop():
