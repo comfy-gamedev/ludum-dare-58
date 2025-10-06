@@ -20,6 +20,7 @@ func on_encampment_destroyed():
 		#$lilbuddy.AnimationPlayer.play("yipee")
 		# TODO: Cool little animation of freed capling jumping for joy.
 		await get_tree().create_timer(2.0).timeout
+		Globals.caplings_rescued += 1
 		# Remove enemy camp.
 		self.queue_free()
 

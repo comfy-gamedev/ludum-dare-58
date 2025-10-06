@@ -23,6 +23,9 @@ texture = ExtResource("2_60bdo")
 transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 1.0253367, 0)
 shape = SubResource("SphereShape3D_60bdo")
 
+[node name="Yay" type="CPUParticles3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.1948189, -0.9966489)
+
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="DialogPanel" type="Panel" parent="CanvasLayer"]
