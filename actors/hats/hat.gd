@@ -26,5 +26,8 @@ func _ready() -> void:
 		Globals.elements.EARTH:
 			$MeshInstance3D.mesh.surface_get_material(0).albedo_color = Color("57253b")
 
+func _physics_process(delta: float) -> void:
+	rotate(Vector3.UP, delta * PI / 4.0)
+
 @abstract
 func fire(dir: Vector3, bullet_parent: Node3D)
