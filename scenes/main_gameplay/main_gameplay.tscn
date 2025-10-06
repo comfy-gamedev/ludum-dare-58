@@ -1,9 +1,10 @@
-[gd_scene load_steps=12 format=3 uid="uid://c3rvm3rw6opg"]
+[gd_scene load_steps=13 format=3 uid="uid://c3rvm3rw6opg"]
 
 [ext_resource type="Script" uid="uid://654itoswefaq" path="res://node_types/camera_shake.gd" id="1_lrklj"]
 [ext_resource type="Environment" uid="uid://bf8ysb2ywtuba" path="res://default_environment.tres" id="2_sms7d"]
 [ext_resource type="PackedScene" uid="uid://bgu1iguf46imi" path="res://actors/player/player.tscn" id="3_lot3w"]
 [ext_resource type="Script" uid="uid://bqw3gr8wesx3g" path="res://addons/chunker/chunker.gd" id="3_vsax7"]
+[ext_resource type="PackedScene" uid="uid://d3ruon34yppmu" path="res://actors/encampments/home_camp/home_camp.tscn" id="3_w3spe"]
 [ext_resource type="PackedScene" uid="uid://dx8wgsi14wwb3" path="res://actors/hats/madder/madder.tscn" id="7_1svbp"]
 [ext_resource type="PackedScene" uid="uid://dgn2cmxmyhrcx" path="res://actors/hats/buffalo/buffalo.tscn" id="8_1svbp"]
 [ext_resource type="PackedScene" uid="uid://dk2fol3t0dy4b" path="res://assets/models/cowboy3.glb" id="10_ieocc"]
@@ -200,6 +201,9 @@ Vector2i(7, 11): [3, 0],
 Vector2i(7, 12): [12, 1]
 })
 metadata/_custom_type_script = "uid://bqw3gr8wesx3g"
+
+[node name="HomeCamp" parent="." instance=ExtResource("3_w3spe")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16, 0, 16)
 
 [node name="Player" parent="." instance=ExtResource("3_lot3w")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16, 0, 16)
