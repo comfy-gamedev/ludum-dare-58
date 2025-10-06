@@ -1,5 +1,5 @@
 extends base_camp
-var goblin_scene = preload("res://actors/units/goblin/goblin.tscn")
+var goblin_scene = preload("uid://cwajxjg83lhvk")
 
 @export var number_of_units = 3
 var has_been_called = false
