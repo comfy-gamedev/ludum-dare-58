@@ -72,7 +72,9 @@ one_shot = true
 [node name="DashCooldown" type="Timer" parent="."]
 one_shot = true
 
-[node name="Compass" type="Sprite3D" parent="."]
+[node name="CompassGimbal" type="Node3D" parent="."]
+
+[node name="Compass" type="Sprite3D" parent="CompassGimbal"]
 transform = Transform3D(2, 0, 0, 0, -8.742278e-08, 2, 0, -2, -8.742278e-08, 0, 1, 2)
 texture = ExtResource("3_ax26v")
 
