@@ -42,7 +42,7 @@ script = ExtResource("1_cy4ka")
 metadata/_custom_type_script = "uid://dme5f24l0edsf"
 
 [node name="ActorTree" parent="." node_paths=PackedStringArray("blackboard") instance=ExtResource("2_u350o")]
-blackboard = NodePath("@Node@28617")
+blackboard = NodePath("@Node@21858")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9942124, 0)
@@ -70,7 +70,7 @@ shape = SubResource("SphereShape3D_u350o")
 one_shot = true
 
 [node name="lilbuddy" parent="." instance=ExtResource("4_hsoud")]
-transform = Transform3D(0.00074003334, 0, -0.3999993, 0, 0.4, 0, 0.3999993, 0, 0.00074003334, 0.0005831718, 0.16007721, -0.011976958)
+transform = Transform3D(0.0018500834, 0, -0.9999983, 0, 1, 0, 0.9999983, 0, 0.0018500834, 0.0005831718, 0.16007721, -0.011976958)
 
 [connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
 [connection signal="timeout" from="EffectTimer" to="." method="_on_effect_timer_timeout"]

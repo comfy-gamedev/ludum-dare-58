@@ -2,6 +2,7 @@ extends base_unit
 
 @onready var target_seeking_radius: Area3D = $TargetSeekingRadius
 @onready var effect_timer = $EffectTimer
+@onready var actor_tree: BeehaveTree = $ActorTree
 
 func _init() -> void:
 	health = 10
@@ -13,6 +14,13 @@ func _init() -> void:
 
 func _ready() -> void:
 	origin_position = Vector3(self.global_position)
+	Messages.freeze_game.connect(func (f):
+		effect_timer.paused = f
+		if f:
+			actor_tree.disable()
+		else:
+			actor_tree.enable()
+	)
 
 func get_closest_detected_target() -> Node3D:
 	if not is_instance_valid(equipped_hat):
@@ -65,7 +73,7 @@ func drop_hat():
 	equipped_hat = null
 
 func equip_hat(new_hat: Node3D):
-	var hat_pos = Vector3(self.global_position.x, 2.5, self.global_position.z)
+	var hat_pos = Vector3(self.global_position.x, 1.5, self.global_position.z)
 	new_hat.team = Globals.teams.ALLY
 	new_hat.set_position(hat_pos)
 	new_hat.process_mode = Node.PROCESS_MODE_DISABLED

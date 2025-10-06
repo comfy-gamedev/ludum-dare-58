@@ -1,29 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://cgvopsmv7neoy"]
+[gd_scene load_steps=5 format=3 uid="uid://cgvopsmv7neoy"]
 
 [ext_resource type="PackedScene" uid="uid://clnwrqn7nbxp8" path="res://assets/models/cage.glb" id="1_bacdj"]
 [ext_resource type="Script" uid="uid://cbdtf7e0mc4vp" path="res://actors/encampments/goblin_camp/goblin_camp.gd" id="1_gs67e"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_imtnp"]
-render_priority = 1
-transparency = 1
-shading_mode = 0
-albedo_color = Color(0, 0, 1, 1)
-grow = true
-grow_amount = 0.02
-stencil_mode = 3
-stencil_flags = 1
-stencil_compare = 5
-metadata/_stencil_owned = true
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_i21rv"]
-next_pass = SubResource("StandardMaterial3D_imtnp")
-stencil_mode = 1
-stencil_flags = 2
-stencil_color = Color(0, 0, 1, 1)
-stencil_outline_thickness = 0.02
-
-[sub_resource type="CapsuleMesh" id="CapsuleMesh_e4k6f"]
-material = SubResource("StandardMaterial3D_i21rv")
+[ext_resource type="PackedScene" uid="uid://bsbdx7pf6dxiq" path="res://assets/models/lbuddy/lilbuddy.glb" id="3_gs67e"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_bacdj"]
 radius = 30.0
@@ -34,13 +13,12 @@ script = ExtResource("1_gs67e")
 [node name="Cage" parent="." instance=ExtResource("1_bacdj")]
 transform = Transform3D(1, 0, 0, 0, 1.8976834, 0, 0, 0, 1, -0.0139250755, 0, 0.024291515)
 
-[node name="CagedCapling" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0371748, 0)
-mesh = SubResource("CapsuleMesh_e4k6f")
-
 [node name="Area3D" type="Area3D" parent="."]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
 shape = SubResource("SphereShape3D_bacdj")
+
+[node name="CagedCapling" parent="." instance=ExtResource("3_gs67e")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.017753601, 0.06641388, 0.07458544)
 
 [connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]

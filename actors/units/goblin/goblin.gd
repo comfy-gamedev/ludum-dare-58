@@ -2,6 +2,7 @@ extends base_unit
 
 @onready var target_seeking_radius: Area3D = $TargetSeekingRadius
 @onready var effect_timer = $EffectTimer
+@onready var actor_tree: BeehaveTree = $ActorTree
 
 # TODO: This will eventually pull from a random pool of hats.
 var hat_scene
@@ -11,12 +12,19 @@ func _init() -> void:
 	damage = 1
 	speed = 3.0
 	accel = 3.0
-	attack_acceptance_range = 5
+	attack_acceptance_range = 7.5
 	max_distance_from_origin = 10
 	equipped_hat = init_hat()
 
 func _ready() -> void:
 	origin_position = Vector3(self.global_position)
+	Messages.freeze_game.connect(func (f):
+		effect_timer.paused = f
+		if f:
+			actor_tree.disable()
+		else:
+			actor_tree.enable()
+	)
 
 func choose_random_hat_scene() -> PackedScene:
 	var hat_keys_array = Globals.hat_scene_pool.keys()
