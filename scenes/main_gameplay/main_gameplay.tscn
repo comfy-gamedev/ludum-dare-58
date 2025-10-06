@@ -688,7 +688,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -45.481236, 4.413484, 44.0211
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.343124, 0, 5.30475)
 
 [node name="EventTimer" type="Timer" parent="."]
-wait_time = 30.0
+wait_time = 60.0
 autostart = true
 
 [node name="EncampmentSpawns" type="Node3D" parent="."]
@@ -793,5 +793,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 221.32047, 0.8692082, 351.959
 transform = Transform3D(-0.004502921, 0, -0.99998987, 0, 1, 0, 0.99998987, 0, -0.004502921, 327.1336, 0.95674455, 285.13635)
 
 [node name="UI" type="Node2D" parent="."]
+
+[node name="Label" type="Label" parent="UI"]
+offset_right = 40.0
+offset_bottom = 39.0
+text = "Time till next wave: "
 
 [connection signal="timeout" from="EventTimer" to="." method="_on_event_timer_timeout"]
