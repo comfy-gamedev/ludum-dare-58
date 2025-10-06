@@ -2,19 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cvxguj4ts2wkf"
-path="res://.godot/imported/lilbuddy_buddybody.png-0e51361bd6bcc0c34a06a9c440ba5233.ctex"
+uid="uid://cfnbw01vwmqy8"
+path="res://.godot/imported/moth_hair.png-e4321fe87cc379cc1ebf749e141c0cf9.ctex"
 metadata={
 "vram_texture": false
-}
-generator_parameters={
-"md5": "4000688ab34c297d53e635a93725138f"
 }
 
 [deps]
 
-source_file="res://assets/models/lilbuddy_buddybody.png"
-dest_files=["res://.godot/imported/lilbuddy_buddybody.png-0e51361bd6bcc0c34a06a9c440ba5233.ctex"]
+source_file="res://assets/models/moth/moth_hair.png"
+dest_files=["res://.godot/imported/moth_hair.png-e4321fe87cc379cc1ebf749e141c0cf9.ctex"]
 
 [params]
 
@@ -26,7 +23,7 @@ compress/rdo_quality_loss=0.0
 compress/hdr_compression=1
 compress/normal_map=0
 compress/channel_pack=0
-mipmaps/generate=true
+mipmaps/generate=false
 mipmaps/limit=-1
 roughness/mode=0
 roughness/src_normal=""

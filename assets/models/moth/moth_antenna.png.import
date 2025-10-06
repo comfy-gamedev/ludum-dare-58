@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://qfgrp85mnpqm"
-path="res://.godot/imported/buddyface.png-2cfc64cf41ed7df36500363f3a7fdf69.ctex"
+uid="uid://bnagmvhx2u1el"
+path="res://.godot/imported/moth_antenna.png-011a7665d3a3c56cacc890f675df7d0e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/models/buddyface.png"
-dest_files=["res://.godot/imported/buddyface.png-2cfc64cf41ed7df36500363f3a7fdf69.ctex"]
+source_file="res://assets/models/moth/moth_antenna.png"
+dest_files=["res://.godot/imported/moth_antenna.png-011a7665d3a3c56cacc890f675df7d0e.ctex"]
 
 [params]
 

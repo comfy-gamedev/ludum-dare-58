@@ -12,7 +12,11 @@ func _init() -> void:
 	speed = 3.0
 	accel = 3.0
 	attack_acceptance_range = 5
+	max_distance_from_origin = 25 #50
 	equipped_hat = init_hat()
+
+func _ready() -> void:
+	origin_position = Vector3(self.global_position)
 
 func choose_random_hat_scene() -> PackedScene:
 	var hat_keys_array = Globals.hat_scene_pool.keys()

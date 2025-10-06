@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dia3rjgd00x77"
-path="res://.godot/imported/buddyhandsandfeet.png-8ef9d6c1739e58d060dd95602770df98.ctex"
+uid="uid://dp81rvjjn5os7"
+path="res://.godot/imported/moth_wing.png-6661b7b6633c713f53619d7e4ff4b6b4.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/models/buddyhandsandfeet.png"
-dest_files=["res://.godot/imported/buddyhandsandfeet.png-8ef9d6c1739e58d060dd95602770df98.ctex"]
+source_file="res://assets/models/moth/moth_wing.png"
+dest_files=["res://.godot/imported/moth_wing.png-6661b7b6633c713f53619d7e4ff4b6b4.ctex"]
 
 [params]
 

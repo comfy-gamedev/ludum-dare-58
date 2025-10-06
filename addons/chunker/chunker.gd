@@ -11,6 +11,8 @@ const OFFSETS = [Vector2i(0, 0), Vector2i(1, 0), Vector2i(1, 1), Vector2i(0, 1)]
 
 var _loaded_chunks: Dictionary[Vector2i, Node3D] = {}
 
+var _cached_load: Dictionary[int, PackedScene] = {}
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	for p in chunks:
@@ -42,7 +44,9 @@ func _reload_chunk(p: Vector2i) -> void:
 		_loaded_chunks[p].queue_free()
 		_loaded_chunks.erase(p)
 	if p in chunks:
-		_loaded_chunks[p] = load(chunk_scenes[chunks[p][0]]).instantiate()
+		if chunks[p][0] not in _cached_load:
+			_cached_load[chunks[p][0]] = load(chunk_scenes[chunks[p][0]])
+		_loaded_chunks[p] = _cached_load[chunks[p][0]].instantiate()
 		var chunk_p = p + Chunker.OFFSETS[chunks[p][1]]
 		_loaded_chunks[p].position = Vector3(chunk_p.x * chunk_size.x, 0, -chunk_p.y * chunk_size.y)
 		_loaded_chunks[p].rotation.y = (chunks[p][1] / 4.0) * TAU

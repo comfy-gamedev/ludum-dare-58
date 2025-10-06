@@ -1,40 +1,43 @@
-[gd_scene load_steps=7 format=3 uid="uid://bgu1iguf46imi"]
+[gd_scene load_steps=11 format=3 uid="uid://bgu1iguf46imi"]
 
 [ext_resource type="Script" uid="uid://c1nxtub8n10et" path="res://actors/player/player.gd" id="1_nvxhs"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ilk7j"]
-render_priority = 1
-transparency = 1
-shading_mode = 0
-albedo_color = Color(0, 1, 0, 1)
-grow = true
-grow_amount = 0.02
-stencil_mode = 3
-stencil_flags = 1
-stencil_compare = 5
-metadata/_stencil_owned = true
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nvxhs"]
-next_pass = SubResource("StandardMaterial3D_ilk7j")
-backlight = Color(1, 0, 1, 1)
-stencil_mode = 1
-stencil_flags = 2
-stencil_color = Color(0, 1, 0, 1)
-stencil_outline_thickness = 0.02
-
-[sub_resource type="CapsuleMesh" id="CapsuleMesh_6uhly"]
-material = SubResource("StandardMaterial3D_nvxhs")
+[ext_resource type="PackedScene" uid="uid://e2r8216cukt5" path="res://assets/models/moth/moth.glb" id="2_ilk7j"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_6uhly"]
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_ilk7j"]
+animation = &"Attack"
+
+[sub_resource type="AnimationNodeOneShot" id="AnimationNodeOneShot_ax26v"]
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_lsqbn"]
+animation = &"Idle"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_6p1w3"]
+animation = &"Run"
+
+[sub_resource type="AnimationNodeBlendSpace1D" id="AnimationNodeBlendSpace1D_15y17"]
+blend_point_0/node = SubResource("AnimationNodeAnimation_lsqbn")
+blend_point_0/pos = 0.0
+blend_point_1/node = SubResource("AnimationNodeAnimation_6p1w3")
+blend_point_1/pos = 1.0
+min_space = 0.0
+
+[sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_bop6h"]
+graph_offset = Vector2(-398.70853, 7.2824707)
+nodes/output/position = Vector2(400, 220)
+nodes/IdleRun/node = SubResource("AnimationNodeBlendSpace1D_15y17")
+nodes/IdleRun/position = Vector2(-100, 140)
+nodes/AttackOneShot/node = SubResource("AnimationNodeOneShot_ax26v")
+nodes/AttackOneShot/position = Vector2(160, 160)
+nodes/Attack/node = SubResource("AnimationNodeAnimation_ilk7j")
+nodes/Attack/position = Vector2(-100, 340)
+node_connections = [&"output", 0, &"AttackOneShot", &"AttackOneShot", 0, &"IdleRun", &"AttackOneShot", 1, &"Attack"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_nvxhs"]
 
 [node name="Player" type="CharacterBody3D" groups=["ally"]]
 script = ExtResource("1_nvxhs")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
-mesh = SubResource("CapsuleMesh_6uhly")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
@@ -42,6 +45,16 @@ shape = SubResource("CapsuleShape3D_6uhly")
 
 [node name="Cooldown" type="Timer" parent="."]
 one_shot = true
+
+[node name="Model" parent="." instance=ExtResource("2_ilk7j")]
+
+[node name="AnimationTree" type="AnimationTree" parent="Model"]
+tree_root = SubResource("AnimationNodeBlendTree_bop6h")
+anim_player = NodePath("../AnimationPlayer")
+parameters/IdleRun/blend_position = 0.0
+parameters/AttackOneShot/active = false
+parameters/AttackOneShot/internal_active = false
+parameters/AttackOneShot/request = 0
 
 [node name="Area3D" type="Area3D" parent="."]
 
@@ -60,3 +73,5 @@ one_shot = true
 
 [connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
 [connection signal="timeout" from="EffectTimer" to="." method="_on_effect_timer_timeout"]
+
+[editable path="Model"]

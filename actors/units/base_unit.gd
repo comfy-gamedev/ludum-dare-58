@@ -2,11 +2,14 @@
 
 var equipped_hat: Hat
 var encampment_ref: base_camp
+var blackboard: Blackboard
 var damage
 var health
 var speed
 var accel
 var attack_acceptance_range
+var origin_position
+var max_distance_from_origin
 
 @abstract func on_hit(_damage: int, type: Globals.elements, slowing: bool)
 

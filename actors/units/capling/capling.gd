@@ -9,7 +9,10 @@ func _init() -> void:
 	speed = 3.0
 	accel = 3.0
 	attack_acceptance_range = 5
-	#hat = init_hat()
+	max_distance_from_origin = 25
+
+func _ready() -> void:
+	origin_position = Vector3(self.global_position)
 
 func get_closest_detected_target() -> Node3D:
 	if not is_instance_valid(equipped_hat):

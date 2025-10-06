@@ -6,15 +6,16 @@ const SPAWN_CIRLCE_DIST = 40
 const VILLAGE_ORIGIN = Vector3(16, 0, 16)
 
 var events = 0
-var wave_strength = 8
+var wave_strength = 2
 
 var goblin_scene = preload("res://actors/units/goblin/goblin.tscn")
+var encampment_scene = preload("res://actors/encampments/goblin_camp/goblin_camp.tscn")
 
-@onready var ally_parent = $AllyParent
+
+@onready var encampment_spawns = $EncampmentSpawns
 
 func _process(_delta: float) -> void:
-	if ally_parent.get_child_count(false) < 1:
-		SceneGirl.change_scene("res://scenes/lose/lose.tscn")
+	pass
 
 func _on_event_timer_timeout() -> void:
 	events += 1
@@ -22,8 +23,9 @@ func _on_event_timer_timeout() -> void:
 		SceneGirl.change_scene("res://scenes/win/win.tscn")
 	
 	if events % 2 == 0:
-		pass
-		#encampment
+		var encampment = encampment_scene.instantiate()
+		encampment.position = encampment_spawns.get_children().pick_random().position
+		add_child(encampment)
 	else:
 		for i in wave_strength:
 			spawn_unit(i)
@@ -34,3 +36,5 @@ func spawn_unit(current: int):
 	var angle = float(current) / float(wave_strength) * PI * 2.0
 	new_goblin.position = Vector3(cos(angle) * SPAWN_CIRLCE_DIST, 0, sin(angle) * SPAWN_CIRLCE_DIST) + VILLAGE_ORIGIN
 	add_child(new_goblin)
+	new_goblin.origin_position = Vector3(16, 0, 16)
+	new_goblin.max_distance_from_origin = 5
