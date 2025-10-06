@@ -27,5 +27,5 @@ func _on_event_timer_timeout() -> void:
 func spawn_unit(current: int):
 	var new_goblin = goblin_scene.instantiate()
 	var angle = float(current) / float(wave_strength) * PI * 2.0
-	new_goblin.global_position = Vector3(cos(angle) * SPAWN_CIRLCE_DIST, 0, sin(angle) * SPAWN_CIRLCE_DIST) + VILLAGE_ORIGIN
+	new_goblin.position = Vector3(cos(angle) * SPAWN_CIRLCE_DIST, 0, sin(angle) * SPAWN_CIRLCE_DIST) + VILLAGE_ORIGIN
 	add_child(new_goblin)

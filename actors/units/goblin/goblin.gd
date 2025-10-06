@@ -30,7 +30,7 @@ func init_hat() -> Hat:
 	var enemy_hat = hat_scene.instantiate()
 	enemy_hat.element = Globals.elements.values().pick_random()
 	enemy_hat.team = Globals.teams.ENEMY
-	var init_hat_pos = Vector3(self.global_position.x, 2.5, self.global_position.z)
+	var init_hat_pos = Vector3(0, 2.5, 0)
 	enemy_hat.set_position(init_hat_pos)
 	enemy_hat.process_mode = Node.PROCESS_MODE_DISABLED
 	self.add_child(enemy_hat)
