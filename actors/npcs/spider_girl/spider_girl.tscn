@@ -24,5 +24,6 @@ transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 1.0253367, 0)
 shape = SubResource("SphereShape3D_60bdo")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]
 
 [editable path="SpiderGirlModel"]
