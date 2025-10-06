@@ -2,19 +2,19 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c2fv320bw0vwc"
-path="res://.godot/imported/lilbuddy_buddyface.png-cb36bcaa9f6663a7bed0ea913bb96718.ctex"
+uid="uid://gdhvita1kx4"
+path="res://.godot/imported/moth_moth_wing.png-de8f95687d392365a46d0a829453238c.ctex"
 metadata={
 "vram_texture": false
 }
 generator_parameters={
-"md5": "fc08d39f0605e4d6860f92d281685a72"
+"md5": "b43752d16ebcbbf838712aa073e9aedf"
 }
 
 [deps]
 
-source_file="res://assets/models/lilbuddy_buddyface.png"
-dest_files=["res://.godot/imported/lilbuddy_buddyface.png-cb36bcaa9f6663a7bed0ea913bb96718.ctex"]
+source_file="res://assets/models/moth/moth_moth_wing.png"
+dest_files=["res://.godot/imported/moth_moth_wing.png-de8f95687d392365a46d0a829453238c.ctex"]
 
 [params]
 

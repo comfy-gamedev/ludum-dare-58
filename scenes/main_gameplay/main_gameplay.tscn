@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://c3rvm3rw6opg"]
+[gd_scene load_steps=19 format=3 uid="uid://c3rvm3rw6opg"]
 
 [ext_resource type="Script" uid="uid://654itoswefaq" path="res://node_types/camera_shake.gd" id="1_lrklj"]
 [ext_resource type="Script" uid="uid://bfmiw37j0chvs" path="res://scenes/main_gameplay/main_gameplay.gd" id="1_sbvst"]
@@ -14,7 +14,8 @@
 [ext_resource type="PackedScene" uid="uid://cgvopsmv7neoy" path="res://actors/encampments/goblin_camp/goblin_camp.tscn" id="11_j67kx"]
 [ext_resource type="PackedScene" uid="uid://cpymafqtgeuud" path="res://actors/hats/phrygian/phrygian.tscn" id="12_j67kx"]
 [ext_resource type="PackedScene" uid="uid://c8hidieg0al2r" path="res://actors/hats/cowboy/cowboy.tscn" id="13_fjp8b"]
-[ext_resource type="PackedScene" uid="uid://pyiqrtqqbvfi" path="res://level_chunks/encampment_marker.tscn" id="15_wjmgw"]
+[ext_resource type="PackedScene" uid="uid://dfvu7kkdxffly" path="res://actors/units/capling/capling.tscn" id="15_wjmgw"]
+[ext_resource type="PackedScene" uid="uid://bxyc7ydieogw1" path="res://actors/terrain/bridge.tscn" id="16_km80p"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lot3w"]
 albedo_color = Color(1, 0.101960786, 0.24313726, 1)
@@ -792,6 +793,18 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 149.09917, 3.0517578e-05, 84.
 
 [node name="EncampmentMarker26" parent="EncampmentSpawns" instance=ExtResource("15_wjmgw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.558594, 0, -303.43845)
+
+[node name="Bridge" parent="." instance=ExtResource("16_km80p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 189.45517, 0.69062614, 2.0046992)
+
+[node name="Bridge2" parent="." instance=ExtResource("16_km80p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 253.35898, 0.7396425, 176.02902)
+
+[node name="Bridge3" parent="." instance=ExtResource("16_km80p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 221.32047, 0.8692082, 351.95978)
+
+[node name="Bridge4" parent="." instance=ExtResource("16_km80p")]
+transform = Transform3D(-0.004502921, 0, -0.99998987, 0, 1, 0, 0.99998987, 0, -0.004502921, 327.1336, 0.95674455, 285.13635)
 
 [connection signal="timeout" from="EventTimer" to="." method="_on_event_timer_timeout"]
 

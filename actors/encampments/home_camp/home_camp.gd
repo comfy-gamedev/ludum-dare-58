@@ -11,6 +11,7 @@ func on_encampment_destroyed():
 	if not has_been_called:
 		has_been_called = true
 		print("ALL CAPLINGS DEAD! GAME OVER!")
+		SceneGirl.change_scene("res://scenes/lose/lose.tscn")
 
 func spawn_starting_units():
 	for i in starting_number_of_caplings:

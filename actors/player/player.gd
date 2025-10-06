@@ -14,6 +14,8 @@ var bullet_scene = preload("res://actors/bullets/bullet.tscn")
 @onready var hat_parent = $HatParent
 @onready var effect_timer = $EffectTimer
 @onready var dash_cooldown = $DashCooldown
+@onready var model: Node3D = $Model
+@onready var animation_tree: AnimationTree = $Model/AnimationTree
 
 func _process(delta: float) -> void:
 	var cursor_position = get_viewport().get_mouse_position()
@@ -34,9 +36,15 @@ func _process(delta: float) -> void:
 			bullet.position = position + Vector3.UP
 			bullet.direction = Vector3(targeting_ball.position.x, 0, targeting_ball.position.z).normalized()
 			bullet_parent.add_child(bullet)
+		animation_tree["parameters/AttackOneShot/request"] = AnimationNodeOneShot.ONE_SHOT_REQUEST_FIRE
 	
 	if Input.is_action_just_pressed("eject") && hats.size() > 0:
 		eject_hat()
+	
+	animation_tree["parameters/IdleRun/blend_position"] = velocity.length() / speed
+	
+	if velocity:
+		model.rotation.y = -velocity.signed_angle_to(Vector3.MODEL_FRONT, Vector3.UP)
 
 func eject_hat():
 	var hat = hats.pop_back()

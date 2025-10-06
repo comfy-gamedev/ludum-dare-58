@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://blsql3p2wvana"
-path="res://.godot/imported/buddybody.png-21775a8d86457a3ed7c373493bf19b79.ctex"
+uid="uid://cr3y3y1v4b0rg"
+path="res://.godot/imported/moth_body.png-7dd285208fb13c282bdbf17f7bbc2bff.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/models/buddybody.png"
-dest_files=["res://.godot/imported/buddybody.png-21775a8d86457a3ed7c373493bf19b79.ctex"]
+source_file="res://assets/models/moth/moth_body.png"
+dest_files=["res://.godot/imported/moth_body.png-7dd285208fb13c282bdbf17f7bbc2bff.ctex"]
 
 [params]
 

@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://kqy5hok3xfqt"
-path="res://.godot/imported/lilbuddy.glb-81561ca7b171b291f9edbc9124317fcd.scn"
+uid="uid://sjnkd28blvkc"
+path="res://.godot/imported/bridge.glb-8af96a81ecfcfa9a18164e520063dd36.scn"
 
 [deps]
 
-source_file="res://assets/models/lilbuddy.glb"
-dest_files=["res://.godot/imported/lilbuddy.glb-81561ca7b171b291f9edbc9124317fcd.scn"]
+source_file="res://assets/models/bridge.glb"
+dest_files=["res://.godot/imported/bridge.glb-8af96a81ecfcfa9a18164e520063dd36.scn"]
 
 [params]
 
@@ -37,6 +37,18 @@ import_script/path=""
 materials/extract=0
 materials/extract_format=0
 materials/extract_path=""
-_subresources={}
+_subresources={
+"nodes": {
+"PATH:Cube": {
+"generate/physics": true
+},
+"PATH:Cube_007": {
+"generate/physics": true
+},
+"PATH:Cube_008": {
+"generate/physics": true
+}
+}
+}
 gltf/naming_version=2
 gltf/embedded_image_handling=1
