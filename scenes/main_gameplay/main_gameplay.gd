@@ -6,7 +6,7 @@ const SPAWN_CIRLCE_DIST = 40
 const VILLAGE_ORIGIN = Vector3(16, 0, 16)
 
 var events = 0
-var wave_strength = 8
+var wave_strength = 2
 
 var goblin_scene = preload("res://actors/units/goblin/goblin.tscn")
 
