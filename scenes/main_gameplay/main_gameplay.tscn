@@ -14,7 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://cgvopsmv7neoy" path="res://actors/encampments/goblin_camp/goblin_camp.tscn" id="11_j67kx"]
 [ext_resource type="PackedScene" uid="uid://cpymafqtgeuud" path="res://actors/hats/phrygian/phrygian.tscn" id="12_j67kx"]
 [ext_resource type="PackedScene" uid="uid://c8hidieg0al2r" path="res://actors/hats/cowboy/cowboy.tscn" id="13_fjp8b"]
-[ext_resource type="PackedScene" uid="uid://dfvu7kkdxffly" path="res://actors/units/capling/capling.tscn" id="15_wjmgw"]
+[ext_resource type="PackedScene" uid="uid://pyiqrtqqbvfi" path="res://level_chunks/encampment_marker.tscn" id="16_eamew"]
 [ext_resource type="PackedScene" uid="uid://bxyc7ydieogw1" path="res://actors/terrain/bridge.tscn" id="16_km80p"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lot3w"]
@@ -716,82 +716,82 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.9991875, 0.25000095, 13.492
 
 [node name="EncampmentSpawns" type="Node3D" parent="."]
 
-[node name="EncampmentMarker" parent="EncampmentSpawns" instance=ExtResource("15_wjmgw")]
+[node name="EncampmentMarker" parent="EncampmentSpawns" instance=ExtResource("16_eamew")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.800858, 0, -46.184963)
 
-[node name="EncampmentMarker2" parent="EncampmentSpawns" instance=ExtResource("15_wjmgw")]
+[node name="EncampmentMarker2" parent="EncampmentSpawns" instance=ExtResource("16_eamew")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -48.35208, 0, -109.99928)
 
-[node name="EncampmentMarker3" parent="EncampmentSpawns" instance=ExtResource("15_wjmgw")]
+[node name="EncampmentMarker3" parent="EncampmentSpawns" instance=ExtResource("16_eamew")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -79.86809, 0, -173.12985)
 
-[node name="EncampmentMarker4" parent="EncampmentSpawns" instance=ExtResource("15_wjmgw")]
+[node name="EncampmentMarker4" parent="EncampmentSpawns" instance=ExtResource("16_eamew")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.351467, -7.6293945e-06, -206.39664)
 
-[node name="EncampmentMarker5" parent="EncampmentSpawns" instance=ExtResource("15_wjmgw")]
+[node name="EncampmentMarker5" parent="EncampmentSpawns" instance=ExtResource("16_eamew")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.990477, 0, -272.09644)
 
-[node name="EncampmentMarker6" parent="EncampmentSpawns" instance=ExtResource("15_wjmgw")]
+[node name="EncampmentMarker6" parent="EncampmentSpawns" instance=ExtResource("16_eamew")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 111.11599, 0, -176.33241)
 
-[node name="EncampmentMarker7" parent="EncampmentSpawns" instance=ExtResource("15_wjmgw")]
+[node name="EncampmentMarker7" parent="EncampmentSpawns" instance=ExtResource("16_eamew")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 208.15259, 0, -367.19446)
 
-[node name="EncampmentMarker8" parent="EncampmentSpawns" instance=ExtResource("15_wjmgw")]
+[node name="EncampmentMarker8" parent="EncampmentSpawns" instance=ExtResource("16_eamew")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 432.85168, 1.5258789e-05, -209.93234)
 
-[node name="EncampmentMarker9" parent="EncampmentSpawns" instance=ExtResource("15_wjmgw")]
+[node name="EncampmentMarker9" parent="EncampmentSpawns" instance=ExtResource("16_eamew")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 336.8766, -1.5258789e-05, -82.36706)
 
-[node name="EncampmentMarker10" parent="EncampmentSpawns" instance=ExtResource("15_wjmgw")]
+[node name="EncampmentMarker10" parent="EncampmentSpawns" instance=ExtResource("16_eamew")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 451.6924, 0, -122.91713)
 
-[node name="EncampmentMarker11" parent="EncampmentSpawns" instance=ExtResource("15_wjmgw")]
+[node name="EncampmentMarker11" parent="EncampmentSpawns" instance=ExtResource("16_eamew")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 306.4399, 1.5258789e-05, -13.181595)
 
-[node name="EncampmentMarker12" parent="EncampmentSpawns" instance=ExtResource("15_wjmgw")]
+[node name="EncampmentMarker12" parent="EncampmentSpawns" instance=ExtResource("16_eamew")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 428.77356, 1.5258789e-05, 145.83325)
 
-[node name="EncampmentMarker13" parent="EncampmentSpawns" instance=ExtResource("15_wjmgw")]
+[node name="EncampmentMarker13" parent="EncampmentSpawns" instance=ExtResource("16_eamew")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 381.89728, 0, -228.51811)
 
-[node name="EncampmentMarker14" parent="EncampmentSpawns" instance=ExtResource("15_wjmgw")]
+[node name="EncampmentMarker14" parent="EncampmentSpawns" instance=ExtResource("16_eamew")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 335.10086, 0, 240.92696)
 
-[node name="EncampmentMarker15" parent="EncampmentSpawns" instance=ExtResource("15_wjmgw")]
+[node name="EncampmentMarker15" parent="EncampmentSpawns" instance=ExtResource("16_eamew")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 301.9326, -3.0517578e-05, 369.7071)
 
-[node name="EncampmentMarker16" parent="EncampmentSpawns" instance=ExtResource("15_wjmgw")]
+[node name="EncampmentMarker16" parent="EncampmentSpawns" instance=ExtResource("16_eamew")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 207.11221, -3.0517578e-05, 174.1469)
 
-[node name="EncampmentMarker17" parent="EncampmentSpawns" instance=ExtResource("15_wjmgw")]
+[node name="EncampmentMarker17" parent="EncampmentSpawns" instance=ExtResource("16_eamew")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 282.69794, 0, 70.402374)
 
-[node name="EncampmentMarker18" parent="EncampmentSpawns" instance=ExtResource("15_wjmgw")]
+[node name="EncampmentMarker18" parent="EncampmentSpawns" instance=ExtResource("16_eamew")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 140.97763, 0, 271.43805)
 
-[node name="EncampmentMarker19" parent="EncampmentSpawns" instance=ExtResource("15_wjmgw")]
+[node name="EncampmentMarker19" parent="EncampmentSpawns" instance=ExtResource("16_eamew")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 175.68027, 0, 431.70923)
 
-[node name="EncampmentMarker20" parent="EncampmentSpawns" instance=ExtResource("15_wjmgw")]
+[node name="EncampmentMarker20" parent="EncampmentSpawns" instance=ExtResource("16_eamew")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -49.394905, 3.0517578e-05, 242.09502)
 
-[node name="EncampmentMarker21" parent="EncampmentSpawns" instance=ExtResource("15_wjmgw")]
+[node name="EncampmentMarker21" parent="EncampmentSpawns" instance=ExtResource("16_eamew")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 82.059525, 0, 368.0699)
 
-[node name="EncampmentMarker22" parent="EncampmentSpawns" instance=ExtResource("15_wjmgw")]
+[node name="EncampmentMarker22" parent="EncampmentSpawns" instance=ExtResource("16_eamew")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -60.900345, 3.0517578e-05, 379.7563)
 
-[node name="EncampmentMarker23" parent="EncampmentSpawns" instance=ExtResource("15_wjmgw")]
+[node name="EncampmentMarker23" parent="EncampmentSpawns" instance=ExtResource("16_eamew")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 109.50236, 0, 111.896)
 
-[node name="EncampmentMarker24" parent="EncampmentSpawns" instance=ExtResource("15_wjmgw")]
+[node name="EncampmentMarker24" parent="EncampmentSpawns" instance=ExtResource("16_eamew")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.397278, 0, 146.01431)
 
-[node name="EncampmentMarker25" parent="EncampmentSpawns" instance=ExtResource("15_wjmgw")]
+[node name="EncampmentMarker25" parent="EncampmentSpawns" instance=ExtResource("16_eamew")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 149.09917, 3.0517578e-05, 84.125595)
 
-[node name="EncampmentMarker26" parent="EncampmentSpawns" instance=ExtResource("15_wjmgw")]
+[node name="EncampmentMarker26" parent="EncampmentSpawns" instance=ExtResource("16_eamew")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.558594, 0, -303.43845)
 
 [node name="Bridge" parent="." instance=ExtResource("16_km80p")]
