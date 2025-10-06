@@ -1,8 +1,8 @@
 extends Node3D
 
 
-const WAVEGOAL = 15
-const RESCUE_GOAL = 10
+const WAVEGOAL = 8
+const RESCUE_GOAL = 5
 const SPAWN_CIRLCE_DIST = 40
 const VILLAGE_ORIGIN = Vector3(16, 0, 16)
 
