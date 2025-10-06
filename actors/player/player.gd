@@ -100,7 +100,7 @@ func _on_hit(_damage, slowing):
 	else:
 		#death
 		print("you died!!!")
-		position = Vector3.ZERO
+		position = Vector3(16, 0, 16)
 
 
 func _on_effect_timer_timeout() -> void:
