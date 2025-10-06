@@ -14,6 +14,12 @@ var encampment_scene = preload("res://actors/encampments/goblin_camp/goblin_camp
 
 @onready var encampment_spawns = $EncampmentSpawns
 
+func _ready() -> void:
+	for spawn in encampment_spawns.get_children():
+		var encampment = encampment_scene.instantiate()
+		encampment.position = spawn.position
+		add_child(encampment)
+
 func _process(_delta: float) -> void:
 	pass
 
@@ -22,14 +28,9 @@ func _on_event_timer_timeout() -> void:
 	if events >= WAVEGOAL:
 		SceneGirl.change_scene("res://scenes/win/win.tscn")
 	
-	if !events % 2 == 0:
-		var encampment = encampment_scene.instantiate()
-		encampment.position = encampment_spawns.get_children().pick_random().position
-		add_child(encampment)
-	else:
-		for i in wave_strength:
-			spawn_unit(i)
-		wave_strength += 2
+	for i in wave_strength:
+		spawn_unit(i)
+	wave_strength += 2
 
 func spawn_unit(current: int):
 	var new_goblin = goblin_scene.instantiate()
