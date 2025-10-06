@@ -1,6 +1,6 @@
-[gd_scene load_steps=6 format=3 uid="uid://5mtoxf8e7jpa"]
+[gd_scene load_steps=6 format=3 uid="uid://cobbf3sv7x3qf"]
 
-[ext_resource type="Script" uid="uid://bjgupama0l6yt" path="res://actors/hats/fireball/fireball_hat.gd" id="1_8opcq"]
+[ext_resource type="Script" uid="uid://d1uu8rk64ej2j" path="res://actors/hats/sombrero/sombrero.gd" id="1_g5ibp"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_1asxe"]
 friction = 0.4
@@ -18,7 +18,7 @@ material = SubResource("StandardMaterial3D_8opcq")
 axis_lock_angular_x = true
 axis_lock_angular_z = true
 physics_material_override = SubResource("PhysicsMaterial_1asxe")
-script = ExtResource("1_8opcq")
+script = ExtResource("1_g5ibp")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("SphereShape3D_823rn")
