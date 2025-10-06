@@ -1,6 +1,7 @@
-[gd_scene load_steps=16 format=3 uid="uid://c3rvm3rw6opg"]
+[gd_scene load_steps=17 format=3 uid="uid://c3rvm3rw6opg"]
 
 [ext_resource type="Script" uid="uid://654itoswefaq" path="res://node_types/camera_shake.gd" id="1_lrklj"]
+[ext_resource type="Script" uid="uid://bfmiw37j0chvs" path="res://scenes/main_gameplay/main_gameplay.gd" id="1_sbvst"]
 [ext_resource type="Environment" uid="uid://bf8ysb2ywtuba" path="res://default_environment.tres" id="2_sms7d"]
 [ext_resource type="PackedScene" uid="uid://bgu1iguf46imi" path="res://actors/player/player.tscn" id="3_lot3w"]
 [ext_resource type="Script" uid="uid://bqw3gr8wesx3g" path="res://addons/chunker/chunker.gd" id="3_vsax7"]
@@ -21,6 +22,7 @@ albedo_color = Color(1, 0.101960786, 0.24313726, 1)
 material = SubResource("StandardMaterial3D_lot3w")
 
 [node name="MainGameplay" type="Node3D"]
+script = ExtResource("1_sbvst")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = ExtResource("2_sms7d")
@@ -249,7 +251,16 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.344639, 0.013743967, 5.153
 [node name="phrygian" parent="." instance=ExtResource("12_j67kx")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.575781, 0.25, 5.3446445)
 
+[node name="BeretHatObject" parent="." instance=ExtResource("13_fjp8b")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.30921, 0.35263923, 6.2554045)
+
+[node name="EventTimer" type="Timer" parent="."]
+wait_time = 5.0
+autostart = true
+
 [node name="RigidBody3D" parent="." instance=ExtResource("13_fjp8b")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.9991875, 0.25000095, 13.492182)
+
+[connection signal="timeout" from="EventTimer" to="." method="_on_event_timer_timeout"]
 
 [editable path="spider"]
