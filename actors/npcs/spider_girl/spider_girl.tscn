@@ -1,10 +1,24 @@
-[gd_scene load_steps=5 format=3 uid="uid://cyyx144k2au8w"]
+[gd_scene load_steps=7 format=3 uid="uid://cyyx144k2au8w"]
 
 [ext_resource type="PackedScene" uid="uid://6x1ljv1iihde" path="res://assets/models/spider/spider.glb" id="1_gidbn"]
 [ext_resource type="Script" uid="uid://dby2wu5sssa4h" path="res://actors/npcs/spider_girl/spider_girl.gd" id="1_idquf"]
 [ext_resource type="Texture2D" uid="uid://bqj42wmd5epfp" path="res://assets/textures/exclamation_mark.png" id="2_60bdo"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_60bdo"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_idquf"]
+cull_mode = 2
+albedo_color = Color(1, 0, 1, 1)
+metallic = 0.52
+roughness = 0.14
+billboard_mode = 3
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="QuadMesh" id="QuadMesh_toahj"]
+material = SubResource("StandardMaterial3D_idquf")
+size = Vector2(0.1, 0.2)
 
 [node name="SpiderGirl" type="Area3D"]
 script = ExtResource("1_idquf")
@@ -25,6 +39,26 @@ shape = SubResource("SphereShape3D_60bdo")
 
 [node name="Yay" type="CPUParticles3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.1948189, -0.9966489)
+emitting = false
+amount = 16
+one_shot = true
+explosiveness = 0.9
+local_coords = true
+mesh = SubResource("QuadMesh_toahj")
+particle_flag_align_y = true
+particle_flag_disable_z = true
+direction = Vector3(0, 1, 0)
+spread = 30.0
+initial_velocity_min = 3.0
+initial_velocity_max = 10.0
+angular_velocity_min = 59.38
+angular_velocity_max = 371.13
+orbit_velocity_min = 0.0
+orbit_velocity_max = 0.0
+orbit_velocity_curve = null
+damping_min = 5.0
+damping_max = 5.0
+angle_max = 360.0
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
