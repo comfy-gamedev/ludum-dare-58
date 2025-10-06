@@ -9,6 +9,13 @@ var events = 0
 var wave_strength = 2
 
 var goblin_scene = preload("res://actors/units/goblin/goblin.tscn")
+var encampment_scene = preload("res://actors/encampments/goblin_camp/goblin_camp.tscn")
+
+
+@onready var encampment_spawns = $EncampmentSpawns
+
+func _process(_delta: float) -> void:
+	pass
 
 func _on_event_timer_timeout() -> void:
 	events += 1
@@ -16,8 +23,9 @@ func _on_event_timer_timeout() -> void:
 		SceneGirl.change_scene("res://scenes/win/win.tscn")
 	
 	if events % 2 == 0:
-		pass
-		#encampment
+		var encampment = encampment_scene.instantiate()
+		encampment.position = encampment_spawns.get_children().pick_random().position
+		add_child(encampment)
 	else:
 		for i in wave_strength:
 			spawn_unit(i)
