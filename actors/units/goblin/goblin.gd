@@ -4,7 +4,7 @@ extends base_unit
 @onready var effect_timer = $EffectTimer
 
 # TODO: This will eventually pull from a random pool of hats.
-var icicle_hat_scene = preload("res://actors/hats/icicle/icicle_hat.tscn")
+var icicle_hat_scene = preload("res://actors/hats/scally/scally.tscn")
 
 func _init() -> void:
 	health = 3
