@@ -1,9 +1,13 @@
-[gd_scene load_steps=3 format=3 uid="uid://cyyx144k2au8w"]
+[gd_scene load_steps=5 format=3 uid="uid://cyyx144k2au8w"]
 
 [ext_resource type="PackedScene" uid="uid://6x1ljv1iihde" path="res://assets/models/spider/spider.glb" id="1_gidbn"]
+[ext_resource type="Script" uid="uid://dby2wu5sssa4h" path="res://actors/npcs/spider_girl/spider_girl.gd" id="1_idquf"]
 [ext_resource type="Texture2D" uid="uid://bqj42wmd5epfp" path="res://assets/textures/exclamation_mark.png" id="2_60bdo"]
 
-[node name="SpiderGirl" type="Node3D"]
+[sub_resource type="SphereShape3D" id="SphereShape3D_60bdo"]
+
+[node name="SpiderGirl" type="Area3D"]
+script = ExtResource("1_idquf")
 
 [node name="SpiderGirlModel" parent="." instance=ExtResource("1_gidbn")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.014, 0)
@@ -11,8 +15,15 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.014, 0)
 [node name="AnimationPlayer" parent="SpiderGirlModel" index="1"]
 autoplay = "Idle"
 
-[node name="Sprite3D" type="Sprite3D" parent="."]
+[node name="ExclamationMark" type="Sprite3D" parent="."]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 2.4058359, -0.18718928)
 texture = ExtResource("2_60bdo")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 1.0253367, 0)
+shape = SubResource("SphereShape3D_60bdo")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]
 
 [editable path="SpiderGirlModel"]

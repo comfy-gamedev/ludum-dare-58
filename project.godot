@@ -49,6 +49,7 @@ import/blender/enabled=false
 hat=""
 enemy=""
 ally=""
+player=""
 
 [gui]
 

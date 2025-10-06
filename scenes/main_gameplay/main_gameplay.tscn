@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://c3rvm3rw6opg"]
+[gd_scene load_steps=22 format=3 uid="uid://c3rvm3rw6opg"]
 
 [ext_resource type="Script" uid="uid://654itoswefaq" path="res://node_types/camera_shake.gd" id="1_lrklj"]
 [ext_resource type="Script" uid="uid://bfmiw37j0chvs" path="res://scenes/main_gameplay/main_gameplay.gd" id="1_sbvst"]
@@ -24,6 +24,8 @@ albedo_color = Color(1, 0.101960786, 0.24313726, 1)
 
 [sub_resource type="SphereMesh" id="SphereMesh_sms7d"]
 material = SubResource("StandardMaterial3D_lot3w")
+
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_om7j4"]
 
 [node name="MainGameplay" type="Node3D"]
 script = ExtResource("1_sbvst")
@@ -678,6 +680,11 @@ metadata/_custom_type_script = "uid://654itoswefaq"
 [node name="TargetingBall" type="MeshInstance3D" parent="Player"]
 mesh = SubResource("SphereMesh_sms7d")
 skeleton = NodePath("../..")
+
+[node name="GroundPlane" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="GroundPlane"]
+shape = SubResource("WorldBoundaryShape3D_om7j4")
 
 [node name="BulletParent" type="Node3D" parent="."]
 unique_name_in_owner = true

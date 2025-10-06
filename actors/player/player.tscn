@@ -36,7 +36,7 @@ node_connections = [&"output", 0, &"AttackOneShot", &"AttackOneShot", 0, &"IdleR
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_nvxhs"]
 
-[node name="Player" type="CharacterBody3D" groups=["ally"]]
+[node name="Player" type="CharacterBody3D" groups=["ally", "player"]]
 script = ExtResource("1_nvxhs")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
