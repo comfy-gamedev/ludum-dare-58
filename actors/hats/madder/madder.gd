@@ -10,7 +10,42 @@ func fire(dir: Vector3, bullet_parent: Node3D):
 	bullet.team = self.team
 	bullet.position = global_position + (Vector3.DOWN * 2)
 	bullet.direction = dir
-	bullet.lifetime /= 4
+	bullet.lifetime = 4
 	bullet.movement = base_bullet.movement_types.LOOPY
 	bullet.element_type = Globals.elements.EARTH
+	bullet_parent.add_child(bullet)
+	
+	bullet.team = self.team
+	bullet.position = global_position + (Vector3.DOWN * 2)
+	bullet.direction = dir.rotated(Vector3.UP, TAU / 5)
+	bullet.lifetime = 4
+	bullet.movement = base_bullet.movement_types.LOOPY
+	bullet.element_type = Globals.elements.EARTH
+	bullet_parent.add_child(bullet)
+	
+	bullet = bullet_scene.instantiate()
+	bullet.team = self.team
+	bullet.position = global_position + (Vector3.DOWN * 2)
+	bullet.direction = dir.rotated(Vector3.UP, (TAU * 2) / 5)
+	bullet.lifetime = 4
+	bullet.movement = base_bullet.movement_types.LOOPY
+	bullet.element_type = Globals.elements.WATER
+	bullet_parent.add_child(bullet)
+	
+	bullet = bullet_scene.instantiate()
+	bullet.team = self.team
+	bullet.position = global_position + (Vector3.DOWN * 2)
+	bullet.direction = dir.rotated(Vector3.UP, (TAU * 3) / 5)
+	bullet.lifetime = 4
+	bullet.movement = base_bullet.movement_types.LOOPY
+	bullet.element_type = Globals.elements.WATER
+	bullet_parent.add_child(bullet)
+	
+	bullet = bullet_scene.instantiate()
+	bullet.team = self.team
+	bullet.position = global_position + (Vector3.DOWN * 2)
+	bullet.direction = dir.rotated(Vector3.UP, (TAU * 4) / 5)
+	bullet.lifetime = 4
+	bullet.movement = base_bullet.movement_types.LOOPY
+	bullet.element_type = Globals.elements.WATER
 	bullet_parent.add_child(bullet)

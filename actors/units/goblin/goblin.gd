@@ -17,6 +17,7 @@ func _init() -> void:
 func trigger_hat_skill(dir: Vector3, bullet_parent: Node3D):
 	if is_instance_valid(equipped_hat):
 		equipped_hat.fire(dir, bullet_parent)
+		#add animation here
 
 func init_hat() -> Hat:
 	var enemy_hat = icicle_hat_scene.instantiate()

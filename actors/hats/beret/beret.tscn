@@ -1,6 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://dluu73o0dtmvt"]
+[gd_scene load_steps=7 format=3 uid="uid://dluu73o0dtmvt"]
 
-[ext_resource type="Script" uid="uid://dsn5pmhndsjkh" path="res://actors/hats/newhat/sombrero.gd" id="1_ups64"]
+[ext_resource type="Script" uid="uid://dsn5pmhndsjkh" path="res://actors/hats/beret/beret.gd" id="1_ups64"]
+[ext_resource type="PackedScene" uid="uid://cgku0yq5g5mnp" path="res://assets/models/beret.glb" id="2_yb1sh"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_1asxe"]
 friction = 0.4
@@ -14,7 +15,7 @@ albedo_color = Color(1, 0.5019608, 0, 1)
 [sub_resource type="CylinderMesh" id="CylinderMesh_823rn"]
 material = SubResource("StandardMaterial3D_8opcq")
 
-[node name="RigidBody3D" type="RigidBody3D" groups=["hat"]]
+[node name="BeretHatObject" type="RigidBody3D" groups=["hat"]]
 axis_lock_angular_x = true
 axis_lock_angular_z = true
 physics_material_override = SubResource("PhysicsMaterial_1asxe")
@@ -31,3 +32,6 @@ mesh = SubResource("CylinderMesh_823rn")
 [node name="PickupCooldown" type="Timer" parent="."]
 wait_time = 0.25
 one_shot = true
+
+[node name="beret" parent="." instance=ExtResource("2_yb1sh")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0.022110462, -0.12173319, 0.0044720173)

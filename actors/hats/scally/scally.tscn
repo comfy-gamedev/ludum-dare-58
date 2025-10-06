@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://da6xpkw71ms42"]
+[gd_scene load_steps=8 format=3 uid="uid://da6xpkw71ms42"]
 
 [ext_resource type="Script" uid="uid://baqktpj180yot" path="res://actors/hats/scally/scally.gd" id="1_hjfrq"]
 [ext_resource type="PackedScene" uid="uid://bk4ymi8w11fc2" path="res://assets/models/witch.glb" id="2_ulbry"]
+[ext_resource type="PackedScene" uid="uid://cnhjmm0j541l8" path="res://assets/models/scally.glb" id="3_j21of"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_1asxe"]
 friction = 0.4
@@ -35,3 +36,7 @@ one_shot = true
 
 [node name="witch" parent="." instance=ExtResource("2_ulbry")]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0.25, 0)
+visible = false
+
+[node name="scally" parent="." instance=ExtResource("3_j21of")]
+transform = Transform3D(0.2792148, 0, -0.35290095, 0, 0.45, 0, 0.35290095, 0, 0.2792148, -0.017883837, -0.116125464, 0.053171754)
