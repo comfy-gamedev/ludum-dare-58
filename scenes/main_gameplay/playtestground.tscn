@@ -1,0 +1,283 @@
+[gd_scene load_steps=21 format=3 uid="uid://ctas5rv0ag3v0"]
+
+[ext_resource type="Script" uid="uid://bfmiw37j0chvs" path="res://scenes/main_gameplay/main_gameplay.gd" id="1_qilwm"]
+[ext_resource type="Environment" uid="uid://bf8ysb2ywtuba" path="res://default_environment.tres" id="2_oah2w"]
+[ext_resource type="Script" uid="uid://bqw3gr8wesx3g" path="res://addons/chunker/chunker.gd" id="3_yecnw"]
+[ext_resource type="PackedScene" uid="uid://d3ruon34yppmu" path="res://actors/encampments/home_camp/home_camp.tscn" id="4_4ceee"]
+[ext_resource type="PackedScene" uid="uid://bgu1iguf46imi" path="res://actors/player/player.tscn" id="5_oora8"]
+[ext_resource type="Script" uid="uid://654itoswefaq" path="res://node_types/camera_shake.gd" id="6_aa0kc"]
+[ext_resource type="PackedScene" uid="uid://dx8wgsi14wwb3" path="res://actors/hats/madder/madder.tscn" id="7_gpuyx"]
+[ext_resource type="PackedScene" uid="uid://dgn2cmxmyhrcx" path="res://actors/hats/buffalo/buffalo.tscn" id="8_3sefw"]
+[ext_resource type="PackedScene" uid="uid://5mtoxf8e7jpa" path="res://actors/hats/fez/fez.tscn" id="9_5ygv1"]
+[ext_resource type="PackedScene" uid="uid://dk2fol3t0dy4b" path="res://assets/models/cowboy3.glb" id="10_x8f1b"]
+[ext_resource type="PackedScene" uid="uid://cgvopsmv7neoy" path="res://actors/encampments/goblin_camp/goblin_camp.tscn" id="11_ls70w"]
+[ext_resource type="PackedScene" uid="uid://6x1ljv1iihde" path="res://assets/models/spider/spider.glb" id="12_erdou"]
+[ext_resource type="PackedScene" uid="uid://cpymafqtgeuud" path="res://actors/hats/phrygian/phrygian.tscn" id="13_a8wm3"]
+[ext_resource type="PackedScene" uid="uid://c8hidieg0al2r" path="res://actors/hats/cowboy/cowboy.tscn" id="14_lqgwk"]
+[ext_resource type="PackedScene" uid="uid://dbxoeedoctsor" path="res://actors/hats/tyrolean/tyrolean.tscn" id="15_oah2w"]
+[ext_resource type="PackedScene" uid="uid://b6w3q3ipa6xic" path="res://actors/hats/tricorn/tricorn.tscn" id="16_yecnw"]
+[ext_resource type="PackedScene" uid="uid://cqr8lvhyyhkwo" path="res://actors/hats/witch/witch.tscn" id="17_4ceee"]
+[ext_resource type="PackedScene" uid="uid://dfvu7kkdxffly" path="res://actors/units/capling/capling.tscn" id="18_oora8"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lot3w"]
+albedo_color = Color(1, 0.101960786, 0.24313726, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_sms7d"]
+material = SubResource("StandardMaterial3D_lot3w")
+
+[node name="MainGameplay" type="Node3D"]
+script = ExtResource("1_qilwm")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = ExtResource("2_oah2w")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.70710677, -0.49999997, 0.49999997, 0, 0.70710677, 0.70710677, -0.70710677, -0.49999997, 0.49999997, 0, 4.3054237, 0)
+light_energy = 0.325
+shadow_enabled = true
+directional_shadow_mode = 0
+directional_shadow_split_1 = 0.0
+directional_shadow_max_distance = 30.0
+
+[node name="Chunker" type="Node3D" parent="."]
+script = ExtResource("3_yecnw")
+chunk_scenes = Array[String](["uid://vl48dqgc4dp4", "uid://dsou4tg5tn84m", "uid://cvv52w85i5lry", "uid://b3x6lb0ghtnc5", "uid://j211mx6s30ci", "uid://dgudmdwr5h66y", "uid://cd1camn63xg6t", "uid://ccop0xuj6shp2", "uid://dkqa2mup6c4fi", "uid://catbfak43vtw1", "uid://di8uyh08twmfu", "uid://i73jvbukfm07", "uid://cal66a185y606", "uid://ctdo2q51o3ym1", "uid://cvfrky5fucfny", "uid://bq0e84qlt326j", "uid://dt5lqmo3mead0", "uid://b80tdpsqvy4bu", "uid://w7q83r0ewk77", "uid://bjj2v4e4ahdq3", "uid://dw66hpayu2xo7", "uid://bjw8lsja4ksqy", "uid://c2rw0al0jcebt", "uid://e1kjyq0prcid", "uid://canvqotfdd3m8", "uid://cv887fbicx55k", "uid://bixuuovhay4wo", "uid://c2mo3tktnfpru", "uid://1irvf3j8mxmf", "uid://fbe8atthclav", "uid://bjxn73tgm5wqr"])
+chunks = Dictionary[Vector2i, Array]({
+Vector2i(-5, -2): [18, 2],
+Vector2i(-5, -1): [18, 1],
+Vector2i(-5, 0): [18, 2],
+Vector2i(-5, 1): [18, 1],
+Vector2i(-5, 2): [18, 0],
+Vector2i(-5, 3): [18, 1],
+Vector2i(-5, 4): [18, 0],
+Vector2i(-5, 5): [18, 1],
+Vector2i(-5, 6): [18, 1],
+Vector2i(-5, 7): [18, 1],
+Vector2i(-5, 8): [18, 1],
+Vector2i(-5, 9): [18, 1],
+Vector2i(-5, 10): [18, 1],
+Vector2i(-5, 11): [18, 1],
+Vector2i(-4, -2): [18, 0],
+Vector2i(-4, -1): [18, 1],
+Vector2i(-4, 0): [18, 0],
+Vector2i(-4, 1): [12, 3],
+Vector2i(-4, 2): [3, 2],
+Vector2i(-4, 3): [3, 2],
+Vector2i(-4, 4): [3, 2],
+Vector2i(-4, 5): [3, 2],
+Vector2i(-4, 6): [12, 2],
+Vector2i(-4, 7): [18, 0],
+Vector2i(-4, 8): [18, 3],
+Vector2i(-4, 9): [18, 1],
+Vector2i(-4, 10): [18, 3],
+Vector2i(-4, 11): [18, 1],
+Vector2i(-3, -2): [18, 1],
+Vector2i(-3, -1): [18, 0],
+Vector2i(-3, 0): [12, 3],
+Vector2i(-3, 1): [4, 3],
+Vector2i(-3, 2): [14, 2],
+Vector2i(-3, 3): [8, 1],
+Vector2i(-3, 4): [6, 1],
+Vector2i(-3, 5): [5, 3],
+Vector2i(-3, 6): [3, 1],
+Vector2i(-3, 7): [18, 0],
+Vector2i(-3, 8): [18, 0],
+Vector2i(-3, 9): [18, 1],
+Vector2i(-3, 10): [18, 1],
+Vector2i(-3, 11): [18, 1],
+Vector2i(-2, -2): [3, 2],
+Vector2i(-2, -1): [3, 2],
+Vector2i(-2, 0): [4, 3],
+Vector2i(-2, 1): [14, 2],
+Vector2i(-2, 2): [6, 3],
+Vector2i(-2, 3): [5, 3],
+Vector2i(-2, 4): [8, 2],
+Vector2i(-2, 5): [17, 0],
+Vector2i(-2, 6): [4, 2],
+Vector2i(-2, 7): [3, 2],
+Vector2i(-2, 8): [3, 2],
+Vector2i(-2, 9): [3, 2],
+Vector2i(-2, 10): [12, 2],
+Vector2i(-2, 11): [18, 1],
+Vector2i(-1, -3): [16, 2],
+Vector2i(-1, -2): [25, 0],
+Vector2i(-1, -1): [27, 1],
+Vector2i(-1, 0): [25, 2],
+Vector2i(-1, 1): [6, 3],
+Vector2i(-1, 2): [8, 3],
+Vector2i(-1, 3): [8, 1],
+Vector2i(-1, 4): [11, 0],
+Vector2i(-1, 5): [8, 1],
+Vector2i(-1, 6): [6, 1],
+Vector2i(-1, 7): [8, 3],
+Vector2i(-1, 8): [8, 1],
+Vector2i(-1, 9): [14, 1],
+Vector2i(-1, 10): [3, 1],
+Vector2i(-1, 11): [18, 0],
+Vector2i(0, -3): [28, 3],
+Vector2i(0, -2): [25, 1],
+Vector2i(0, -1): [0, 0],
+Vector2i(0, 0): [26, 1],
+Vector2i(0, 1): [5, 3],
+Vector2i(0, 2): [17, 0],
+Vector2i(0, 3): [17, 0],
+Vector2i(0, 4): [8, 0],
+Vector2i(0, 5): [17, 0],
+Vector2i(0, 6): [5, 2],
+Vector2i(0, 7): [17, 0],
+Vector2i(0, 8): [5, 0],
+Vector2i(0, 9): [8, 2],
+Vector2i(0, 10): [3, 1],
+Vector2i(0, 11): [18, 1],
+Vector2i(1, -2): [13, 2],
+Vector2i(1, -1): [25, 0],
+Vector2i(1, 0): [9, 0],
+Vector2i(1, 1): [17, 0],
+Vector2i(1, 2): [17, 0],
+Vector2i(1, 3): [17, 0],
+Vector2i(1, 4): [14, 3],
+Vector2i(1, 5): [14, 1],
+Vector2i(1, 6): [17, 0],
+Vector2i(1, 7): [14, 2],
+Vector2i(1, 8): [14, 0],
+Vector2i(1, 9): [8, 2],
+Vector2i(1, 10): [3, 1],
+Vector2i(1, 11): [18, 1],
+Vector2i(2, -3): [13, 3],
+Vector2i(2, -2): [13, 1],
+Vector2i(2, -1): [15, 1],
+Vector2i(2, 0): [15, 3],
+Vector2i(2, 1): [8, 3],
+Vector2i(2, 2): [6, 1],
+Vector2i(2, 3): [8, 1],
+Vector2i(2, 4): [8, 1],
+Vector2i(2, 5): [11, 0],
+Vector2i(2, 6): [8, 1],
+Vector2i(2, 7): [6, 3],
+Vector2i(2, 8): [6, 1],
+Vector2i(2, 9): [14, 0],
+Vector2i(2, 10): [3, 1],
+Vector2i(2, 11): [18, 0],
+Vector2i(3, -3): [13, 3],
+Vector2i(3, -2): [13, 3],
+Vector2i(3, -1): [13, 0],
+Vector2i(3, 1): [21, 0],
+Vector2i(3, 2): [19, 3],
+Vector2i(3, 3): [20, 3],
+Vector2i(3, 4): [21, 3],
+Vector2i(3, 5): [5, 2],
+Vector2i(3, 6): [21, 0],
+Vector2i(3, 7): [20, 3],
+Vector2i(3, 8): [19, 3],
+Vector2i(3, 9): [21, 3],
+Vector2i(3, 10): [3, 1],
+Vector2i(3, 11): [18, 2],
+Vector2i(4, 2): [30, 0],
+Vector2i(4, 3): [29, 3],
+Vector2i(4, 4): [22, 3],
+Vector2i(4, 5): [20, 3],
+Vector2i(4, 6): [22, 0],
+Vector2i(4, 7): [30, 0],
+Vector2i(4, 8): [30, 0],
+Vector2i(4, 9): [20, 2],
+Vector2i(4, 10): [3, 1],
+Vector2i(4, 11): [18, 3],
+Vector2i(5, 2): [30, 0],
+Vector2i(5, 3): [30, 0],
+Vector2i(5, 4): [30, 0],
+Vector2i(5, 5): [30, 0],
+Vector2i(5, 6): [29, 0],
+Vector2i(5, 7): [30, 0],
+Vector2i(5, 8): [30, 0],
+Vector2i(5, 9): [20, 2],
+Vector2i(5, 10): [4, 2],
+Vector2i(5, 11): [3, 2],
+Vector2i(5, 12): [12, 2],
+Vector2i(6, 2): [30, 0],
+Vector2i(6, 3): [30, 0],
+Vector2i(6, 4): [30, 0],
+Vector2i(6, 5): [30, 0],
+Vector2i(6, 6): [30, 0],
+Vector2i(6, 7): [30, 0],
+Vector2i(6, 8): [30, 0],
+Vector2i(6, 9): [19, 2],
+Vector2i(6, 10): [8, 1],
+Vector2i(6, 11): [5, 3],
+Vector2i(6, 12): [3, 1],
+Vector2i(7, 9): [21, 2],
+Vector2i(7, 10): [4, 1],
+Vector2i(7, 11): [3, 0],
+Vector2i(7, 12): [12, 1]
+})
+metadata/_custom_type_script = "uid://bqw3gr8wesx3g"
+
+[node name="HomeCamp" parent="." instance=ExtResource("4_4ceee")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16, 0, 16)
+
+[node name="Player" parent="." instance=ExtResource("5_oora8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16, 0, 16)
+
+[node name="Camera3D" type="Camera3D" parent="Player"]
+transform = Transform3D(0.99999994, 0, 0, 0, 0.564967, 0.8251135, 0, -0.8251135, 0.564967, -0.0101396, 8.321833, 5.6878605)
+
+[node name="CameraShake" type="Node" parent="Player/Camera3D"]
+script = ExtResource("6_aa0kc")
+metadata/_custom_type_script = "uid://654itoswefaq"
+
+[node name="TargetingBall" type="MeshInstance3D" parent="Player"]
+mesh = SubResource("SphereMesh_sms7d")
+skeleton = NodePath("../..")
+
+[node name="BulletParent" type="Node3D" parent="."]
+unique_name_in_owner = true
+
+[node name="MadderHatDrop" parent="." instance=ExtResource("7_gpuyx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.664906, 0.039422512, 4.6735487)
+
+[node name="BuffaloHatDrop" parent="." instance=ExtResource("8_3sefw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.92412, 0.25, 3.032364)
+
+[node name="FezHatDrop" parent="." instance=ExtResource("9_5ygv1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.694086, 0.8852656, 0.059386253)
+
+[node name="cowboy1" parent="." instance=ExtResource("10_x8f1b")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.489609, 0, -11.88997)
+
+[node name="cowboy2" parent="." instance=ExtResource("10_x8f1b")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.0256867, 1.7644718, 5.140967)
+
+[node name="GoblinCamp1" parent="." instance=ExtResource("11_ls70w")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.273014, 0, -50.87052)
+
+[node name="spider" parent="." instance=ExtResource("12_erdou")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.344639, 0.013743967, 5.153982)
+
+[node name="phrygian" parent="." instance=ExtResource("13_a8wm3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.575781, 0.25, 5.3446445)
+
+[node name="BeretHatObject" parent="." instance=ExtResource("14_lqgwk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.30921, 0.35263923, 6.2554045)
+
+[node name="EventTimer" type="Timer" parent="."]
+wait_time = 15.0
+autostart = true
+
+[node name="RigidBody3D" parent="." instance=ExtResource("14_lqgwk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.9991875, 0.25000095, 13.492182)
+
+[node name="RigidBody3D2" parent="." instance=ExtResource("15_oah2w")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.618303, 0.36228007, 8.975941)
+
+[node name="RigidBody3D3" parent="." instance=ExtResource("16_yecnw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.623108, 0.25, 14.879191)
+
+[node name="RigidBody3D4" parent="." instance=ExtResource("17_4ceee")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.530824, 0.6919378, 11.885083)
+
+[node name="AllyParent" type="Node3D" parent="."]
+
+[node name="Capling" parent="AllyParent" instance=ExtResource("18_oora8")]
+
+[connection signal="timeout" from="EventTimer" to="." method="_on_event_timer_timeout"]
+
+[editable path="spider"]

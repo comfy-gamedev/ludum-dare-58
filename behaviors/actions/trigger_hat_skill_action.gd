@@ -14,5 +14,7 @@ func tick(actor: Node, blackboard: Blackboard) -> int:
 	var direction = Vector3(target_pos_vec2.x - actor_pos_vec2.x, 0, target_pos_vec2.y - actor_pos_vec2.y).normalized()
 	
 	actor.trigger_hat_skill(direction, actor.get_parent())
-	
+	#get_tree().get_root()) # actor.get_parent())
+	if actor.has_node("AnimationPlayer"):
+		actor.get_node("AnimationPlayer").play("throw")
 	return SUCCESS

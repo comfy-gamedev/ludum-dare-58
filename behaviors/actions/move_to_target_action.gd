@@ -35,7 +35,7 @@ func tick(actor: Node, blackboard: Blackboard) -> int:
 		actor.velocity = actor.velocity.move_toward(direction * actor.speed, actor.accel * 5.0)
 	
 	distance_to_target = actor.position.distance_to(target_pos)
-	
+	actor.basis = Basis.looking_at(direction,Vector3.UP,true)
 	# If the distance to the target is less than the step, set the final position.
 	if distance_to_target <= actor.attack_acceptance_range:
 		return SUCCESS

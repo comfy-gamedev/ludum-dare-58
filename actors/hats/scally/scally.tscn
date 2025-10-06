@@ -1,0 +1,42 @@
+[gd_scene load_steps=8 format=3 uid="uid://da6xpkw71ms42"]
+
+[ext_resource type="Script" uid="uid://baqktpj180yot" path="res://actors/hats/scally/scally.gd" id="1_hjfrq"]
+[ext_resource type="PackedScene" uid="uid://bk4ymi8w11fc2" path="res://assets/models/witch.glb" id="2_ulbry"]
+[ext_resource type="PackedScene" uid="uid://cnhjmm0j541l8" path="res://assets/models/scally.glb" id="3_j21of"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_1asxe"]
+friction = 0.4
+bounce = 0.5
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_823rn"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8opcq"]
+albedo_color = Color(0, 0.5019608, 1, 1)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_823rn"]
+material = SubResource("StandardMaterial3D_8opcq")
+
+[node name="RigidBody3D" type="RigidBody3D" groups=["hat"]]
+axis_lock_angular_x = true
+axis_lock_angular_z = true
+physics_material_override = SubResource("PhysicsMaterial_1asxe")
+script = ExtResource("1_hjfrq")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_823rn")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.25, 0, 0, 0, 1, 0, 0, 0)
+visible = false
+mesh = SubResource("CylinderMesh_823rn")
+
+[node name="PickupCooldown" type="Timer" parent="."]
+wait_time = 0.25
+one_shot = true
+
+[node name="witch" parent="." instance=ExtResource("2_ulbry")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0.25, 0)
+visible = false
+
+[node name="scally" parent="." instance=ExtResource("3_j21of")]
+transform = Transform3D(0.2792148, 0, -0.35290095, 0, 0.45, 0, 0.35290095, 0, 0.2792148, -0.017883837, -0.116125464, 0.053171754)

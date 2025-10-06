@@ -1,0 +1,37 @@
+[gd_scene load_steps=7 format=3 uid="uid://dbxoeedoctsor"]
+
+[ext_resource type="Script" uid="uid://cu2by80tqvhvn" path="res://actors/hats/tyrolean/tyrolean.gd" id="1_gd1kl"]
+[ext_resource type="PackedScene" uid="uid://p4y4tpnqr4ld" path="res://assets/models/tyrolean.glb" id="2_nq7s2"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_1asxe"]
+friction = 0.4
+bounce = 0.5
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_823rn"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8opcq"]
+albedo_color = Color(1, 0.5019608, 0, 1)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_823rn"]
+material = SubResource("StandardMaterial3D_8opcq")
+
+[node name="RigidBody3D" type="RigidBody3D" groups=["hat"]]
+axis_lock_angular_x = true
+axis_lock_angular_z = true
+physics_material_override = SubResource("PhysicsMaterial_1asxe")
+script = ExtResource("1_gd1kl")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_823rn")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.25, 0, 0, 0, 1, 0, 0, 0)
+visible = false
+mesh = SubResource("CylinderMesh_823rn")
+
+[node name="PickupCooldown" type="Timer" parent="."]
+wait_time = 0.25
+one_shot = true
+
+[node name="tyrolean" parent="." instance=ExtResource("2_nq7s2")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0.006471753, -0.36228007, -0.004212737)

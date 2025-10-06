@@ -19,6 +19,17 @@ enum elements {
 	EARTH
 }
 
+var hat_scene_pool = {
+	BERET = preload("uid://dluu73o0dtmvt"),
+	BUFFALO = preload("uid://dgn2cmxmyhrcx"),
+	FEZ = preload("uid://5mtoxf8e7jpa"),
+	JESTER = preload("uid://dbwi51ka8rab7"),
+	MADDER = preload("uid://dx8wgsi14wwb3"),
+	PHRYGIAN = preload("uid://cpymafqtgeuud"),
+	SCALLY = preload("uid://da6xpkw71ms42"),
+	SOMBRERO = preload("uid://cobbf3sv7x3qf"),
+}
+
 ## Emitted when any variable changes.
 signal changed(prop_name: StringName)
 

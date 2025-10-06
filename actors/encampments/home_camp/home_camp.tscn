@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://d3ruon34yppmu"]
+
+[ext_resource type="Script" uid="uid://bp8xpxsq4rgpf" path="res://actors/encampments/home_camp/home_camp.gd" id="1_1bx6k"]
+
+[node name="HomeCamp" type="Node3D"]
+script = ExtResource("1_1bx6k")

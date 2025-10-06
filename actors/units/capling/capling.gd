@@ -27,7 +27,7 @@ func trigger_hat_skill(dir: Vector3, bullet_parent: Node3D):
 	if is_instance_valid(equipped_hat):
 		equipped_hat.fire(dir, bullet_parent)
 
-func on_hit(_damage: int, slowing = false):
+func on_hit(_damage: int, _type: Globals.elements, slowing = false):
 	health -= _damage
 	
 	if slowing:
@@ -41,7 +41,18 @@ func on_death():
 	if is_instance_valid(equipped_hat):
 		drop_hat()
 	
+	if is_instance_valid(encampment_ref):
+		process_encampment_updates()
+	
 	self.queue_free()
+
+func process_encampment_updates():
+	# Reduce home encampment capling counter by one.
+	encampment_ref.current_number_of_units -= 1
+	
+	# Trigger encampment destroyed method.
+	if encampment_ref.current_number_of_units <= 0:
+		encampment_ref.on_encampment_destroyed()
 
 func drop_hat():
 	equipped_hat.linear_velocity = Vector3(randf() - 2.5, 0, randf() - 0.5).normalized() * 5
