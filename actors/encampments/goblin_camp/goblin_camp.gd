@@ -3,10 +3,11 @@ var goblin_scene = preload("uid://cwajxjg83lhvk")
 
 @export var number_of_units = 3
 var has_been_called = false
+var has_spawned = false
 
-func _ready() -> void:
-	spawn_units.call_deferred()
-	current_number_of_units = number_of_units
+#func _ready() -> void:
+	#spawn_units.call_deferred()
+	#current_number_of_units = number_of_units
 
 func on_encampment_destroyed():
 	if not has_been_called:
@@ -32,3 +33,10 @@ func spawn_unit():
 	new_goblin.global_position = goblin_pos
 	new_goblin.encampment_ref = self
 	$/root/MainGameplay.add_child(new_goblin)
+
+
+func _on_area_3d_body_entered(body: Node3D) -> void:
+	if body.is_in_group("ally") && !has_spawned:
+		spawn_units()
+		current_number_of_units = number_of_units
+		has_spawned = true

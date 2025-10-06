@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://cgvopsmv7neoy"]
+[gd_scene load_steps=7 format=3 uid="uid://cgvopsmv7neoy"]
 
 [ext_resource type="PackedScene" uid="uid://clnwrqn7nbxp8" path="res://assets/models/cage.glb" id="1_bacdj"]
 [ext_resource type="Script" uid="uid://cbdtf7e0mc4vp" path="res://actors/encampments/goblin_camp/goblin_camp.gd" id="1_gs67e"]
@@ -25,6 +25,9 @@ stencil_outline_thickness = 0.02
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_e4k6f"]
 material = SubResource("StandardMaterial3D_i21rv")
 
+[sub_resource type="SphereShape3D" id="SphereShape3D_bacdj"]
+radius = 30.0
+
 [node name="GoblinCamp" type="Node3D"]
 script = ExtResource("1_gs67e")
 
@@ -34,3 +37,10 @@ transform = Transform3D(1, 0, 0, 0, 1.8976834, 0, 0, 0, 1, -0.0139250755, 0, 0.0
 [node name="CagedCapling" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0371748, 0)
 mesh = SubResource("CapsuleMesh_e4k6f")
+
+[node name="Area3D" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+shape = SubResource("SphereShape3D_bacdj")
+
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
