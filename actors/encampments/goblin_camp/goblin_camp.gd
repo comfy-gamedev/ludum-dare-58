@@ -16,7 +16,7 @@ func on_encampment_destroyed():
 		$/root/MainGameplay/HomeCamp.spawn_unit()
 		# Remove cage model.
 		$Cage.queue_free()
-		$lilbuddy.AnimationPlayer.play("yipee")
+		#$lilbuddy.AnimationPlayer.play("yipee")
 		# TODO: Cool little animation of freed capling jumping for joy.
 		await get_tree().create_timer(2.0).timeout
 		# Remove enemy camp.
