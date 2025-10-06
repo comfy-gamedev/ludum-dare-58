@@ -47,6 +47,7 @@ func _process(delta: float) -> void:
 			bullet.direction = Vector3(targeting_ball.position.x, 0, targeting_ball.position.z).normalized()
 			bullet_parent.add_child(bullet)
 		animation_tree["parameters/AttackOneShot/request"] = AnimationNodeOneShot.ONE_SHOT_REQUEST_FIRE
+		MusicMan.sfx(preload("res://assets/sfx/shoot.wav"))
 	
 	if Input.is_action_just_pressed("eject") && hats.size() > 0:
 		eject_hat()
@@ -119,10 +120,12 @@ func _on_hit(_damage, slowing):
 		if slowing:
 			speed /= 2
 			effect_timer.start()
+		MusicMan.sfx(preload("res://assets/sfx/playerdamage.wav"))
 	else:
 		on_death()
 
 func on_death():
+	MusicMan.sfx(preload("res://assets/sfx/playerdeath.wav"))
 	# Respawn player at home camp.
 	position = Vector3(16, 0, 16)
 

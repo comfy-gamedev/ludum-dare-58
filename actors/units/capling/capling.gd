@@ -46,6 +46,7 @@ func on_hit(_damage: int, _type: Globals.elements, slowing = false):
 		effect_timer.start()
 	
 	if health <= 0:
+		MusicMan.sfx(preload("res://assets/sfx/friendlydeath.wav"))
 		on_death()
 
 func on_death():
