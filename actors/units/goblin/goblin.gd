@@ -3,8 +3,7 @@ extends base_unit
 @onready var target_seeking_radius: Area3D = $TargetSeekingRadius
 @onready var effect_timer = $EffectTimer
 
-# TODO: This will eventually pull from a random pool of hats.
-var icicle_hat_scene = preload("res://actors/hats/scally/scally.tscn")
+var hat_scene
 
 func _init() -> void:
 	health = 3
@@ -14,12 +13,20 @@ func _init() -> void:
 	attack_acceptance_range = 5
 	equipped_hat = init_hat()
 
+func choose_random_hat_scene() -> PackedScene:
+	var hat_keys_array = Globals.hat_pool.keys()
+	randi_range(0, hat_keys_array.size() - 1)
+	var random_index = randi_range(0, hat_keys_array.size() - 1)
+	var random_hat_key = hat_keys_array[random_index]
+	return Globals.hat_pool[random_hat_key]
+
 func trigger_hat_skill(dir: Vector3, bullet_parent: Node3D):
 	if is_instance_valid(equipped_hat):
 		equipped_hat.fire(dir, bullet_parent)
 
 func init_hat() -> Hat:
-	var enemy_hat = icicle_hat_scene.instantiate()
+	hat_scene = choose_random_hat_scene()
+	var enemy_hat = hat_scene.instantiate()
 	enemy_hat.team = Globals.teams.ENEMY
 	var init_hat_pos = Vector3(self.global_position.x, 2.5, self.global_position.z)
 	enemy_hat.set_position(init_hat_pos)
@@ -63,7 +70,7 @@ func process_encampment_updates():
 		encampment_ref.on_encampment_destroyed()
 
 func spawn_hat_drop():
-	var new_hat_drop = icicle_hat_scene.instantiate()
+	var new_hat_drop = hat_scene.instantiate()
 	var hat_drop_pos = Vector3(self.global_position.x, 0, self.global_position.z)
 	new_hat_drop.global_position = hat_drop_pos
 	#get_tree().get_root().add_child(new_hat_drop)
