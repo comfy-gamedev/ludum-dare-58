@@ -37,6 +37,8 @@ var hat_scene_pool = {
 	WITCH = preload("res://actors/hats/witch/witch.tscn"),
 }
 
+var caplings_rescued = 0
+
 ## Emitted when any variable changes.
 signal changed(prop_name: StringName)
 

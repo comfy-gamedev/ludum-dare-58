@@ -2,6 +2,7 @@ extends Node3D
 
 
 const WAVEGOAL = 15
+const RESCUE_GOAL = 10
 const SPAWN_CIRLCE_DIST = 40
 const VILLAGE_ORIGIN = Vector3(16, 0, 16)
 
@@ -24,6 +25,8 @@ func _ready() -> void:
 
 func _process(_delta: float) -> void:
 	wave_timer_label.text = "Time till next wave: " + str(int(event_timer.time_left))
+	if Globals.caplings_rescued > RESCUE_GOAL:
+		SceneGirl.change_scene("res://scenes/win/win.tscn")
 
 func _on_event_timer_timeout() -> void:
 	events += 1
