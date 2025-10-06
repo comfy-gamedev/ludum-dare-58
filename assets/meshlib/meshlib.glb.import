@@ -131,15 +131,18 @@ _subresources={
 },
 "PATH:Water_002": {
 "generate/physics": true,
-"physics/shape_type": 3
+"physics/shape_type": 3,
+"primitive/size": Vector3(2, 10, 2)
 },
 "PATH:Water_003": {
 "generate/physics": true,
-"physics/shape_type": 3
+"physics/shape_type": 3,
+"primitive/size": Vector3(2, 10, 2)
 },
 "PATH:Water_004": {
 "generate/physics": true,
-"physics/shape_type": 3
+"physics/shape_type": 3,
+"primitive/size": Vector3(2, 10, 2)
 }
 }
 }
