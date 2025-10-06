@@ -14,6 +14,9 @@ var camera_origin_position_vec
 @onready var dispense_button: Button = %DispenseButton
 @onready var exit_button: Button = %ExitButton
 
+func _ready() -> void:
+	init_hat_catalog_items()
+
 func _process(delta: float) -> void:
 	if player_nearby and Input.is_action_just_pressed("shoot"):
 		if not player_interacting:
@@ -74,8 +77,37 @@ func intro_dialog() -> void:
 	
 	dialog_panel.visible = false
 	catalog_panel.visible = false
-	
 
+func init_hat_catalog_items():
+	var button_pos_y = -90
+	var button_pos_x = 15
+	
+	for r in range(3):
+		button_pos_y += 105
+		button_pos_x = 15
+		
+		for c in range(4):
+			#var mission_id = ""
+			#mission_number += 1
+			#
+			#if mission_number < 10:
+				#mission_id += "0"
+				#mission_id += str(mission_number)
+			#else:
+				#mission_id += str(mission_number)
+				
+			create_hat_catalog_item(Vector2(button_pos_x, button_pos_y))
+			button_pos_x += 105
+	
+func create_hat_catalog_item(pos: Vector2):
+	var item_height = 100
+	var item_length = 100
+	var new_item_panel = Panel.new()
+	new_item_panel.set_position(pos)
+	new_item_panel.set_size(Vector2(item_length, item_height))
+	#new_item_panel.theme = ui_theme
+	#new_item_panel.text = # blah
+	catalog_panel.add_child(new_item_panel)
 
 func _on_exit_button_pressed() -> void:
 	on_exit_interaction()
