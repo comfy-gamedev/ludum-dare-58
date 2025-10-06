@@ -82,11 +82,11 @@ func equip_hat(new_hat: Node3D):
 	equipped_hat = new_hat
 
 func _on_area_3d_body_entered(body: Node3D) -> void:
-	if body.is_in_group("hat") and is_instance_valid(equipped_hat):
-		drop_hat()
-		
-	if body.is_in_group("hat"):
+	if body.is_in_group("hat") && body.pickup_ready:
+		if is_instance_valid(equipped_hat):
+			drop_hat()
 		equip_hat(body)
+	
 
 
 func _on_effect_timer_timeout() -> void:
