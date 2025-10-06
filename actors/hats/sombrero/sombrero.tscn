@@ -1,6 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://cobbf3sv7x3qf"]
+[gd_scene load_steps=7 format=3 uid="uid://cobbf3sv7x3qf"]
 
 [ext_resource type="Script" uid="uid://d1uu8rk64ej2j" path="res://actors/hats/sombrero/sombrero.gd" id="1_g5ibp"]
+[ext_resource type="PackedScene" uid="uid://buwyrrtgplvc0" path="res://assets/models/sombrero2.glb" id="2_ddugp"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_1asxe"]
 friction = 0.4
@@ -25,8 +26,12 @@ shape = SubResource("SphereShape3D_823rn")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.25, 0, 0, 0, 1, 0, 0, 0)
+visible = false
 mesh = SubResource("CylinderMesh_823rn")
 
 [node name="PickupCooldown" type="Timer" parent="."]
 wait_time = 0.25
 one_shot = true
+
+[node name="sombrero2" parent="." instance=ExtResource("2_ddugp")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -0.00045883656, -0.1888271, -0.0055463314)

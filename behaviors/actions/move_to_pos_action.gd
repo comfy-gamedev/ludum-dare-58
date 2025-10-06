@@ -15,6 +15,7 @@ func tick(actor: Node, blackboard: Blackboard) -> int:
 	var actor_pos_vec2 = Vector2(actor.position.x, actor.position.z)
 	var direction = Vector3(target_pos_vec2.x - actor_pos_vec2.x, 0, target_pos_vec2.y - actor_pos_vec2.y).normalized()
 	var current_distance_to_target = actor_pos_vec2.distance_to(target_pos_vec2)
+	actor.basis = Basis.looking_at(direction,Vector3.UP,true)
 	
 	if current_distance_to_target > distance_to_target/2:
 		actor.velocity = actor.velocity.move_toward(direction * actor.speed, actor.accel * 5.0)
