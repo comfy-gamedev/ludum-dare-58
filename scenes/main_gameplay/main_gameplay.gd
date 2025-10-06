@@ -15,13 +15,17 @@ var encampment_scene = preload("res://actors/encampments/goblin_camp/goblin_camp
 
 @onready var encampment_spawns = $EncampmentSpawns
 @onready var wave_timer_label = $UI/Label
-@onready var event_timer = $EventTimer
+@onready var event_timer: Timer = $EventTimer
 
 func _ready() -> void:
 	for spawn in encampment_spawns.get_children():
 		var encampment = encampment_scene.instantiate()
 		encampment.position = spawn.position
 		add_child(encampment)
+	
+	Messages.freeze_game.connect(func (f):
+		event_timer.paused = f
+	)
 
 func _process(_delta: float) -> void:
 	wave_timer_label.text = "Time till next wave: " + str(int(event_timer.time_left))

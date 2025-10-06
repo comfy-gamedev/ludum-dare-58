@@ -17,7 +17,17 @@ var bullet_scene = preload("res://actors/bullets/bullet.tscn")
 @onready var model: Node3D = $Model
 @onready var animation_tree: AnimationTree = $Model/AnimationTree
 
+func _ready() -> void:
+	Messages.freeze_game.connect(func (f):
+		cooldown.paused = f
+		effect_timer.paused = f
+		dash_cooldown.paused = f
+	)
+
 func _process(delta: float) -> void:
+	if Messages.frozen:
+		return
+	
 	var cursor_position = get_viewport().get_mouse_position()
 	var ray_origin = camera.project_ray_origin(cursor_position)
 	var ray_direction = camera.project_ray_normal(cursor_position)
@@ -57,6 +67,9 @@ func eject_hat():
 		cooldown.wait_time = 1.0
 
 func _physics_process(delta: float) -> void:
+	if Messages.frozen:
+		return
+	
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
 	var input_dir := Input.get_vector("move_left", "move_right", "move_up", "move_down")

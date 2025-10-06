@@ -22,7 +22,7 @@ func _process(delta: float) -> void:
 func on_player_interact(_delta: float):
 	player_interacting = true
 	on_zoom_camera()
-	await intro_dialog()
+	intro_dialog()
 
 func on_zoom_camera():
 	if is_instance_valid(player_ref):
@@ -32,7 +32,8 @@ func on_zoom_camera():
 		camera_node.rotation = Vector3(25, 0, 0)
 
 func on_reset_camera_position():
-	if is_instance_valid(player_ref):
+	if is_instance_valid(player_ref) and player_interacting:
+		player_interacting = false
 		var camera_node = player_ref.get_node("Camera3D")
 		camera_node.global_position = player_ref.position + Vector3(-0.01, 9.731, 6.336) #camera_original_position_vec
 		camera_node.rotation = camera_original_rotation_vec
@@ -43,10 +44,10 @@ func _on_body_entered(body: Node3D) -> void:
 		
 		if not is_instance_valid(player_ref):
 			player_ref = body
+	if body.is_in_group("hat"):
+		body.queue_free()
 
-func on_exit_interaction():
-	player_interacting = false
-	
+func on_exit_interaction():	
 	on_reset_camera_position()
 	on_reset_ui()
 
@@ -64,7 +65,16 @@ func on_reset_ui():
 func intro_dialog() -> void:
 	catalog_panel.visible = true
 	dialog_panel.visible = true
-	dialog_label.text = "Get these little freaks off my lawn."
+	Messages.freeze_game.emit(true)
+	await dialog_say("Get these little freaks off my lawn.")
+	await dialog_say("They lost all my hats and now the greedy grabbers are coming. If you save the captured ones they'll help defend this spot.")
+	await dialog_say("Toss hats to them to empower them. Bring me hats and I'll make you new ones.")
+	Messages.freeze_game.emit(false)
+	dialog_panel.visible = false
+	catalog_panel.visible = false
+
+func dialog_say(s: String) -> void:
+	dialog_label.text = s
 	dialog_label.visible_ratio = 0.0
 	var tween = create_tween()
 	tween.tween_property(dialog_label, "visible_ratio", 1.0, 0.5)
@@ -72,11 +82,6 @@ func intro_dialog() -> void:
 	await tween.finished
 	dialog_button.disabled = false
 	await dialog_button.pressed
-	
-	dialog_panel.visible = false
-	catalog_panel.visible = false
-	
-
 
 func _on_exit_button_pressed() -> void:
 	on_exit_interaction()
