@@ -51,6 +51,7 @@ layout_mode = 2
 
 [node name="HowToPlayButton" type="Button" parent="CenterContainer/VBoxContainer/MenuButtonContainer/CenterContainer2"]
 unique_name_in_owner = true
+visible = false
 layout_mode = 2
 theme_type_variation = &"MainMenuButton"
 text = "How To Play"
