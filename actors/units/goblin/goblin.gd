@@ -45,7 +45,13 @@ func get_closest_detected_target() -> Node3D:
 	bodies.sort_custom(func (a, b): return a.global_position.distance_to(global_position) < b.global_position.distance_to(global_position))
 	return bodies[0]
 
-func on_hit(_damage: int, slowing = false):
+func on_hit(_damage: int, type: Globals.elements , slowing = false):
+	if ((equipped_hat.element == Globals.elements.FIRE && type == Globals.elements.WATER) ||
+		(equipped_hat.element == Globals.elements.AIR && type == Globals.elements.FIRE) ||
+		(equipped_hat.element == Globals.elements.EARTH && type == Globals.elements.AIR) ||
+		(equipped_hat.element == Globals.elements.WATER && type == Globals.elements.EARTH)):
+		_damage *= 2
+	
 	health -= _damage
 	
 	if slowing:

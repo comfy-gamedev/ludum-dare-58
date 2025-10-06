@@ -8,7 +8,7 @@ var speed
 var accel
 var attack_acceptance_range
 
-@abstract func on_hit(_damage: int)
+@abstract func on_hit(_damage: int, type: Globals.elements, slowing: bool)
 
 @abstract func get_closest_detected_target() -> Node3D
 
