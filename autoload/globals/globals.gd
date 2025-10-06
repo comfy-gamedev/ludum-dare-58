@@ -20,14 +20,21 @@ enum elements {
 }
 
 var hat_scene_pool = {
+	BEEF = preload("res://actors/hats/beefeater/beefeater.tscn"),
 	BERET = preload("uid://dluu73o0dtmvt"),
+	BICORN = preload("res://actors/hats/bicorn/bicorn.tscn"),
 	BUFFALO = preload("uid://dgn2cmxmyhrcx"),
+	COWBOY = preload("res://actors/hats/cowboy/cowboy.tscn"),
 	FEZ = preload("uid://5mtoxf8e7jpa"),
 	JESTER = preload("uid://dbwi51ka8rab7"),
 	MADDER = preload("uid://dx8wgsi14wwb3"),
+	MORTAR = preload("res://actors/hats/mortarboard/mortarboard.tscn"),
 	PHRYGIAN = preload("uid://cpymafqtgeuud"),
 	SCALLY = preload("uid://da6xpkw71ms42"),
 	SOMBRERO = preload("uid://cobbf3sv7x3qf"),
+	TRICORN = preload("res://actors/hats/tricorn/tricorn.tscn"),
+	TYROLEAN = preload("res://actors/hats/tyrolean/tyrolean.tscn"),
+	WITCH = preload("res://actors/hats/witch/witch.tscn"),
 }
 
 ## Emitted when any variable changes.
