@@ -30,7 +30,7 @@ visible = false
 mesh = SubResource("CylinderMesh_823rn")
 
 [node name="PickupCooldown" type="Timer" parent="."]
-wait_time = 0.5
+wait_time = 0.1
 one_shot = true
 
 [node name="jesterfinal" parent="." instance=ExtResource("2_m6f26")]
