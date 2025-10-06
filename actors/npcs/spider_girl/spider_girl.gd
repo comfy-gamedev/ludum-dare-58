@@ -11,6 +11,8 @@ var camera_origin_position_vec
 @onready var dialog_button: Button = %DialogButton
 
 @onready var catalog_panel: Panel = %CatalogPanel
+@onready var dispense_button: Button = %DispenseButton
+@onready var exit_button: Button = %ExitButton
 
 func _process(delta: float) -> void:
 	if player_nearby and Input.is_action_just_pressed("shoot"):
@@ -42,13 +44,17 @@ func _on_body_entered(body: Node3D) -> void:
 		if not is_instance_valid(player_ref):
 			player_ref = body
 
+func on_exit_interaction():
+	player_interacting = false
+	
+	on_reset_camera_position()
+	on_reset_ui()
+
 func _on_body_exited(body: Node3D) -> void:
 	if body.is_in_group("player"):
 		player_nearby = false
-		player_interacting = false
 	
-		on_reset_camera_position()
-		on_reset_ui()
+	on_exit_interaction()
 
 func on_reset_ui():
 	dialog_panel.visible = false
@@ -70,3 +76,7 @@ func intro_dialog() -> void:
 	dialog_panel.visible = false
 	catalog_panel.visible = false
 	
+
+
+func _on_exit_button_pressed() -> void:
+	on_exit_interaction()
