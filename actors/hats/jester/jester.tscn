@@ -1,7 +1,6 @@
-[gd_scene load_steps=7 format=3 uid="uid://dbwi51ka8rab7"]
+[gd_scene load_steps=6 format=3 uid="uid://dbwi51ka8rab7"]
 
 [ext_resource type="Script" uid="uid://bq147winrtnd8" path="res://actors/hats/jester/jester.gd" id="1_sdeu5"]
-[ext_resource type="PackedScene" uid="uid://bsngx2h772e06" path="res://assets/models/jesterfinal.glb" id="2_m6f26"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_1asxe"]
 friction = 0.4
@@ -26,12 +25,8 @@ shape = SubResource("SphereShape3D_823rn")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.25, 0, 0, 0, 1, 0, 0, 0)
-visible = false
 mesh = SubResource("CylinderMesh_823rn")
 
 [node name="PickupCooldown" type="Timer" parent="."]
 wait_time = 0.5
 one_shot = true
-
-[node name="jesterfinal" parent="." instance=ExtResource("2_m6f26")]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -0.12271267, -0.028475046, -0.07304764)
