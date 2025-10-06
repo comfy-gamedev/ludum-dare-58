@@ -39,6 +39,18 @@ materials/extract_format=0
 materials/extract_path=""
 _subresources={
 "nodes": {
+"PATH:Fence_001": {
+"generate/physics": true,
+"physics/shape_type": 1
+},
+"PATH:Fence_002": {
+"generate/physics": true,
+"physics/shape_type": 1
+},
+"PATH:Fence_003": {
+"generate/physics": true,
+"physics/shape_type": 1
+},
 "PATH:Grass_001": {
 "generate/physics": true,
 "physics/shape_type": 3
@@ -54,6 +66,24 @@ _subresources={
 "PATH:Grass_004": {
 "generate/physics": true,
 "physics/shape_type": 3
+},
+"PATH:Ramp_001": {
+"generate/physics": true
+},
+"PATH:Ramp_002": {
+"generate/physics": true
+},
+"PATH:Ramp_003": {
+"generate/physics": true
+},
+"PATH:Ramp_004": {
+"generate/physics": true
+},
+"PATH:Ramp_005": {
+"generate/physics": true
+},
+"PATH:Ramp_006": {
+"generate/physics": true
 },
 "PATH:Red_001": {
 "generate/physics": true,
