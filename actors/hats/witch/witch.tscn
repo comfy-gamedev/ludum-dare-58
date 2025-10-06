@@ -1,6 +1,6 @@
-[gd_scene load_steps=6 format=3 uid="uid://dbxoeedoctsor"]
+[gd_scene load_steps=6 format=3 uid="uid://cqr8lvhyyhkwo"]
 
-[ext_resource type="Script" uid="uid://cu2by80tqvhvn" path="res://actors/hats/tyrolean/example_hat.gd" id="1_gd1kl"]
+[ext_resource type="Script" uid="uid://iirkfs6ky7dl" path="res://actors/hats/witch/witch.gd" id="1_fu3jo"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_1asxe"]
 friction = 0.4
@@ -18,7 +18,7 @@ material = SubResource("StandardMaterial3D_8opcq")
 axis_lock_angular_x = true
 axis_lock_angular_z = true
 physics_material_override = SubResource("PhysicsMaterial_1asxe")
-script = ExtResource("1_gd1kl")
+script = ExtResource("1_fu3jo")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("SphereShape3D_823rn")
