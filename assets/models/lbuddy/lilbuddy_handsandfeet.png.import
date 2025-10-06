@@ -2,19 +2,19 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://m7npnt53gxwq"
-path="res://.godot/imported/lilbuddy_buddyface.png-e4aa6f0d4f00313b7f216e9069329ea0.ctex"
+uid="uid://bogm4fbmenhxn"
+path="res://.godot/imported/lilbuddy_handsandfeet.png-be307dbe0455d220a86c34da9dbe3343.ctex"
 metadata={
 "vram_texture": false
 }
 generator_parameters={
-"md5": "d8ce2f1136e08fe0b7f41e35172fe57e"
+"md5": "355e95eb41712d86e9bd0f21254bfe6f"
 }
 
 [deps]
 
-source_file="res://assets/models/lbuddy/lilbuddy_buddyface.png"
-dest_files=["res://.godot/imported/lilbuddy_buddyface.png-e4aa6f0d4f00313b7f216e9069329ea0.ctex"]
+source_file="res://assets/models/lbuddy/lilbuddy_handsandfeet.png"
+dest_files=["res://.godot/imported/lilbuddy_handsandfeet.png-be307dbe0455d220a86c34da9dbe3343.ctex"]
 
 [params]
 

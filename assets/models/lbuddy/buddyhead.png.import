@@ -2,19 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://m7npnt53gxwq"
-path="res://.godot/imported/lilbuddy_buddyface.png-e4aa6f0d4f00313b7f216e9069329ea0.ctex"
+uid="uid://dkm4iabk11j12"
+path="res://.godot/imported/buddyhead.png-c99f96c567930d83ef6209310dc37f9f.ctex"
 metadata={
 "vram_texture": false
-}
-generator_parameters={
-"md5": "d8ce2f1136e08fe0b7f41e35172fe57e"
 }
 
 [deps]
 
-source_file="res://assets/models/lbuddy/lilbuddy_buddyface.png"
-dest_files=["res://.godot/imported/lilbuddy_buddyface.png-e4aa6f0d4f00313b7f216e9069329ea0.ctex"]
+source_file="res://assets/models/lbuddy/buddyhead.png"
+dest_files=["res://.godot/imported/buddyhead.png-c99f96c567930d83ef6209310dc37f9f.ctex"]
 
 [params]
 
@@ -26,7 +23,7 @@ compress/rdo_quality_loss=0.0
 compress/hdr_compression=1
 compress/normal_map=0
 compress/channel_pack=0
-mipmaps/generate=true
+mipmaps/generate=false
 mipmaps/limit=-1
 roughness/mode=0
 roughness/src_normal=""
