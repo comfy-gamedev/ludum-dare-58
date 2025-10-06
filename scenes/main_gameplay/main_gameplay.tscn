@@ -261,6 +261,8 @@ autostart = true
 [node name="RigidBody3D" parent="." instance=ExtResource("13_fjp8b")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.9991875, 0.25000095, 13.492182)
 
+[node name="AllyParent" type="Node3D" parent="."]
+
 [connection signal="timeout" from="EventTimer" to="." method="_on_event_timer_timeout"]
 
 [editable path="spider"]
