@@ -4,7 +4,14 @@ var player_nearby = false
 var player_interacting = false
 var player_ref
 var camera_original_rotation_vec
-	
+var camera_origin_position_vec
+
+@onready var dialog_panel: Panel = %DialogPanel
+@onready var dialog_label: Label = %DialogLabel
+@onready var dialog_button: Button = %DialogButton
+
+@onready var catalog_panel: Panel = %CatalogPanel
+
 func _process(delta: float) -> void:
 	if player_nearby and Input.is_action_just_pressed("shoot"):
 		if not player_interacting:
@@ -13,7 +20,7 @@ func _process(delta: float) -> void:
 func on_player_interact(_delta: float):
 	player_interacting = true
 	on_zoom_camera()
-	print("interact")
+	await intro_dialog()
 
 func on_zoom_camera():
 	if is_instance_valid(player_ref):
@@ -41,3 +48,25 @@ func _on_body_exited(body: Node3D) -> void:
 		player_interacting = false
 	
 		on_reset_camera_position()
+		on_reset_ui()
+
+func on_reset_ui():
+	dialog_panel.visible = false
+	catalog_panel.visible = false
+
+
+func intro_dialog() -> void:
+	catalog_panel.visible = true
+	dialog_panel.visible = true
+	dialog_label.text = "Get these little freaks off my lawn."
+	dialog_label.visible_ratio = 0.0
+	var tween = create_tween()
+	tween.tween_property(dialog_label, "visible_ratio", 1.0, 0.5)
+	dialog_button.disabled = true
+	await tween.finished
+	dialog_button.disabled = false
+	await dialog_button.pressed
+	
+	dialog_panel.visible = false
+	catalog_panel.visible = false
+	
