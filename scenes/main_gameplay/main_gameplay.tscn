@@ -688,7 +688,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -45.481236, 4.413484, 44.0211
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.343124, 0, 5.30475)
 
 [node name="EventTimer" type="Timer" parent="."]
-wait_time = 30.0
+wait_time = 60.0
 autostart = true
 
 [node name="EncampmentSpawns" type="Node3D" parent="."]
