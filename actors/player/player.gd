@@ -16,6 +16,7 @@ var bullet_scene = preload("res://actors/bullets/bullet.tscn")
 @onready var dash_cooldown = $DashCooldown
 @onready var model: Node3D = $Model
 @onready var animation_tree: AnimationTree = $Model/AnimationTree
+@onready var compass = $Compass
 
 func _ready() -> void:
 	Messages.freeze_game.connect(func (f):
@@ -27,6 +28,10 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	if Messages.frozen:
 		return
+	
+	var compass_angle = (Vector3(16, 0, 16) - position).normalized()
+	compass.position = Vector3(compass_angle.x * 2, 1, compass_angle.z * 2)
+	compass.rotation = Vector3(0, compass_angle.angle_to(Vector3.FORWARD), 0) #THERES A BUG HERE
 	
 	var cursor_position = get_viewport().get_mouse_position()
 	var ray_origin = camera.project_ray_origin(cursor_position)
