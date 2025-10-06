@@ -6,15 +6,9 @@ const SPAWN_CIRLCE_DIST = 40
 const VILLAGE_ORIGIN = Vector3(16, 0, 16)
 
 var events = 0
-var wave_strength = 8
+var wave_strength = 2
 
 var goblin_scene = preload("res://actors/units/goblin/goblin.tscn")
-
-@onready var ally_parent = $AllyParent
-
-func _process(_delta: float) -> void:
-	if ally_parent.get_child_count(false) < 1:
-		SceneGirl.change_scene("res://scenes/lose/lose.tscn")
 
 func _on_event_timer_timeout() -> void:
 	events += 1
