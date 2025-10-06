@@ -9,21 +9,25 @@ var events = 0
 var wave_strength = 8
 
 var goblin_scene = preload("res://actors/units/goblin/goblin.tscn")
+var encampment_scene = preload("res://actors/encampments/goblin_camp/goblin_camp.tscn")
 
 @onready var ally_parent = $AllyParent
+@onready var encampment_spawns = $EncampmentSpawns
 
 func _process(_delta: float) -> void:
-	if ally_parent.get_child_count(false) < 1:
-		SceneGirl.change_scene("res://scenes/lose/lose.tscn")
+	pass
+	#if ally_parent.get_child_count(false) < 1:
+		#SceneGirl.change_scene("res://scenes/lose/lose.tscn")
 
 func _on_event_timer_timeout() -> void:
 	events += 1
 	if events >= WAVEGOAL:
 		SceneGirl.change_scene("res://scenes/win/win.tscn")
 	
-	if events % 2 == 0:
-		pass
-		#encampment
+	if true:#events % 2 == 0:
+		var encampment = encampment_scene.instantiate()
+		encampment.position = encampment_spawns.get_children().pick_random().position
+		add_child(encampment)
 	else:
 		for i in wave_strength:
 			spawn_unit(i)

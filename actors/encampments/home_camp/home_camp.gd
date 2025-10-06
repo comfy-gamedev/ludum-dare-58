@@ -22,4 +22,4 @@ func spawn_unit():
 	var capling_pos = Vector3(self.global_position.x + randf_range(-5, 5), 0, self.global_position.z + randf_range(-5, 5))
 	new_capling.global_position = capling_pos
 	new_capling.encampment_ref = self
-	$/root/MainGameplay/AllyParent.add_child(new_capling)
+	$/root/MainGameplay.add_child(new_capling)
