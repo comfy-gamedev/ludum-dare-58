@@ -60,6 +60,12 @@ damping_min = 5.0
 damping_max = 5.0
 angle_max = 360.0
 
+[node name="Marker3D" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.93634784, 0.35107368, 0, -0.35107368, 0.93634784, 0, 1.774299, 1.9037445)
+
+[node name="Marker3D2" type="Marker3D" parent="."]
+transform = Transform3D(-0.370055, 0, 0.92900985, 0, 1, 0, -0.92900985, 0, -0.370055, -1.1454217, 0, 0.48268223)
+
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="DialogPanel" type="Panel" parent="CanvasLayer"]
