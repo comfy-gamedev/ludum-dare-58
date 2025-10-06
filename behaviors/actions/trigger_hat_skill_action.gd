@@ -15,6 +15,6 @@ func tick(actor: Node, blackboard: Blackboard) -> int:
 	
 	actor.trigger_hat_skill(direction, actor.get_parent())
 	#get_tree().get_root()) # actor.get_parent())
-	if actor.has_node("AnimationPlayer"):
-		actor.get_node("AnimationPlayer").play("throw")
+	if actor.has_node("goblinmodel/AnimationPlayer"):
+		actor.get_node("goblinmodel/AnimationPlayer").play("throw")
 	return SUCCESS

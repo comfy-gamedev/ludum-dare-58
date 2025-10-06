@@ -34,6 +34,7 @@ material = SubResource("StandardMaterial3D_hsoud")
 [sub_resource type="SphereShape3D" id="SphereShape3D_u350o"]
 
 [node name="Capling" type="CharacterBody3D" groups=["ally"]]
+transform = Transform3D(0.99999934, 0, -0.0011343955, 0, 1, 0, 0.0011343955, 0, 0.99999934, 0, 0.1759243, 0)
 script = ExtResource("1_23k4e")
 
 [node name="Blackboard" type="Node" parent="."]
@@ -41,7 +42,7 @@ script = ExtResource("1_cy4ka")
 metadata/_custom_type_script = "uid://dme5f24l0edsf"
 
 [node name="ActorTree" parent="." node_paths=PackedStringArray("blackboard") instance=ExtResource("2_u350o")]
-blackboard = NodePath("@Node@21410")
+blackboard = NodePath("@Node@21413")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9942124, 0)
@@ -69,7 +70,7 @@ shape = SubResource("SphereShape3D_u350o")
 one_shot = true
 
 [node name="lilbuddy" parent="." instance=ExtResource("4_hsoud")]
-transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 0.00058317184, 0.16007721, -0.011976957)
+transform = Transform3D(0.00074003334, 0, -0.3999993, 0, 0.4, 0, 0.3999993, 0, 0.00074003334, 0.0005831718, 0.16007721, -0.011976958)
 
 [connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
 [connection signal="timeout" from="EffectTimer" to="." method="_on_effect_timer_timeout"]
