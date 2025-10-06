@@ -42,7 +42,7 @@ script = ExtResource("1_cy4ka")
 metadata/_custom_type_script = "uid://dme5f24l0edsf"
 
 [node name="ActorTree" parent="." node_paths=PackedStringArray("blackboard") instance=ExtResource("2_u350o")]
-blackboard = NodePath("@Node@21413")
+blackboard = NodePath("@Node@21242")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9942124, 0)
