@@ -71,6 +71,9 @@ func yeet_hat() -> void:
 func on_exit_interaction():
 	on_reset_camera_position()
 	on_reset_ui()
+	Messages.freeze_game.emit(false)
+	dialog_panel.visible = false
+	catalog_panel.visible = false
 
 func _on_body_exited(body: Node3D) -> void:
 	if body.is_in_group("player"):
@@ -90,9 +93,7 @@ func intro_dialog() -> void:
 	await dialog_say("Get these little freaks off my lawn.")
 	await dialog_say("They lost all my hats and now the greedy grabbers are coming. If you save the captured ones they'll help defend this spot.")
 	await dialog_say("Toss hats to them to empower them. Bring me hats and I'll make you new ones.")
-	Messages.freeze_game.emit(false)
-	dialog_panel.visible = false
-	catalog_panel.visible = false
+	on_exit_interaction()
 
 func dialog_say(s: String) -> void:
 	dialog_label.text = s
@@ -103,9 +104,6 @@ func dialog_say(s: String) -> void:
 	await tween.finished
 	dialog_button.disabled = false
 	await dialog_button.pressed
-	
-	dialog_panel.visible = false
-	catalog_panel.visible = false
 
 func init_hat_catalog_items():
 	var button_pos_y = -90
