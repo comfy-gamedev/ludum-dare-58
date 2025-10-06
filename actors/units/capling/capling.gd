@@ -27,7 +27,7 @@ func trigger_hat_skill(dir: Vector3, bullet_parent: Node3D):
 	if is_instance_valid(equipped_hat):
 		equipped_hat.fire(dir, bullet_parent)
 
-func on_hit(_damage: int, slowing = false):
+func on_hit(_damage: int, type: Globals.elements, slowing = false):
 	health -= _damage
 	
 	if slowing:
