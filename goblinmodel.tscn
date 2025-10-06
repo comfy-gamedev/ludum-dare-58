@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://kx68j5jh7luq"]
+
+[ext_resource type="PackedScene" uid="uid://d1vu6uufq4cpf" path="res://assets/models/goblinmodel.glb" id="1_1d0k6"]
+
+[node name="goblinmodel" instance=ExtResource("1_1d0k6")]
+
+[node name="Skeleton3D" parent="Armature" index="0"]
+bones/2/rotation = Quaternion(-0.37532473, -0.65105295, 0.59734255, 0.2800774)
+bones/3/rotation = Quaternion(0.77616054, -0.49652502, -0.3724839, -0.11087608)
+bones/7/rotation = Quaternion(0.45790797, -0.032002404, 0.54120755, 0.7045499)
+bones/8/rotation = Quaternion(0.034944892, -9.902236e-08, 0.040459562, 0.99857)
+bones/10/rotation = Quaternion(0.6541732, 0.16030997, 0.06278426, 0.7364892)
