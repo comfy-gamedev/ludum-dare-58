@@ -65,7 +65,7 @@ func drop_hat():
 	equipped_hat = null
 
 func equip_hat(new_hat: Node3D):
-	var hat_pos = Vector3(self.global_position.x, 2.5, self.global_position.z)
+	var hat_pos = Vector3(self.global_position.x, 1.5, self.global_position.z)
 	new_hat.team = Globals.teams.ALLY
 	new_hat.set_position(hat_pos)
 	new_hat.process_mode = Node.PROCESS_MODE_DISABLED

@@ -83,7 +83,7 @@ func _on_area_3d_body_entered(body: Node3D) -> void:
 	if body.is_in_group("hat") && body.pickup_ready && hats.find(body) == -1:
 		hats.append(body)
 		body.reparent(hat_parent)
-		body.position = Vector3(0, .75 * hats.size(), 0)
+		body.position = Vector3(0, (.75 * hats.size()) - .25, 0)
 		body.process_mode = Node.PROCESS_MODE_DISABLED
 		#body.linear_velocity = Vector3.ZERO
 		if hats.size() == 1:
