@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://dbxoeedoctsor"]
 
-[ext_resource type="Script" uid="uid://cu2by80tqvhvn" path="res://actors/hats/tyrolean/tyrolean.gd" id="1_gd1kl"]
+[ext_resource type="Script" path="res://actors/hats/tyrolean/tyrolean.gd" id="1_gd1kl"]
 [ext_resource type="PackedScene" uid="uid://p4y4tpnqr4ld" path="res://assets/models/tyrolean.glb" id="2_nq7s2"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_1asxe"]
@@ -30,7 +30,7 @@ visible = false
 mesh = SubResource("CylinderMesh_823rn")
 
 [node name="PickupCooldown" type="Timer" parent="."]
-wait_time = 0.25
+wait_time = 0.1
 one_shot = true
 
 [node name="tyrolean" parent="." instance=ExtResource("2_nq7s2")]
