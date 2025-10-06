@@ -38,7 +38,7 @@ func _physics_process(delta: float) -> void:
 			detection_area.scale += Vector3.ONE * delta * radius
 		return
 	
-	if homing:# && homing_target:
+	if homing:
 		if homing_target:
 			just_had_target = true
 			direction = (homing_target.position - position).normalized()

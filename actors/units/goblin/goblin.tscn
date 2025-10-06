@@ -38,7 +38,7 @@ script = ExtResource("1_6sm0b")
 metadata/_custom_type_script = "uid://dme5f24l0edsf"
 
 [node name="ActorTree" parent="." node_paths=PackedStringArray("blackboard") instance=ExtResource("2_sslfq")]
-blackboard = NodePath("@Node@25083")
+blackboard = NodePath("@Node@21413")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.99844193, 0)
@@ -51,7 +51,7 @@ shape = SubResource("CapsuleShape3D_01yp8")
 [node name="TargetSeekingRadius" type="Area3D" parent="."]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="TargetSeekingRadius"]
-transform = Transform3D(15, 0, 0, 0, 15, 0, 0, 0, 15, 0, 0.7906078, 0)
+transform = Transform3D(20, 0, 0, 0, 20, 0, 0, 0, 20, 0, 0.7906078, 0)
 shape = SubResource("SphereShape3D_sslfq")
 
 [node name="EffectTimer" type="Timer" parent="."]

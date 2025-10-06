@@ -1,7 +1,8 @@
 extends CharacterBody3D
 
 const ACCEL = 5.0
-var speed = 5.0
+const SPEED_START = 7.5
+var speed = SPEED_START
 var hats: Array[Hat] = []
 
 var bullet_scene = preload("res://actors/bullets/bullet.tscn")
@@ -12,6 +13,7 @@ var bullet_scene = preload("res://actors/bullets/bullet.tscn")
 @onready var cooldown = $Cooldown
 @onready var hat_parent = $HatParent
 @onready var effect_timer = $EffectTimer
+@onready var dash_cooldown = $DashCooldown
 
 func _process(delta: float) -> void:
 	var cursor_position = get_viewport().get_mouse_position()
@@ -56,11 +58,16 @@ func _physics_process(delta: float) -> void:
 	else:
 		velocity = velocity.move_toward(Vector3.ZERO, ACCEL * 5.0)
 	
-	if Input.is_key_pressed(KEY_SHIFT):
+	if Input.is_key_pressed(KEY_0):
 		velocity *= 10.0
+	if Input.is_action_just_pressed("dodge") && dash_cooldown.is_stopped():
+		speed *= 4.0
+		dash_cooldown.start()
 	move_and_slide()
-	if Input.is_key_pressed(KEY_SHIFT):
+	if Input.is_key_pressed(KEY_0):
 		velocity /= 10.0
+	if speed > SPEED_START:
+		speed -= delta * SPEED_START * 8.5
 
 
 
@@ -97,4 +104,4 @@ func _on_hit(_damage, slowing):
 
 
 func _on_effect_timer_timeout() -> void:
-	speed = 5.0
+	speed = SPEED_START
