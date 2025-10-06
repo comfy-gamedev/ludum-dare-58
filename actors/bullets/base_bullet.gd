@@ -10,6 +10,8 @@ var team = Globals.teams.ENEMY
 var piercing = 1
 var radius = 3.0 #only applied to orbital or pulse modes
 var explosive = false
+var slowing = false
+var homing = false
 
 enum movement_types {
 	STRAIGHT,

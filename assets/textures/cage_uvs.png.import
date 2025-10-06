@@ -2,19 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ct3atgjc5sf8d"
-path="res://.godot/imported/goblinmodel_Mball.png-05ad0de4d53309f1acfc5e6647fb13ef.ctex"
+uid="uid://csw6dkpb06ba5"
+path="res://.godot/imported/cage_uvs.png-87136103a48d68c699f42a2af7ed98d5.ctex"
 metadata={
 "vram_texture": false
-}
-generator_parameters={
-"md5": "bad49af9a33fa619f2fffcab32898b80"
 }
 
 [deps]
 
-source_file="res://assets/models/goblinmodel_Mball.png"
-dest_files=["res://.godot/imported/goblinmodel_Mball.png-05ad0de4d53309f1acfc5e6647fb13ef.ctex"]
+source_file="res://assets/textures/cage_uvs.png"
+dest_files=["res://.godot/imported/cage_uvs.png-87136103a48d68c699f42a2af7ed98d5.ctex"]
 
 [params]
 
@@ -26,7 +23,7 @@ compress/rdo_quality_loss=0.0
 compress/hdr_compression=1
 compress/normal_map=0
 compress/channel_pack=0
-mipmaps/generate=true
+mipmaps/generate=false
 mipmaps/limit=-1
 roughness/mode=0
 roughness/src_normal=""

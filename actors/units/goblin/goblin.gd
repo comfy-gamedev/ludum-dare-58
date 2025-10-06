@@ -1,6 +1,7 @@
 extends base_unit
 
 @onready var target_seeking_radius: Area3D = $TargetSeekingRadius
+@onready var effect_timer = $EffectTimer
 
 # TODO: This will eventually pull from a random pool of hats.
 var icicle_hat_scene = preload("res://actors/hats/icicle/icicle_hat.tscn")
@@ -35,8 +36,12 @@ func get_closest_detected_target() -> Node3D:
 	bodies.sort_custom(func (a, b): return a.global_position.distance_to(global_position) < b.global_position.distance_to(global_position))
 	return bodies[0]
 
-func on_hit(_damage: int):
+func on_hit(_damage: int, slowing = false):
 	health -= _damage
+	
+	if slowing:
+		speed /= 2
+		effect_timer.start()
 	
 	if health <= 0:
 		on_death()
@@ -50,3 +55,7 @@ func spawn_hat_drop():
 	var hat_drop_pos = Vector3(self.global_position.x, 0, self.global_position.z)
 	new_hat_drop.set_position(hat_drop_pos)
 	self.get_parent().add_child(new_hat_drop)
+
+
+func _on_effect_timer_timeout() -> void:
+	speed = 3.0

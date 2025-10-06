@@ -2,19 +2,19 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ct3atgjc5sf8d"
-path="res://.godot/imported/goblinmodel_Mball.png-05ad0de4d53309f1acfc5e6647fb13ef.ctex"
+uid="uid://bpofqxl8dv45m"
+path="res://.godot/imported/cage_cage_material.png-b68c6cd60f1960a68878bbd77369a340.ctex"
 metadata={
 "vram_texture": false
 }
 generator_parameters={
-"md5": "bad49af9a33fa619f2fffcab32898b80"
+"md5": "03f60c9ba332396df34e051aaf3000f0"
 }
 
 [deps]
 
-source_file="res://assets/models/goblinmodel_Mball.png"
-dest_files=["res://.godot/imported/goblinmodel_Mball.png-05ad0de4d53309f1acfc5e6647fb13ef.ctex"]
+source_file="res://assets/models/cage_cage_material.png"
+dest_files=["res://.godot/imported/cage_cage_material.png-b68c6cd60f1960a68878bbd77369a340.ctex"]
 
 [params]
 

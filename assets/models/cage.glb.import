@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://d1vu6uufq4cpf"
-path="res://.godot/imported/goblinmodel.glb-89eddb2dbb192297fa43c4c0ce6c1b99.scn"
+uid="uid://clnwrqn7nbxp8"
+path="res://.godot/imported/cage.glb-73c991692187f21a538f5253e47e69cd.scn"
 
 [deps]
 
-source_file="res://assets/models/goblinmodel.glb"
-dest_files=["res://.godot/imported/goblinmodel.glb-89eddb2dbb192297fa43c4c0ce6c1b99.scn"]
+source_file="res://assets/models/cage.glb"
+dest_files=["res://.godot/imported/cage.glb-73c991692187f21a538f5253e47e69cd.scn"]
 
 [params]
 
