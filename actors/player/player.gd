@@ -85,6 +85,7 @@ func on_hit(damage = 1, slowing = false):
 	_on_hit(damage, slowing)
 
 func _on_hit(_damage, slowing):
+	# Drop hats if carrying.
 	if hats.size() > 0:
 		for hat in hats:
 			hat.reparent(get_parent())
@@ -98,10 +99,11 @@ func _on_hit(_damage, slowing):
 			speed /= 2
 			effect_timer.start()
 	else:
-		#death
-		print("you died!!!")
-		position = Vector3(16, 0, 16)
+		on_death()
 
+func on_death():
+	# Respawn player at home camp.
+	position = Vector3(16, 0, 16)
 
 func _on_effect_timer_timeout() -> void:
 	speed = SPEED_START
