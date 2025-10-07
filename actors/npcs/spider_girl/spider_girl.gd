@@ -125,6 +125,8 @@ func intro_dialog() -> void:
 	catalog_panel.visible = true
 	dialog_panel.visible = true
 	Messages.freeze_game.emit(true)
+	if Settings.a11y_arachnophobia:
+		await dialog_say("I'm a horse.")
 	await dialog_say("Get these little freaks off my lawn.")
 	await dialog_say("They lost all my hats and now the greedy grabbers are coming. If you save the captured ones they'll help defend this spot.")
 	await dialog_say("Toss hats to them to empower them. Bring me hats and I'll make you new ones.")

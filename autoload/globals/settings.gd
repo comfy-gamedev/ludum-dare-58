@@ -2,6 +2,15 @@ extends Node
 
 const CONFIG_FILE = "user://settings.cfg"
 
+@export_group("Accessibility", "a11y_")
+
+signal a11y_arachnophobia_changed(v: bool)
+
+@export var a11y_arachnophobia: bool = false:
+	set(v):
+		a11y_arachnophobia = v
+		a11y_arachnophobia_changed.emit(v)
+
 @export_group("Audio", "audio_")
 
 @export_range(0.0, 1.0, 0.1) var audio_master_volume: float = 0.5:
@@ -10,7 +19,7 @@ const CONFIG_FILE = "user://settings.cfg"
 		AudioServer.set_bus_volume_linear(AudioServer.get_bus_index("Master"), v)
 		audio_master_volume = v
 
-@export_range(0.0, 1.0, 0.1) var audio_music_volume: float = 1.0:
+@export_range(0.0, 1.0, 0.1) var audio_music_volume: float = 0.5:
 	set(v):
 		v = clampf(v, 0.0, 1.0)
 		AudioServer.set_bus_volume_linear(AudioServer.get_bus_index("Music"), v)
@@ -53,6 +62,9 @@ func _init() -> void:
 			})
 
 func _ready() -> void:
+	for setting in get_settings():
+		set(setting.prop.name, get(setting.prop.name))
+	
 	var conf: ConfigFile = null
 	
 	if FileAccess.file_exists(CONFIG_FILE):
