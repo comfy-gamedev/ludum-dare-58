@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://dluu73o0dtmvt"]
+[gd_scene load_steps=7 format=3 uid="uid://c8r17ticbk8w1"]
 
 [ext_resource type="Script" uid="uid://dsn5pmhndsjkh" path="res://actors/hats/newhat/sombrero.gd" id="1_ups64"]
 [ext_resource type="PackedScene" uid="uid://cgku0yq5g5mnp" path="res://assets/models/beret.glb" id="2_yb1sh"]

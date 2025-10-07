@@ -39,5 +39,3 @@ func fire(dir: Vector3, bullet_parent: Node3D):
 	bullet.element_type = element
 	bullet.homing = true
 	bullet_parent.add_child(bullet)
-	
-	bullet_parent.add_child(bullet)
