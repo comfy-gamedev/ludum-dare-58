@@ -64,10 +64,11 @@ func _process(delta: float) -> void:
 
 func eject_hat():
 	var hat = hats.pop_back()
-	hat.reparent(get_parent())
-	hat.linear_velocity = Vector3(targeting_ball.position.x, 0, targeting_ball.position.z).normalized() * 5
-	hat.process_mode = Node.PROCESS_MODE_INHERIT
-	hat.pickup_ready = false
+	if is_instance_valid(hat):
+		hat.reparent(get_parent())
+		hat.linear_velocity = Vector3(targeting_ball.position.x, 0, targeting_ball.position.z).normalized() * 5
+		hat.process_mode = Node.PROCESS_MODE_INHERIT
+		hat.pickup_ready = false
 	
 	if hats.size() < 1:
 		cooldown.wait_time = 1.0
