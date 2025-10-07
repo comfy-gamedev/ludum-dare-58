@@ -3,6 +3,7 @@ extends base_unit
 @onready var target_seeking_radius: Area3D = $TargetSeekingRadius
 @onready var effect_timer = $EffectTimer
 @onready var actor_tree: BeehaveTree = $ActorTree
+@onready var animation_tree: AnimationTree = $lilbuddy/AnimationTree
 
 func _init() -> void:
 	health = 10
@@ -22,6 +23,9 @@ func _ready() -> void:
 			actor_tree.enable()
 	)
 
+func _physics_process(_delta: float) -> void:
+	animation_tree["parameters/IdleRun/blend_position"] = velocity.length() / speed
+
 func get_closest_detected_target() -> Node3D:
 	if not is_instance_valid(equipped_hat):
 		return null
@@ -37,6 +41,7 @@ func get_closest_detected_target() -> Node3D:
 func trigger_hat_skill(dir: Vector3, bullet_parent: Node3D):
 	if is_instance_valid(equipped_hat):
 		equipped_hat.fire(dir, bullet_parent)
+		animation_tree["parameters/AttackOneShot/request"] = AnimationNodeOneShot.ONE_SHOT_REQUEST_FIRE
 
 func on_hit(_damage: int, _type: Globals.elements, slowing = false):
 	health -= _damage

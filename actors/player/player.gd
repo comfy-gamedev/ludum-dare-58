@@ -80,19 +80,18 @@ func _physics_process(delta: float) -> void:
 	# As good practice, you should replace UI actions with custom gameplay actions.
 	var input_dir := Input.get_vector("move_left", "move_right", "move_up", "move_down")
 	var direction := Vector3(input_dir.y, 0, -input_dir.x).normalized()
-	if direction:
-		velocity = velocity.move_toward(direction * speed, ACCEL * 5.0)
-	else:
-		velocity = velocity.move_toward(Vector3.ZERO, ACCEL * 5.0)
+	var gravity := Vector3(0, -50.0, 0) * delta
+	var target_speed := Vector3(direction.x * speed, velocity.y, direction.z * speed) + gravity
+	velocity = velocity.move_toward(target_speed, ACCEL * 5.0)
 	
 	if Input.is_key_pressed(KEY_0):
-		velocity *= 10.0
+		velocity *= Vector3(10.0, 1.0, 10.0)
 	if Input.is_action_just_pressed("dodge") && dash_cooldown.is_stopped():
 		speed *= 4.0
 		dash_cooldown.start()
 	move_and_slide()
 	if Input.is_key_pressed(KEY_0):
-		velocity /= 10.0
+		velocity /= Vector3(10.0, 1.0, 10.0)
 	if speed > SPEED_START:
 		speed -= delta * SPEED_START * 8.5
 

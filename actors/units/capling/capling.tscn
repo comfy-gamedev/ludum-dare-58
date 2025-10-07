@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://dfvu7kkdxffly"]
+[gd_scene load_steps=17 format=3 uid="uid://dfvu7kkdxffly"]
 
 [ext_resource type="Script" uid="uid://lsqlljn568a" path="res://actors/units/capling/capling.gd" id="1_23k4e"]
 [ext_resource type="Script" uid="uid://dme5f24l0edsf" path="res://addons/beehave/blackboard.gd" id="1_cy4ka"]
@@ -33,6 +33,34 @@ material = SubResource("StandardMaterial3D_hsoud")
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_u350o"]
 
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_hsoud"]
+animation = &"Attack"
+
+[sub_resource type="AnimationNodeOneShot" id="AnimationNodeOneShot_sqje1"]
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_sr86b"]
+animation = &"Idle"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_8me68"]
+animation = &"Run"
+
+[sub_resource type="AnimationNodeBlendSpace1D" id="AnimationNodeBlendSpace1D_g8pvv"]
+blend_point_0/node = SubResource("AnimationNodeAnimation_sr86b")
+blend_point_0/pos = 0.0
+blend_point_1/node = SubResource("AnimationNodeAnimation_8me68")
+blend_point_1/pos = 1.0
+min_space = 0.0
+
+[sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_d4vp7"]
+graph_offset = Vector2(-497, -6)
+nodes/IdleRun/node = SubResource("AnimationNodeBlendSpace1D_g8pvv")
+nodes/IdleRun/position = Vector2(-320, 80)
+nodes/AttackOneShot/node = SubResource("AnimationNodeOneShot_sqje1")
+nodes/AttackOneShot/position = Vector2(-37, 148)
+nodes/Animation/node = SubResource("AnimationNodeAnimation_hsoud")
+nodes/Animation/position = Vector2(-300, 280)
+node_connections = [&"output", 0, &"AttackOneShot", &"AttackOneShot", 0, &"IdleRun", &"AttackOneShot", 1, &"Animation"]
+
 [node name="Capling" type="CharacterBody3D" groups=["ally"]]
 transform = Transform3D(0.99999934, 0, -0.0011343955, 0, 1, 0, 0.0011343955, 0, 0.99999934, 0, 0.1759243, 0)
 script = ExtResource("1_23k4e")
@@ -42,7 +70,7 @@ script = ExtResource("1_cy4ka")
 metadata/_custom_type_script = "uid://dme5f24l0edsf"
 
 [node name="ActorTree" parent="." node_paths=PackedStringArray("blackboard") instance=ExtResource("2_u350o")]
-blackboard = NodePath("@Node@21858")
+blackboard = NodePath("@Node@21864")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9942124, 0)
@@ -71,6 +99,14 @@ one_shot = true
 
 [node name="lilbuddy" parent="." instance=ExtResource("4_hsoud")]
 transform = Transform3D(0.99999994, 0, 0, 0, 1, 0, 0, 0, 0.99999994, 0.0005831718, 0.16007721, -0.011976958)
+
+[node name="AnimationTree" type="AnimationTree" parent="lilbuddy"]
+tree_root = SubResource("AnimationNodeBlendTree_d4vp7")
+anim_player = NodePath("../AnimationPlayer")
+parameters/IdleRun/blend_position = 0.0
+parameters/AttackOneShot/active = false
+parameters/AttackOneShot/internal_active = false
+parameters/AttackOneShot/request = 0
 
 [connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
 [connection signal="timeout" from="EffectTimer" to="." method="_on_effect_timer_timeout"]
