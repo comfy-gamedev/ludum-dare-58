@@ -16,16 +16,19 @@ var just_had_target = false
 func _ready() -> void:
 	timer.start(lifetime)
 	
+	var mat = mesh.mesh.surface_get_material(0).duplicate()
 	#switch on type for 3d model
 	match element_type:
 		Globals.elements.AIR:
-			mesh.mesh.surface_get_material(0).albedo_color = Color("8fcccb")
+			mat.albedo_color = Color("8fcccb")
 		Globals.elements.WATER:
-			mesh.mesh.surface_get_material(0).albedo_color = Color("457cd6")
+			mat.albedo_color = Color("457cd6")
 		Globals.elements.FIRE:
-			mesh.mesh.surface_get_material(0).albedo_color = Color("d46e33")
+			mat.albedo_color = Color("d46e33")
 		Globals.elements.EARTH:
-			mesh.mesh.surface_get_material(0).albedo_color = Color("57253b")
+			mat.albedo_color = Color("57253b")
+	
+	mesh.set_surface_override_material(0, mat)
 
 func _physics_process(delta: float) -> void:
 	if exploded:

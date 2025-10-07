@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://b6w3q3ipa6xic"]
 
-[ext_resource type="Script" uid="uid://cqeyt1atwmren" path="res://actors/hats/tricorn/tricorn.gd" id="1_iigjg"]
+[ext_resource type="Script" path="res://actors/hats/tricorn/tricorn.gd" id="1_iigjg"]
 [ext_resource type="PackedScene" uid="uid://b8oqxvxe4qs3i" path="res://assets/models/tricorn.glb" id="2_8llc3"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_1asxe"]
@@ -30,7 +30,7 @@ visible = false
 mesh = SubResource("CylinderMesh_823rn")
 
 [node name="PickupCooldown" type="Timer" parent="."]
-wait_time = 0.25
+wait_time = 0.1
 one_shot = true
 
 [node name="tricorn" parent="." instance=ExtResource("2_8llc3")]

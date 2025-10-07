@@ -1,9 +1,27 @@
-[gd_scene load_steps=3 format=3 uid="uid://cyyx144k2au8w"]
+[gd_scene load_steps=7 format=3 uid="uid://cyyx144k2au8w"]
 
 [ext_resource type="PackedScene" uid="uid://6x1ljv1iihde" path="res://assets/models/spider/spider.glb" id="1_gidbn"]
+[ext_resource type="Script" uid="uid://dby2wu5sssa4h" path="res://actors/npcs/spider_girl/spider_girl.gd" id="1_idquf"]
 [ext_resource type="Texture2D" uid="uid://bqj42wmd5epfp" path="res://assets/textures/exclamation_mark.png" id="2_60bdo"]
 
-[node name="SpiderGirl" type="Node3D"]
+[sub_resource type="SphereShape3D" id="SphereShape3D_60bdo"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_idquf"]
+cull_mode = 2
+albedo_color = Color(1, 0, 1, 1)
+metallic = 0.52
+roughness = 0.14
+billboard_mode = 3
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="QuadMesh" id="QuadMesh_toahj"]
+material = SubResource("StandardMaterial3D_idquf")
+size = Vector2(0.1, 0.2)
+
+[node name="SpiderGirl" type="Area3D"]
+script = ExtResource("1_idquf")
 
 [node name="SpiderGirlModel" parent="." instance=ExtResource("1_gidbn")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.014, 0)
@@ -11,8 +29,107 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.014, 0)
 [node name="AnimationPlayer" parent="SpiderGirlModel" index="1"]
 autoplay = "Idle"
 
-[node name="Sprite3D" type="Sprite3D" parent="."]
+[node name="ExclamationMark" type="Sprite3D" parent="."]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 2.4058359, -0.18718928)
 texture = ExtResource("2_60bdo")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 1.0253367, 0)
+shape = SubResource("SphereShape3D_60bdo")
+
+[node name="Yay" type="CPUParticles3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.1948189, -0.9966489)
+emitting = false
+amount = 16
+one_shot = true
+explosiveness = 0.9
+local_coords = true
+mesh = SubResource("QuadMesh_toahj")
+particle_flag_align_y = true
+particle_flag_disable_z = true
+direction = Vector3(0, 1, 0)
+spread = 30.0
+initial_velocity_min = 3.0
+initial_velocity_max = 10.0
+angular_velocity_min = 59.38
+angular_velocity_max = 371.13
+orbit_velocity_min = 0.0
+orbit_velocity_max = 0.0
+orbit_velocity_curve = null
+damping_min = 5.0
+damping_max = 5.0
+angle_max = 360.0
+
+[node name="Marker3D" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.93634784, 0.35107368, 0, -0.35107368, 0.93634784, 1.321063, 1.774299, 1.9037445)
+
+[node name="Marker3D2" type="Marker3D" parent="."]
+transform = Transform3D(-0.370055, 0, 0.92900985, 0, 1, 0, -0.92900985, 0, -0.370055, -1.1454217, 0, 0.48268223)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="DialogPanel" type="Panel" parent="CanvasLayer"]
+unique_name_in_owner = true
+visible = false
+anchors_preset = -1
+anchor_left = 0.030208332
+anchor_top = 0.7152778
+anchor_right = 0.978125
+anchor_bottom = 0.9722222
+metadata/_edit_use_anchors_ = true
+
+[node name="DialogLabel" type="Label" parent="CanvasLayer/DialogPanel"]
+unique_name_in_owner = true
+layout_mode = 0
+anchor_left = 0.015384615
+anchor_top = 0.075675674
+anchor_right = 0.9846154
+anchor_bottom = 0.9189189
+text = "This is some test dialog heehehehe wrap wrap wrap wrap wrap wrap wrap"
+autowrap_mode = 2
+clip_text = true
+metadata/_edit_use_anchors_ = true
+
+[node name="DialogButton" type="Button" parent="CanvasLayer/DialogPanel"]
+unique_name_in_owner = true
+layout_mode = 0
+anchor_left = 0.9461538
+anchor_top = 0.6972973
+anchor_right = 0.99230766
+anchor_bottom = 0.95135134
+text = "->"
+metadata/_edit_use_anchors_ = true
+
+[node name="CatalogPanel" type="Panel" parent="CanvasLayer"]
+unique_name_in_owner = true
+visible = false
+offset_left = 386.0
+offset_top = 87.0
+offset_right = 933.0
+offset_bottom = 430.0
+
+[node name="DispenseButton" type="Button" parent="CanvasLayer/CatalogPanel"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 0
+offset_left = 29.0
+offset_top = 376.0
+offset_right = 244.0
+offset_bottom = 450.0
+text = "DISPENSE"
+
+[node name="ExitButton" type="Button" parent="CanvasLayer/CatalogPanel"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 0
+offset_left = 291.0
+offset_top = 376.0
+offset_right = 500.0
+offset_bottom = 450.0
+text = "EXIT"
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]
+[connection signal="pressed" from="CanvasLayer/CatalogPanel/ExitButton" to="." method="_on_exit_button_pressed"]
 
 [editable path="SpiderGirlModel"]

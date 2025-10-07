@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://dp8hcgl1j7jll"]
+
+[ext_resource type="PackedScene" uid="uid://byildknx5x6ch" path="res://assets/models/missile.glb" id="1_brn31"]
+
+[node name="missile" instance=ExtResource("1_brn31")]

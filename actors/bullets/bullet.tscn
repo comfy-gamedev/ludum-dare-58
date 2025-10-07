@@ -1,7 +1,45 @@
-[gd_scene load_steps=7 format=3 uid="uid://cvcmwg2kcrfg2"]
+[gd_scene load_steps=10 format=4 uid="uid://cvcmwg2kcrfg2"]
 
 [ext_resource type="Script" uid="uid://w8dgg7iadxyx" path="res://actors/bullets/bullet.gd" id="1_158tj"]
 [ext_resource type="PackedScene" uid="uid://byildknx5x6ch" path="res://assets/models/missile.glb" id="2_0k22o"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4mlrv"]
+resource_name = "Material"
+cull_mode = 2
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_8tjrc"]
+_surfaces = [{
+"aabb": AABB(-0.21266003, -0.24999999, -0.70806164, 0.42532006, 0.49999997, 0.93166786),
+"format": 34896613377,
+"index_count": 114,
+"index_data": PackedByteArray("AAAOAAkADgAFAAkACQAKAAAACQAMAAoACQAFAAwACgAMAAYABQAPAAwADAAPAAYADgAQAAUACAAQAA4AAAAIAA4ABQAQAA0AAAAKABEACgAGABEADQASAAUABQASAA8AAwANABAAAwAQAAgABAASAA0AAwAEAA0AEwAPABIAEwASAAQADwATAAYABwATAAQABgATAAcAAQAEAAMAAQAHAAQAFAAGAAcAFAAHAAEAEQAGABQAEQAUAAsAFAABAAsAEQALAAAAAgABAAMACwABAAIAAAALAAIAAgADAAgAAgAIAAAA"),
+"lods": [0.20543857, PackedByteArray("AAAIAAkAAgAIAAAACQAKAAAAAAALAAIAAAAKAAsACQAMAAoACgAGAAsACgAMAAYACwABAAIACwAGAAEAAgADAAgAAgABAAMACAAFAAkACQAFAAwACAADAAUAAQAGAAcADAAEAAYABgAEAAcAAQAHAAQABQAEAAwAAQAEAAMADQAEAAUAAwAEAA0ABQADAA0A"), 0.31034288, PackedByteArray("AAABAAIAAgADAAAAAgABAAMAAwAFAAAAAAAGAAEAAAAFAAYAAwAEAAUAAQAEAAMABQAEAAYAAQAHAAQABgAEAAcAAQAGAAcA"), 0.64385736, PackedByteArray("AAABAAIAAgABAAMAAgADAAAAAQAEAAMAAwAEAAAAAAAEAAEA")],
+"name": "Material",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 21,
+"vertex_data": PackedByteArray("/38AAI7CAACNp/9/+4oAAP9/wUYAAAAAcVj/f/uKAAD/fz252ZAAAAAAPbmK1QAA//89uYrVAAAazz25vAsAAP8/wUZXmgAA5DDBRkL0AAAaz8FGQvQAAP+/wUZXmgAA/389uf//AADkMD25vAsAAAAAwUaRrwAA/3///47CAAByGP9/NaAAAP7/wUaRrwAAcVie3LOpAACNp57cs6kAAIzn/381oAAA")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_61myo"]
+resource_name = "missile_Icosphere"
+_surfaces = [{
+"aabb": AABB(-0.21266003, -0.24999999, -0.70806164, 0.42532006, 0.49999997, 0.93166786),
+"attribute_data": PackedByteArray("t9grUG3hIYDSnz6KFuFflufWC8bte67ajURhutuOn2MgHKKITRStI14fOzJNFMlAMXUQqzVM94cJAJLGGE+uAk7gOKsi6nLgSeFFa8DsXzYVjPWKamhobI5qAo6tJK94X4rHzwtD9f8YT8lhOfUGvLb2HVspNmxx245ivUQvM4lseNrHREfep25W27RHVq+l7gUEGe4Fcks="),
+"format": 34896613399,
+"index_count": 114,
+"index_data": PackedByteArray("BAAbABEABAAQABsAAgAQAAQAAgADABAAAgABAAMAEgABAAIAAAASAAIAHAASAAAAAAATABwAFAAVAAcAFAAWABUAFQAWAA0AFAAMABYAFQANAB0AHgAMABQAHQANAB8AHQAfABcAHwAIABcAHwANAA4AHgAgAAwAGAAgAB4ABQAgABgADAAgABkADQAhAA4ADgAhAAYABgAiABkAGQAiAAwAIQAiAAYADAAiACMAIQAjACIAIwAhAA0ADAAjABYAFgAjAA0ACQAPAAoAJAAPAAkACQAKAAsACwAKABoACwAaACUA"),
+"lods": [0.20543857, PackedByteArray("BAAQABEAAgAQAAQAAgADABAAAgABAAMAEgABAAIAAAASAAIAAAATABIAFAAVAAcAFAAWABUAFQAWAA0AFQANABcAFwANAAgACAANAA4ADQAGAA4AFgAGAA0AFAAMABYADAAGABYAGAAMABQAGQAGAAwAGAAFAAwADAAFABkACQAPAAoACQAKAAsACwAKABoA"), 0.31034288, PackedByteArray("AAABAAIAAgABAAMAAgADAAQABQAMAAcABQAGAAwABwAMAA0ADAAGAA0ABwANAAgADQAGAA4ACAANAA4ACQAPAAoACQAKAAsA"), 0.64385736, PackedByteArray("AAABAAIAAgABAAMAAgADAAQABQAGAAcABwAGAAgACQAKAAsA")],
+"material": SubResource("StandardMaterial3D_4mlrv"),
+"name": "Material",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 38,
+"vertex_data": PackedByteArray("/38AAI7C872Np/9/+4rR9P9/wUYAALX+cVj/f/uKmfL/fwAAjsIS+HFY/3/7ihjv/389udmQzfH/fwAAjsIJ6o2n/3/7iov3jaf/f/uKX+7/fz252ZCU6HFY/3/7iuL9AAA9uYrVjNj//z25itUH/RrPPbm8C4v+Gs89ubwLcf7/P8FGV5rt3+QwwUZC9Ozl/7/BRleaWeUaz8FGQvT6qeQwwUZC9KfXGs/BRkL0nvD/fz25//9K5P+/wUZXmpno/z/BRleattfkMD25vAvo/eQwPbm8C3n8AADBRpGvkuP+/8FGka891v7/wUaRrz3pAADBRpGvFNOM5/9/NaA773IY/381oCjZjaee3LOpJPFxWJ7cs6mi6/9///+OwpzsjOf/fzWgndJyGP9/NaCi+4IOH57QCxNjvD+iQf2cefHrOUD4bj2YtwOgxMLAaxlMxAaGmmhXFyuCtIK0pjV0XD5o+q3pqv2TIVXFJjhXryQMq2r1GOLd7tgIAlIDHBIyu1mGeXOUx2VViNmWIAGHVdQ/96+XZ4TjpNowp2vG1+F/ICNAmgCts51CkadUCkNKt0tTtE6h3LMvjDfFOZNito5vJRdsOMZ0")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_8tjrc")
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_so8kv"]
 
@@ -20,6 +58,9 @@ process_mode = 3
 script = ExtResource("1_158tj")
 
 [node name="missile" parent="." instance=ExtResource("2_0k22o")]
+
+[node name="Missile" parent="missile" index="0"]
+mesh = SubResource("ArrayMesh_61myo")
 
 [node name="Lifetime" type="Timer" parent="."]
 wait_time = 0.5
@@ -43,3 +84,5 @@ shape = SubResource("SphereShape3D_0k22o")
 [connection signal="timeout" from="Lifetime" to="." method="_on_lifetime_timeout"]
 [connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
 [connection signal="body_entered" from="HomingDetection" to="." method="_on_homing_detection_body_entered"]
+
+[editable path="missile"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://c3rvm3rw6opg"]
+[gd_scene load_steps=14 format=3 uid="uid://c3rvm3rw6opg"]
 
 [ext_resource type="Script" uid="uid://654itoswefaq" path="res://node_types/camera_shake.gd" id="1_lrklj"]
 [ext_resource type="Script" uid="uid://bfmiw37j0chvs" path="res://scenes/main_gameplay/main_gameplay.gd" id="1_sbvst"]
@@ -6,24 +6,18 @@
 [ext_resource type="PackedScene" uid="uid://bgu1iguf46imi" path="res://actors/player/player.tscn" id="3_lot3w"]
 [ext_resource type="Script" uid="uid://bqw3gr8wesx3g" path="res://addons/chunker/chunker.gd" id="3_vsax7"]
 [ext_resource type="PackedScene" uid="uid://d3ruon34yppmu" path="res://actors/encampments/home_camp/home_camp.tscn" id="3_w3spe"]
-[ext_resource type="PackedScene" uid="uid://dx8wgsi14wwb3" path="res://actors/hats/madder/madder.tscn" id="7_1svbp"]
-[ext_resource type="PackedScene" uid="uid://dgn2cmxmyhrcx" path="res://actors/hats/buffalo/buffalo.tscn" id="8_1svbp"]
-[ext_resource type="PackedScene" uid="uid://5mtoxf8e7jpa" path="res://actors/hats/fez/fez.tscn" id="8_ieocc"]
 [ext_resource type="PackedScene" uid="uid://dk2fol3t0dy4b" path="res://assets/models/cowboy3.glb" id="10_ieocc"]
-[ext_resource type="PackedScene" uid="uid://cgvopsmv7neoy" path="res://actors/encampments/goblin_camp/goblin_camp.tscn" id="11_j67kx"]
-[ext_resource type="PackedScene" uid="uid://cpymafqtgeuud" path="res://actors/hats/phrygian/phrygian.tscn" id="12_j67kx"]
 [ext_resource type="PackedScene" uid="uid://cyyx144k2au8w" path="res://actors/npcs/spider_girl/spider_girl.tscn" id="12_km80p"]
-[ext_resource type="PackedScene" uid="uid://c8hidieg0al2r" path="res://actors/hats/cowboy/cowboy.tscn" id="13_fjp8b"]
 [ext_resource type="PackedScene" uid="uid://pyiqrtqqbvfi" path="res://level_chunks/encampment_marker.tscn" id="16_eamew"]
 [ext_resource type="PackedScene" uid="uid://bxyc7ydieogw1" path="res://actors/terrain/bridge.tscn" id="16_km80p"]
-[ext_resource type="PackedScene" uid="uid://cfjk5mcefdcda" path="res://actors/hats/X_non_la/nonla.tscn" id="17_eamew"]
-[ext_resource type="PackedScene" uid="uid://dbwi51ka8rab7" path="res://actors/hats/jester/jester.tscn" id="18_om7j4"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lot3w"]
 albedo_color = Color(1, 0.101960786, 0.24313726, 1)
 
 [sub_resource type="SphereMesh" id="SphereMesh_sms7d"]
 material = SubResource("StandardMaterial3D_lot3w")
+
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_om7j4"]
 
 [node name="MainGameplay" type="Node3D"]
 script = ExtResource("1_sbvst")
@@ -32,7 +26,7 @@ script = ExtResource("1_sbvst")
 environment = ExtResource("2_sms7d")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(0.70710677, -0.49999997, 0.49999997, 0, 0.70710677, 0.70710677, -0.70710677, -0.49999997, 0.49999997, 0, 4.3054237, 0)
+transform = Transform3D(-0.7071068, -0.49999994, 0.49999994, 0, 0.70710677, 0.70710677, -0.7071067, 0.5, -0.5, 0, 4.3054237, 0)
 light_energy = 0.325
 shadow_enabled = true
 directional_shadow_mode = 0
@@ -666,55 +660,36 @@ metadata/_custom_type_script = "uid://bqw3gr8wesx3g"
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16, 0, 16)
 
 [node name="Player" parent="." instance=ExtResource("3_lot3w")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16, 0, 16)
-
-[node name="Camera3D" type="Camera3D" parent="Player"]
-transform = Transform3D(0.99999994, 0, 0, 0, 0.564967, 0.8251135, 0, -0.8251135, 0.564967, -0.0101396, 8.321833, 5.6878605)
-
-[node name="CameraShake" type="Node" parent="Player/Camera3D"]
-script = ExtResource("1_lrklj")
-metadata/_custom_type_script = "uid://654itoswefaq"
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15, 0, 15)
 
 [node name="TargetingBall" type="MeshInstance3D" parent="Player"]
 mesh = SubResource("SphereMesh_sms7d")
 skeleton = NodePath("../..")
 
+[node name="Camera3D" type="Camera3D" parent="Player"]
+transform = Transform3D(-4.371139e-08, -0.82511353, 0.56496704, 0, 0.56496704, 0.82511353, -1, 3.6066858e-08, -2.4695494e-08, 6.3362904, 9.731262, 0.010139465)
+
+[node name="CameraShake" type="Node" parent="Player/Camera3D"]
+script = ExtResource("1_lrklj")
+metadata/_custom_type_script = "uid://654itoswefaq"
+
+[node name="GroundPlane" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="GroundPlane"]
+shape = SubResource("WorldBoundaryShape3D_om7j4")
+
 [node name="BulletParent" type="Node3D" parent="."]
 unique_name_in_owner = true
 
-[node name="MadderHatDrop" parent="." instance=ExtResource("7_1svbp")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.664906, 0.039422512, 4.6735487)
-
-[node name="BuffaloHatDrop" parent="." instance=ExtResource("8_1svbp")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.92412, 0.25, 3.032364)
-
-[node name="FezHatDrop" parent="." instance=ExtResource("8_ieocc")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.694086, 0.8852656, 0.059386253)
-
 [node name="cowboy1" parent="." instance=ExtResource("10_ieocc")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.489609, 0, -11.88997)
-
-[node name="cowboy2" parent="." instance=ExtResource("10_ieocc")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.0256867, 1.7644718, 5.140967)
-
-[node name="GoblinCamp1" parent="." instance=ExtResource("11_j67kx")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.273014, 0, -50.87052)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -45.481236, 4.413484, 44.021103)
 
 [node name="SpiderGirl" parent="." instance=ExtResource("12_km80p")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.343124, 0, 5.30475)
-
-[node name="phrygian" parent="." instance=ExtResource("12_j67kx")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.575781, 0.25, 5.3446445)
-
-[node name="BeretHatObject" parent="." instance=ExtResource("13_fjp8b")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.30921, 0.35263923, 6.2554045)
+transform = Transform3D(0.49999997, 0, 0.86602545, 0, 1, 0, -0.86602545, 0, 0.49999997, 11.335713, 0, 12.2800045)
 
 [node name="EventTimer" type="Timer" parent="."]
-wait_time = 30.0
+wait_time = 90.0
 autostart = true
-
-[node name="RigidBody3D" parent="." instance=ExtResource("13_fjp8b")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.9991875, 0.25000095, 13.492182)
 
 [node name="EncampmentSpawns" type="Node3D" parent="."]
 
@@ -796,6 +771,36 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 149.09917, 3.0517578e-05, 84.
 [node name="EncampmentMarker26" parent="EncampmentSpawns" instance=ExtResource("16_eamew")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.558594, 0, -303.43845)
 
+[node name="EncampmentMarker27" parent="EncampmentSpawns" instance=ExtResource("16_eamew")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 209.6233, 0, 306.15292)
+
+[node name="EncampmentMarker28" parent="EncampmentSpawns" instance=ExtResource("16_eamew")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 144.33984, 0, 367.70404)
+
+[node name="EncampmentMarker29" parent="EncampmentSpawns" instance=ExtResource("16_eamew")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 364.9424, 0, 64.50957)
+
+[node name="EncampmentMarker30" parent="EncampmentSpawns" instance=ExtResource("16_eamew")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.476793, 0, -145.19221)
+
+[node name="EncampmentMarker31" parent="EncampmentSpawns" instance=ExtResource("16_eamew")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -48.626114, 0, -48.128586)
+
+[node name="EncampmentMarker32" parent="EncampmentSpawns" instance=ExtResource("16_eamew")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 80.63448, 0, -240.14032)
+
+[node name="EncampmentMarker33" parent="EncampmentSpawns" instance=ExtResource("16_eamew")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 81.95221, 0, 15.078903)
+
+[node name="EncampmentMarker34" parent="EncampmentSpawns" instance=ExtResource("16_eamew")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 143.54866, 0, 144.48767)
+
+[node name="EncampmentMarker35" parent="EncampmentSpawns" instance=ExtResource("16_eamew")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 49.237816, 0, 211.02203)
+
+[node name="EncampmentMarker36" parent="EncampmentSpawns" instance=ExtResource("16_eamew")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 53.765373, 0, 84.27585)
+
 [node name="Bridge" parent="." instance=ExtResource("16_km80p")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 189.45517, 0.69062614, 2.0046992)
 
@@ -808,10 +813,13 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 221.32047, 0.8692082, 351.959
 [node name="Bridge4" parent="." instance=ExtResource("16_km80p")]
 transform = Transform3D(-0.004502921, 0, -0.99998987, 0, 1, 0, 0.99998987, 0, -0.004502921, 327.1336, 0.95674455, 285.13635)
 
-[node name="RigidBody3D2" parent="." instance=ExtResource("17_eamew")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.4017415, 0.25, 18.239487)
+[node name="UI" type="Node2D" parent="."]
 
-[node name="RigidBody3D3" parent="." instance=ExtResource("18_om7j4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.716404, 0.44803157, 22.863476)
+[node name="Label" type="Label" parent="UI"]
+offset_left = 106.0
+offset_top = 2.0
+offset_right = 412.0
+offset_bottom = 41.0
+text = "Time till next wave: "
 
 [connection signal="timeout" from="EventTimer" to="." method="_on_event_timer_timeout"]
