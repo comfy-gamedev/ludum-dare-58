@@ -216,7 +216,7 @@ func create_hat_catalog_item(pos: Vector2, hat_index):
 		if collected_hats[hat_scene_file].count > 0:
 			var modified_hat_dialog = collected_hats[hat_scene_file].dialog
 			modified_hat_dialog += " You've collected %s of these bad boys." % collected_hats[hat_scene_file].count
-			new_hat_button_panel.pressed.connect(on_hat_button_panel_pressed.bind(modified_hat_dialog))
+			new_hat_button_panel.pressed.connect(on_hat_button_panel_pressed.bind(modified_hat_dialog, new_hat_button_panel))
 			render_hat_on_panel(hat_scene_file, new_hat_button_panel)
 		else:
 			var undiscovered_hat_dialog = "You haven't discovered this hat yet. Try exploring and remember to bring me hats!"
@@ -227,10 +227,13 @@ func create_hat_catalog_item(pos: Vector2, hat_index):
 		new_hat_button_panel.pressed.connect(on_hat_button_panel_pressed.bind(mystery_dialog))
 		new_hat_button_panel.text = "?"
 
-func on_hat_button_panel_pressed(dialog: String):
+func on_hat_button_panel_pressed(dialog: String, hat_button_panel: Button = null):
+	if is_instance_valid(hat_button_panel):
+		print("hi")
+		#print(hat_button_panel.get_node('SubViewportContainer/Subviewport/Hat'))
 	await dialog_say(dialog)
 
-func render_hat_on_panel(hat_scene_file: String, item_panel: Button):
+func render_hat_on_panel(hat_scene_file: String, hat_button_panel: Button):
 	var hat = load(hat_scene_file).instantiate()
 	var sub_viewport_container = SubViewportContainer.new()
 	var sub_viewport = SubViewport.new()
@@ -245,9 +248,16 @@ func render_hat_on_panel(hat_scene_file: String, item_panel: Button):
 	directional_light.light_energy = 0.75
 	directional_light.rotation = Vector3(-45, 45, 0)
 	sub_viewport.add_child(directional_light)
-	item_panel.add_child(sub_viewport_container)
+	hat_button_panel.add_child(sub_viewport_container)
 	hat.position.z = -2
 	hat.process_mode = Node.PROCESS_MODE_DISABLED
+	set_hat_rotation_tween(hat)
+
+func set_hat_rotation_tween(hat_node: Hat):
+	var tween = create_tween()
+	tween.set_loops()
+	tween.tween_property(hat_node, "rotation_degrees", Vector3(0, 360, 0), 5).from_current()
+	tween.play()
 
 func _on_exit_button_pressed() -> void:
 	on_exit_interaction()
