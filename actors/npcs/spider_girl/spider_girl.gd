@@ -299,9 +299,8 @@ func render_hat_on_panel(hat_scene_file: String, hat_button_panel: Button):
 
 func set_hat_rotation_tween(hat_node: Hat, hat_scene_file: String):
 	collected_hats[hat_scene_file].tween = create_tween()
-	collected_hats[hat_scene_file].tween.set_loops(0)
-	#hat_node.rotation = Vector3(0, 0, 0)
-	collected_hats[hat_scene_file].tween.tween_property(hat_node, "rotation_degrees", Vector3(0, 360, 0), 5).from(Vector3(0, 0, 0)) #.from_current()
+	collected_hats[hat_scene_file].tween.set_loops()
+	collected_hats[hat_scene_file].tween.tween_property(hat_node, "rotation_degrees", Vector3(0, 360, 0), 5).from(Vector3(0, 0, 0))
 	collected_hats[hat_scene_file].tween.play()
 
 func kill_hat_rotation_tween(hat_scene_file: String):
