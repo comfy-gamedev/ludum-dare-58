@@ -229,8 +229,8 @@ func create_hat_catalog_item(pos: Vector2, hat_index):
 
 func on_hat_button_panel_pressed(dialog: String, hat_button_panel: Button = null):
 	if is_instance_valid(hat_button_panel):
-		print("hi")
-		#print(hat_button_panel.get_node('SubViewportContainer/Subviewport/Hat'))
+		hat_button_panel.emit_signal("play_hat_rotation_tween")
+		
 	await dialog_say(dialog)
 
 func render_hat_on_panel(hat_scene_file: String, hat_button_panel: Button):
@@ -251,7 +251,9 @@ func render_hat_on_panel(hat_scene_file: String, hat_button_panel: Button):
 	hat_button_panel.add_child(sub_viewport_container)
 	hat.position.z = -2
 	hat.process_mode = Node.PROCESS_MODE_DISABLED
-	set_hat_rotation_tween(hat)
+	#set_hat_rotation_tween(hat)
+	hat_button_panel.add_user_signal("play_hat_rotation_tween")
+	hat_button_panel.connect("play_hat_rotation_tween", set_hat_rotation_tween.bind(hat))
 
 func set_hat_rotation_tween(hat_node: Hat):
 	var tween = create_tween()
