@@ -246,6 +246,12 @@ func create_hat_catalog_item(pos: Vector2, hat_index):
 		var mystery_dialog = "The fact that this panel exists is a mystery."
 		new_hat_button_panel.pressed.connect(on_hat_button_panel_pressed.bind(mystery_dialog))
 		new_hat_button_panel.text = "?"
+		
+func on_hat_button_panel_pressed(dialog: String, hat_button_panel: Button = null):
+	if is_instance_valid(hat_button_panel):
+		hat_button_panel.grab_focus()
+		
+	await dialog_say(dialog)
 
 func on_hat_button_panel_focus_entered(hat_button_panel: Button):
 	if is_instance_valid(hat_button_panel):
@@ -254,12 +260,6 @@ func on_hat_button_panel_focus_entered(hat_button_panel: Button):
 func on_hat_button_panel_focus_exited(hat_button_panel: Button):
 	if is_instance_valid(hat_button_panel):
 		hat_button_panel.emit_signal("kill_hat_rotation_tween")
-
-func on_hat_button_panel_pressed(dialog: String, hat_button_panel: Button = null):
-	if is_instance_valid(hat_button_panel):
-		hat_button_panel.grab_focus()
-		
-	await dialog_say(dialog)
 
 func render_hat_on_panel(hat_scene_file: String, hat_button_panel: Button):
 	# Instantiate hat scene.
@@ -275,7 +275,8 @@ func render_hat_on_panel(hat_scene_file: String, hat_button_panel: Button):
 	sub_viewport_container.size = Vector2i(100, 100)
 	
 	# Add a camera to SubViewport node.
-	sub_viewport.add_child(Camera3D.new())
+	var camera = Camera3D.new()
+	sub_viewport.add_child(camera)
 	sub_viewport.add_child(hat)
 	
 	# Add DirectionalLight3D node and set light energy and rotation properties.
@@ -288,6 +289,7 @@ func render_hat_on_panel(hat_scene_file: String, hat_button_panel: Button):
 	hat_button_panel.add_child(sub_viewport_container)
 	hat.position.z = -2
 	hat.process_mode = Node.PROCESS_MODE_DISABLED
+	camera.look_at_from_position(Vector3(0, 1, 0), hat.position)
 	
 	# Set custom signals to be able to emit play / kill rotation tweens when un/focused. 
 	hat_button_panel.add_user_signal("play_hat_rotation_tween")
@@ -297,11 +299,13 @@ func render_hat_on_panel(hat_scene_file: String, hat_button_panel: Button):
 
 func set_hat_rotation_tween(hat_node: Hat, hat_scene_file: String):
 	collected_hats[hat_scene_file].tween = create_tween()
-	collected_hats[hat_scene_file].tween.set_loops()
-	collected_hats[hat_scene_file].tween.tween_property(hat_node, "rotation_degrees", Vector3(0, 360, 0), 5).from_current()
+	collected_hats[hat_scene_file].tween.set_loops(0)
+	#hat_node.rotation = Vector3(0, 0, 0)
+	collected_hats[hat_scene_file].tween.tween_property(hat_node, "rotation_degrees", Vector3(0, 360, 0), 5).from(Vector3(0, 0, 0)) #.from_current()
 	collected_hats[hat_scene_file].tween.play()
 
 func kill_hat_rotation_tween(hat_scene_file: String):
+	collected_hats[hat_scene_file].tween.custom_step(INF)
 	collected_hats[hat_scene_file].tween.kill()
 
 func _on_exit_button_pressed() -> void:
