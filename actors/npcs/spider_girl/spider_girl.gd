@@ -21,63 +21,63 @@ var yarn: int = 0
 var collected_hats = {
 	"res://actors/hats/beefeater/beefeater.tscn" = {
 		"count": 0,
-		"dialog": "Dialogue goes here."
+		"dialog": "The beefeater hat. Great! You guard the palace, I'll guard the food. We all have our roles now."
 	},
 	"res://actors/hats/beret/beret.tscn" = {
 		"count": 0,
-		"dialog": "Dialogue goes here."
+		"dialog": "The beret hat. If you start snapping your fingers and reading poetry, I'm crawling outta here."
 	},
 	"res://actors/hats/bicorn/bicorn.tscn" = {
 		"count": 0,
-		"dialog": "Dialogue goes here."
+		"dialog": "The bicorn hat. That hat's got adventure written all over it. Smells like salt, glory... and maybe old socks."
 	},
 	"res://actors/hats/buffalo/buffalo.tscn" = {
 		"count": 0,
-		"dialog": "Dialogue goes here."
+		"dialog": "The buffalo hat. Big hat energy! Don't go stampeding through my webs, okay?"
 	},
 	"res://actors/hats/cowboy/cowboy.tscn" = {
 		"count": 0,
-		"dialog": "Dialogue goes here."
+		"dialog": "The cowboy hat. Yeehaw! Careful, I bite faster than your six-shooter."
 	},
 	"res://actors/hats/fez/fez.tscn" = {
 		"count": 0,
-		"dialog": "Dialogue goes here."
+		"dialog": "The fez hat. Let me guess... you just came back from 'studying ancient ruins,' huh?"
 	},
 	"res://actors/hats/jester/jester.tscn" = {
 		"count": 0,
-		"dialog": "Dialogue goes here."
+		"dialog": "The jester hat. Oh good, now your jokes have context."
 	},
 	"res://actors/hats/madder/madder.tscn" = {
 		"count": 0,
-		"dialog": "Dialogue goes here."
+		"dialog": "The madder hat. Heehee! Careful, wear that too long and you'll start arguing with your own reflection!"
 	},
 	"res://actors/hats/mortarboard/mortarboard.tscn" = {
 		"count": 0,
-		"dialog": "Dialogue goes here."
+		"dialog": "The mortarboard hat. Look at you, thinking you're all smart now. Can you even spell 'arachnid?'"
 	},
 	"res://actors/hats/phrygian/phrygian.tscn" = {
 		"count": 0,
-		"dialog": "Dialogue goes here."
+		"dialog": "The phrygian hat. Rebel chic, huh? Just don't expect me to join your manifesto... I've got my own silk to spin."
 	},
 	"res://actors/hats/scally/scally.tscn" = {
 		"count": 0,
-		"dialog": "Dialogue goes here."
+		"dialog": "The scally hat. You look like you should be narrating a crime documentary."
 	},
 	"res://actors/hats/sombrero/sombrero.tscn" = {
 		"count": 0,
-		"dialog": "Dialogue goes here."
+		"dialog": "The sombrero hat. Ay, caramba! If I didn't have eight left feet I'd probably start dancing right about now."
 	},
 	"res://actors/hats/tricorn/tricorn.tscn" = {
 		"count": 0,
-		"dialog": "Dialogue goes here."
+		"dialog": "The tricorn hat. You're one swash short of a buckle, matey."
 	},
 	"res://actors/hats/tyrolean/tyrolean.tscn" = {
 		"count": 0,
-		"dialog": "Dialogue goes here."
+		"dialog": "The tyrolean hat. Did you lose a wrestling match with a bird for that accessory?"
 	},
 	"res://actors/hats/witch/witch.tscn" = {
 		"count": 0,
-		"dialog": "Dialogue goes here."
+		"dialog": "The witch hat. This hat screams 'I read forbidden books for fun.'"
 	},
 }
 
@@ -214,7 +214,9 @@ func create_hat_catalog_item(pos: Vector2, hat_index):
 		var hat_scene_file = hat_keys[hat_index]
 		
 		if collected_hats[hat_scene_file].count > 0:
-			new_hat_button_panel.pressed.connect(on_hat_button_panel_pressed.bind(collected_hats[hat_scene_file].dialog))
+			var modified_hat_dialog = collected_hats[hat_scene_file].dialog
+			modified_hat_dialog += " You've collected %s of these bad boys." % collected_hats[hat_scene_file].count
+			new_hat_button_panel.pressed.connect(on_hat_button_panel_pressed.bind(modified_hat_dialog))
 			render_hat_on_panel(hat_scene_file, new_hat_button_panel)
 		else:
 			var undiscovered_hat_dialog = "You haven't discovered this hat yet. Try exploring and remember to bring me hats!"
