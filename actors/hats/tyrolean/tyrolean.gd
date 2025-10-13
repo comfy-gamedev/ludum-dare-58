@@ -13,6 +13,7 @@ func fire(dir: Vector3, bullet_parent: Node3D):
 	#bullet.direction = dir.rotated(Vector3.UP, 0)
 	bullet.lifetime = 1
 	bullet.size = 0.5
+	bullet.speed = 15
 	bullet.movement = base_bullet.movement_types.STRAIGHT
 	bullet.element_type = element
 	bullet_parent.add_child(bullet)
@@ -23,6 +24,7 @@ func fire(dir: Vector3, bullet_parent: Node3D):
 	bullet.direction = dir.rotated(Vector3.UP, TAU / 50)
 	bullet.lifetime = 1
 	bullet.size = 0.5
+	bullet.speed = 15
 	bullet.movement = base_bullet.movement_types.STRAIGHT
 	bullet.element_type = element
 	bullet_parent.add_child(bullet)
@@ -33,6 +35,7 @@ func fire(dir: Vector3, bullet_parent: Node3D):
 	bullet.direction = dir.rotated(Vector3.UP, TAU/ 25)
 	bullet.lifetime = 1
 	bullet.size = 0.5
+	bullet.speed = 15
 	bullet.movement = base_bullet.movement_types.STRAIGHT
 	bullet.element_type = element
 	bullet_parent.add_child(bullet)
@@ -43,6 +46,7 @@ func fire(dir: Vector3, bullet_parent: Node3D):
 	bullet.direction = dir.rotated(Vector3.UP, - TAU / 25)
 	bullet.lifetime = 1
 	bullet.size = 0.5
+	bullet.speed = 15
 	bullet.movement = base_bullet.movement_types.STRAIGHT
 	bullet.element_type = element
 	bullet_parent.add_child(bullet)
@@ -53,6 +57,7 @@ func fire(dir: Vector3, bullet_parent: Node3D):
 	bullet.direction = dir.rotated(Vector3.UP, - TAU / 50)
 	bullet.lifetime = 1
 	bullet.size = 0.5
+	bullet.speed = 15
 	bullet.movement = base_bullet.movement_types.STRAIGHT
 	bullet.element_type = element
 	bullet_parent.add_child(bullet)

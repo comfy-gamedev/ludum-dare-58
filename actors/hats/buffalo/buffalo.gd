@@ -12,6 +12,6 @@ func fire(dir: Vector3, bullet_parent: Node3D):
 	bullet.direction = dir
 	bullet.explosive = true
 	bullet.lifetime = .01
-	bullet.radius = 10
+	bullet.radius = 15
 	bullet.element_type = element
 	bullet_parent.add_child(bullet)

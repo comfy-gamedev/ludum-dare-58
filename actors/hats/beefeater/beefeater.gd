@@ -11,7 +11,7 @@ func fire(dir: Vector3, bullet_parent: Node3D):
 	bullet.direction = dir
 	
 	#this block is where you change the values
-	bullet.element_type = Globals.elements.FIRE
+	bullet.element_type = Globals.elements.WATER
 	bullet.damage = 1
 	bullet.speed = 7.5
 	bullet.size = 1
