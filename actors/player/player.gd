@@ -26,7 +26,7 @@ func _ready() -> void:
 		dash_cooldown.paused = f
 	)
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if Messages.frozen:
 		return
 	

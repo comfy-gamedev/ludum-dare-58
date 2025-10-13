@@ -19,21 +19,66 @@ var yarn: int = 0
 @onready var marker_3d_2: Marker3D = $Marker3D2
 
 var collected_hats = {
-	"res://actors/hats/beefeater/beefeater.tscn" = false,
-	"res://actors/hats/beret/beret.tscn" = false,
-	"res://actors/hats/bicorn/bicorn.tscn" = false,
-	"res://actors/hats/buffalo/buffalo.tscn" = false,
-	"res://actors/hats/cowboy/cowboy.tscn" = false,
-	"res://actors/hats/fez/fez.tscn" = false,
-	"res://actors/hats/jester/jester.tscn" = false,
-	"res://actors/hats/madder/madder.tscn" = false,
-	"res://actors/hats/mortarboard/mortarboard.tscn" = false,
-	"res://actors/hats/phrygian/phrygian.tscn" = false,
-	"res://actors/hats/scally/scally.tscn" = false,
-	"res://actors/hats/sombrero/sombrero.tscn" = false,
-	"res://actors/hats/tricorn/tricorn.tscn" = false,
-	"res://actors/hats/tyrolean/tyrolean.tscn" = false,
-	"res://actors/hats/witch/witch.tscn" = false,
+	"res://actors/hats/beefeater/beefeater.tscn" = {
+		"count": 0,
+		"dialogue": "Dialogue goes here."
+	},
+	"res://actors/hats/beret/beret.tscn" = {
+		"count": 0,
+		"dialogue": "Dialogue goes here."
+	},
+	"res://actors/hats/bicorn/bicorn.tscn" = {
+		"count": 0,
+		"dialogue": "Dialogue goes here."
+	},
+	"res://actors/hats/buffalo/buffalo.tscn" = {
+		"count": 0,
+		"dialogue": "Dialogue goes here."
+	},
+	"res://actors/hats/cowboy/cowboy.tscn" = {
+		"count": 0,
+		"dialogue": "Dialogue goes here."
+	},
+	"res://actors/hats/fez/fez.tscn" = {
+		"count": 0,
+		"dialogue": "Dialogue goes here."
+	},
+	"res://actors/hats/jester/jester.tscn" = {
+		"count": 0,
+		"dialogue": "Dialogue goes here."
+	},
+	"res://actors/hats/madder/madder.tscn" = {
+		"count": 0,
+		"dialogue": "Dialogue goes here."
+	},
+	"res://actors/hats/mortarboard/mortarboard.tscn" = {
+		"count": 0,
+		"dialogue": "Dialogue goes here."
+	},
+	"res://actors/hats/phrygian/phrygian.tscn" = {
+		"count": 0,
+		"dialogue": "Dialogue goes here."
+	},
+	"res://actors/hats/scally/scally.tscn" = {
+		"count": 0,
+		"dialogue": "Dialogue goes here."
+	},
+	"res://actors/hats/sombrero/sombrero.tscn" = {
+		"count": 0,
+		"dialogue": "Dialogue goes here."
+	},
+	"res://actors/hats/tricorn/tricorn.tscn" = {
+		"count": 0,
+		"dialogue": "Dialogue goes here."
+	},
+	"res://actors/hats/tyrolean/tyrolean.tscn" = {
+		"count": 0,
+		"dialogue": "Dialogue goes here."
+	},
+	"res://actors/hats/witch/witch.tscn" = {
+		"count": 0,
+		"dialogue": "Dialogue goes here."
+	},
 }
 
 #func _ready() -> void:
@@ -79,11 +124,8 @@ func _on_body_entered(body: Node3D) -> void:
 			
 	if body.is_in_group("hat") and not body.is_in_group("spiderhat"):
 		# Register newly collected hat.
-		if not collected_hats[body.scene_file_path]:
-			collected_hats[body.scene_file_path] = true
-		#print(Globals.hat_scene_pool["BERET"].resource_path)
-		#print(body.scene_file_path)
-		#print(Globals.hat_scene_pool.find_key(body.scene_file_path))
+		if collected_hats.has(body.scene_file_path):
+			collected_hats[body.scene_file_path].count += 1
 		
 		body.queue_free()
 		yay.emitting = true
@@ -91,6 +133,9 @@ func _on_body_entered(body: Node3D) -> void:
 		if yarn == 3:
 			yarn = 0
 			yeet_hat()
+
+func catalog_hat():
+	pass
 
 func yeet_hat() -> void:
 	var hat: RigidBody3D = Globals.hat_scene_pool[Globals.hat_scene_pool.keys().pick_random()].instantiate()
@@ -152,15 +197,6 @@ func init_hat_catalog_items():
 		button_pos_x = 15
 		
 		for c in range(5):
-			#var mission_id = ""
-			#mission_number += 1
-			#
-			#if mission_number < 10:
-				#mission_id += "0"
-				#mission_id += str(mission_number)
-			#else:
-				#mission_id += str(mission_number)
-				
 			create_hat_catalog_item(Vector2(button_pos_x, button_pos_y), hat_index)
 			hat_index += 1
 			button_pos_x += 105
@@ -178,7 +214,7 @@ func create_hat_catalog_item(pos: Vector2, hat_index):
 	if hat_index <= hat_keys.size():
 		var hat_scene_file = hat_keys[hat_index]
 		
-		if collected_hats[hat_scene_file]:
+		if collected_hats[hat_scene_file].count > 0:
 			render_hat_on_panel(hat_scene_file, new_item_panel)
 		else:
 			new_item_panel.text = "?"
