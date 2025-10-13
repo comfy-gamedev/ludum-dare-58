@@ -21,63 +21,63 @@ var yarn: int = 0
 var collected_hats = {
 	"res://actors/hats/beefeater/beefeater.tscn" = {
 		"count": 0,
-		"dialogue": "Dialogue goes here."
+		"dialog": "Dialogue goes here."
 	},
 	"res://actors/hats/beret/beret.tscn" = {
 		"count": 0,
-		"dialogue": "Dialogue goes here."
+		"dialog": "Dialogue goes here."
 	},
 	"res://actors/hats/bicorn/bicorn.tscn" = {
 		"count": 0,
-		"dialogue": "Dialogue goes here."
+		"dialog": "Dialogue goes here."
 	},
 	"res://actors/hats/buffalo/buffalo.tscn" = {
 		"count": 0,
-		"dialogue": "Dialogue goes here."
+		"dialog": "Dialogue goes here."
 	},
 	"res://actors/hats/cowboy/cowboy.tscn" = {
 		"count": 0,
-		"dialogue": "Dialogue goes here."
+		"dialog": "Dialogue goes here."
 	},
 	"res://actors/hats/fez/fez.tscn" = {
 		"count": 0,
-		"dialogue": "Dialogue goes here."
+		"dialog": "Dialogue goes here."
 	},
 	"res://actors/hats/jester/jester.tscn" = {
 		"count": 0,
-		"dialogue": "Dialogue goes here."
+		"dialog": "Dialogue goes here."
 	},
 	"res://actors/hats/madder/madder.tscn" = {
 		"count": 0,
-		"dialogue": "Dialogue goes here."
+		"dialog": "Dialogue goes here."
 	},
 	"res://actors/hats/mortarboard/mortarboard.tscn" = {
 		"count": 0,
-		"dialogue": "Dialogue goes here."
+		"dialog": "Dialogue goes here."
 	},
 	"res://actors/hats/phrygian/phrygian.tscn" = {
 		"count": 0,
-		"dialogue": "Dialogue goes here."
+		"dialog": "Dialogue goes here."
 	},
 	"res://actors/hats/scally/scally.tscn" = {
 		"count": 0,
-		"dialogue": "Dialogue goes here."
+		"dialog": "Dialogue goes here."
 	},
 	"res://actors/hats/sombrero/sombrero.tscn" = {
 		"count": 0,
-		"dialogue": "Dialogue goes here."
+		"dialog": "Dialogue goes here."
 	},
 	"res://actors/hats/tricorn/tricorn.tscn" = {
 		"count": 0,
-		"dialogue": "Dialogue goes here."
+		"dialog": "Dialogue goes here."
 	},
 	"res://actors/hats/tyrolean/tyrolean.tscn" = {
 		"count": 0,
-		"dialogue": "Dialogue goes here."
+		"dialog": "Dialogue goes here."
 	},
 	"res://actors/hats/witch/witch.tscn" = {
 		"count": 0,
-		"dialogue": "Dialogue goes here."
+		"dialog": "Dialogue goes here."
 	},
 }
 
@@ -204,22 +204,29 @@ func init_hat_catalog_items():
 func create_hat_catalog_item(pos: Vector2, hat_index):
 	var item_height = 100
 	var item_length = 100
-	var new_item_panel = Button.new()
-	new_item_panel.disabled = true
-	new_item_panel.set_position(pos)
-	new_item_panel.set_size(Vector2(item_length, item_height))
-	catalog_panel.add_child(new_item_panel)
-	var hat_keys = collected_hats.keys() # Globals.hat_scene_pool.keys()
+	var new_hat_button_panel = Button.new()
+	new_hat_button_panel.set_position(pos)
+	new_hat_button_panel.set_size(Vector2(item_length, item_height))
+	catalog_panel.add_child(new_hat_button_panel)
+	var hat_keys = collected_hats.keys()
 	
 	if hat_index <= hat_keys.size():
 		var hat_scene_file = hat_keys[hat_index]
 		
 		if collected_hats[hat_scene_file].count > 0:
-			render_hat_on_panel(hat_scene_file, new_item_panel)
+			new_hat_button_panel.pressed.connect(on_hat_button_panel_pressed.bind(collected_hats[hat_scene_file].dialog))
+			render_hat_on_panel(hat_scene_file, new_hat_button_panel)
 		else:
-			new_item_panel.text = "?"
+			var undiscovered_hat_dialog = "You haven't discovered this hat yet. Try exploring and remember to bring me hats!"
+			new_hat_button_panel.pressed.connect(on_hat_button_panel_pressed.bind(undiscovered_hat_dialog))
+			new_hat_button_panel.text = "?"
 	else:
-		new_item_panel.text = "?"
+		var mystery_dialog = "The fact that this panel exists is a mystery."
+		new_hat_button_panel.pressed.connect(on_hat_button_panel_pressed.bind(mystery_dialog))
+		new_hat_button_panel.text = "?"
+
+func on_hat_button_panel_pressed(dialog: String):
+	await dialog_say(dialog)
 
 func render_hat_on_panel(hat_scene_file: String, item_panel: Button):
 	var hat = load(hat_scene_file).instantiate()
