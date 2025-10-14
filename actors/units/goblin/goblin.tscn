@@ -41,7 +41,7 @@ script = ExtResource("1_6sm0b")
 metadata/_custom_type_script = "uid://dme5f24l0edsf"
 
 [node name="ActorTree" parent="." node_paths=PackedStringArray("blackboard") instance=ExtResource("2_sslfq")]
-blackboard = NodePath("@Node@46460")
+blackboard = NodePath("../Blackboard")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0529926, 0)
