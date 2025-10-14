@@ -2,24 +2,30 @@ extends base_camp
 var goblin_scene = preload("uid://cwajxjg83lhvk")
 
 @export var number_of_units = 3
-var has_been_called = false
-var has_spawned = false
+@onready var caged_capling = $CagedCapling
 
-#func _ready() -> void:
-	#spawn_units.call_deferred()
-	#current_number_of_units = number_of_units
+var jump_impulse = 0.5
+var has_spawned = false
+var capling_freed = false
+
+func _physics_process(delta: float) -> void:
+	if capling_freed:
+		# Process capling jumping for joy.
+		jump_impulse -= delta * 1.1
+		caged_capling.position += Vector3.UP * jump_impulse * 0.2
+		if caged_capling.position.y <= 0:
+			jump_impulse = 0.5
 
 func on_encampment_destroyed():
-	if not has_been_called:
-		has_been_called = true
+	if not capling_freed:
+		capling_freed = true
 		print("capling freed!")
 		# Spawn freed capling in home camp.
 		$/root/MainGameplay/HomeCamp.spawn_unit()
 		# Remove cage model.
 		$Cage.queue_free()
 		#$lilbuddy.AnimationPlayer.play("yipee")
-		# TODO: Cool little animation of freed capling jumping for joy.
-		await get_tree().create_timer(2.0).timeout
+		await get_tree().create_timer(2.7).timeout
 		Globals.caplings_rescued += 1
 		# Remove enemy camp.
 		self.queue_free()
@@ -34,7 +40,6 @@ func spawn_unit():
 	new_goblin.global_position = goblin_pos
 	new_goblin.encampment_ref = self
 	$/root/MainGameplay.add_child(new_goblin)
-
 
 func _on_area_3d_body_entered(body: Node3D) -> void:
 	if body.is_in_group("ally") && !has_spawned:

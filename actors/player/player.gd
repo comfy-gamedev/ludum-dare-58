@@ -115,10 +115,11 @@ func _on_hit(_damage, slowing):
 	# Drop hats if carrying.
 	if hats.size() > 0:
 		for hat in hats:
-			hat.reparent(get_parent())
-			hat.linear_velocity = Vector3(randf() - 0.5, 0, randf() - 0.5).normalized() * 5
-			hat.process_mode = Node.PROCESS_MODE_INHERIT
-			hat.pickup_ready = false
+			if is_instance_valid(hat):
+				hat.reparent(get_parent())
+				hat.linear_velocity = Vector3(randf() - 0.5, 0, randf() - 0.5).normalized() * 5
+				hat.process_mode = Node.PROCESS_MODE_INHERIT
+				hat.pickup_ready = false
 		
 		cooldown.wait_time = 1.0
 		hats = []

@@ -12,16 +12,16 @@ animation = &"Attack"
 
 [sub_resource type="AnimationNodeOneShot" id="AnimationNodeOneShot_sqje1"]
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_sqje1"]
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_sr86b"]
 animation = &"Idle"
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_sr86b"]
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_8me68"]
 animation = &"Run"
 
 [sub_resource type="AnimationNodeBlendSpace1D" id="AnimationNodeBlendSpace1D_g8pvv"]
-blend_point_0/node = SubResource("AnimationNodeAnimation_sqje1")
+blend_point_0/node = SubResource("AnimationNodeAnimation_sr86b")
 blend_point_0/pos = 0.0
-blend_point_1/node = SubResource("AnimationNodeAnimation_sr86b")
+blend_point_1/node = SubResource("AnimationNodeAnimation_8me68")
 blend_point_1/pos = 1.0
 min_space = 0.0
 
