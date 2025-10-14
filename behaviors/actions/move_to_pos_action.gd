@@ -25,5 +25,5 @@ func tick(actor: Node, blackboard: Blackboard) -> int:
 		return SUCCESS
 	else:
 		# Otherwise, move towards the target
-		actor.move_and_slide()
+		#actor.move_and_slide()
 		return RUNNING
