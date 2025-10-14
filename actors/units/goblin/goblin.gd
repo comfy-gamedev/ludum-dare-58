@@ -68,7 +68,7 @@ func on_hit(_damage: int, type: Globals.elements , slowing = false):
 		_damage *= 2
 	
 	health -= _damage
-	
+	$goblinmodel/AnimationPlayer.play("hit")
 	if slowing:
 		speed /= 2
 		effect_timer.start()
