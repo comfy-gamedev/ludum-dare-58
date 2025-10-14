@@ -7,7 +7,7 @@ func _init() -> void:
 func fire(dir: Vector3, bullet_parent: Node3D):
 	var bullet: base_bullet = bullet_scene.instantiate()
 	bullet.team = self.team
-	bullet.position = global_position + (Vector3.DOWN * 2)
+	bullet.position = global_position + Vector3(0, 0.5, 0)
 	bullet.direction = dir
 	
 	#this block is where you change the values

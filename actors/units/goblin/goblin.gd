@@ -26,6 +26,9 @@ func _ready() -> void:
 			actor_tree.enable()
 	)
 
+func _physics_process(_delta: float) -> void:
+	move_and_slide()
+
 func choose_random_hat_scene() -> PackedScene:
 	var hat_keys_array = Globals.hat_scene_pool.keys()
 	var random_index = randi_range(0, hat_keys_array.size() - 1)

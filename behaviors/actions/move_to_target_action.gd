@@ -10,7 +10,10 @@ func tick(actor: Node, blackboard: Blackboard) -> int:
 	
 	var distance_to_target = actor.position.distance_to(target_pos)
 	
+	var delta = get_physics_process_delta_time()
+	
 	if distance_to_target <= actor.attack_acceptance_range:
+		actor.velocity = actor.velocity.move_toward(Vector3(0, actor.velocity.y, target_pos.y), delta * 5.0)
 		return SUCCESS
 	
 	#var direction: Vector2 = (target_pos - actor.position).normalized()
@@ -40,5 +43,5 @@ func tick(actor: Node, blackboard: Blackboard) -> int:
 	if distance_to_target <= actor.attack_acceptance_range:
 		return SUCCESS
 	else:
-		actor.move_and_slide()
+		#actor.move_and_slide()
 		return RUNNING

@@ -25,6 +25,7 @@ func _ready() -> void:
 
 func _physics_process(_delta: float) -> void:
 	animation_tree["parameters/IdleRun/blend_position"] = velocity.length() / speed
+	move_and_slide()
 
 func get_closest_detected_target() -> Node3D:
 	if not is_instance_valid(equipped_hat):

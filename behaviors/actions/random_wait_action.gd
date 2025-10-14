@@ -14,7 +14,7 @@ func tick(actor: Node, _blackboard: Blackboard) -> int:
 	
 	if wait_time > 0:
 		actor.velocity = actor.velocity.move_toward(Vector3(0, actor.velocity.y, 0), delta * 5.0)
-		actor.move_and_slide()
+		#actor.move_and_slide()
 		return RUNNING
 	else:
 		return SUCCESS
