@@ -8,7 +8,8 @@ func fire(dir: Vector3, bullet_parent: Node3D):
 	#this block is where you change the values
 	var bullet: base_bullet = bullet_scene.instantiate()
 	bullet.team = self.team
-	bullet.position = global_position + (Vector3.DOWN * 2)
+	bullet.position = global_position
+	bullet.position.y = 1
 	bullet.direction = dir
 	#bullet.direction = dir.rotated(Vector3.UP, 0)
 	bullet.lifetime = 1
@@ -20,7 +21,8 @@ func fire(dir: Vector3, bullet_parent: Node3D):
 	
 	bullet = bullet_scene.instantiate()
 	bullet.team = self.team
-	bullet.position = global_position + (Vector3.DOWN * 2)
+	bullet.position = global_position
+	bullet.position.y = 1
 	bullet.direction = dir.rotated(Vector3.UP, TAU / 50)
 	bullet.lifetime = 1
 	bullet.size = 0.5
@@ -31,7 +33,8 @@ func fire(dir: Vector3, bullet_parent: Node3D):
 	#
 	bullet = bullet_scene.instantiate()
 	bullet.team = self.team
-	bullet.position = global_position + (Vector3.DOWN * 2)
+	bullet.position = global_position
+	bullet.position.y = 1
 	bullet.direction = dir.rotated(Vector3.UP, TAU/ 25)
 	bullet.lifetime = 1
 	bullet.size = 0.5
@@ -42,7 +45,8 @@ func fire(dir: Vector3, bullet_parent: Node3D):
 	
 	bullet = bullet_scene.instantiate()
 	bullet.team = self.team
-	bullet.position = global_position + (Vector3.DOWN * 2)
+	bullet.position = global_position
+	bullet.position.y = 1
 	bullet.direction = dir.rotated(Vector3.UP, - TAU / 25)
 	bullet.lifetime = 1
 	bullet.size = 0.5
@@ -53,7 +57,8 @@ func fire(dir: Vector3, bullet_parent: Node3D):
 	
 	bullet = bullet_scene.instantiate()
 	bullet.team = self.team
-	bullet.position = global_position + (Vector3.DOWN * 2)
+	bullet.position = global_position
+	bullet.position.y = 1
 	bullet.direction = dir.rotated(Vector3.UP, - TAU / 50)
 	bullet.lifetime = 1
 	bullet.size = 0.5
