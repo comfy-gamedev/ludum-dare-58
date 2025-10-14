@@ -1,6 +1,6 @@
-[gd_scene load_steps=7 format=3 uid="uid://ngj82jhb6spw"]
+[gd_scene load_steps=7 format=3 uid="uid://d3kwphr8c8kn5"]
 
-[ext_resource type="Script" uid="uid://dsn5pmhndsjkh" path="res://actors/hats/newhat/sombrero.gd" id="1_ups64"]
+[ext_resource type="Script" uid="uid://dsn5pmhndsjkh" path="res://actors/hats/beret/beret.gd" id="1_yb1sh"]
 [ext_resource type="PackedScene" uid="uid://cgku0yq5g5mnp" path="res://assets/models/beret.glb" id="2_yb1sh"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_1asxe"]
@@ -19,7 +19,7 @@ material = SubResource("StandardMaterial3D_8opcq")
 axis_lock_angular_x = true
 axis_lock_angular_z = true
 physics_material_override = SubResource("PhysicsMaterial_1asxe")
-script = ExtResource("1_ups64")
+script = ExtResource("1_yb1sh")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("SphereShape3D_823rn")
