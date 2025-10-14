@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://cgvopsmv7neoy"]
+[gd_scene load_steps=11 format=3 uid="uid://cgvopsmv7neoy"]
 
 [ext_resource type="PackedScene" uid="uid://clnwrqn7nbxp8" path="res://assets/models/cage.glb" id="1_bacdj"]
 [ext_resource type="Script" uid="uid://cbdtf7e0mc4vp" path="res://actors/encampments/goblin_camp/goblin_camp.gd" id="1_gs67e"]
@@ -6,6 +6,34 @@
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_bacdj"]
 radius = 30.0
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_hsoud"]
+animation = &"Attack"
+
+[sub_resource type="AnimationNodeOneShot" id="AnimationNodeOneShot_sqje1"]
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_sr86b"]
+animation = &"Idle"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_8me68"]
+animation = &"Run"
+
+[sub_resource type="AnimationNodeBlendSpace1D" id="AnimationNodeBlendSpace1D_g8pvv"]
+blend_point_0/node = SubResource("AnimationNodeAnimation_sr86b")
+blend_point_0/pos = 0.0
+blend_point_1/node = SubResource("AnimationNodeAnimation_8me68")
+blend_point_1/pos = 1.0
+min_space = 0.0
+
+[sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_gs67e"]
+graph_offset = Vector2(-671.3366, -21.50795)
+nodes/IdleRun/node = SubResource("AnimationNodeBlendSpace1D_g8pvv")
+nodes/IdleRun/position = Vector2(-320, 80)
+nodes/AttackOneShot/node = SubResource("AnimationNodeOneShot_sqje1")
+nodes/AttackOneShot/position = Vector2(-37, 148)
+nodes/Animation/node = SubResource("AnimationNodeAnimation_hsoud")
+nodes/Animation/position = Vector2(-300, 280)
+node_connections = [&"output", 0, &"AttackOneShot", &"AttackOneShot", 0, &"IdleRun", &"AttackOneShot", 1, &"Animation"]
 
 [node name="GoblinCamp" type="Node3D"]
 script = ExtResource("1_gs67e")
@@ -20,5 +48,13 @@ shape = SubResource("SphereShape3D_bacdj")
 
 [node name="CagedCapling" parent="." instance=ExtResource("3_gs67e")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.017753601, 0.06641388, 0.07458544)
+
+[node name="AnimationTree" type="AnimationTree" parent="CagedCapling"]
+tree_root = SubResource("AnimationNodeBlendTree_gs67e")
+anim_player = NodePath("../AnimationPlayer")
+parameters/IdleRun/blend_position = 0.0
+parameters/AttackOneShot/active = false
+parameters/AttackOneShot/internal_active = false
+parameters/AttackOneShot/request = 0
 
 [connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]

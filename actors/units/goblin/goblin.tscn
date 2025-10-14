@@ -1,6 +1,7 @@
-[gd_scene load_steps=9 format=3 uid="uid://cwajxjg83lhvk"]
+[gd_scene load_steps=10 format=3 uid="uid://cwajxjg83lhvk"]
 
 [ext_resource type="Script" uid="uid://dme5f24l0edsf" path="res://addons/beehave/blackboard.gd" id="1_6sm0b"]
+[ext_resource type="Script" uid="uid://b03eqi34tx56p" path="res://actors/units/goblin/goblin.gd" id="1_sslfq"]
 [ext_resource type="PackedScene" uid="uid://c7yb6gs1gbdyj" path="res://behaviors/trees/actor_tree.tscn" id="2_sslfq"]
 [ext_resource type="PackedScene" uid="uid://d1vu6uufq4cpf" path="res://assets/models/goblinmodel.glb" id="4_ks4ci"]
 
@@ -33,13 +34,14 @@ height = 2.6367188
 [sub_resource type="SphereShape3D" id="SphereShape3D_sslfq"]
 
 [node name="Goblin" type="CharacterBody3D" groups=["enemy"]]
+script = ExtResource("1_sslfq")
 
 [node name="Blackboard" type="Node" parent="."]
 script = ExtResource("1_6sm0b")
 metadata/_custom_type_script = "uid://dme5f24l0edsf"
 
 [node name="ActorTree" parent="." node_paths=PackedStringArray("blackboard") instance=ExtResource("2_sslfq")]
-blackboard = NodePath("@Node@24372")
+blackboard = NodePath("../Blackboard")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0529926, 0)
