@@ -13,8 +13,6 @@ var yarn: int = 0
 @onready var yay: CPUParticles3D = $Yay
 
 @onready var catalog_panel: Panel = %CatalogPanel
-@onready var dispense_button: Button = %DispenseButton
-@onready var exit_button: Button = %ExitButton
 @onready var marker_3d: Marker3D = $Marker3D
 @onready var marker_3d_2: Marker3D = $Marker3D2
 
@@ -308,4 +306,7 @@ func kill_hat_rotation_tween(hat_scene_file: String):
 	collected_hats[hat_scene_file].tween.kill()
 
 func _on_exit_button_pressed() -> void:
+	on_exit_interaction()
+
+func _on_close_button_pressed() -> void:
 	on_exit_interaction()
