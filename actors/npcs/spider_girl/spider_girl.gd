@@ -104,9 +104,13 @@ func on_player_interact(_delta: float):
 	player_interacting = true
 	on_zoom_camera()
 	intro_dialog()
-	
+	render_catalog()
+
+func render_catalog():
+	# Wipe previously rendered catalog items.
 	for child in catalog_items_panel.get_children():
 		child.queue_free()
+		
 	init_hat_catalog_items()
 
 func on_zoom_camera():
