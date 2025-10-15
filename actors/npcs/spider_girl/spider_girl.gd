@@ -17,8 +17,8 @@ var yarn: int = 0
 @onready var next_button: Button = %NextButton
 @onready var close_button: Button = %CloseButton
 @onready var yay: CPUParticles3D = $Yay
-@onready var marker_3d: Marker3D = $Marker3D
-@onready var marker_3d_2: Marker3D = $Marker3D2
+@onready var player_marker: Marker3D = $PlayerMarker3D
+@onready var camera_marker: Marker3D = $CameraMarker3D
 
 var collected_hats = {
 	"res://actors/hats/beefeater/beefeater.tscn" = {
@@ -142,13 +142,13 @@ func render_catalog_page(starting_hat_index: int):
 
 func on_zoom_camera():
 	if is_instance_valid(player_ref):
-		player_ref.global_position = marker_3d_2.global_position
-		player_ref.model.global_basis = marker_3d_2.global_basis
+		player_ref.global_position = player_marker.global_position
+		player_ref.model.global_basis = player_marker.global_basis
 		var camera_node = player_ref.get_node("Camera3D")
 		camera_original_position_vec = camera_node.position
 		camera_original_basis = camera_node.basis
-		camera_node.global_position = marker_3d.global_position
-		camera_node.global_basis = marker_3d.global_basis
+		camera_node.global_position = camera_marker.global_position
+		camera_node.global_basis = camera_marker.global_basis
 
 func on_reset_camera_position():
 	if is_instance_valid(player_ref) and player_interacting:
@@ -265,7 +265,7 @@ func create_hat_catalog_item(pos: Vector2, hat_index: int):
 		new_hat_button_panel.set_size(Vector2(item_length, item_height))
 		catalog_items_panel.add_child(new_hat_button_panel)
 		
-		if collected_hats[hat_scene_file].count > 0:
+		if collected_hats[hat_scene_file].count >= 0:
 			# Add additional dialog to indicate how many of this hat has been collected.
 			var hat_name = collected_hats[hat_scene_file].name
 			var modified_hat_dialog = collected_hats[hat_scene_file].dialog
