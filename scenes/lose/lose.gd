@@ -1,4 +1,4 @@
-extends Node2D
+extends Control
 
 var goblin_scene = preload("res://actors/units/goblin/goblin.tscn")
 const VILLAGE_ORIGIN = Vector3(-16, 0, 16)

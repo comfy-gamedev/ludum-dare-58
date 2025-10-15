@@ -1,4 +1,4 @@
-extends Node2D
+extends Control
 
 var ally_scene = preload("res://actors/units/capling/capling.tscn")
 const VILLAGE_ORIGIN = Vector3(-16, 0, 16)
