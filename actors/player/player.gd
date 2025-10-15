@@ -24,6 +24,8 @@ func _ready() -> void:
 		cooldown.paused = f
 		effect_timer.paused = f
 		dash_cooldown.paused = f
+		if f:
+			animation_tree["parameters/IdleRun/blend_position"] = 0
 	)
 
 func _process(_delta: float) -> void:

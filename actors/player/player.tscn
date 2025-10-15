@@ -25,7 +25,7 @@ blend_point_1/pos = 1.0
 min_space = 0.0
 
 [sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_bop6h"]
-graph_offset = Vector2(-398.70853, 7.2824707)
+graph_offset = Vector2(-489, -30)
 nodes/output/position = Vector2(400, 220)
 nodes/IdleRun/node = SubResource("AnimationNodeBlendSpace1D_15y17")
 nodes/IdleRun/position = Vector2(-100, 140)
