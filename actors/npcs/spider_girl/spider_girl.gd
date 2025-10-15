@@ -12,7 +12,8 @@ var yarn: int = 0
 @onready var dialog_button: Button = %DialogButton
 @onready var yay: CPUParticles3D = $Yay
 
-@onready var catalog_panel: Panel = %CatalogPanel
+@onready var catalog_control: Control = %Catalog
+@onready var catalog_items_panel: Panel = %CatalogItemsPanel
 @onready var marker_3d: Marker3D = $Marker3D
 @onready var marker_3d_2: Marker3D = $Marker3D2
 
@@ -104,7 +105,7 @@ func on_player_interact(_delta: float):
 	on_zoom_camera()
 	intro_dialog()
 	
-	for child in catalog_panel.get_children():
+	for child in catalog_items_panel.get_children():
 		child.queue_free()
 	init_hat_catalog_items()
 
@@ -163,7 +164,7 @@ func on_exit_interaction():
 	on_reset_ui()
 	Messages.freeze_game.emit(false)
 	dialog_panel.visible = false
-	catalog_panel.visible = false
+	catalog_control.visible = false
 
 func _on_body_exited(body: Node3D) -> void:
 	if body.is_in_group("player"):
@@ -173,11 +174,11 @@ func _on_body_exited(body: Node3D) -> void:
 
 func on_reset_ui():
 	dialog_panel.visible = false
-	catalog_panel.visible = false
+	catalog_control.visible = false
 
 
 func intro_dialog() -> void:
-	catalog_panel.visible = true
+	catalog_control.visible = true
 	dialog_panel.visible = true
 	Messages.freeze_game.emit(true)
 	if Settings.a11y_arachnophobia:
@@ -218,7 +219,7 @@ func create_hat_catalog_item(pos: Vector2, hat_index):
 	#new_hat_button_panel.focus_mode = Control.FOCUS_CLICK
 	new_hat_button_panel.set_position(pos)
 	new_hat_button_panel.set_size(Vector2(item_length, item_height))
-	catalog_panel.add_child(new_hat_button_panel)
+	catalog_items_panel.add_child(new_hat_button_panel)
 	var hat_keys = collected_hats.keys()
 	
 	if hat_index <= hat_keys.size():
@@ -304,9 +305,6 @@ func set_hat_rotation_tween(hat_node: Hat, hat_scene_file: String):
 func kill_hat_rotation_tween(hat_scene_file: String):
 	collected_hats[hat_scene_file].tween.custom_step(INF)
 	collected_hats[hat_scene_file].tween.kill()
-
-func _on_exit_button_pressed() -> void:
-	on_exit_interaction()
 
 func _on_close_button_pressed() -> void:
 	on_exit_interaction()
