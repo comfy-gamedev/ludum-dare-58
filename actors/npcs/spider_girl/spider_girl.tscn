@@ -61,10 +61,10 @@ damping_max = 5.0
 angle_max = 360.0
 
 [node name="CameraMarker3D" type="Marker3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.93634784, 0.35107368, 0, -0.35107368, 0.93634784, 0.94227004, 1.774299, 1.9037445)
+transform = Transform3D(1, 0, 0, 0, 0.93634784, 0.35107368, 0, -0.35107368, 0.93634784, 0, 1.774, 1.904)
 
 [node name="PlayerMarker3D" type="Marker3D" parent="."]
-transform = Transform3D(-0.370055, 0, 0.92900985, 0, 1, 0, -0.92900985, 0, -0.370055, -1.9221642, 0, 0.48268223)
+transform = Transform3D(-0.370055, 0, 0.92900985, 0, 1, 0, -0.92900985, 0, -0.370055, -1.3756082, 0, 0.48268223)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -91,11 +91,12 @@ metadata/_edit_use_anchors_ = true
 
 [node name="DialogButton" type="Button" parent="CanvasLayer/DialogPanel"]
 unique_name_in_owner = true
-layout_mode = 0
-anchor_left = 0.9461538
-anchor_top = 0.6972973
-anchor_right = 0.99230766
-anchor_bottom = 0.95135134
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.97032964
+anchor_top = 0.7837838
+anchor_right = 0.9934066
+anchor_bottom = 0.95315313
 text = "->"
 metadata/_edit_use_anchors_ = true
 
@@ -109,46 +110,47 @@ offset_bottom = 40.0
 [node name="CatalogItemsPanel" type="Panel" parent="CanvasLayer/Catalog"]
 unique_name_in_owner = true
 layout_mode = 0
-offset_left = 488.0
-offset_top = 87.0
-offset_right = 933.0
-offset_bottom = 479.0
+offset_left = 1429.0
+offset_top = 105.0
+offset_right = 1874.0
+offset_bottom = 497.0
 
 [node name="HatNameLabel" type="Label" parent="CanvasLayer/Catalog"]
 unique_name_in_owner = true
 layout_mode = 0
-offset_left = 550.0
-offset_top = 426.0
-offset_right = 870.0
-offset_bottom = 465.0
+offset_left = 1491.0
+offset_top = 444.0
+offset_right = 1811.0
+offset_bottom = 483.0
 text = "Hat Name"
 horizontal_alignment = 1
 
 [node name="CloseButton" type="Button" parent="CanvasLayer/Catalog"]
 unique_name_in_owner = true
 layout_mode = 0
-offset_left = 879.0
-offset_top = 17.0
-offset_right = 932.0
-offset_bottom = 69.0
+offset_left = 1820.0
+offset_top = 35.0
+offset_right = 1873.0
+offset_bottom = 87.0
 text = "X"
 
 [node name="PrevButton" type="Button" parent="CanvasLayer/Catalog"]
 unique_name_in_owner = true
 layout_mode = 0
-offset_left = 499.0
-offset_top = 422.0
-offset_right = 540.0
-offset_bottom = 469.0
+offset_left = 1440.0001
+offset_top = 440.0
+offset_right = 1481.0001
+offset_bottom = 487.0
+scale = Vector2(0.9988769, 0.9949528)
 text = "<-"
 
 [node name="NextButton" type="Button" parent="CanvasLayer/Catalog"]
 unique_name_in_owner = true
 layout_mode = 0
-offset_left = 880.0
-offset_top = 423.0
-offset_right = 922.0
-offset_bottom = 470.0
+offset_left = 1821.0
+offset_top = 441.0
+offset_right = 1863.0
+offset_bottom = 488.0
 text = "->"
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

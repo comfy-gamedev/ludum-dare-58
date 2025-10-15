@@ -15,7 +15,7 @@ theme_override_styles/panel = SubResource("StyleBoxEmpty_fsom3")
 script = ExtResource("1_te6vx")
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(480, 360)
+anchor_mode = 0
 ignore_rotation = false
 
 [node name="CenterContainer" type="CenterContainer" parent="."]
@@ -71,10 +71,10 @@ mouse_filter = 2
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Control"]
 layout_mode = 0
-offset_left = 355.0
-offset_top = 532.0
-offset_right = 601.0
-offset_bottom = 557.0
+offset_left = 823.0
+offset_top = 717.0
+offset_right = 1069.0
+offset_bottom = 742.0
 mouse_filter = 0
 metadata/_edit_group_ = true
 
