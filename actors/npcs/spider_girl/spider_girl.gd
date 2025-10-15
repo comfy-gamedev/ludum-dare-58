@@ -7,15 +7,15 @@ var camera_original_basis
 var camera_original_position_vec
 var yarn: int = 0
 
+@onready var catalog_control: Control = %Catalog
+@onready var catalog_items_panel: Panel = %CatalogItemsPanel
 @onready var dialog_panel: Panel = %DialogPanel
 @onready var dialog_label: Label = %DialogLabel
 @onready var dialog_button: Button = %DialogButton
 @onready var prev_button: Button = %PrevButton
 @onready var next_button: Button = %NextButton
+@onready var close_button: Button = %CloseButton
 @onready var yay: CPUParticles3D = $Yay
-
-@onready var catalog_control: Control = %Catalog
-@onready var catalog_items_panel: Panel = %CatalogItemsPanel
 @onready var marker_3d: Marker3D = $Marker3D
 @onready var marker_3d_2: Marker3D = $Marker3D2
 
@@ -96,6 +96,12 @@ var collected_hats = {
 		"dialog": "The witch hat. This hat screams 'I read forbidden books for fun.'"
 	},
 }
+
+func _ready() -> void:
+	dialog_button.focus_mode = Control.FOCUS_NONE
+	close_button.focus_mode = Control.FOCUS_NONE
+	prev_button.focus_mode = Control.FOCUS_NONE
+	next_button.focus_mode = Control.FOCUS_NONE
 
 func _process(delta: float) -> void:
 	if player_nearby and Input.is_action_just_pressed("shoot"):
