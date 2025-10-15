@@ -265,7 +265,7 @@ func create_hat_catalog_item(pos: Vector2, hat_index: int):
 		new_hat_button_panel.set_size(Vector2(item_length, item_height))
 		catalog_items_panel.add_child(new_hat_button_panel)
 		
-		if collected_hats[hat_scene_file].count >= 0:
+		if collected_hats[hat_scene_file].count > 0:
 			# Add additional dialog to indicate how many of this hat has been collected.
 			var hat_name = collected_hats[hat_scene_file].name
 			var modified_hat_dialog = collected_hats[hat_scene_file].dialog
