@@ -211,7 +211,7 @@ func init_hat_catalog_items():
 		button_pos_y += 105
 		button_pos_x = 15
 		
-		for c in range(5):
+		for c in range(4):
 			create_hat_catalog_item(Vector2(button_pos_x, button_pos_y), hat_index)
 			hat_index += 1
 			button_pos_x += 105
