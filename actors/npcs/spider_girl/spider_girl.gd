@@ -10,6 +10,8 @@ var yarn: int = 0
 @onready var dialog_panel: Panel = %DialogPanel
 @onready var dialog_label: Label = %DialogLabel
 @onready var dialog_button: Button = %DialogButton
+@onready var prev_button: Button = %PrevButton
+@onready var next_button: Button = %NextButton
 @onready var yay: CPUParticles3D = $Yay
 
 @onready var catalog_control: Control = %Catalog
@@ -104,14 +106,14 @@ func on_player_interact(_delta: float):
 	player_interacting = true
 	on_zoom_camera()
 	intro_dialog()
-	render_catalog()
+	render_catalog_page(0)
 
-func render_catalog():
+func render_catalog_page(starting_hat_index: int):
 	# Wipe previously rendered catalog items.
 	for child in catalog_items_panel.get_children():
 		child.queue_free()
 		
-	init_hat_catalog_items()
+	init_hat_catalog_items(starting_hat_index)
 
 func on_zoom_camera():
 	if is_instance_valid(player_ref):
@@ -202,10 +204,19 @@ func dialog_say(s: String) -> void:
 	dialog_button.disabled = false
 	await dialog_button.pressed
 
-func init_hat_catalog_items():
+func init_hat_catalog_items(starting_hat_index: int):
 	var button_pos_y = -90
 	var button_pos_x = 15
-	var hat_index = 0
+	var hat_index = starting_hat_index
+	
+	# Enable / disable prev & next buttons based on index.
+	# Note: This is hard coded for now, will need to track pages when we have > 24 hats.
+	if hat_index == 0:
+		prev_button.disabled = true
+		next_button.disabled = false
+	else:
+		prev_button.disabled = false
+		next_button.disabled = true
 	
 	for r in range(3):
 		button_pos_y += 105
@@ -216,18 +227,19 @@ func init_hat_catalog_items():
 			hat_index += 1
 			button_pos_x += 105
 	
-func create_hat_catalog_item(pos: Vector2, hat_index):
-	var item_height = 100
-	var item_length = 100
-	var new_hat_button_panel = Button.new()
-	#new_hat_button_panel.focus_mode = Control.FOCUS_CLICK
-	new_hat_button_panel.set_position(pos)
-	new_hat_button_panel.set_size(Vector2(item_length, item_height))
-	catalog_items_panel.add_child(new_hat_button_panel)
+func create_hat_catalog_item(pos: Vector2, hat_index: int):	
 	var hat_keys = collected_hats.keys()
 	
-	if hat_index <= hat_keys.size():
+	# Render hat button panel if index is within hat list size.
+	if hat_index < hat_keys.size():
 		var hat_scene_file = hat_keys[hat_index]
+		var item_height = 100
+		var item_length = 100
+		var new_hat_button_panel = Button.new()
+		#new_hat_button_panel.focus_mode = Control.FOCUS_CLICK
+		new_hat_button_panel.set_position(pos)
+		new_hat_button_panel.set_size(Vector2(item_length, item_height))
+		catalog_items_panel.add_child(new_hat_button_panel)
 		
 		if collected_hats[hat_scene_file].count > 0:
 			# Add additional dialog to indicate how many of this hat has been collected.
@@ -241,14 +253,11 @@ func create_hat_catalog_item(pos: Vector2, hat_index):
 			
 			# Render hat model on button panel.
 			render_hat_on_panel(hat_scene_file, new_hat_button_panel)
-		else: # Hat yet to be discovered, render "?" and undiscovered hat dialog.
+		else:
+			# Hat yet to be discovered, render "?" and undiscovered hat dialog.
 			var undiscovered_hat_dialog = "You haven't discovered this hat yet. Try exploring and remember to bring me hats!"
 			new_hat_button_panel.pressed.connect(on_hat_button_panel_pressed.bind(undiscovered_hat_dialog))
 			new_hat_button_panel.text = "?"
-	else: # This is cautionary, code shouldn't be executed here unless custom code paneling is erroring.
-		var mystery_dialog = "The fact that this panel exists is a mystery."
-		new_hat_button_panel.pressed.connect(on_hat_button_panel_pressed.bind(mystery_dialog))
-		new_hat_button_panel.text = "?"
 		
 func on_hat_button_panel_pressed(dialog: String, hat_button_panel: Button = null):
 	if is_instance_valid(hat_button_panel):
@@ -312,3 +321,11 @@ func kill_hat_rotation_tween(hat_scene_file: String):
 
 func _on_close_button_pressed() -> void:
 	on_exit_interaction()
+
+func _on_prev_button_pressed() -> void:
+	# Note: This is hard coded for now, will need to track pages when we have > 24 hats.
+	render_catalog_page(0)
+
+func _on_next_button_pressed() -> void:
+	# Note: This is hard coded for now, will need to track pages when we have > 24 hats.
+	render_catalog_page(12)
