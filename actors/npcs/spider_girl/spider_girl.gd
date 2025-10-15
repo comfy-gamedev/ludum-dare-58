@@ -207,7 +207,6 @@ func on_reset_ui():
 	dialog_panel.visible = false
 	catalog_control.visible = false
 
-
 func intro_dialog() -> void:
 	catalog_control.visible = true
 	dialog_panel.visible = true
@@ -268,11 +267,12 @@ func create_hat_catalog_item(pos: Vector2, hat_index: int):
 		
 		if collected_hats[hat_scene_file].count > 0:
 			# Add additional dialog to indicate how many of this hat has been collected.
+			var hat_name = collected_hats[hat_scene_file].name
 			var modified_hat_dialog = collected_hats[hat_scene_file].dialog
 			modified_hat_dialog += " You've collected %s of these bad boys." % collected_hats[hat_scene_file].count
 			
 			# Connect custom signals for button pressed, focus_entered, and focus_exited.
-			new_hat_button_panel.pressed.connect(on_hat_button_panel_pressed.bind(modified_hat_dialog, new_hat_button_panel))
+			new_hat_button_panel.pressed.connect(on_hat_button_panel_pressed.bind(modified_hat_dialog, hat_name, new_hat_button_panel))
 			new_hat_button_panel.focus_entered.connect(on_hat_button_panel_focus_entered.bind(new_hat_button_panel))
 			new_hat_button_panel.focus_exited.connect(on_hat_button_panel_focus_exited.bind(new_hat_button_panel))
 			
@@ -284,10 +284,11 @@ func create_hat_catalog_item(pos: Vector2, hat_index: int):
 			new_hat_button_panel.pressed.connect(on_hat_button_panel_pressed.bind(undiscovered_hat_dialog))
 			new_hat_button_panel.text = "?"
 		
-func on_hat_button_panel_pressed(dialog: String, hat_button_panel: Button = null):
+func on_hat_button_panel_pressed(dialog: String, hat_name: String = "???", hat_button_panel: Button = null):
 	if is_instance_valid(hat_button_panel):
 		hat_button_panel.grab_focus()
-		
+	
+	hat_name_label.text = hat_name
 	await dialog_say(dialog)
 
 func on_hat_button_panel_focus_entered(hat_button_panel: Button):
@@ -350,7 +351,9 @@ func _on_close_button_pressed() -> void:
 func _on_prev_button_pressed() -> void:
 	# Note: This is hard coded for now, will need to track pages when we have > 24 hats.
 	render_catalog_page(0)
+	hat_name_label.text = ""
 
 func _on_next_button_pressed() -> void:
 	# Note: This is hard coded for now, will need to track pages when we have > 24 hats.
 	render_catalog_page(12)
+	hat_name_label.text = ""
