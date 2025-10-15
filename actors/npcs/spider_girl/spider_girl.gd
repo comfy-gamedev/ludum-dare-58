@@ -10,6 +10,7 @@ var yarn: int = 0
 @onready var catalog_control: Control = %Catalog
 @onready var catalog_items_panel: Panel = %CatalogItemsPanel
 @onready var dialog_panel: Panel = %DialogPanel
+@onready var hat_name_label: Label = %HatNameLabel
 @onready var dialog_label: Label = %DialogLabel
 @onready var dialog_button: Button = %DialogButton
 @onready var prev_button: Button = %PrevButton
@@ -21,76 +22,91 @@ var yarn: int = 0
 
 var collected_hats = {
 	"res://actors/hats/beefeater/beefeater.tscn" = {
+		"name": "Beefeater",
 		"count": 0,
 		"tween": null,
 		"dialog": "The beefeater hat. Great! You guard the palace, I'll guard the food. We all have our roles now."
 	},
 	"res://actors/hats/beret/beret.tscn" = {
+		"name": "Beret",
 		"count": 0,
 		"tween": null,
 		"dialog": "The beret hat. If you start snapping your fingers and reading poetry, I'm crawling outta here."
 	},
 	"res://actors/hats/bicorn/bicorn.tscn" = {
+		"name": "Bicorn",
 		"count": 0,
 		"tween": null,
 		"dialog": "The bicorn hat. That hat's got adventure written all over it. Smells like salt, glory... and maybe old socks."
 	},
 	"res://actors/hats/buffalo/buffalo.tscn" = {
+		"name": "Buffalo",
 		"count": 0,
 		"tween": null,
 		"dialog": "The buffalo hat. Big hat energy! Don't go stampeding through my webs, okay?"
 	},
 	"res://actors/hats/cowboy/cowboy.tscn" = {
+		"name": "Cowboy",
 		"count": 0,
 		"tween": null,
 		"dialog": "The cowboy hat. Yeehaw! Careful, I bite faster than your six-shooter."
 	},
 	"res://actors/hats/fez/fez.tscn" = {
+		"name": "Fez",
 		"count": 0,
 		"tween": null,
 		"dialog": "The fez hat. Let me guess... you just came back from 'studying ancient ruins,' huh?"
 	},
 	"res://actors/hats/jester/jester.tscn" = {
+		"name": "Jester",
 		"count": 0,
 		"tween": null,
 		"dialog": "The jester hat. Oh good, now your jokes have context."
 	},
 	"res://actors/hats/madder/madder.tscn" = {
+		"name": "Madder",
 		"count": 0,
 		"tween": null,
 		"dialog": "The madder hat. Heehee! Careful, wear that too long and you'll start arguing with your own reflection!"
 	},
 	"res://actors/hats/mortarboard/mortarboard.tscn" = {
+		"name": "Mortarboard",
 		"count": 0,
 		"tween": null,
 		"dialog": "The mortarboard hat. Look at you, thinking you're all smart now. Can you even spell 'arachnid?'"
 	},
 	"res://actors/hats/phrygian/phrygian.tscn" = {
+		"name": "Phrygian",
 		"count": 0,
 		"tween": null,
 		"dialog": "The phrygian hat. Rebel chic, huh? Just don't expect me to join your manifesto... I've got my own silk to spin."
 	},
 	"res://actors/hats/scally/scally.tscn" = {
+		"name": "Scally",
 		"count": 0,
 		"tween": null,
 		"dialog": "The scally hat. You look like you should be narrating a crime documentary."
 	},
 	"res://actors/hats/sombrero/sombrero.tscn" = {
+		"name": "Sombrero",
 		"count": 0,
 		"tween": null,
 		"dialog": "The sombrero hat. Ay, caramba! If I didn't have eight left feet I'd probably start dancing right about now."
 	},
 	"res://actors/hats/tricorn/tricorn.tscn" = {
+		"name": "Tricorn",
 		"count": 0,
 		"tween": null,
 		"dialog": "The tricorn hat. You're one swash short of a buckle, matey."
 	},
 	"res://actors/hats/tyrolean/tyrolean.tscn" = {
+		"name": "Tyrolean",
 		"count": 0,
 		"tween": null,
 		"dialog": "The tyrolean hat. Did you lose a wrestling match with a bird for that accessory?"
 	},
 	"res://actors/hats/witch/witch.tscn" = {
+		"name": "Witch",
 		"count": 0,
 		"tween": null,
 		"dialog": "The witch hat. This hat screams 'I read forbidden books for fun.'"
@@ -102,6 +118,9 @@ func _ready() -> void:
 	close_button.focus_mode = Control.FOCUS_NONE
 	prev_button.focus_mode = Control.FOCUS_NONE
 	next_button.focus_mode = Control.FOCUS_NONE
+	catalog_control.visible = false
+	dialog_panel.visible = false
+	hat_name_label.text = ""
 
 func _process(delta: float) -> void:
 	if player_nearby and Input.is_action_just_pressed("shoot"):
