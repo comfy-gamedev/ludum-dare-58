@@ -170,6 +170,10 @@ func _on_body_entered(body: Node3D) -> void:
 			collected_hats[body.scene_file_path].count += 1
 		
 		body.queue_free()
+		
+		### Test
+		Globals.yarn_balls += 15
+		
 		yay.emitting = true
 		yarn += 1
 		if yarn == 3:
