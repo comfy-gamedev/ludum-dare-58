@@ -42,6 +42,11 @@ var caplings_rescued = 0
 ## Emitted when any variable changes.
 signal changed(prop_name: StringName)
 
+signal yarn_balls_changed()
+
+var yarn_balls: int = 0:
+	set(v): yarn_balls = v; changed.emit(); yarn_balls_changed.emit()
+
 ## Example variable.
 var player_health: int = 0:
 	set(v):

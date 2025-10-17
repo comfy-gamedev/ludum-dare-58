@@ -5,7 +5,6 @@ var player_interacting = false
 var player_ref
 var camera_original_basis
 var camera_original_position_vec
-var yarn: int = 0
 
 @onready var catalog_control: Control = %Catalog
 @onready var catalog_items_panel: Panel = %CatalogItemsPanel
@@ -16,6 +15,7 @@ var yarn: int = 0
 @onready var prev_button: Button = %PrevButton
 @onready var next_button: Button = %NextButton
 @onready var close_button: Button = %CloseButton
+@onready var dispense_button: Button = %DispenseButton
 @onready var yay: CPUParticles3D = $Yay
 @onready var player_marker: Marker3D = $PlayerMarker3D
 @onready var camera_marker: Marker3D = $CameraMarker3D
@@ -24,96 +24,112 @@ var collected_hats = {
 	"res://actors/hats/beefeater/beefeater.tscn" = {
 		"name": "Beefeater",
 		"count": 0,
+		"value": 5,
 		"tween": null,
 		"dialog": "The beefeater hat. Great! You guard the palace, I'll guard the food. We all have our roles now."
 	},
 	"res://actors/hats/beret/beret.tscn" = {
 		"name": "Beret",
 		"count": 0,
+		"value": 7,
 		"tween": null,
 		"dialog": "The beret hat. If you start snapping your fingers and reading poetry, I'm crawling outta here."
 	},
 	"res://actors/hats/bicorn/bicorn.tscn" = {
 		"name": "Bicorn",
 		"count": 0,
+		"value": 7,
 		"tween": null,
 		"dialog": "The bicorn hat. That hat's got adventure written all over it. Smells like salt, glory... and maybe old socks."
 	},
 	"res://actors/hats/buffalo/buffalo.tscn" = {
 		"name": "Buffalo",
 		"count": 0,
+		"value": 5,
 		"tween": null,
 		"dialog": "The buffalo hat. Big hat energy! Don't go stampeding through my webs, okay?"
 	},
 	"res://actors/hats/cowboy/cowboy.tscn" = {
 		"name": "Cowboy",
 		"count": 0,
+		"value": 5,
 		"tween": null,
 		"dialog": "The cowboy hat. Yeehaw! Careful, I bite faster than your six-shooter."
 	},
 	"res://actors/hats/fez/fez.tscn" = {
 		"name": "Fez",
 		"count": 0,
+		"value": 5,
 		"tween": null,
 		"dialog": "The fez hat. Let me guess... you just came back from 'studying ancient ruins,' huh?"
 	},
 	"res://actors/hats/jester/jester.tscn" = {
 		"name": "Jester",
 		"count": 0,
+		"value": 3,
 		"tween": null,
 		"dialog": "The jester hat. Oh good, now your jokes have context."
 	},
 	"res://actors/hats/madder/madder.tscn" = {
 		"name": "Madder",
 		"count": 0,
+		"value": 5,
 		"tween": null,
 		"dialog": "The madder hat. Heehee! Careful, wear that too long and you'll start arguing with your own reflection!"
 	},
 	"res://actors/hats/mortarboard/mortarboard.tscn" = {
 		"name": "Mortarboard",
 		"count": 0,
+		"value": 5,
 		"tween": null,
 		"dialog": "The mortarboard hat. Look at you, thinking you're all smart now. Can you even spell 'arachnid?'"
 	},
 	"res://actors/hats/phrygian/phrygian.tscn" = {
 		"name": "Phrygian",
 		"count": 0,
+		"value": 5,
 		"tween": null,
 		"dialog": "The phrygian hat. Rebel chic, huh? Just don't expect me to join your manifesto... I've got my own silk to spin."
 	},
 	"res://actors/hats/scally/scally.tscn" = {
 		"name": "Scally",
 		"count": 0,
+		"value": 5,
 		"tween": null,
 		"dialog": "The scally hat. You look like you should be narrating a crime documentary."
 	},
 	"res://actors/hats/sombrero/sombrero.tscn" = {
 		"name": "Sombrero",
 		"count": 0,
+		"value": 5,
 		"tween": null,
 		"dialog": "The sombrero hat. Ay, caramba! If I didn't have eight left feet I'd probably start dancing right about now."
 	},
 	"res://actors/hats/tricorn/tricorn.tscn" = {
 		"name": "Tricorn",
 		"count": 0,
+		"value": 3,
 		"tween": null,
 		"dialog": "The tricorn hat. You're one swash short of a buckle, matey."
 	},
 	"res://actors/hats/tyrolean/tyrolean.tscn" = {
 		"name": "Tyrolean",
 		"count": 0,
+		"value": 5,
 		"tween": null,
 		"dialog": "The tyrolean hat. Did you lose a wrestling match with a bird for that accessory?"
 	},
 	"res://actors/hats/witch/witch.tscn" = {
 		"name": "Witch",
 		"count": 0,
+		"value": 5,
 		"tween": null,
 		"dialog": "The witch hat. This hat screams 'I read forbidden books for fun.'"
 	},
 }
 
 func _ready() -> void:
+	dispense_button.focus_mode = Control.FOCUS_NONE
 	dialog_button.focus_mode = Control.FOCUS_NONE
 	close_button.focus_mode = Control.FOCUS_NONE
 	prev_button.focus_mode = Control.FOCUS_NONE
@@ -168,13 +184,10 @@ func _on_body_entered(body: Node3D) -> void:
 		# Register newly collected hat.
 		if collected_hats.has(body.scene_file_path):
 			collected_hats[body.scene_file_path].count += 1
+			Globals.yarn_balls += collected_hats[body.scene_file_path].value
 		
 		body.queue_free()
 		yay.emitting = true
-		yarn += 1
-		if yarn == 3:
-			yarn = 0
-			yeet_hat()
 
 func catalog_hat():
 	pass
@@ -357,3 +370,11 @@ func _on_next_button_pressed() -> void:
 	# Note: This is hard coded for now, will need to track pages when we have > 24 hats.
 	render_catalog_page(12)
 	hat_name_label.text = ""
+
+func _on_dispense_button_pressed() -> void:
+	if Globals.yarn_balls >= 20:
+		Globals.yarn_balls -= 20
+		on_exit_interaction()
+		yeet_hat()
+	else:
+		print("not enough!!!")

@@ -1,0 +1,25 @@
+[gd_scene load_steps=3 format=3 uid="uid://bhuwis5rpqb5q"]
+
+[ext_resource type="Script" uid="uid://nd1am1cid6fb" path="res://scenes/main_gameplay/ui_canvas_layer.gd" id="1_t1rr4"]
+[ext_resource type="Texture2D" uid="uid://cga0udyj0x87r" path="res://assets/textures/ui/yarn_ball.png" id="2_xalod"]
+
+[node name="UICanvasLayer" type="CanvasLayer"]
+script = ExtResource("1_t1rr4")
+
+[node name="YarnBalls" type="HBoxContainer" parent="."]
+offset_left = 41.0
+offset_top = 1000.0
+offset_right = 209.0
+offset_bottom = 1064.0
+theme_override_constants/separation = 5
+
+[node name="YarnBallSprite2D" type="TextureRect" parent="YarnBalls"]
+layout_mode = 2
+texture = ExtResource("2_xalod")
+
+[node name="AmountLabel" type="Label" parent="YarnBalls"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+text = "0"
+vertical_alignment = 2
