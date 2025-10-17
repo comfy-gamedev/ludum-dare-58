@@ -71,15 +71,18 @@ transform = Transform3D(-0.370055, 0, 0.92900985, 0, 1, 0, -0.92900985, 0, -0.37
 [node name="DialogPanel" type="Panel" parent="CanvasLayer"]
 unique_name_in_owner = true
 anchors_preset = -1
-anchor_left = 0.030208332
-anchor_top = 0.7152778
-anchor_right = 0.978125
-anchor_bottom = 0.9722222
-offset_left = -8.0
-offset_top = -88.0
-offset_right = -8.0
-offset_bottom = -88.0
-metadata/_edit_use_anchors_ = true
+anchor_left = 0.087000005
+anchor_top = 0.634
+anchor_right = 0.92100006
+anchor_bottom = 0.89100003
+offset_left = -4.0400085
+offset_top = -0.22003174
+offset_right = -5.3200684
+offset_bottom = -0.2800293
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_horizontal = 4
+size_flags_vertical = 8
 
 [node name="DialogLabel" type="Label" parent="CanvasLayer/DialogPanel"]
 unique_name_in_owner = true
@@ -116,17 +119,17 @@ offset_bottom = 40.0
 [node name="CatalogItemsPanel" type="Panel" parent="CanvasLayer/Catalog"]
 unique_name_in_owner = true
 layout_mode = 0
-offset_left = 1429.0
+offset_left = 1313.0
 offset_top = 105.0
-offset_right = 1874.0
+offset_right = 1758.0
 offset_bottom = 497.0
 
 [node name="HatNameLabel" type="Label" parent="CanvasLayer/Catalog"]
 unique_name_in_owner = true
 layout_mode = 0
-offset_left = 1491.0
+offset_left = 1375.0
 offset_top = 444.0
-offset_right = 1811.0
+offset_right = 1695.0
 offset_bottom = 483.0
 text = "Hat Name"
 horizontal_alignment = 1
@@ -134,18 +137,18 @@ horizontal_alignment = 1
 [node name="CloseButton" type="Button" parent="CanvasLayer/Catalog"]
 unique_name_in_owner = true
 layout_mode = 0
-offset_left = 1820.0
+offset_left = 1704.0
 offset_top = 35.0
-offset_right = 1873.0
+offset_right = 1757.0
 offset_bottom = 87.0
 text = "X"
 
 [node name="PrevButton" type="Button" parent="CanvasLayer/Catalog"]
 unique_name_in_owner = true
 layout_mode = 0
-offset_left = 1440.0001
+offset_left = 1324.0001
 offset_top = 440.0
-offset_right = 1481.0001
+offset_right = 1365.0001
 offset_bottom = 487.0
 scale = Vector2(0.9988769, 0.9949528)
 text = "<-"
@@ -153,16 +156,26 @@ text = "<-"
 [node name="NextButton" type="Button" parent="CanvasLayer/Catalog"]
 unique_name_in_owner = true
 layout_mode = 0
-offset_left = 1821.0
+offset_left = 1705.0
 offset_top = 441.0
-offset_right = 1863.0
+offset_right = 1747.0
 offset_bottom = 488.0
 text = "->"
+
+[node name="DispenseButton" type="Button" parent="CanvasLayer/Catalog"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 1407.0
+offset_top = 559.0
+offset_right = 1654.0
+offset_bottom = 626.0
+text = "Dispense (20)"
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]
 [connection signal="pressed" from="CanvasLayer/Catalog/CloseButton" to="." method="_on_close_button_pressed"]
 [connection signal="pressed" from="CanvasLayer/Catalog/PrevButton" to="." method="_on_prev_button_pressed"]
 [connection signal="pressed" from="CanvasLayer/Catalog/NextButton" to="." method="_on_next_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/Catalog/DispenseButton" to="." method="_on_dispense_button_pressed"]
 
 [editable path="SpiderGirlModel"]

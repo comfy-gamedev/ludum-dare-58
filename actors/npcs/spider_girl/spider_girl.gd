@@ -15,6 +15,7 @@ var camera_original_position_vec
 @onready var prev_button: Button = %PrevButton
 @onready var next_button: Button = %NextButton
 @onready var close_button: Button = %CloseButton
+@onready var dispense_button: Button = %DispenseButton
 @onready var yay: CPUParticles3D = $Yay
 @onready var player_marker: Marker3D = $PlayerMarker3D
 @onready var camera_marker: Marker3D = $CameraMarker3D
@@ -128,6 +129,7 @@ var collected_hats = {
 }
 
 func _ready() -> void:
+	dispense_button.focus_mode = Control.FOCUS_NONE
 	dialog_button.focus_mode = Control.FOCUS_NONE
 	close_button.focus_mode = Control.FOCUS_NONE
 	prev_button.focus_mode = Control.FOCUS_NONE
@@ -186,10 +188,6 @@ func _on_body_entered(body: Node3D) -> void:
 		
 		body.queue_free()
 		yay.emitting = true
-		#yarn += 1
-		#if yarn == 3:
-			#yarn = 0
-			#yeet_hat()
 
 func catalog_hat():
 	pass
@@ -372,3 +370,11 @@ func _on_next_button_pressed() -> void:
 	# Note: This is hard coded for now, will need to track pages when we have > 24 hats.
 	render_catalog_page(12)
 	hat_name_label.text = ""
+
+func _on_dispense_button_pressed() -> void:
+	if Globals.yarn_balls >= 20:
+		Globals.yarn_balls -= 20
+		on_exit_interaction()
+		yeet_hat()
+	else:
+		print("not enough!!!")
