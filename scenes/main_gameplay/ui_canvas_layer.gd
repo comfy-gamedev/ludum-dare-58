@@ -12,4 +12,4 @@ func set_amount(v: int):
 	amount_label.text = str(v)
 
 func _on_yarn_balls_changes():
-	create_tween().tween_property(self, "amount", Globals.yarn_balls, 0.25)
+	create_tween().tween_property(self, "amount", Globals.yarn_balls, 0.5)
