@@ -2,19 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b54m1iqi2oxa3"
-path="res://.godot/imported/beefeater_Braid Metallic.png-3c19aae66a43db1494211616325425fd.ctex"
+uid="uid://bq8xlvd1em08i"
+path="res://.godot/imported/icon.svg-ee462722aacfe672b96520b23eca2882.ctex"
 metadata={
 "vram_texture": false
-}
-generator_parameters={
-"md5": "fc08d39f0605e4d6860f92d281685a72"
 }
 
 [deps]
 
-source_file="res://assets/models/beefeater_Braid Metallic.png"
-dest_files=["res://.godot/imported/beefeater_Braid Metallic.png-3c19aae66a43db1494211616325425fd.ctex"]
+source_file="res://addons/so_fluffy/icon.svg"
+dest_files=["res://.godot/imported/icon.svg-ee462722aacfe672b96520b23eca2882.ctex"]
 
 [params]
 
@@ -26,7 +23,7 @@ compress/rdo_quality_loss=0.0
 compress/hdr_compression=1
 compress/normal_map=0
 compress/channel_pack=0
-mipmaps/generate=true
+mipmaps/generate=false
 mipmaps/limit=-1
 roughness/mode=0
 roughness/src_normal=""
@@ -40,4 +37,7 @@ process/normal_map_invert_y=false
 process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
-detect_3d/compress_to=0
+detect_3d/compress_to=1
+svg/scale=1.0
+editor/scale_with_editor_scale=false
+editor/convert_colors_with_editor_theme=false

@@ -2,19 +2,19 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b54m1iqi2oxa3"
-path="res://.godot/imported/beefeater_Braid Metallic.png-3c19aae66a43db1494211616325425fd.ctex"
+uid="uid://c4w7xbmx0wwpp"
+path="res://.godot/imported/beefeater_beefeater_Braid Metallic.png-f73a2386a0e718ef3237611ffa0bef01.ctex"
 metadata={
 "vram_texture": false
 }
 generator_parameters={
-"md5": "fc08d39f0605e4d6860f92d281685a72"
+"md5": "9c2ad20588dde7ebbf9deb7385cabdcd"
 }
 
 [deps]
 
-source_file="res://assets/models/beefeater_Braid Metallic.png"
-dest_files=["res://.godot/imported/beefeater_Braid Metallic.png-3c19aae66a43db1494211616325425fd.ctex"]
+source_file="res://assets/models/beefeater_beefeater_Braid Metallic.png"
+dest_files=["res://.godot/imported/beefeater_beefeater_Braid Metallic.png-f73a2386a0e718ef3237611ffa0bef01.ctex"]
 
 [params]
 
