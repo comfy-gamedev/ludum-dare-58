@@ -1,7 +1,8 @@
-[gd_scene load_steps=10 format=4 uid="uid://cvcmwg2kcrfg2"]
+[gd_scene load_steps=11 format=4 uid="uid://cvcmwg2kcrfg2"]
 
 [ext_resource type="Script" uid="uid://w8dgg7iadxyx" path="res://actors/bullets/bullet.gd" id="1_158tj"]
 [ext_resource type="PackedScene" uid="uid://byildknx5x6ch" path="res://assets/models/missile.glb" id="2_0k22o"]
+[ext_resource type="PackedScene" uid="uid://ycd6j1mikjyr" path="res://fire_bullet.tscn" id="3_4mlrv"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4mlrv"]
 resource_name = "Material"
@@ -60,6 +61,7 @@ script = ExtResource("1_158tj")
 [node name="missile" parent="." instance=ExtResource("2_0k22o")]
 
 [node name="Missile" parent="missile" index="0"]
+visible = false
 mesh = SubResource("ArrayMesh_61myo")
 
 [node name="Lifetime" type="Timer" parent="."]
@@ -80,6 +82,8 @@ mesh = SubResource("TorusMesh_4mlrv")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="HomingDetection"]
 shape = SubResource("SphereShape3D_0k22o")
+
+[node name="fire_bullet" parent="." instance=ExtResource("3_4mlrv")]
 
 [connection signal="timeout" from="Lifetime" to="." method="_on_lifetime_timeout"]
 [connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
