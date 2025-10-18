@@ -12,7 +12,7 @@ func fire(dir: Vector3, bullet_parent: Node3D):
 	bullet.position.y = 1
 	bullet.direction = dir
 	#bullet.direction = dir.rotated(Vector3.UP, 0)
-	bullet.lifetime = 1
+	bullet.lifetime = 2
 	bullet.size = 1
 	bullet.movement = base_bullet.movement_types.STRAIGHT
 	bullet.element_type = element

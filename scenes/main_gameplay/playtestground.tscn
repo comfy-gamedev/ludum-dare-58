@@ -19,7 +19,7 @@
 [ext_resource type="PackedScene" uid="uid://cqr8lvhyyhkwo" path="res://actors/hats/witch/witch.tscn" id="17_4ceee"]
 [ext_resource type="PackedScene" uid="uid://dfvu7kkdxffly" path="res://actors/units/capling/capling.tscn" id="18_oora8"]
 [ext_resource type="PackedScene" uid="uid://mblf3wdwp7lw" path="res://actors/hats/bicorn/bicorn.tscn" id="19_aa0kc"]
-[ext_resource type="PackedScene" uid="uid://cfjk5mcefdcda" path="res://actors/hats/X_non_la/nonla.tscn" id="20_gpuyx"]
+[ext_resource type="PackedScene" uid="uid://cfjk5mcefdcda" path="res://actors/hats/non_la/nonla.tscn" id="20_gpuyx"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lot3w"]
 albedo_color = Color(1, 0.101960786, 0.24313726, 1)

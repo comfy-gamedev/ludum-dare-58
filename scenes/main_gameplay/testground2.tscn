@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://c1iej3rihix8t"]
+[gd_scene load_steps=23 format=3 uid="uid://c1iej3rihix8t"]
 
 [ext_resource type="Script" uid="uid://bfmiw37j0chvs" path="res://scenes/main_gameplay/main_gameplay.gd" id="1_tjpx8"]
 [ext_resource type="Environment" uid="uid://bf8ysb2ywtuba" path="res://default_environment.tres" id="2_12a6a"]
@@ -11,12 +11,14 @@
 [ext_resource type="PackedScene" uid="uid://pyiqrtqqbvfi" path="res://level_chunks/encampment_marker.tscn" id="9_nx32v"]
 [ext_resource type="PackedScene" uid="uid://bxyc7ydieogw1" path="res://actors/terrain/bridge.tscn" id="10_jpaem"]
 [ext_resource type="PackedScene" uid="uid://bdkf8f5dkj3ak" path="res://actors/hats/beefeater/beefeater.tscn" id="11_12a6a"]
-[ext_resource type="PackedScene" uid="uid://ngj82jhb6spw" path="res://actors/hats/beret/beret.tscn" id="12_kpqjj"]
+[ext_resource type="PackedScene" uid="uid://d3kwphr8c8kn5" path="res://actors/hats/beret/beret.tscn" id="12_kpqjj"]
 [ext_resource type="PackedScene" uid="uid://mblf3wdwp7lw" path="res://actors/hats/bicorn/bicorn.tscn" id="13_cogc5"]
 [ext_resource type="PackedScene" uid="uid://dgn2cmxmyhrcx" path="res://actors/hats/buffalo/buffalo.tscn" id="14_hgrxk"]
 [ext_resource type="PackedScene" uid="uid://c8hidieg0al2r" path="res://actors/hats/cowboy/cowboy.tscn" id="15_hgrxk"]
 [ext_resource type="PackedScene" uid="uid://g27mc8qg51gu" path="res://actors/hats/mortarboard/mortarboard.tscn" id="16_gvcax"]
 [ext_resource type="PackedScene" uid="uid://dbxoeedoctsor" path="res://actors/hats/tyrolean/tyrolean.tscn" id="17_y1dh4"]
+[ext_resource type="PackedScene" uid="uid://xe05hv57qxpf" path="res://actors/hats/bunny/bunny.tscn" id="18_nx32v"]
+[ext_resource type="PackedScene" uid="uid://cfjk5mcefdcda" path="res://actors/hats/non_la/nonla.tscn" id="19_jpaem"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lot3w"]
 albedo_color = Color(1, 0.101960786, 0.24313726, 1)
@@ -849,5 +851,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.955032, 0.25, 22.646656)
 
 [node name="RigidBody3D5" parent="." instance=ExtResource("17_y1dh4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.656706, 0.36228007, 18.861624)
+
+[node name="RigidBody3D6" parent="." instance=ExtResource("18_nx32v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.6739264, 0.5125817, 13.126238)
+
+[node name="RigidBody3D7" parent="." instance=ExtResource("19_jpaem")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.081645, 0.9676771, 7.4458427)
 
 [connection signal="timeout" from="EventTimer" to="." method="_on_event_timer_timeout"]
