@@ -49,6 +49,13 @@ var collected_hats = {
 		"tween": null,
 		"dialog": "The buffalo hat. Big hat energy! Don't go stampeding through my webs, okay?"
 	},
+	"res://actors/hats/bunny/bunny.tscn" = {
+		"name": "Bunny",
+		"count": 0,
+		"value": 7,
+		"tween": null,
+		"dialog": "The bunny hat. You like to hop, eh? I bet I can still jump higher than you!"
+	},
 	"res://actors/hats/cowboy/cowboy.tscn" = {
 		"name": "Cowboy",
 		"count": 0,
@@ -83,6 +90,13 @@ var collected_hats = {
 		"value": 5,
 		"tween": null,
 		"dialog": "The mortarboard hat. Look at you, thinking you're all smart now. Can you even spell 'arachnid?'"
+	},
+		"res://actors/hats/non_la/nonla.tscn" = {
+		"name": "Nón lá",
+		"count": 0,
+		"value": 5,
+		"tween": null,
+		"dialog": "The nón lá hat. 'Gió thổi qua đồng, lòng ta yên.' — The wind passes over the field, my heart is at peace."
 	},
 	"res://actors/hats/phrygian/phrygian.tscn" = {
 		"name": "Phrygian",
