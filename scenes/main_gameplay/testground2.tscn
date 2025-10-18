@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://c1iej3rihix8t"]
+[gd_scene load_steps=30 format=3 uid="uid://c1iej3rihix8t"]
 
 [ext_resource type="Script" uid="uid://bfmiw37j0chvs" path="res://scenes/main_gameplay/main_gameplay.gd" id="1_tjpx8"]
 [ext_resource type="Environment" uid="uid://bf8ysb2ywtuba" path="res://default_environment.tres" id="2_12a6a"]
@@ -25,6 +25,7 @@
 [ext_resource type="PackedScene" uid="uid://cpymafqtgeuud" path="res://actors/hats/phrygian/phrygian.tscn" id="23_vloj6"]
 [ext_resource type="PackedScene" uid="uid://b6w3q3ipa6xic" path="res://actors/hats/tricorn/tricorn.tscn" id="24_ed56u"]
 [ext_resource type="PackedScene" uid="uid://cqr8lvhyyhkwo" path="res://actors/hats/witch/witch.tscn" id="25_nucg2"]
+[ext_resource type="PackedScene" uid="uid://dovtpgqgqpyov" path="res://actors/hats/thecat/thecat.tscn" id="26_1cf5d"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lot3w"]
 albedo_color = Color(1, 0.101960786, 0.24313726, 1)
@@ -896,5 +897,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.780063, 0.36228007, 21.7598
 
 [node name="RigidBody3D17" parent="." instance=ExtResource("25_nucg2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.596645, 0.25000095, 16.690107)
+
+[node name="RigidBody3D18" parent="." instance=ExtResource("26_1cf5d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.095139, 0.25, 11.63027)
+
+[node name="RigidBody3D19" parent="." instance=ExtResource("26_1cf5d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.760431, 0.25, 14.533117)
 
 [connection signal="timeout" from="EventTimer" to="." method="_on_event_timer_timeout"]
