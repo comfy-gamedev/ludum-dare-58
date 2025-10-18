@@ -13,14 +13,14 @@ func fire(dir: Vector3, bullet_parent: Node3D):
 	
 	#this block is where you change the values
 	bullet.element_type = Globals.elements.WATER
-	bullet.damage = 1
-	bullet.speed = 7.5
+	bullet.damage = 2
+	bullet.speed = 4
 	bullet.size = 1
-	bullet.lifetime = 1.5
-	bullet.movement = base_bullet.movement_types.STRAIGHT
+	bullet.lifetime = 2
+	bullet.movement = base_bullet.movement_types.LOOPY
 	bullet.piercing = 1
-	bullet.radius = 3.0 #only applied to orbital or pulse modes
-	bullet.explosive = false
+	bullet.radius = 4.0 #only applied to orbital or pulse modes
+	bullet.explosive = true
 	bullet.slowing = false
 	bullet.homing = false
 	

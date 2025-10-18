@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://c1iej3rihix8t"]
+[gd_scene load_steps=29 format=3 uid="uid://c1iej3rihix8t"]
 
 [ext_resource type="Script" uid="uid://bfmiw37j0chvs" path="res://scenes/main_gameplay/main_gameplay.gd" id="1_tjpx8"]
 [ext_resource type="Environment" uid="uid://bf8ysb2ywtuba" path="res://default_environment.tres" id="2_12a6a"]
@@ -19,6 +19,12 @@
 [ext_resource type="PackedScene" uid="uid://dbxoeedoctsor" path="res://actors/hats/tyrolean/tyrolean.tscn" id="17_y1dh4"]
 [ext_resource type="PackedScene" uid="uid://xe05hv57qxpf" path="res://actors/hats/bunny/bunny.tscn" id="18_nx32v"]
 [ext_resource type="PackedScene" uid="uid://cfjk5mcefdcda" path="res://actors/hats/non_la/nonla.tscn" id="19_jpaem"]
+[ext_resource type="PackedScene" uid="uid://5mtoxf8e7jpa" path="res://actors/hats/fez/fez.tscn" id="20_dlydu"]
+[ext_resource type="PackedScene" uid="uid://dbwi51ka8rab7" path="res://actors/hats/jester/jester.tscn" id="21_1cf5d"]
+[ext_resource type="PackedScene" uid="uid://dx8wgsi14wwb3" path="res://actors/hats/madder/madder.tscn" id="22_7cwjg"]
+[ext_resource type="PackedScene" uid="uid://cpymafqtgeuud" path="res://actors/hats/phrygian/phrygian.tscn" id="23_vloj6"]
+[ext_resource type="PackedScene" uid="uid://b6w3q3ipa6xic" path="res://actors/hats/tricorn/tricorn.tscn" id="24_ed56u"]
+[ext_resource type="PackedScene" uid="uid://cqr8lvhyyhkwo" path="res://actors/hats/witch/witch.tscn" id="25_nucg2"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lot3w"]
 albedo_color = Color(1, 0.101960786, 0.24313726, 1)
@@ -857,5 +863,38 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.6739264, 0.5125817, 13.1262
 
 [node name="RigidBody3D7" parent="." instance=ExtResource("19_jpaem")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.081645, 0.9676771, 7.4458427)
+
+[node name="RigidBody3D8" parent="." instance=ExtResource("17_y1dh4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.431271, 0.3622796, 15.636479)
+
+[node name="RigidBody3D9" parent="." instance=ExtResource("15_hgrxk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.55373, 0.25, 17.099358)
+
+[node name="RigidBody3D10" parent="." instance=ExtResource("20_dlydu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.391884, 0.25448185, 14.487141)
+
+[node name="RigidBody3D11" parent="." instance=ExtResource("21_1cf5d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.529987, 0.44802967, 21.662441)
+
+[node name="RigidBody3D12" parent="." instance=ExtResource("22_7cwjg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.704145, 0.25, 19.527805)
+
+[node name="RigidBody3D13" parent="." instance=ExtResource("16_gvcax")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.693121, 0.25, 19.709387)
+
+[node name="RigidBody3D14" parent="." instance=ExtResource("19_jpaem")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.797346, 0.25, 23.760567)
+
+[node name="phrygian" parent="." instance=ExtResource("23_vloj6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.0495796, 0.25, 18.00868)
+
+[node name="RigidBody3D15" parent="." instance=ExtResource("24_ed56u")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.238342, 0.36228, 24.594025)
+
+[node name="RigidBody3D16" parent="." instance=ExtResource("17_y1dh4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.780063, 0.36228007, 21.759838)
+
+[node name="RigidBody3D17" parent="." instance=ExtResource("25_nucg2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.596645, 0.25000095, 16.690107)
 
 [connection signal="timeout" from="EventTimer" to="." method="_on_event_timer_timeout"]

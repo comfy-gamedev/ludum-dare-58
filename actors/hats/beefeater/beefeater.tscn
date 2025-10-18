@@ -26,6 +26,7 @@ shape = SubResource("SphereShape3D_823rn")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.25, 0, 0, 0, 1, 0, 0, 0)
+visible = false
 mesh = SubResource("CylinderMesh_823rn")
 
 [node name="PickupCooldown" type="Timer" parent="."]
@@ -33,4 +34,4 @@ wait_time = 0.1
 one_shot = true
 
 [node name="beefeater" parent="." instance=ExtResource("2_1ixem")]
-transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 0.0031911135, 0.5729077, -0.0054688454)
+transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 0.0031911135, -0.076437354, -0.0054688454)

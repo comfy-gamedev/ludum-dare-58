@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://dbxoeedoctsor"]
+[gd_scene load_steps=8 format=3 uid="uid://dbxoeedoctsor"]
 
-[ext_resource type="Script" path="res://actors/hats/tyrolean/tyrolean.gd" id="1_gd1kl"]
+[ext_resource type="Script" uid="uid://cu2by80tqvhvn" path="res://actors/hats/tyrolean/tyrolean.gd" id="1_gd1kl"]
 [ext_resource type="PackedScene" uid="uid://p4y4tpnqr4ld" path="res://assets/models/tyrolean.glb" id="2_nq7s2"]
+[ext_resource type="PackedScene" uid="uid://doxttvd7dgoq" path="res://assets/models/tyroleannew.glb" id="3_hjbep"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_1asxe"]
 friction = 0.4
@@ -35,3 +36,7 @@ one_shot = true
 
 [node name="tyrolean" parent="." instance=ExtResource("2_nq7s2")]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0.006471753, -0.36228007, -0.004212737)
+visible = false
+
+[node name="tyroleannew" parent="." instance=ExtResource("3_hjbep")]
+transform = Transform3D(-0.007417369, 0, -0.49994498, 0, 0.5, 0, 0.49994498, 0, -0.007417369, -0.0018165112, -0.25558496, -0.0068802834)
