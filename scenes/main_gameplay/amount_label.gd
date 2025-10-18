@@ -1,14 +1,13 @@
 extends Label
 
 @export var shake_duration: float = 0.5
-@export var shake_intensity: float = 2.0
+@export var shake_intensity: float = 1.15
 
 var _shake_timer: float = 0.0
 var _original_pos: Vector2
 
 func _ready() -> void:
 	_original_pos = position
-	start_shake()
 
 func start_shake():
 	_shake_timer = shake_duration

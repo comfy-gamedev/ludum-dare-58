@@ -18,10 +18,17 @@ theme_override_constants/separation = 5
 layout_mode = 2
 texture = ExtResource("2_xalod")
 
-[node name="AmountLabel" type="Label" parent="YarnBalls"]
+[node name="Control" type="Control" parent="YarnBalls"]
+layout_mode = 2
+
+[node name="AmountLabel" type="Label" parent="YarnBalls/Control"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(0, 50)
-layout_mode = 2
+layout_mode = 0
+offset_left = -1.0
+offset_top = 7.0
+offset_right = 19.0
+offset_bottom = 57.0
 text = "0"
 vertical_alignment = 2
 script = ExtResource("3_xalod")

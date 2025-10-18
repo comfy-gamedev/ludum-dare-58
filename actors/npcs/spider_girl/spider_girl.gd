@@ -390,5 +390,6 @@ func _on_dispense_button_pressed() -> void:
 		Globals.yarn_balls -= 20
 		on_exit_interaction()
 		yeet_hat()
-	else:
-		print("not enough!!!")
+	else: # Not enough yarn balls.
+		# Note: I don't like how we're triggering this. Would a global signal be better? 
+		$/root/MainGameplay/UICanvasLayer/%AmountLabel.start_shake()
