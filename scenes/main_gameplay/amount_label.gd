@@ -1,27 +1,31 @@
 extends Label
 
-var shake_duration: float = 0.25 # Duration of the shake in seconds
-var shake_intensity: float = 15.0 # Maximum distance of the shake
-var shake_recovery_factor: float = 0.95 # How quickly the shake fades
+@export var shake_duration: float = 0.5
+@export var shake_intensity: float = 2.0
+
+var _shake_timer: float = 0.0
+var _original_pos: Vector2
 
 func _ready() -> void:
+	_original_pos = position
 	start_shake()
 
-var _current_shake_intensity: float = 0
-
 func start_shake():
-	_current_shake_intensity = shake_intensity
-	create_tween().tween_property(self, "position:x", self.position.x - _current_shake_intensity, shake_duration)
-	create_tween().tween_property(self, "position:y", self.position.y - _current_shake_intensity, shake_duration)
+	_shake_timer = shake_duration
 	var modulate_tween = create_tween()
-	modulate_tween.tween_property(self, "modulate", Color.RED, 0.5)
+	modulate_tween.tween_property(self, "modulate", Color.RED, 0.25)
 	modulate_tween.tween_callback(modulate_white)
-	
-func modulate_white():
-	create_tween().tween_property(self, "modulate", Color(1, 1, 1, 1), 0.5)
 
-func _physics_process(delta):
-	if _current_shake_intensity > 0:
-		_current_shake_intensity *= (1.0 - shake_recovery_factor * delta)
-		create_tween().tween_property(self, "position:x", self.position.x + randf_range(-_current_shake_intensity, _current_shake_intensity), shake_duration)
-		create_tween().tween_property(self, "position:y", self.position.y + randf_range(-_current_shake_intensity, _current_shake_intensity), shake_duration)
+func modulate_white():
+	create_tween().tween_property(self, "modulate", Color(1, 1, 1, 1), 0.25)
+
+func _process(delta: float) -> void:
+	if _shake_timer > 0.0:
+		_shake_timer -= delta
+		var offset = Vector2(
+			randf_range(-shake_intensity, shake_intensity),
+			randf_range(-shake_intensity, shake_intensity)
+		)
+		position += offset
+	else:
+		position = _original_pos
