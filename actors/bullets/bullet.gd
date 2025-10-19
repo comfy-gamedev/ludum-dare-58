@@ -29,6 +29,8 @@ func _ready() -> void:
 			mat.albedo_color = Color("57253b")
 	
 	mesh.set_surface_override_material(0, mat)
+	if movement == movement_types.ORBITAL:
+		direction = direction.rotated(Vector3.UP, -PI / 2.0)
 
 func _physics_process(delta: float) -> void:
 	if exploded:
@@ -76,10 +78,10 @@ func _physics_process(delta: float) -> void:
 			position += direction * speed * delta
 			basis = Basis.looking_at(direction, Vector3.UP, true)
 			basis = basis.scaled(Vector3.ONE * size)
-			if position.length() > radius:
+			if Vector3(position.x, 0, position.z).length() > radius: # orbit
 				direction = -position.cross(Vector3.UP).normalized()
-			else:
-				if angle_offset < 1.0 / 7.0:
+			else: # initial rotate into orbit, should really take into account hat radius
+				if angle_offset < 1.0 / 8.0:
 					angle_offset += delta 
 				direction = direction.rotated(Vector3.UP, angle_offset)
 
