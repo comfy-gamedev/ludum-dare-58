@@ -384,7 +384,8 @@ func clear_materials():
 
 # remove fur materials when Fur node is deleted
 func _exit_tree() -> void:
-	clear_materials()
+	#clear_materials()
+	pass
 
 
 # remove fur material from the material chain. Returns false if the passed material is itself a fur material.

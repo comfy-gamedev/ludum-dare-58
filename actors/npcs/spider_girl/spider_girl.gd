@@ -119,6 +119,20 @@ var collected_hats = {
 		"tween": null,
 		"dialog": "The sombrero hat. Ay, caramba! If I didn't have eight left feet I'd probably start dancing right about now."
 	},
+	"res://actors/hats/steampunk/steampunk.tscn" = {
+		"name": "Steampunk",
+		"count": 0,
+		"value": 7,
+		"tween": null,
+		"dialog": "The steampunk hat. Our airship capacity is overwieght! The boss won't like it, but drop the gold ingots!"
+	},
+	"res://actors/hats/thecat/thecat.tscn" = {
+		"name": "The Cat in the Hat",
+		"count": 0,
+		"value": 5,
+		"tween": null,
+		"dialog": "The Cat in the Hat. You are indeed a cat, and this, indeed, is a hat."
+	},
 	"res://actors/hats/tricorn/tricorn.tscn" = {
 		"name": "Tricorn",
 		"count": 0,
